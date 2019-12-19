@@ -1,20 +1,8 @@
 package com.ty.bcits.algorithms;
 import java.util.*;
 public class QuickSort
-{
-	    public static void main(String[] args) 
-	    {
-	        // This is unsorted array
-	        Integer[] array = new Integer[] { 12, 13, 24, 10, 3, 6, 90, 70 };
-	 
-	        // Let's sort using quick sort
-	        quickSort( array, 0, array.length - 1 );
-	 
-	        // Verify sorted array
-	        System.out.println(Arrays.toString(array));
-	    }
-	 
-	    public static void quickSort(Integer[] arr, int low, int high) 
+{	 
+	    public static int[] quickSort(Integer[] arr, int low, int high) 
 	    {
 	        //check for empty or null array
 	        if (arr == null || arr.length == 0){
@@ -61,11 +49,12 @@ public class QuickSort
 	        }
 	    }
 	     
-	    public static void swap (Integer array[], int x, int y)
+	    public static int[] swap (Integer array[], int x, int y)
 	    {
 	        int temp = array[x];
 	        array[x] = array[y];
 	        array[y] = temp;
 	    }
+	    return arr;
 	}
 	 

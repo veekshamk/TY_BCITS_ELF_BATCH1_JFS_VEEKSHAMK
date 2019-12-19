@@ -1,22 +1,7 @@
 package com.ty.bcits.algorithms;
 public class SelectionSort 
 {
-/*	public static void main(String[] args) 
-	{
-		int a[]= {3,6,9,1,2};
-		System.out.println("Array before Sorting:");
-		for(int i:a)
-		{
-			System.out.println(i);
-		}
-		selectionSort(a);
-		System.out.println("Array after Sorting:");
-		for(int i:a)
-		{
-			System.out.println(i);
-		}
-	}*/
-static void selectionSort(int[] a)
+public static int[] selectionSort(int[] a)
 {
 	for (int i = 0; i < a.length - 1; i++)  
     {  
@@ -30,5 +15,6 @@ static void selectionSort(int[] a)
         a[index] = a[i];  
         a[i] = smallerNumber;  
     }  
+	return a;
 }
 }

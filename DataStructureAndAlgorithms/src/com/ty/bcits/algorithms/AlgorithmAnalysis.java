@@ -14,6 +14,7 @@ public static long addUpto(long number)
 	for(Long i=0L; i<=number; i++)
 	{
 		total=total+i;
+		
 	}
 	return total;
 }
@@ -22,8 +23,9 @@ public static void countDurationAddUptoQuick()
 {
 	Long number=9999999L;
 	Instant start=Instant.now();
-	System.out.println(addUptoQuick(number));
 	Instant end=Instant.now();
+	System.out.println(addUptoQuick(number));
+	
 	Long duration=Duration.between(start, end).toMillis();
 	double seconds=duration/10000.0;
 	System.out.println("addUptoQuick took "+ seconds +" seconds");
