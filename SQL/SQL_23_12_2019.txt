@@ -333,7 +333,9 @@ mysql> SELECT *
 |     40 | OPERATION | JAYANAGAR  |
 +--------+-----------+------------+
 4 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
+36. WAQ to display all the salary in ascending order.
 mysql> SELECT SALARY FROM EMPLOYEE_INFO
     -> ORDER BY SALARY;
 +--------+
