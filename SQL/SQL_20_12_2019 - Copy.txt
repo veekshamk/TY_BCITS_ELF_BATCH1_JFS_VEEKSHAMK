@@ -1,0 +1,728 @@
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+10 rows in set (0.01 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. WAQ to find unique deptId from Employee_info table
+mysql> SELECT DISTINCT DEPTID
+    -> FROM EMPLOYEE_INFO;
++--------+
+| DEPTID |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     40 |
+|     50 |
+|     60 |
++--------+
+6 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. WAQ to display the unique deptid and job designation.
+mysql> SELECT DISTINCT DEPTID, DESIGNATION
+    -> FROM EMPLOYEE_INFO;
++--------+--------------------+
+| DEPTID | DESIGNATION        |
++--------+--------------------+
+|     10 | SOFTWARE DEVELOPER |
+|     20 | TESTER             |
+|     30 | CLERK              |
+|     40 | HR                 |
+|     50 | ANALYST            |
+|     60 | MANAGER            |
++--------+--------------------+
+6 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. WAQ to display all the records who is working as a software developer.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='SOFTWARE DEVELOPER';
++-----+----------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID             | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM   | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
++-----+----------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+3 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. WAQ to display name, phoneno whose salary is more than 15,000.
+mysql> SELECT NAME, MOBILENO
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SALARY>15000;
++--------+------------+
+| NAME   | MOBILENO   |
++--------+------------+
+| NIKHIL | 9439045122 |
+| KAVYA  | 9342123895 |
++--------+------------+
+2 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. WAQ to display all the employee details whose salary is less than and equal to 25,000.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SALARY<=25000;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+10 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+6. WAQ to display all the records of employees except who is working as a tester.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT DESIGNATION='TESTER';
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID               | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM   | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM     | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM      | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM  | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM      | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM  | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM   | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM     | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION!='TESTER';
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID               | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM   | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM     | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM      | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM  | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM      | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM  | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM   | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM     | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+9 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+7. WAQ to display incremental salary by 5,000.                                                                                                                                                                                                                                                          
+mysql> SELECT SALARY+5000 INCREMENTED
+    -> FROM EMPLOYEE_INFO;
++-------------+
+| INCREMENTED |
++-------------+
+|       20000 |
+|       20000 |
+|       25000 |
+|       17000 |
+|       17000 |
+|       18000 |
+|       17000 |
+|       20000 |
+|       27000 |
+|       17000 |
++-------------+
+10 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+8. WAQ to display the annual salary.
+mysql> SELECT SALARY*12 ANNUAL_SAL
+    -> FROM EMPLOYEE_INFO;
++------------+
+| ANNUAL_SAL |
++------------+
+|     180000 |
+|     180000 |
+|     240000 |
+|     144000 |
+|     144000 |
+|     156000 |
+|     144000 |
+|     180000 |
+|     264000 |
+|     144000 |
++------------+
+10 rows in set (0.02 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+9. WAQ to display all the record of employees who is working as a software developer in deptno 10.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='SOFTWARE DEVELOPER' AND DEPTID=10;
++-----+----------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID             | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM   | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
++-----+----------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+3 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+10. WAQ to display whose job designation is tester and hired after 2015.
+mysql> SELECT NAME
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='TESTER' AND DOJ> '2015-12-31';
+Empty set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+11. WAQ to display manager who is working in deptno 30 and whose salary is greater than 35,000.
+mysql> SELECT NAME
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='MANAGER' AND DEPTID=30 AND SALARY>35000;
+Empty set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+12. WAQ to display all the records of employees who is working in deptno 20 or who's job designstion is HR.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID=20 OR DESIGNATION='HR';
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+
+| EID | NAME   | MOBILENO   | EMAILID                   | DOB        | DESIGNATION | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+
+|   3 | NIKHIL | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER      |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   5 | NAVEEN | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR          |  12000 |     40 | 2015-11-20 | O-          | MALE   |
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+
+2 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+13. WAQ to display all the employee records whose date of birth is less than 1995 and their blood group can be O+.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DOB<'1995-01-01' OR BLOOD_GROUP='O+';
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID               | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM     | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM      | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM   | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM     | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+5 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+14. WAQ to display name, emailid who is working as tester or analyst or developer.
+mysql> SELECT NAME, EMAILID
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION='TESTER' OR DESIGNATION='ANALYST' OR DESIGNATION='SOFTWARE DEVELOPER';
++----------+---------------------------+
+| NAME     | EMAILID                   |
++----------+---------------------------+
+| VEEKSHA  | VEEKSHAMK@GMAIL.COM       |
+| SOWMYA   | SOWMYAK@GMAIL.COM         |
+| NIKHIL   | NIKHILKUMAR2007@GMAIL.COM |
+| NAVYA    | NAVYA5@GMAIL.COM          |
+| RANJITHA | RANJITHAK@GMAIL.COM       |
++----------+---------------------------+
+5 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+15. WAQ to display all the record except analyst.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT DESIGNATION='ANALYST';
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+9 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+16. WAQ to display all the record of employee who are not working in deptno 10,20,30.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID!=10 AND DEPTID!=20 AND DEPTID!=30;
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+| EID | NAME   | MOBILENO   | EMAILID              | DOB        | DESIGNATION | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+|   5 | NAVEEN | 9345120985 | NAVEEN1995@GMAIL.COM | 1995-06-27 | HR          |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA  | 9342120985 | NAVYA5@GMAIL.COM     | 1985-06-16 | ANALYST     |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA  | 9342123895 | KAVYA34@GMAIL.COM    | 1988-05-22 | MANAGER     |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID NOT IN(10,20,30);
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+| EID | NAME   | MOBILENO   | EMAILID              | DOB        | DESIGNATION | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+|   5 | NAVEEN | 9345120985 | NAVEEN1995@GMAIL.COM | 1995-06-27 | HR          |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA  | 9342120985 | NAVYA5@GMAIL.COM     | 1985-06-16 | ANALYST     |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA  | 9342123895 | KAVYA34@GMAIL.COM    | 1988-05-22 | MANAGER     |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+3 rows in set (0.08 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT(DEPTID=10 OR DEPTID=20 OR DEPTID=30);
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+| EID | NAME   | MOBILENO   | EMAILID              | DOB        | DESIGNATION | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+|   5 | NAVEEN | 9345120985 | NAVEEN1995@GMAIL.COM | 1995-06-27 | HR          |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA  | 9342120985 | NAVYA5@GMAIL.COM     | 1985-06-16 | ANALYST     |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA  | 9342123895 | KAVYA34@GMAIL.COM    | 1988-05-22 | MANAGER     |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+3 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+17. WAQ to display all the record of employees excluding tester who is working in deptno 20.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NOT(DESIGNATION='TESTER' AND DEPTID=20);
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID               | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM   | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM     | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM      | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM  | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM      | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM  | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM   | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM     | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+9 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> INSERT INTO EMPLOYEE_INFO (EID, NAME, MOBILENO, SALARY) VALUES(11, 'SURESH', 9876543210, 15000);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
+|  11 | SURESH   | 9876543210 | NULL                      | NULL       | NULL               |  15000 |   NULL | NULL       | NULL        | NULL   |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE EMAILID IS NULL;
++-----+--------+------------+---------+------+-------------+--------+--------+------+-------------+--------+
+| EID | NAME   | MOBILENO   | EMAILID | DOB  | DESIGNATION | SALARY | DEPTID | DOJ  | BLOOD_GROUP | GENDER |
++-----+--------+------------+---------+------+-------------+--------+--------+------+-------------+--------+
+|  11 | SURESH | 9876543210 | NULL    | NULL | NULL        |  15000 |   NULL | NULL | NULL        | NULL   |
++-----+--------+------------+---------+------+-------------+--------+--------+------+-------------+--------+
+1 row in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+18. WAQ  to display all the record ofemployees who is working in deptno 10,20 and 30.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID IN(10,20,30);
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+7 rows in set (0.02 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION IN('CLERK', 'SALESMAN', 'SOFTWARE DEVELOPER', 'TESTER');
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION IN('HR','SALESMAN','SOFTWARE DEVELOPER', 'TESTER','MANAGER') AND DEPTID IN(10,30,40) AND SALARY >15000
+    -> ;
+Empty set (0.01 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DESIGNATION NOT IN('HR','TESTER');
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID               | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM   | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM     | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM      | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM      | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM  | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM   | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM     | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+-----------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID IN(20, 30) AND DESIGNATION NOT IN('ANALYST', 'TESTER', 'HR');
++-----+----------+------------+-----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID               | DOB        | DESIGNATION | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+-----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM      | 2000-09-17 | CLERK       |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM  | 1999-09-03 | CLERK       |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM | 1979-03-12 | CLERK       |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+-----------------------+------------+-------------+--------+--------+------------+-------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SALARY BETWEEN 20000 AND 25000;
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+
+| EID | NAME   | MOBILENO   | EMAILID                   | DOB        | DESIGNATION | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+
+|   3 | NIKHIL | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER      |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   9 | KAVYA  | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER     |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> ALTER TABLE EMPLOYEE_INFO
+    -> ADD COLUMN AGE INT;
+Query OK, 0 rows affected (0.98 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE | NULL |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE | NULL |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   | NULL |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   | NULL |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   | NULL |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE | NULL |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE | NULL |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE | NULL |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE | NULL |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   | NULL |
+|  11 | SURESH   | 9876543210 | NULL                      | NULL       | NULL               |  15000 |   NULL | NULL       | NULL        | NULL   | NULL |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+11 rows in set (0.00 sec)
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=20
+    -> WHERE EID=1;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=22
+    -> WHERE EID=2;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=19
+    -> WHERE EID=3;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=27
+    -> WHERE EID=4;
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=30
+    -> WHERE EID=5;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=26
+    -> WHERE EID=6;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=29
+    -> WHERE EID=7;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=24
+    -> WHERE EID=8;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=22
+    -> WHERE EID=9;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET AGE=38
+    -> WHERE EID=10;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |   20 |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |   27 |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |   26 |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |   29 |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |   24 |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |   22 |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |   38 |
+|  11 | SURESH   | 9876543210 | NULL                      | NULL       | NULL               |  15000 |   NULL | NULL       | NULL        | NULL   | NULL |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+11 rows in set (0.00 sec)
+
+24. WAQ to display the age and name of the employee, whose age range is between 20 to 30.
+mysql> SELECT NAME, AGE
+    -> FROM EMPLOYEE_INFO
+    -> WHERE AGE BETWEEN 20 AND 30;
++----------+------+
+| NAME     | AGE  |
++----------+------+
+| VEEKSHA  |   20 |
+| SOWMYA   |   22 |
+| AMAR     |   27 |
+| NAVEEN   |   30 |
+| NAVYA    |   26 |
+| JEEVITHA |   29 |
+| RANJITHA |   24 |
+| KAVYA    |   22 |
++----------+------+
+8 rows in set (0.00 sec)
+
+25. WAQ to display all the ditails of employees, whose DOJ is in 2015. 
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DOJ BETWEEN '2015-01-01' AND '2015-12-31';
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME   | MOBILENO   | EMAILID              | DOB        | DESIGNATION | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+------+
+|   5 | NAVEEN | 9345120985 | NAVEEN1995@GMAIL.COM | 1995-06-27 | HR          |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
++-----+--------+------------+----------------------+------------+-------------+--------+--------+------------+-------------+--------+------+
+1 row in set (0.00 sec)
+
+26. WAQ to display all the records of employees excluding whose salary is 50000 to 70000.
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> where SALARY NOT BETWEEN 50000 AND 70000;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |   20 |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |   27 |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |   26 |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |   29 |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |   24 |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |   22 |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |   38 |
+|  11 | SURESH   | 9876543210 | NULL                      | NULL       | NULL               |  15000 |   NULL | NULL       | NULL        | NULL   | NULL |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SALARY IS NULL;
+Empty set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID IS NULL;
++-----+--------+------------+---------+------+-------------+--------+--------+------+-------------+--------+------+
+| EID | NAME   | MOBILENO   | EMAILID | DOB  | DESIGNATION | SALARY | DEPTID | DOJ  | BLOOD_GROUP | GENDER | AGE  |
++-----+--------+------------+---------+------+-------------+--------+--------+------+-------------+--------+------+
+|  11 | SURESH | 9876543210 | NULL    | NULL | NULL        |  15000 |   NULL | NULL | NULL        | NULL   | NULL |
++-----+--------+------------+---------+------+-------------+--------+--------+------+-------------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE SALARY IS NOT NULL;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |   20 |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |   27 |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |   26 |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |   29 |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |   24 |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |   22 |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |   38 |
+|  11 | SURESH   | 9876543210 | NULL                      | NULL       | NULL               |  15000 |   NULL | NULL       | NULL        | NULL   | NULL |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE DEPTID IS NOT NULL;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |   20 |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |   27 |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |   26 |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |   29 |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |   24 |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |   22 |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |   38 |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NAME LIKE 'S%';
++-----+--------+------------+-------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME   | MOBILENO   | EMAILID           | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+--------+------------+-------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   2 | SOWMYA | 9427895676 | SOWMYAK@GMAIL.COM | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|  11 | SURESH | 9876543210 | NULL              | NULL       | NULL               |  15000 |   NULL | NULL       | NULL        | NULL   | NULL |
++-----+--------+------------+-------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT NAME, EMAILID
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NAME LIKE 'J%A';
++----------+----------------------+
+| NAME     | EMAILID              |
++----------+----------------------+
+| JEEVITHA | JEEVITHASN@GMAIL.COM |
++----------+----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NAME LIKE '%L%';
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME   | MOBILENO   | EMAILID                   | DOB        | DESIGNATION | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+------+
+|   3 | NIKHIL | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER      |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
++-----+--------+------------+---------------------------+------------+-------------+--------+--------+------------+-------------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NAME LIKE '_P%';
+Empty set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE NAME LIKE '___%';
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |   20 |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |   27 |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |   26 |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |   29 |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |   24 |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |   22 |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |   38 |
+|  11 | SURESH   | 9876543210 | NULL                      | NULL       | NULL               |  15000 |   NULL | NULL       | NULL        | NULL   | NULL |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO
+    -> WHERE EMAILID LIKE '%COM%';
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |   20 |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |   27 |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |   26 |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |   29 |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |   24 |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |   22 |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |   38 |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+10 rows in set (0.00 sec)
+
+
+
+                                                                
+
+

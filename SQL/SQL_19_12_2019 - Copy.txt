@@ -1,0 +1,538 @@
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.06 sec)
+
+mysql> CREATE DATABASE BCITS;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bcits              |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> USE BCITS;
+Database changed
+
+mysql> CREATE TABLE DEPT(ID INT PRIMARY KEY,
+    -> NAME VARCHAR(150) NOT NULL,
+    -> ADDRESS VARCHAR(100),
+    -> HOD VARCHAR(100));
+Query OK, 0 rows affected (0.57 sec)
+
+mysql> DESC DEPT;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| ID      | int(11)      | NO   | PRI | NULL    |       |
+| NAME    | varchar(150) | NO   |     | NULL    |       |
+| ADDRESS | varchar(100) | YES  |     | NULL    |       |
+| HOD     | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO DEPT(ID, NAME, ADDRESS, HOD)
+    -> VALUES(10, 'IT', 'BTM', 'AMAR');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO DEPT(ID, NAME, ADDRESS, HOD)
+    -> VALUES(20, 'ACCOUNTING', 'SILKBOARD', 'BHUVAN');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO DEPT(ID, NAME, ADDRESS, HOD)
+    -> VALUES(30, 'MARKETING', 'HEBBAL', 'CHARAN');
+Query OK, 1 row affected (0.35 sec)
+
+mysql> INSERT INTO DEPT(ID, NAME, ADDRESS, HOD)
+    -> VALUES(40, 'EDUCATION', 'JAYANAGAR', 'KARTHIK');
+Query OK, 1 row affected (0.34 sec)
+
+mysql> INSERT INTO DEPT(ID, NAME, ADDRESS, HOD)
+    -> VALUES(50, 'HR', 'VIJAYANAGAR', 'LIKHITH');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> SELECT *
+    -> FROM DEPT;
++----+------------+-------------+---------+
+| ID | NAME       | ADDRESS     | HOD     |
++----+------------+-------------+---------+
+| 10 | IT         | BTM         | AMAR    |
+| 20 | ACCOUNTING | SILKBOARD   | BHUVAN  |
+| 30 | MARKETING  | HEBBAL      | CHARAN  |
+| 40 | EDUCATION  | JAYANAGAR   | KARTHIK |
+| 50 | HR         | VIJAYANAGAR | LIKHITH |
++----+------------+-------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE DEPT SET HOD='SAMPREETH' WHERE HOD='KARTHIK';
+Query OK, 1 row affected (0.36 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *
+    -> FROM DEPT;
++----+------------+-------------+-----------+
+| ID | NAME       | ADDRESS     | HOD       |
++----+------------+-------------+-----------+
+| 10 | IT         | BTM         | AMAR      |
+| 20 | ACCOUNTING | SILKBOARD   | BHUVAN    |
+| 30 | MARKETING  | HEBBAL      | CHARAN    |
+| 40 | EDUCATION  | JAYANAGAR   | SAMPREETH |
+| 50 | HR         | VIJAYANAGAR | LIKHITH   |
++----+------------+-------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> DELETE FROM DEPT WHERE HOD='BHUVAN';
+Query OK, 1 row affected (0.36 sec)
+
+mysql> SELECT *
+    -> FROM DEPT;
++----+-----------+-------------+-----------+
+| ID | NAME      | ADDRESS     | HOD       |
++----+-----------+-------------+-----------+
+| 10 | IT        | BTM         | AMAR      |
+| 30 | MARKETING | HEBBAL      | CHARAN    |
+| 40 | EDUCATION | JAYANAGAR   | SAMPREETH |
+| 50 | HR        | VIJAYANAGAR | LIKHITH   |
++----+-----------+-------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE DEPT
+    -> CHANGE ADDRESS LOCATION VARCHAR(100);
+Query OK, 0 rows affected (0.50 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM DEPT;
++----+-----------+-------------+-----------+
+| ID | NAME      | LOCATION    | HOD       |
++----+-----------+-------------+-----------+
+| 10 | IT        | BTM         | AMAR      |
+| 30 | MARKETING | HEBBAL      | CHARAN    |
+| 40 | EDUCATION | JAYANAGAR   | SAMPREETH |
+| 50 | HR        | VIJAYANAGAR | LIKHITH   |
++----+-----------+-------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE DEPT
+    -> ADD STATE VARCHAR(100);
+Query OK, 0 rows affected (0.75 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM DEPT;
++----+-----------+-------------+-----------+-------+
+| ID | NAME      | LOCATION    | HOD       | STATE |
++----+-----------+-------------+-----------+-------+
+| 10 | IT        | BTM         | AMAR      | NULL  |
+| 30 | MARKETING | HEBBAL      | CHARAN    | NULL  |
+| 40 | EDUCATION | JAYANAGAR   | SAMPREETH | NULL  |
+| 50 | HR        | VIJAYANAGAR | LIKHITH   | NULL  |
++----+-----------+-------------+-----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE DEPT
+    -> DROP STATE;
+Query OK, 0 rows affected (0.56 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM DEPT;
++----+-----------+-------------+-----------+
+| ID | NAME      | LOCATION    | HOD       |
++----+-----------+-------------+-----------+
+| 10 | IT        | BTM         | AMAR      |
+| 30 | MARKETING | HEBBAL      | CHARAN    |
+| 40 | EDUCATION | JAYANAGAR   | SAMPREETH |
+| 50 | HR        | VIJAYANAGAR | LIKHITH   |
++----+-----------+-------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE DATABASE COLLEGE;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bcits              |
+| college            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> DROP DATABASE COLLEGE;
+Query OK, 0 rows affected (0.24 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bcits              |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> RENAME TABLE COLLEGE TO COLLEGE1;
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> DESC COLLEGE1;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| ID       | int(100)     | NO   | PRI | NULL    |       |
+| NAME     | varchar(100) | YES  |     | NULL    |       |
+| LOCATION | varchar(100) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO COLLEGE1(ID, NAME, LOCATION)
+    -> VALUES(1, 'VARUN', 'BANGALORE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO COLLEGE1(ID, NAME, LOCATION)
+    -> VALUES(2, 'DHAVAN', 'MYSORE');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO COLLEGE1(ID, NAME, LOCATION)
+    -> VALUES(3, 'CHETHAN', 'MUMBAI');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> SELECT *
+    -> FROM COLLEGE1;
++----+---------+-----------+
+| ID | NAME    | LOCATION  |
++----+---------+-----------+
+|  1 | VARUN   | BANGALORE |
+|  2 | DHAVAN  | MYSORE    |
+|  3 | CHETHAN | MUMBAI    |
++----+---------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> DROP TABLE COLLEGE1;
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> SELECT *
+    -> FROM COLLEGE1;
+ERROR 1146 (42S02): Table 'bcits.college1' doesn't exist
+
+mysql> SELECT NAME
+    -> FROM STUDENT;
++-------+
+| NAME  |
++-------+
+| AMAR  |
+| VANI  |
+| NAVYA |
+| DISHA |
++-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM STUDENT
+    -> WHERE NAME='AMAR';
++-----+------+--------------+-------+---------+
+| SID | NAME | MOBILENUMBER | MARKS | EMAIL   |
++-----+------+--------------+-------+---------+
+|  10 | AMAR |          123 |    12 | AMAR123 |
++-----+------+--------------+-------+---------+
+1 row in set (0.33 sec)
+
+mysql> SELECT DISTINCT MARKS
+    -> FROM STUDENT;
++-------+
+| MARKS |
++-------+
+|    12 |
+|    11 |
+|    13 |
+|    36 |
++-------+
+4 rows in set (0.05 sec)
+
+
+
+mysql> SELECT DISTINCT MARKS, NAME
+    -> FROM STUDENT;
++-------+-------+
+| MARKS | NAME  |
++-------+-------+
+|    12 | AMAR  |
+|    11 | VANI  |
+|    13 | NAVYA |
+|    36 | DISHA |
++-------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT MARKS, NAME, MOBILENUMBER, EMAIL
+    -> FROM STUDENT;
++-------+-------+--------------+---------+
+| MARKS | NAME  | MOBILENUMBER | EMAIL   |
++-------+-------+--------------+---------+
+|    12 | AMAR  |          123 | AMAR123 |
+|    11 | VANI  |    132312236 | VANI123 |
+|    13 | NAVYA |     13345523 | NAVYA12 |
+|    36 | DISHA |    132390003 | DISHA12 |
++-------+-------+--------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT MOBILENUMBER AS MOBILENO
+    -> FROM STUDENT AS STUDENT1;
++-----------+
+| MOBILENO  |
++-----------+
+|       123 |
+| 132312236 |
+|  13345523 |
+| 132390003 |
+| 132390003 |
++-----------+
+5 rows in set (0.05 sec)
+
+mysql> SELECT MOBILENUMBER MOBILENO
+    -> FROM STUDENT STUDENT1;
++-----------+
+| MOBILENO  |
++-----------+
+|       123 |
+| 132312236 |
+|  13345523 |
+| 132390003 |
+| 132390003 |
++-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT MARKS+10
+    -> FROM STUDENT;
++----------+
+| MARKS+10 |
++----------+
+|       22 |
+|       21 |
+|       23 |
+|       46 |
+|       46 |
++----------+
+5 rows in set (0.06 sec)
+
+mysql> SELECT 1+2;
++-----+
+| 1+2 |
++-----+
+|   3 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM STUDENT
+    -> WHERE NAME='AMAR' AND MARKS=36;
+Empty set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM STUDENT
+    -> WHERE NAME='AMAR' AND MARKS=12;
++-----+------+--------------+-------+---------+
+| SID | NAME | MOBILENUMBER | MARKS | EMAIL   |
++-----+------+--------------+-------+---------+
+|  10 | AMAR |          123 |    12 | AMAR123 |
++-----+------+--------------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM STUDENT
+    -> WHERE NAME='AMAR' OR MARKS=36;
++-----+-------+--------------+-------+---------+
+| SID | NAME  | MOBILENUMBER | MARKS | EMAIL   |
++-----+-------+--------------+-------+---------+
+|  10 | AMAR  |          123 |    12 | AMAR123 |
+|  50 | DISHA |    132390003 |    36 | DISHA12 |
+|  60 | DISHA |    132390003 |    36 | DISHA12 |
++-----+-------+--------------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM STUDENT
+    -> WHERE NAME!='AMAR';
++-----+-------+--------------+-------+---------+
+| SID | NAME  | MOBILENUMBER | MARKS | EMAIL   |
++-----+-------+--------------+-------+---------+
+|  30 | VANI  |    132312236 |    11 | VANI123 |
+|  40 | NAVYA |     13345523 |    13 | NAVYA12 |
+|  50 | DISHA |    132390003 |    36 | DISHA12 |
+|  60 | DISHA |    132390003 |    36 | DISHA12 |
++-----+-------+--------------+-------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM STUDENT
+    -> WHERE NOT NAME='AMAR';
++-----+-------+--------------+-------+---------+
+| SID | NAME  | MOBILENUMBER | MARKS | EMAIL   |
++-----+-------+--------------+-------+---------+
+|  30 | VANI  |    132312236 |    11 | VANI123 |
+|  40 | NAVYA |     13345523 |    13 | NAVYA12 |
+|  50 | DISHA |    132390003 |    36 | DISHA12 |
+|  60 | DISHA |    132390003 |    36 | DISHA12 |
++-----+-------+--------------+-------+---------+
+4 rows in set (0.06 sec)
+          
+mysql> CREATE TABLE EMPLOYEE_INFO(EID INT(50) PRIMARY KEY,
+    -> NAME VARCHAR(150),
+    -> MOBILENO INT(50),
+    -> EMAILID VARCHAR(150),
+    -> DOB DATE,
+    -> DESIGNATION VARCHAR(150),
+    -> SALARY DOUBLE,
+    -> DEPTID INT(50),
+    -> DOJ DATE,
+    -> BLOOD_GROUP VARCHAR(150),
+    -> GENDER VARCHAR(150));
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> DESC EMPLOYEE_INFO;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| EID         | int(50)      | NO   | PRI | NULL    |       |
+| NAME        | varchar(150) | YES  |     | NULL    |       |
+| MOBILENO    | int(50)      | YES  |     | NULL    |       |
+| EMAILID     | varchar(150) | YES  |     | NULL    |       |
+| DOB         | date         | YES  |     | NULL    |       |
+| DESIGNATION | varchar(150) | YES  |     | NULL    |       |
+| SALARY      | double       | YES  |     | NULL    |       |
+| DEPTID      | int(50)      | YES  |     | NULL    |       |
+| DOJ         | date         | YES  |     | NULL    |       |
+| BLOOD_GROUP | varchar(150) | YES  |     | NULL    |       |
+| GENDER      | varchar(150) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(1, 'VEEKSHA', 9448351596,'VEEKSHAMK@GMAIL.COM', '1997-10-20','SOFTWARE DEVELOPER', 15000, 10, '2020-01-01', 'A+','FEMALE');
+ERROR 1264 (22003): Out of range value for column 'MOBILENO' at row 1
+mysql> ALTER TABLE EMPLOYEE_INFO
+    -> CHANGE MOBILENO MOBILENO BIGINT;
+Query OK, 0 rows affected (0.71 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
+Empty set (0.00 sec)
+
+mysql> DESC EMPLOYEE_INFO;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| EID         | int(50)      | NO   | PRI | NULL    |       |
+| NAME        | varchar(150) | YES  |     | NULL    |       |
+| MOBILENO    | bigint(20)   | YES  |     | NULL    |       |
+| EMAILID     | varchar(150) | YES  |     | NULL    |       |
+| DOB         | date         | YES  |     | NULL    |       |
+| DESIGNATION | varchar(150) | YES  |     | NULL    |       |
+| SALARY      | double       | YES  |     | NULL    |       |
+| DEPTID      | int(50)      | YES  |     | NULL    |       |
+| DOJ         | date         | YES  |     | NULL    |       |
+| BLOOD_GROUP | varchar(150) | YES  |     | NULL    |       |
+| GENDER      | varchar(150) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(1, 'VEEKSHA', 9448351596,'VEEKSHAMK@GMAIL.COM', '1997-10-20','SOFTWARE DEVELOPER', 15000, 10, '2020-01-01', 'A+','FEMALE');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+---------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME    | MOBILENO   | EMAILID             | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+---------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA | 9448351596 | VEEKSHAMK@GMAIL.COM | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
++-----+---------+------------+---------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(2, 'SOWMYA', 9427895676,'SOWMYAK@GMAIL.COM', '1987-07-10','SOFTWARE DEVELOPER', 15000, 10, '2010-11-11', 'A-','FEMALE');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(3, 'NIKHIL', 9439045122,'NIKHILKUMAR2007@GMAIL.COM', '2007-08-02','TESTING', 20000, 20, '2003-04-03', 'B-','MALE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(4, 'AMAR', 9234509765,'AMAR77@GMAIL.COM', '2000-09-17','CLERK', 12000, 30, '2013-01-30', 'B-','MALE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(5, 'NAVEEN', 9345120985,'NAVEEN1995@GMAIL.COM', '1995-06-27','HR', 12000, 40, '2015-11-20', 'O-','MALE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(6, 'NAVYA', 9342120985,'NAVYA5@GMAIL.COM', '1985-06-16','ANALYST', 13000, 50, '2019-04-21', 'O+','FEMALE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(7, 'JEEVITHA', 9342900985,'JEEVITHASN@GMAIL.COM', '1999-09-03','CLERK', 12000, 30, '2016-07-18', 'B-','FEMALE');
+Query OK, 1 row affected (0.35 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(8, 'RANJITHA', 9342123455,'RANJITHAK@GMAIL.COM', '1993-06-12','SOFTWARE DEVELOPER', 15000, 10, '2019-04-21', 'O+','FEMALE');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(9, 'KAVYA', 9342123895,'KAVYA34@GMAIL.COM', '1988-05-22','MANAGER', 22000, 60, '2018-03-10', 'A+','FEMALE');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO EMPLOYEE_INFO VALUES(10, 'GANESH', 9342123123,'GANESHKUMAR@GMAIL.COM', '1979-03-12','CLERK', 12000, 30, '2017-12-07', 'A-','MALE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTING            |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET DESIGNATION='TESTER'
+    -> WHERE DESIGNATION='TESTING';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+
+10 rows in set (0.00 sec)
+
+
