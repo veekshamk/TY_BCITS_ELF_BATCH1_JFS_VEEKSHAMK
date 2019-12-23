@@ -458,5 +458,96 @@ mysql> SELECT *
 +-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
 10 rows in set (0.00 sec)
 
+mysql>  SET AUTOCOMMIT=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>  SAVEPOINT TEST1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET NAME='NIRANJAN'
+    -> WHERE NAME='GANESH';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SAVEPOINT TEST2;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> UPDATE EMPLOYEE_INFO
+    -> SET NAME='RAMYA'
+    -> WHERE NAME='KAVYA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> ROLLBACK TO TEST2;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |   20 |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |   27 |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |   26 |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |   29 |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |   24 |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |   22 |
+|  10 | NIRANJAN | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |   38 |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+10 rows in set (0.00 sec)
+
+mysql> ROLLBACK TO TEST1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_INFO;
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+| EID | NAME     | MOBILENO   | EMAILID                   | DOB        | DESIGNATION        | SALARY | DEPTID | DOJ        | BLOOD_GROUP | GENDER | AGE  |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+|   1 | VEEKSHA  | 9448351596 | VEEKSHAMK@GMAIL.COM       | 1997-10-20 | SOFTWARE DEVELOPER |  15000 |     10 | 2020-01-01 | A+          | FEMALE |   20 |
+|   2 | SOWMYA   | 9427895676 | SOWMYAK@GMAIL.COM         | 1987-07-10 | SOFTWARE DEVELOPER |  15000 |     10 | 2010-11-11 | A-          | FEMALE |   22 |
+|   3 | NIKHIL   | 9439045122 | NIKHILKUMAR2007@GMAIL.COM | 2007-08-02 | TESTER             |  20000 |     20 | 2003-04-03 | B-          | MALE   |   19 |
+|   4 | AMAR     | 9234509765 | AMAR77@GMAIL.COM          | 2000-09-17 | CLERK              |  12000 |     30 | 2013-01-30 | B-          | MALE   |   27 |
+|   5 | NAVEEN   | 9345120985 | NAVEEN1995@GMAIL.COM      | 1995-06-27 | HR                 |  12000 |     40 | 2015-11-20 | O-          | MALE   |   30 |
+|   6 | NAVYA    | 9342120985 | NAVYA5@GMAIL.COM          | 1985-06-16 | ANALYST            |  13000 |     50 | 2019-04-21 | O+          | FEMALE |   26 |
+|   7 | JEEVITHA | 9342900985 | JEEVITHASN@GMAIL.COM      | 1999-09-03 | CLERK              |  12000 |     30 | 2016-07-18 | B-          | FEMALE |   29 |
+|   8 | RANJITHA | 9342123455 | RANJITHAK@GMAIL.COM       | 1993-06-12 | SOFTWARE DEVELOPER |  15000 |     10 | 2019-04-21 | O+          | FEMALE |   24 |
+|   9 | KAVYA    | 9342123895 | KAVYA34@GMAIL.COM         | 1988-05-22 | MANAGER            |  22000 |     60 | 2018-03-10 | A+          | FEMALE |   22 |
+|  10 | GANESH   | 9342123123 | GANESHKUMAR@GMAIL.COM     | 1979-03-12 | CLERK              |  12000 |     30 | 2017-12-07 | A-          | MALE   |   38 |
++-----+----------+------------+---------------------------+------------+--------------------+--------+--------+------------+-------------+--------+------+
+10 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+USING SQLYOG
+
+SELECT *
+FROM employee_info CROSS JOIN department;
+
+SELECT department.DEPTID, employee_info.NAME, department.DNAME, employee_info.DEPTID
+FROM employee_info INNER JOIN department
+ON employee_info.DEPTID=department.DEPTID;
+
+SELECT *
+FROM employee_info NATURAL JOIN department;
+
+SELECT *
+FROM employee_info LEFT OUTER JOIN department
+ON employee_info.DEPTID=department.DEPTID;
+
+SELECT *
+FROM employee_info RIGHT OUTER JOIN department
+ON employee_info.DEPTID=department.DEPTID;
+
+SELECT *
+FROM employee_info LEFT OUTER JOIN department
+ON employee_info.DEPTID=department.DEPTID
+UNION
+(SELECT *
+FROM employee_info RIGHT OUTER JOIN department
+ON employee_info.DEPTID=department.DEPTID);
 
 
