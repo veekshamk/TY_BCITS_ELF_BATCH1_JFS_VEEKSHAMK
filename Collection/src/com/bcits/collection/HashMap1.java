@@ -1,0 +1,36 @@
+package com.bcits.collection;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class HashMap1 {
+	public static void main(String[] args) {
+		HashMap<Integer, String> h1= new HashMap<Integer, String>();
+		h1.put(11, "Veeksha");
+		h1.put(9, "Likhith");
+		h1.put(45, "Sampreeth");
+		h1.put(3, "Nithin");
+		h1.put(33, "Prathik");
+		h1.put(30, "Deepika");
+	Set<Map.Entry<Integer,String>> s=h1.entrySet();
+	for (Map.Entry<Integer, String> entry : s) {
+		System.out.println(entry.getKey());
+		System.out.println(entry.getValue());
+		System.out.println("-------------------");
+	}
+	System.out.println(h1.get(9));
+	
+	Set<Integer> s1=h1.keySet();
+	for (Integer integer : s1) {
+		System.out.println(integer);
+		
+	}
+	Collection<String> c1= h1.values();
+	for ( String string: c1) {
+		System.out.println(string);
+	}
+	}
+
+}
