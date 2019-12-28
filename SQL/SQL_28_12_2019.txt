@@ -1,0 +1,298 @@
+mysql> CREATE DATABASE EMPLOYEE_MANAGEMENT_INFO;
+Query OK, 1 row affected (0.34 sec)
+
+mysql> SHOW DATABASES;
++--------------------------+
+| Database                 |
++--------------------------+
+| information_schema       |
+| bcits                    |
+| employee_management_info |
+| mysql                    |
+| performance_schema       |
+| sys                      |
++--------------------------+
+6 rows in set (0.00 sec)
+
+mysql> USE EMPLOYEE_MANAGEMENT_INFO;
+Database changed
+
+mysql> CREATE TABLE EMPLOYEE_PRIMARY_INFO(EMP_ID INT PRIMARY KEY, NAME VARCHAR(100), MOBILE_NUMBER BIGINT, OFFICIAL_MAIL_ID VARCHAR(100), DOB DATE, DOJ DATE, DESIGNATION VARCHAR(100), BLOOD_GROUP VARCHAR(100), SALARY DOUBLE, DEPT_ID INT, MANAGER_ID INT);
+Query OK, 0 rows affected (0.58 sec)
+
+mysql> DESC EMPLOYEE_PRIMARY_INFO;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| EMP_ID           | int(11)      | NO   | PRI | NULL    |       |
+| NAME             | varchar(100) | YES  |     | NULL    |       |
+| MOBILE_NUMBER    | bigint(20)   | YES  |     | NULL    |       |
+| OFFICIAL_MAIL_ID | varchar(100) | YES  |     | NULL    |       |
+| DOB              | date         | YES  |     | NULL    |       |
+| DOJ              | date         | YES  |     | NULL    |       |
+| DESIGNATION      | varchar(100) | YES  |     | NULL    |       |
+| BLOOD_GROUP      | varchar(100) | YES  |     | NULL    |       |
+| SALARY           | double       | YES  |     | NULL    |       |
+| DEPT_ID          | int(11)      | YES  |     | NULL    |       |
+| MANAGER_ID       | int(11)      | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(1,'VEEKSHA','9686062925','VEEKSHAMKBCITS@GMAIL.COM','1997-10-20','2020-01-01','SOFTWARE DEVELOPER', 'A+', 20000, 10, 50);
+Query OK, 1 row affected (0.36 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(2,'HITHASHREE','9686074582','HITHASHREEBSBCITS@GMAIL.COM','2004-12-12','2030-03-12','SOFTWARE DEVELOPER', 'A-', 20000, 10, 50);
+Query OK, 1 row affected (0.36 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(3,'THRISHAN','9686074125','THRISHANCBCITS@GMAIL.COM','2007-10-12','2035-05-07','TESTER', 'O-', 25000, 20, 100);
+Query OK, 1 row affected (0.34 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(4,'SHARVI','9686077896','SHARVICBCITS@GMAIL.COM','2004-01-02','2025-11-18','TESTER', 'O+', 25000, 20, 100);
+Query OK, 1 row affected (0.14 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(5,'DHEERAJ','9686074196','DHEERAJBSBCITS@GMAIL.COM','2014-11-12','2015-10-12','HR', 'O+', 22000, 30, 150);
+Query OK, 1 row affected (0.35 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(6,'ASHIKA','9686074748','ASHIKAMBCITS@GMAIL.COM','2004-10-22','2022-12-30','HR', 'AB-', 22000, 30, 150);
+Query OK, 1 row affected (0.14 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(7,'PRATHIKA','9686077152','PRATHIKAMBCITS@GMAIL.COM','2000-05-14','2021-09-09','ANALYST', 'AB+', 32000, 40, 200);
+Query OK, 1 row affected (0.36 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(8,'PRANIKA','9686073698','PRANIKAMBCITS@GMAIL.COM','2000-05-14','2021-09-09','ANALYST', 'AB+', 32000, 40, 200);
+Query OK, 1 row affected (0.16 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(9,'JEEVAN','9686073641','JEEVANTBCITS@GMAIL.COM','1998-08-24','2020-09-04','JUNIOR MANAGER', 'A+', 35500, 50, 50);
+Query OK, 1 row affected (0.36 sec)
+
+mysql>  INSERT INTO EMPLOYEE_PRIMARY_INFO(EMP_ID, NAME, MOBILE_NUMBER, OFFICIAL_MAIL_ID, DOB, DOJ, DESIGNATION, BLOOD_GROUP, SALARY, DEPT_ID, MANAGER_ID) VALUES(10,'LIKHITH','9686073647','LIKHITHMKBCITS@GMAIL.COM','2003-04-04','2020-10-05','JUNIOR MANAGER', 'A+', 35500, 50, 50);
+Query OK, 1 row affected (0.36 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_PRIMARY_INFO;
++--------+------------+---------------+-----------------------------+------------+------------+--------------------+-------------+--------+---------+------------+
+| EMP_ID | NAME       | MOBILE_NUMBER | OFFICIAL_MAIL_ID            | DOB        | DOJ        | DESIGNATION        | BLOOD_GROUP | SALARY | DEPT_ID | MANAGER_ID |
++--------+------------+---------------+-----------------------------+------------+------------+--------------------+-------------+--------+---------+------------+
+|      1 | VEEKSHA    |    9686062925 | VEEKSHAMKBCITS@GMAIL.COM    | 1997-10-20 | 2020-01-01 | SOFTWARE DEVELOPER | A+          |  20000 |      10 |         50 |
+|      2 | HITHASHREE |    9686074582 | HITHASHREEBSBCITS@GMAIL.COM | 2004-12-12 | 2030-03-12 | SOFTWARE DEVELOPER | A-          |  20000 |      10 |         50 |
+|      3 | THRISHAN   |    9686074125 | THRISHANCBCITS@GMAIL.COM    | 2007-10-12 | 2035-05-07 | TESTER             | O-          |  25000 |      20 |        100 |
+|      4 | SHARVI     |    9686077896 | SHARVICBCITS@GMAIL.COM      | 2004-01-02 | 2025-11-18 | TESTER             | O+          |  25000 |      20 |        100 |
+|      5 | DHEERAJ    |    9686074196 | DHEERAJBSBCITS@GMAIL.COM    | 2014-11-12 | 2015-10-12 | HR                 | O+          |  22000 |      30 |        150 |
+|      6 | ASHIKA     |    9686074748 | ASHIKAMBCITS@GMAIL.COM      | 2004-10-22 | 2022-12-30 | HR                 | AB-         |  22000 |      30 |        150 |
+|      7 | PRATHIKA   |    9686077152 | PRATHIKAMBCITS@GMAIL.COM    | 2000-05-14 | 2021-09-09 | ANALYST            | AB+         |  32000 |      40 |        200 |
+|      8 | PRANIKA    |    9686073698 | PRANIKAMBCITS@GMAIL.COM     | 2000-05-14 | 2021-09-09 | ANALYST            | AB+         |  32000 |      40 |        200 |
+|      9 | JEEVAN     |    9686073641 | JEEVANTBCITS@GMAIL.COM      | 1998-08-24 | 2020-09-04 | JUNIOR MANAGER     | A+          |  35500 |      50 |         50 |
+|     10 | LIKHITH    |    9686073647 | LIKHITHMKBCITS@GMAIL.COM    | 2003-04-04 | 2020-10-05 | JUNIOR MANAGER     | A+          |  35500 |      50 |         50 |
++--------+------------+---------------+-----------------------------+------------+------------+--------------------+-------------+--------+---------+------------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE EMPLOYEE_SECONDARY_INFO(EMP_ID INT PRIMARY KEY, PERSONAL_MAIL_ID VARCHAR(100), GENDER VARCHAR(100), AGE INT, NATIONALITY VARCHAR(100), IS_MARRIED VARCHAR(100), GOVERNMENT_ID BIGINT, GUARDIAN_NAME VARCHAR(100), GUARDIAN_CONTACT_NUMBER BIGINT, JOB_LOCATION VARCHAR(100));
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> DESC EMPLOYEE_SECONDARY_INFO;
++-------------------------+--------------+------+-----+---------+-------+
+| Field                   | Type         | Null | Key | Default | Extra |
++-------------------------+--------------+------+-----+---------+-------+
+| EMP_ID                  | int(11)      | NO   | PRI | NULL    |       |
+| PERSONAL_MAIL_ID        | varchar(100) | YES  |     | NULL    |       |
+| GENDER                  | varchar(100) | YES  |     | NULL    |       |
+| AGE                     | int(11)      | YES  |     | NULL    |       |
+| NATIONALITY             | varchar(100) | YES  |     | NULL    |       |
+| IS_MARRIED              | varchar(100) | YES  |     | NULL    |       |
+| GOVERNMENT_ID           | bigint(20)   | YES  |     | NULL    |       |
+| GUARDIAN_NAME           | varchar(100) | YES  |     | NULL    |       |
+| GUARDIAN_CONTACT_NUMBER | bigint(20)   | YES  |     | NULL    |       |
+| JOB_LOCATION            | varchar(100) | YES  |     | NULL    |       |
++-------------------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(1, 'VEEKSHAMK1997@GMAIL.COM', 'FEMALE', '23', 'INDIAN', 'NO', '123189965', 'MADHAV', '9481921372','BANGALORE');
+Query OK, 1 row affected (0.34 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(2, 'HITHA123@GMAIL.COM', 'FEMALE', '18', 'INDIAN', 'NO', '1856324745', 'SHEENA', '9481921345','BANGALORE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(3, 'THRISHAN1023@GMAIL.COM', 'MALE', '28', 'INDIAN', 'NO', '185741147', 'CHARAN', '9481741255','MYSORE');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(4, 'SHARVI94@GMAIL.COM', 'FEMALE', '18', 'INDIAN', 'NO', '567899027', 'CHARAN', '9481711255','MYSORE');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(5, 'DHEERAJ12345@GMAIL.COM', 'MALE', '20', 'INDIAN', 'NO', '7893899027', 'SHEENA', '9441711125','HUBLI');
+Query OK, 1 row affected (0.34 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(6, 'ASHIKA5@GMAIL.COM', 'FEMALE', '21', 'INDIAN', 'NO', '7234555527', 'MAHABALA', '9941711125','HUBLI');
+Query OK, 1 row affected (0.36 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(7, 'PRATHIKA5@GMAIL.COM', 'FEMALE', '21', 'INDIAN', 'NO', '72390227', 'MAHABALA', '9941711025','MUMBAI');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(8, 'PRANIKA5@GMAIL.COM', 'FEMALE', '21', 'INDIAN', 'NO', '720202127', 'MAHABALA', '9941711025','MUMBAI');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(9, 'JEEVAN12@GMAIL.COM', 'MALE', '25', 'INDIAN', 'NO', '34567127', 'SADANANDA', '9022145885','DELHI');
+Query OK, 1 row affected (0.35 sec)
+
+mysql> INSERT INTO EMPLOYEE_SECONDARY_INFO VALUES(10, 'LIKHITHMK@GMAIL.COM', 'MALE', '18', 'INDIAN', 'NO', '38905342689', 'MADHAV', '9481921372','DELHI');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_SECONDARY_INFO;
++--------+-------------------------+--------+------+-------------+------------+---------------+---------------+-------------------------+--------------+
+| EMP_ID | PERSONAL_MAIL_ID        | GENDER | AGE  | NATIONALITY | IS_MARRIED | GOVERNMENT_ID | GUARDIAN_NAME | GUARDIAN_CONTACT_NUMBER | JOB_LOCATION |
++--------+-------------------------+--------+------+-------------+------------+---------------+---------------+-------------------------+--------------+
+|      1 | VEEKSHAMK1997@GMAIL.COM | FEMALE |   23 | INDIAN      | NO         |     123189965 | MADHAV        |              9481921372 | BANGALORE    |
+|      2 | HITHA123@GMAIL.COM      | FEMALE |   18 | INDIAN      | NO         |    1856324745 | SHEENA        |              9481921345 | BANGALORE    |
+|      3 | THRISHAN1023@GMAIL.COM  | MALE   |   28 | INDIAN      | NO         |     185741147 | CHARAN        |              9481741255 | MYSORE       |
+|      4 | SHARVI94@GMAIL.COM      | FEMALE |   18 | INDIAN      | NO         |     567899027 | CHARAN        |              9481711255 | MYSORE       |
+|      5 | DHEERAJ12345@GMAIL.COM  | MALE   |   20 | INDIAN      | NO         |    7893899027 | SHEENA        |              9441711125 | HUBLI        |
+|      6 | ASHIKA5@GMAIL.COM       | FEMALE |   21 | INDIAN      | NO         |    7234555527 | MAHABALA      |              9941711125 | HUBLI        |
+|      7 | PRATHIKA5@GMAIL.COM     | FEMALE |   21 | INDIAN      | NO         |      72390227 | MAHABALA      |              9941711025 | MUMBAI       |
+|      8 | PRANIKA5@GMAIL.COM      | FEMALE |   21 | INDIAN      | NO         |     720202127 | MAHABALA      |              9941711025 | MUMBAI       |
+|      9 | JEEVAN12@GMAIL.COM      | MALE   |   25 | INDIAN      | NO         |      34567127 | SADANANDA     |              9022145885 | DELHI        |
+|     10 | LIKHITHMK@GMAIL.COM     | MALE   |   18 | INDIAN      | NO         |   38905342689 | MADHAV        |              9481921372 | DELHI        |
++--------+-------------------------+--------+------+-------------+------------+---------------+---------------+-------------------------+--------------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE DEPARTMENT_INFO(DEPT_ID INT PRIMARY KEY, DEPT_NAME VARCHAR(100), DEPT_MANAGER_ID INT);
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> DESC DEPARTMENT_INFO;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| DEPT_ID         | int(11)      | NO   | PRI | NULL    |       |
+| DEPT_NAME       | varchar(100) | YES  |     | NULL    |       |
+| DEPT_MANAGER_ID | int(11)      | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(10, 'IT', 50);
+Query OK, 1 row affected (0.34 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(20, 'HR', 100);
+Query OK, 1 row affected (0.35 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(30, 'MARKETING', 150);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(40, 'BUSINESS', 200);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(50, 'SALES', 60);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(60, 'ACCOUNTING', 700);
+Query OK, 1 row affected (0.34 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(70, 'MEDICAL', 70);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(90, 'LEGAL', 80);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO DEPARTMENT_INFO VALUES(100, 'EDUCATION', 110);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> SELECT *
+    -> FROM DEPARTMENT_INFO;
++---------+------------+-----------------+
+| DEPT_ID | DEPT_NAME  | DEPT_MANAGER_ID |
++---------+------------+-----------------+
+|      10 | IT         |              50 |
+|      20 | HR         |             100 |
+|      30 | MARKETING  |             150 |
+|      40 | BUSINESS   |             200 |
+|      50 | SALES      |              60 |
+|      60 | ACCOUNTING |             700 |
+|      70 | MEDICAL    |              70 |
+|      90 | LEGAL      |              80 |
+|     100 | EDUCATION  |             110 |
++---------+------------+-----------------+
+9 rows in set (0.00 sec)
+
+mysql> CREATE TABLE EMPLOYEE_BANK_INFO(EMP_ID INT PRIMARY KEY, ACCOUNT_NUMBER LONG, BANK_NAME VARCHAR(100), BRANCH_NAME VARCHAR(100), IFSC_CODE VARCHAR(100));
+Query OK, 0 rows affected (0.28 sec)
+
+mysql> DESC EMPLOYEE_BANK_INFO;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| EMP_ID         | int(11)      | NO   | PRI | NULL    |       |
+| ACCOUNT_NUMBER | mediumtext   | YES  |     | NULL    |       |
+| BANK_NAME      | varchar(100) | YES  |     | NULL    |       |
+| BRANCH_NAME    | varchar(100) | YES  |     | NULL    |       |
+| IFSC_CODE      | varchar(100) | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(1,908756, 'SBI', 'BTM', 12334);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(2,'908756', 'KARNATAKA BANK', 'BTM', 'KA12334');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(3,'90875690', 'CANARA BANK', 'BTM', 'KA12334');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(4,'1234690', 'CANARA BANK', 'SILK BOARD', 'CA12334');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(5,'123123', 'SYNDICATE BANK', 'SILK BOARD', 'SY0934');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(6,'12109893', 'SYNDICATE BANK', 'HEBBAL', 'SY0934');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(7,'10010103', 'KARNATAKA BANK', 'HEBBAL', 'KA0934');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(8,'9034893', 'SYNDICATE BANK', 'MAHALAXMI LAYOUT', 'SY09JU7');
+Query OK, 1 row affected (0.36 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(9,'9898893', 'SYNDICATE BANK', 'BTM LAYOUT', 'SY09JU7');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_BANK_INFO VALUES(10,'98989090', 'SYNDICATE BANK', 'BTM LAYOUT', 'SY09JU7');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_BANK_INFO;
++--------+----------------+----------------+------------------+-----------+
+| EMP_ID | ACCOUNT_NUMBER | BANK_NAME      | BRANCH_NAME      | IFSC_CODE |
++--------+----------------+----------------+------------------+-----------+
+|      1 | 908756         | SBI            | BTM              | 12334     |
+|      2 | 908756         | KARNATAKA BANK | BTM              | KA12334   |
+|      3 | 90875690       | CANARA BANK    | BTM              | KA12334   |
+|      4 | 1234690        | CANARA BANK    | SILK BOARD       | CA12334   |
+|      5 | 123123         | SYNDICATE BANK | SILK BOARD       | SY0934    |
+|      6 | 12109893       | SYNDICATE BANK | HEBBAL           | SY0934    |
+|      7 | 10010103       | KARNATAKA BANK | HEBBAL           | KA0934    |
+|      8 | 9034893        | SYNDICATE BANK | MAHALAXMI LAYOUT | SY09JU7   |
+|      9 | 9898893        | SYNDICATE BANK | BTM LAYOUT       | SY09JU7   |
+|     10 | 98989090       | SYNDICATE BANK | BTM LAYOUT       | SY09JU7   |
++--------+----------------+----------------+------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO(EMP_ID, ADDRESS_TYPE, HOUSE_NUMBER, ADDRESS1, ADDRESS2, LANDMARK, CITY, PINCODE) VALUES(1, 'PERSONAL', 10,'MAGADI ROAD', 'BANGALORE EAST', 'BANGALORE', 'BANGALORE', '574050'),(2, 'PERSONAL', 11,'MG ROAD', 'MYSORE EAST', 'MYSORE', 'MYSORE', '574050');
+Query OK, 2 rows affected (0.38 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_ADDRESS_INFO;
++--------+--------------+--------------+-------------+----------------+-----------+-----------+---------+
+| EMP_ID | ADDRESS_TYPE | HOUSE_NUMBER | ADDRESS1    | ADDRESS2       | LANDMARK  | CITY      | PINCODE |
++--------+--------------+--------------+-------------+----------------+-----------+-----------+---------+
+|      1 | PERSONAL     | 10           | MAGADI ROAD | BANGALORE EAST | BANGALORE | BANGALORE | 574050  |
+|      2 | PERSONAL     | 11           | MG ROAD     | MYSORE EAST    | MYSORE    | MYSORE    | 574050  |
++--------+--------------+--------------+-------------+----------------+-----------+-----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO(EMP_ID, ADDRESS_TYPE, HOUSE_NUMBER, ADDRESS1, ADDRESS2, LANDMARK, CITY, PINCODE) VALUES(3, 'PERMANENT', 10,'JAYANAGAR', 'BANGALORE WEST', 'BANGALORE', 'BANGALORE', '574046'),(4, 'PERMANENT', 34,'BADAMI', 'MYSORE WEST', 'MYSORE', 'MYSORE', '574034');
+Query OK, 2 rows affected (0.13 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO(EMP_ID, ADDRESS_TYPE, HOUSE_NUMBER, ADDRESS1, ADDRESS2, LANDMARK, CITY, PINCODE) VALUES(5, 'PERMANENT', 16,'YALAHANKA', 'BANGALORE WEST', 'BANGALORE', 'BANGALORE', '574566'),(6, 'LOCAL', 64,'KC ROAD', 'MYSORE WEST', 'MYSORE', 'MYSORE', '574290');
+Query OK, 2 rows affected (0.11 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
