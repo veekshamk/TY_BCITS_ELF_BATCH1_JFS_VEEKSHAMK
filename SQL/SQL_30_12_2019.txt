@@ -105,3 +105,15 @@ mysql> INSERT INTO PROJECT_INFO(PROJ_ID, PROJ_NAME, TECHNOLOGY, START_DATE, END_
 Query OK, 2 rows affected (0.09 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 
+mysql> SELECT * FROM PROJECT_INFO;
++---------+---------------+------------+------------+------------+-----------+
+| PROJ_ID | PROJ_NAME     | TECHNOLOGY | START_DATE | END_DATE   | LOCATION  |
++---------+---------------+------------+------------+------------+-----------+
+|      10 | SMART HEADSET | ANDROID    | 1998-10-13 | 2015-12-13 | BANGALORE |
+|      20 | E2E           | SPRINGS    | 1988-10-03 | 1995-02-01 | BANGALORE |
+|      30 | ORMS          | JDBC       | 1999-11-18 | 2005-11-13 | MYSORE    |
+|      40 | E2E           | ANGULAR JS | 1999-06-05 | 2018-09-04 | BANGALORE |
+|      50 | ORMS          | HIBERNET   | 1999-02-28 | 2000-08-10 | CHITTHUR  |
++---------+---------------+------------+------------+------------+-----------+
+5 rows in set (0.00 sec)
+
