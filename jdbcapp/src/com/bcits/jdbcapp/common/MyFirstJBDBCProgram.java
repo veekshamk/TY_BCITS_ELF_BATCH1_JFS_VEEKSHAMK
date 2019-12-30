@@ -15,21 +15,25 @@ public class MyFirstJBDBCProgram {
 		ResultSet rs=null;
 		Statement stmt=null;
 		// 1. Load the Driver.
-		try {
-			Driver d = new Driver();
-			DriverManager.registerDriver(d);
 
-			// 2. Get the DB connection via Driver
+		try {
+			/*Driver d = new Driver();
+			DriverManager.registerDriver(d);*/
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+			// 2. Get the DB connection via Driver.
 
 			String dburl = "jdbc:mysql://localhost:3306/employee_management_info?user=root&password=root";
 			con = DriverManager.getConnection(dburl);
-			
+
 			//3. Issue SQL queries via connection.
+
 			String query = "select * from employee_primary_info";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
 
-			//4. Process the result returned by SQL Queries
+			//4. Process the result returned by SQL Queries.
+
 			while (rs.next()) {
 				int emp_id = rs.getInt("emp_id");
 				String name = rs.getString("name");
@@ -43,33 +47,34 @@ public class MyFirstJBDBCProgram {
 				int dept_id = rs.getInt("dept_id");
 				int manager_id = rs.getInt("manager_id");
 
-				System.out.println("employee id->" + emp_id);
-				System.out.println("name->" + name);
-				System.out.println("mobile_number->" + mobile_number);
-				System.out.println("official_mail_id->" + official_mail_id);
-				System.out.println("dob->" + dob);
-				System.out.println("doj->" + doj);
-				System.out.println("designation->" + designation);
-				System.out.println("blood_group->" + blood_group);
-				System.out.println("salary->" + salary);
-				System.out.println("dept_id->" + dept_id);
-				System.out.println("manager_id->+manager_id");
+				System.out.println("Employee ID->" + emp_id);
+				System.out.println("Name->" + name);
+				System.out.println("Mobile Number->" + mobile_number);
+				System.out.println("Official Mail ID->" + official_mail_id);
+				System.out.println("DOB->" + dob);
+				System.out.println("DOJ->" + doj);
+				System.out.println("Designation->" + designation);
+				System.out.println("Blood Group->" + blood_group);
+				System.out.println("Salary->" + salary);
+				System.out.println("Department ID->" + dept_id);
+				System.out.println("Manager ID->"+manager_id);
 
 			}
-		} catch (SQLException s) {
+		} catch (Exception s) {
 			s.printStackTrace();
 
 		}finally {
 			//5. Close all JDBC objects
+
 			try {
 				if(con!=null) {
-			con.close();
+					con.close();
 				}
 				if(rs!=null) {
-			rs.close();
+					rs.close();
 				}
 				if(stmt!=null) {
-				stmt.close();
+					stmt.close();
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

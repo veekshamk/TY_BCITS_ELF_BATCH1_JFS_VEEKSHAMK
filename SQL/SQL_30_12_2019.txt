@@ -1,0 +1,107 @@
+mysql> show databases;
++--------------------------+
+| Database                 |
++--------------------------+
+| information_schema       |
+| bcits                    |
+| employee_management_info |
+| mysql                    |
+| performance_schema       |
+| sys                      |
++--------------------------+
+6 rows in set (0.00 sec)
+
+mysql> USE EMPLOYEE_MANAGEMENT_INFO;
+Database changed
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO(EMP_ID, ADDRESS_TYPE, HOUSE_NUMBER, ADDRESS1, ADDRESS2, LANDMARK, CITY, PINCODE) VALUES(7, 'PERMANENT', 78,'JALAHALLI', 'BANGALORE SOUTH', 'BANGALORE', 'BANGALORE', '574896'),(8, 'LOCAL', 68,'MC ROAD', 'BELGUM WEST', 'BELGUM', 'BELGUM', '574125');
+Query OK, 2 rows affected (0.09 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO(EMP_ID, ADDRESS_TYPE, HOUSE_NUMBER, ADDRESS1, ADDRESS2, LANDMARK, CITY, PINCODE) VALUES(9, 'PERMANENT', 71,'MALLESHWARAM', 'BANGALORE SOUTH', 'BANGALORE', 'BANGALORE', '510986'),(10, 'LOCAL', 58,'MG ROAD', 'BELGUM EAST', 'BELGUM', 'BELGUM', '109374');
+Query OK, 2 rows affected (0.08 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_ADDRESS_INFO;
++--------+--------------+--------------+--------------+-----------------+-----------+-----------+---------+
+| EMP_ID | ADDRESS_TYPE | HOUSE_NUMBER | ADDRESS1     | ADDRESS2        | LANDMARK  | CITY      | PINCODE |
++--------+--------------+--------------+--------------+-----------------+-----------+-----------+---------+
+|      1 | PERSONAL     | 10           | MAGADI ROAD  | BANGALORE EAST  | BANGALORE | BANGALORE | 574050  |
+|      2 | PERSONAL     | 11           | MG ROAD      | MYSORE EAST     | MYSORE    | MYSORE    | 574050  |
+|      3 | PERMANENT    | 10           | JAYANAGAR    | BANGALORE WEST  | BANGALORE | BANGALORE | 574046  |
+|      4 | PERMANENT    | 34           | BADAMI       | MYSORE WEST     | MYSORE    | MYSORE    | 574034  |
+|      5 | PERMANENT    | 16           | YALAHANKA    | BANGALORE WEST  | BANGALORE | BANGALORE | 574566  |
+|      6 | LOCAL        | 64           | KC ROAD      | MYSORE WEST     | MYSORE    | MYSORE    | 574290  |
+|      7 | PERMANENT    | 78           | JALAHALLI    | BANGALORE SOUTH | BANGALORE | BANGALORE | 574896  |
+|      8 | LOCAL        | 68           | MC ROAD      | BELGUM WEST     | BELGUM    | BELGUM    | 574125  |
+|      9 | PERMANENT    | 71           | MALLESHWARAM | BANGALORE SOUTH | BANGALORE | BANGALORE | 510986  |
+|     10 | LOCAL        | 58           | MG ROAD      | BELGUM EAST     | BELGUM    | BELGUM    | 109374  |
++--------+--------------+--------------+--------------+-----------------+-----------+-----------+---------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE EMPLOYEE_EDUCATION_INFO(EMP_ID INT, EDUCATION_TYPE VARCHAR(100), COLLEGE_NAME VARCHAR(100), YOP DATE, STREAM VARCHAR(100), PERCENTAGE DOUBLE, UNIVERSITY_NAME VARCHAR(100), PRIMARY KEY(EMP_ID, EDUCATION_TYPE));
+Query OK, 0 rows affected (0.36 sec)
+
+mysql> DESC EMPLOYEE_EDUCATION_INFO;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| EMP_ID          | int(11)      | NO   | PRI | NULL    |       |
+| EDUCATION_TYPE  | varchar(100) | NO   | PRI | NULL    |       |
+| COLLEGE_NAME    | varchar(100) | YES  |     | NULL    |       |
+| YOP             | date         | YES  |     | NULL    |       |
+| STREAM          | varchar(100) | YES  |     | NULL    |       |
+| PERCENTAGE      | double       | YES  |     | NULL    |       |
+| UNIVERSITY_NAME | varchar(100) | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO(EMP_ID, EDUCATION_TYPE, COLLEGE_NAME, YOP, STREAM, PERCENTAGE, UNIVERSITY_NAME) VALUES(2, 'B.E', 'CANARA', '2018-10-11', 'ECE', '63.40', 'VTU'),(3, 'B.E', 'SIT', '2019-12-25', 'CSE', '69.11', 'VTU'),(4, 'B.E', 'CANARA', '2019-06-23', 'ECE', '77.10', 'VTU'),(5, 'B.E', 'VCET', '2019-10-25', 'ECE', '67.88', 'VTU'),(6, 'B.E', 'SIT', '2019-07-15', 'ISE', '67.60', 'VTU'),(7, 'B.E', 'PA', '2017-07-23', 'ME', '56.90', 'RAJEEVGANDHI'),(8, 'B.E', 'JOSEPH', '2019-07-15', 'ECE', '80.00', 'VTU'),(9, 'B.E', 'SAHYADRI', '2019-04-19', 'CSE', '69.19', 'VTU'),(10, 'B.E', 'VCET', '2018-07-15', 'EEE', '75.59', 'RAJEEVGANDHI');
+Query OK, 9 rows affected (0.08 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM EMPLOYEE_EDUCATION_INFO;
++--------+----------------+--------------+------------+--------+------------+-----------------+
+| EMP_ID | EDUCATION_TYPE | COLLEGE_NAME | YOP        | STREAM | PERCENTAGE | UNIVERSITY_NAME |
++--------+----------------+--------------+------------+--------+------------+-----------------+
+|      1 | B.E            | SIT          | 2019-07-15 | ECE    |       67.1 | VTU             |
+|      2 | B.E            | CANARA       | 2018-10-11 | ECE    |       63.4 | VTU             |
+|      3 | B.E            | SIT          | 2019-12-25 | CSE    |      69.11 | VTU             |
+|      4 | B.E            | CANARA       | 2019-06-23 | ECE    |       77.1 | VTU             |
+|      5 | B.E            | VCET         | 2019-10-25 | ECE    |      67.88 | VTU             |
+|      6 | B.E            | SIT          | 2019-07-15 | ISE    |       67.6 | VTU             |
+|      7 | B.E            | PA           | 2017-07-23 | ME     |       56.9 | RAJEEVGANDHI    |
+|      8 | B.E            | JOSEPH       | 2019-07-15 | ECE    |         80 | VTU             |
+|      9 | B.E            | SAHYADRI     | 2019-04-19 | CSE    |      69.19 | VTU             |
+|     10 | B.E            | VCET         | 2018-07-15 | EEE    |      75.59 | RAJEEVGANDHI    |
++--------+----------------+--------------+------------+--------+------------+-----------------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE PROJECT_INFO(PROJ_ID INT PRIMARY KEY, PROJ_NAME VARCHAR(100), TECHNOLOGY VARCHAR(100), START_DATE DATE, END_DATE DATE, LOCATION VARCHAR(100));
+Query OK, 0 rows affected (0.59 sec)
+
+mysql> DESC PROJECT_INFO;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| PROJ_ID    | int(11)      | NO   | PRI | NULL    |       |
+| PROJ_NAME  | varchar(100) | YES  |     | NULL    |       |
+| TECHNOLOGY | varchar(100) | YES  |     | NULL    |       |
+| START_DATE | date         | YES  |     | NULL    |       |
+| END_DATE   | date         | YES  |     | NULL    |       |
+| LOCATION   | varchar(100) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO PROJECT_INFO(PROJ_ID, PROJ_NAME, TECHNOLOGY, START_DATE, END_DATE, LOCATION) VALUES(10, 'SMART HEADSET', 'ANDROID', '1998-10-13', '2015-12-13', 'BANGALORE');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO PROJECT_INFO(PROJ_ID, PROJ_NAME, TECHNOLOGY, START_DATE, END_DATE, LOCATION) VALUES(20, 'E2E', 'SPRINGS', '1988-10-03', '1995-02-01', 'BANGALORE'),(30, 'ORMS', 'JDBC', '1999-11-18', '2005-11-13', 'MYSORE');
+Query OK, 2 rows affected (0.08 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO PROJECT_INFO(PROJ_ID, PROJ_NAME, TECHNOLOGY, START_DATE, END_DATE, LOCATION) VALUES(40, 'E2E', 'ANGULAR JS', '1999-06-05', '2018-09-04', 'BANGALORE'),(50, 'ORMS', 'HIBERNET', '1999-02-28', '2000-08-10', 'CHITTHUR');
+Query OK, 2 rows affected (0.09 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+

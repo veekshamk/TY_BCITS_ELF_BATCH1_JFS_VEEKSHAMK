@@ -1,0 +1,14 @@
+package java;
+
+public interface Ola {
+	int age;
+	static int age1;
+	
+	abstract void search();
+	default void pay() {
+		System.out.println("pay the bill");
+	}
+static void move() {
+	System.out.println("move");                                                                     
+}
+}

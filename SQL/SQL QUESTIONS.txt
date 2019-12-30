@@ -1,0 +1,30 @@
+SQL QUESTIONS
+
+1. What does UNION do? What is the difference between UNION and UNION ALL? 
+2. List and explain the different types of JOIN clauses supported in ANSI-standard SQL.
+3. Write a SQL query to find the 10th highest employee salary from EMP table. Explain your answer. 
+4. How can you select all the even number records from a table? All the odd number records?
+5. What is difference between WHERE clause and HAVING clause? 
+6. What is the difference between single-row functions and multiple-row functions? 
+7. What is the GROUP BY clause used for? 
+8. What is the difference between char and varchar2? 
+9. What are various DDL commands in SQL? Give brief description of their purposes. 
+10. What are various DML commands in SQL? Give brief description of their purposes. 
+11. What are various DCL commands in SQL? Give brief description of their purposes. 
+12. Can you sort a column using a column alias? 
+13. Is a NULL value same as zero or a blank space? If not then what is the difference? 
+14. If a table contains duplicate rows, does a query result display the duplicate values by default? How can you eliminate duplicate rows from a query result? 
+15. What is the purpose of the condition operator BETWEEN? 
+16. What is the default ordering of data using the ORDER BY clause? How could it be changed? 
+17. What is the purpose of the NVL function? 
+18. What do you understand by a subquery? When is it used? 
+19. What happens if you omit the WHERE clause in the UPDATE statement? 
+20. What are the different types of constraints? Explain primary key, foreign key, unique key & not null constraints?
+21. What is the difference between DELETE and TRUNCATE statements?
+22. Write the Query to display CURRENT DATE and TIME.
+23. What is the main difference between ‘BETWEEN’ and ‘IN’ condition operators?
+24. What is an ALIAS? 
+25. Name the operator & wildcards which are used in the query for pattern matching?
+26. How can you fetch first 5 characters of the string? 
+27. What is Normalization in a Database? What is the primary use of Normalization?
+28. Write the difference between PRIMARY KEY and FOREIGN KEY
