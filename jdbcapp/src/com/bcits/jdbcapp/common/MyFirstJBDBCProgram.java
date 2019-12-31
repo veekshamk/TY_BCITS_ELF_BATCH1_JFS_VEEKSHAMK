@@ -23,8 +23,9 @@ public class MyFirstJBDBCProgram {
 
 			// 2. Get the DB connection via Driver.
 
-			String dburl = "jdbc:mysql://localhost:3306/employee_management_info?user=root&password=root";
-			con = DriverManager.getConnection(dburl);
+			String dburl = "jdbc:mysql://localhost:3306/employee_management_info";
+			con = DriverManager.getConnection(dburl,"root","root");
+			//DriverManager dm=new DriverManager();
 
 			//3. Issue SQL queries via connection.
 
@@ -75,7 +76,7 @@ public class MyFirstJBDBCProgram {
 				}
 				if(stmt!=null) {
 					stmt.close();
-				}
+				}                  
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}//End of inner try-catch block
