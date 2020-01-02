@@ -8,7 +8,7 @@ import java.util.Properties;
 public class PropertiesFileReader {
 	public static void main(String[] args) {
 		try {
-			FileInputStream fileInputStream=new FileInputStream("dbinfo.properties");
+			FileInputStream fileInputStream=new FileInputStream("db1info.properties");
 			Properties properties=new Properties();
 
 			properties.load(fileInputStream);

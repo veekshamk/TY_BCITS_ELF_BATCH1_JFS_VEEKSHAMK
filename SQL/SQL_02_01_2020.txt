@@ -1,0 +1,298 @@
+mysql> use employee_management_info;
+Database changed
+mysql> select *
+    -> from employee_primary_info;
++--------+------------+---------------+-----------------------------+------------+------------+--------------------+-------------+--------+---------+------------+
+| EMP_ID | NAME       | MOBILE_NUMBER | OFFICIAL_MAIL_ID            | DOB        | DOJ        | DESIGNATION        | BLOOD_GROUP | SALARY | DEPT_ID | MANAGER_ID |
++--------+------------+---------------+-----------------------------+------------+------------+--------------------+-------------+--------+---------+------------+
+|      1 | VEEKSHA    |    9686062925 | VEEKSHAMKBCITS@GMAIL.COM    | 1997-10-20 | 2020-01-01 | SOFTWARE DEVELOPER | A+          |  20000 |      10 |         50 |
+|      2 | HITHASHREE |    9686074582 | HITHASHREEBSBCITS@GMAIL.COM | 2004-12-12 | 2030-03-12 | SOFTWARE DEVELOPER | A-          |  20000 |      10 |         50 |
+|      3 | THRISHAN   |    9686074125 | THRISHANCBCITS@GMAIL.COM    | 2007-10-12 | 2035-05-07 | TESTER             | O-          |  25000 |      20 |        100 |
+|      5 | DHEERAJ    |    9686074196 | DHEERAJBSBCITS@GMAIL.COM    | 2014-11-12 | 2015-10-12 | HR                 | O+          |  22000 |      30 |        150 |
+|      6 | ASHIKA     |    9686074748 | ASHIKAMBCITS@GMAIL.COM      | 2004-10-22 | 2022-12-30 | HR                 | AB-         |  22000 |      30 |        150 |
+|      7 | PRATHIKA   |    9686077152 | PRATHIKAMBCITS@GMAIL.COM    | 2000-05-14 | 2021-09-09 | ANALYST            | AB+         |  32000 |      40 |        200 |
+|      8 | PRANIKA    |    9686073698 | PRANIKAMBCITS@GMAIL.COM     | 2000-05-14 | 2021-09-09 | ANALYST            | AB+         |  32000 |      40 |        200 |
+|      9 | JEEVAN     |    9686073641 | JEEVANTBCITS@GMAIL.COM      | 1998-08-24 | 2020-09-04 | JUNIOR MANAGER     | A+          |  35500 |      50 |         50 |
+|     10 | LIKHITH    |    9686073647 | LIKHITHMKBCITS@GMAIL.COM    | 2003-04-04 | 2020-10-05 | JUNIOR MANAGER     | A+          |  35500 |      50 |         50 |
+|     11 | prathiksha |    1234567891 | prathiksha@gmail.com        | 1990-10-10 | 2020-12-08 | tester             | o-          |  10000 |      20 |         50 |
++--------+------------+---------------+-----------------------------+------------+------------+--------------------+-------------+--------+---------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select *
+    -> from employee_secondary_info;
++--------+-------------------------+--------+------+-------------+------------+---------------+---------------+-------------------------+--------------+
+| EMP_ID | PERSONAL_MAIL_ID        | GENDER | AGE  | NATIONALITY | IS_MARRIED | GOVERNMENT_ID | GUARDIAN_NAME | GUARDIAN_CONTACT_NUMBER | JOB_LOCATION |
++--------+-------------------------+--------+------+-------------+------------+---------------+---------------+-------------------------+--------------+
+|      1 | VEEKSHAMK1997@GMAIL.COM | FEMALE |   23 | INDIAN      | NO         |     123189965 | MADHAV        |              9481921372 | BANGALORE    |
+|      2 | HITHA123@GMAIL.COM      | FEMALE |   18 | INDIAN      | NO         |    1856324745 | SHEENA        |              9481921345 | BANGALORE    |
+|      3 | THRISHAN1023@GMAIL.COM  | MALE   |   28 | INDIAN      | NO         |     185741147 | CHARAN        |              9481741255 | MYSORE       |
+|      4 | SHARVI94@GMAIL.COM      | FEMALE |   18 | INDIAN      | NO         |     567899027 | CHARAN        |              9481711255 | MYSORE       |
+|      5 | DHEERAJ12345@GMAIL.COM  | MALE   |   20 | INDIAN      | NO         |    7893899027 | SHEENA        |              9441711125 | HUBLI        |
+|      6 | ASHIKA5@GMAIL.COM       | FEMALE |   21 | INDIAN      | NO         |    7234555527 | MAHABALA      |              9941711125 | HUBLI        |
+|      7 | PRATHIKA5@GMAIL.COM     | FEMALE |   21 | INDIAN      | NO         |      72390227 | MAHABALA      |              9941711025 | MUMBAI       |
+|      8 | PRANIKA5@GMAIL.COM      | FEMALE |   21 | INDIAN      | NO         |     720202127 | MAHABALA      |              9941711025 | MUMBAI       |
+|      9 | JEEVAN12@GMAIL.COM      | MALE   |   25 | INDIAN      | NO         |      34567127 | SADANANDA     |              9022145885 | DELHI        |
+|     10 | LIKHITHMK@GMAIL.COM     | MALE   |   18 | INDIAN      | NO         |   38905342689 | MADHAV        |              9481921372 | DELHI        |
++--------+-------------------------+--------+------+-------------+------------+---------------+---------------+-------------------------+--------------+
+10 rows in set (0.39 sec)
+
+mysql> select * from employee_address_info
+    -> ;
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+| EMP_ID | ADDRESS_TYPE | HOUSE_NUMBER | ADDRESS1     | ADDRESS2        | LANDMARK        | CITY      | PINCODE |
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+|      1 | CURRENT      | 12           | GANESH NAGAR | BANASHANKARI    | BANGALORE SOUTH | BANGALORE | 546271  |
+|      1 | PERMANENT    | 10           | MAGADI ROAD  | BANGALORE EAST  | BANGALORE       | BANGALORE | 574050  |
+|      2 | CURRENT      | 72           | VANI NAGAR   | CHITTUR         | VIJAYAWADA      | HYDERABAD | 546342  |
+|      2 | PERMANENT    | 11           | MG ROAD      | MYSORE EAST     | MYSORE          | MYSORE    | 574050  |
+|      3 | CURRENT      | 56           | PALYA        | RC NAGAR        | MUMBAI SOUTH    | MUMBAI    | 453201  |
+|      3 | PERMANENT    | 10           | JAYANAGAR    | BANGALORE WEST  | BANGALORE       | BANGALORE | 574046  |
+|      4 | PERMANENT    | 34           | BADAMI       | MYSORE WEST     | MYSORE          | MYSORE    | 574034  |
+|      5 | PERMANENT    | 16           | YALAHANKA    | BANGALORE WEST  | BANGALORE       | BANGALORE | 574566  |
+|      6 | LOCAL        | 64           | KC ROAD      | MYSORE WEST     | MYSORE          | MYSORE    | 574290  |
+|      7 | PERMANENT    | 78           | JALAHALLI    | BANGALORE SOUTH | BANGALORE       | BANGALORE | 574896  |
+|      8 | LOCAL        | 68           | MC ROAD      | BELGUM WEST     | BELGUM          | BELGUM    | 574125  |
+|      9 | PERMANENT    | 71           | MALLESHWARAM | BANGALORE SOUTH | BANGALORE       | BANGALORE | 510986  |
+|     10 | LOCAL        | 58           | MG ROAD      | BELGUM EAST     | BELGUM          | BELGUM    | 109374  |
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+13 rows in set (0.36 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO VALUES(4, 'CURRENT', 34, 'BADAMI NAGAR','KRS ROAD', 'KRS','MYSORE',293847);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO VALUES(5, 'CURRENT', 30, 'MICO LAYOUT','NS PALYA', 'HEBBAL','MYSORE',293097);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from employee_address_info;
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+| EMP_ID | ADDRESS_TYPE | HOUSE_NUMBER | ADDRESS1     | ADDRESS2        | LANDMARK        | CITY      | PINCODE |
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+|      1 | CURRENT      | 12           | GANESH NAGAR | BANASHANKARI    | BANGALORE SOUTH | BANGALORE | 546271  |
+|      1 | PERMANENT    | 10           | MAGADI ROAD  | BANGALORE EAST  | BANGALORE       | BANGALORE | 574050  |
+|      2 | CURRENT      | 72           | VANI NAGAR   | CHITTUR         | VIJAYAWADA      | HYDERABAD | 546342  |
+|      2 | PERMANENT    | 11           | MG ROAD      | MYSORE EAST     | MYSORE          | MYSORE    | 574050  |
+|      3 | CURRENT      | 56           | PALYA        | RC NAGAR        | MUMBAI SOUTH    | MUMBAI    | 453201  |
+|      3 | PERMANENT    | 10           | JAYANAGAR    | BANGALORE WEST  | BANGALORE       | BANGALORE | 574046  |
+|      4 | CURRENT      | 34           | BADAMI NAGAR | KRS ROAD        | KRS             | MYSORE    | 293847  |
+|      4 | PERMANENT    | 34           | BADAMI       | MYSORE WEST     | MYSORE          | MYSORE    | 574034  |
+|      5 | CURRENT      | 30           | MICO LAYOUT  | NS PALYA        | HEBBAL          | MYSORE    | 293097  |
+|      5 | PERMANENT    | 16           | YALAHANKA    | BANGALORE WEST  | BANGALORE       | BANGALORE | 574566  |
+|      6 | LOCAL        | 64           | KC ROAD      | MYSORE WEST     | MYSORE          | MYSORE    | 574290  |
+|      7 | PERMANENT    | 78           | JALAHALLI    | BANGALORE SOUTH | BANGALORE       | BANGALORE | 574896  |
+|      8 | LOCAL        | 68           | MC ROAD      | BELGUM WEST     | BELGUM          | BELGUM    | 574125  |
+|      9 | PERMANENT    | 71           | MALLESHWARAM | BANGALORE SOUTH | BANGALORE       | BANGALORE | 510986  |
+|     10 | LOCAL        | 58           | MG ROAD      | BELGUM EAST     | BELGUM          | BELGUM    | 109374  |
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+15 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO VALUES(6, 'CURRENT', 19, 'MS PALYA','SHANTHI NAGAR', 'BASAVANAGUDI','MYSORE', 564738);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> UPDATE EMPLOYEE_ADDRESS_INFO
+    -> SET ADDRESS_TYPE='PERMANENT'
+    -> WHERE ADDRESS_TYPE='LOCAL';
+Query OK, 3 rows affected (0.08 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from employee_address_info;
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+| EMP_ID | ADDRESS_TYPE | HOUSE_NUMBER | ADDRESS1     | ADDRESS2        | LANDMARK        | CITY      | PINCODE |
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+|      1 | CURRENT      | 12           | GANESH NAGAR | BANASHANKARI    | BANGALORE SOUTH | BANGALORE | 546271  |
+|      1 | PERMANENT    | 10           | MAGADI ROAD  | BANGALORE EAST  | BANGALORE       | BANGALORE | 574050  |
+|      2 | CURRENT      | 72           | VANI NAGAR   | CHITTUR         | VIJAYAWADA      | HYDERABAD | 546342  |
+|      2 | PERMANENT    | 11           | MG ROAD      | MYSORE EAST     | MYSORE          | MYSORE    | 574050  |
+|      3 | CURRENT      | 56           | PALYA        | RC NAGAR        | MUMBAI SOUTH    | MUMBAI    | 453201  |
+|      3 | PERMANENT    | 10           | JAYANAGAR    | BANGALORE WEST  | BANGALORE       | BANGALORE | 574046  |
+|      4 | CURRENT      | 34           | BADAMI NAGAR | KRS ROAD        | KRS             | MYSORE    | 293847  |
+|      4 | PERMANENT    | 34           | BADAMI       | MYSORE WEST     | MYSORE          | MYSORE    | 574034  |
+|      5 | CURRENT      | 30           | MICO LAYOUT  | NS PALYA        | HEBBAL          | MYSORE    | 293097  |
+|      5 | PERMANENT    | 16           | YALAHANKA    | BANGALORE WEST  | BANGALORE       | BANGALORE | 574566  |
+|      6 | CURRENT      | 19           | MS PALYA     | SHANTHI NAGAR   | BASAVANAGUDI    | MYSORE    | 564738  |
+|      6 | PERMANENT    | 64           | KC ROAD      | MYSORE WEST     | MYSORE          | MYSORE    | 574290  |
+|      7 | PERMANENT    | 78           | JALAHALLI    | BANGALORE SOUTH | BANGALORE       | BANGALORE | 574896  |
+|      8 | PERMANENT    | 68           | MC ROAD      | BELGUM WEST     | BELGUM          | BELGUM    | 574125  |
+|      9 | PERMANENT    | 71           | MALLESHWARAM | BANGALORE SOUTH | BANGALORE       | BANGALORE | 510986  |
+|     10 | PERMANENT    | 58           | MG ROAD      | BELGUM EAST     | BELGUM          | BELGUM    | 109374  |
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+16 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO VALUES(7, 'CURRENT', 16, 'BTM LAYOUT','PR PALYA', 'HEBBAL','MYSORE',293077);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO VALUES(8, 'CURRENT', 15, 'NS PALYA','NGR NAGAR', 'HEBBAL','MYSORE',293677);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO VALUES(9, 'CURRENT', 12, 'KR PALYA','KR NAGAR', 'HEBBAL','MYSORE',293670);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO EMPLOYEE_ADDRESS_INFO VALUES(10, 'CURRENT', 17, 'JP PALYA','JP NAGAR', 'HEBBAL','MYSORE',293679);
+Query OK, 1 row affected (0.34 sec)
+
+mysql> select * from employee_address_info;
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+| EMP_ID | ADDRESS_TYPE | HOUSE_NUMBER | ADDRESS1     | ADDRESS2        | LANDMARK        | CITY      | PINCODE |
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+|      1 | CURRENT      | 12           | GANESH NAGAR | BANASHANKARI    | BANGALORE SOUTH | BANGALORE | 546271  |
+|      1 | PERMANENT    | 10           | MAGADI ROAD  | BANGALORE EAST  | BANGALORE       | BANGALORE | 574050  |
+|      2 | CURRENT      | 72           | VANI NAGAR   | CHITTUR         | VIJAYAWADA      | HYDERABAD | 546342  |
+|      2 | PERMANENT    | 11           | MG ROAD      | MYSORE EAST     | MYSORE          | MYSORE    | 574050  |
+|      3 | CURRENT      | 56           | PALYA        | RC NAGAR        | MUMBAI SOUTH    | MUMBAI    | 453201  |
+|      3 | PERMANENT    | 10           | JAYANAGAR    | BANGALORE WEST  | BANGALORE       | BANGALORE | 574046  |
+|      4 | CURRENT      | 34           | BADAMI NAGAR | KRS ROAD        | KRS             | MYSORE    | 293847  |
+|      4 | PERMANENT    | 34           | BADAMI       | MYSORE WEST     | MYSORE          | MYSORE    | 574034  |
+|      5 | CURRENT      | 30           | MICO LAYOUT  | NS PALYA        | HEBBAL          | MYSORE    | 293097  |
+|      5 | PERMANENT    | 16           | YALAHANKA    | BANGALORE WEST  | BANGALORE       | BANGALORE | 574566  |
+|      6 | CURRENT      | 19           | MS PALYA     | SHANTHI NAGAR   | BASAVANAGUDI    | MYSORE    | 564738  |
+|      6 | PERMANENT    | 64           | KC ROAD      | MYSORE WEST     | MYSORE          | MYSORE    | 574290  |
+|      7 | CURRENT      | 16           | BTM LAYOUT   | PR PALYA        | HEBBAL          | MYSORE    | 293077  |
+|      7 | PERMANENT    | 78           | JALAHALLI    | BANGALORE SOUTH | BANGALORE       | BANGALORE | 574896  |
+|      8 | CURRENT      | 15           | NS PALYA     | NGR NAGAR       | HEBBAL          | MYSORE    | 293677  |
+|      8 | PERMANENT    | 68           | MC ROAD      | BELGUM WEST     | BELGUM          | BELGUM    | 574125  |
+|      9 | CURRENT      | 12           | KR PALYA     | KR NAGAR        | HEBBAL          | MYSORE    | 293670  |
+|      9 | PERMANENT    | 71           | MALLESHWARAM | BANGALORE SOUTH | BANGALORE       | BANGALORE | 510986  |
+|     10 | CURRENT      | 17           | JP PALYA     | JP NAGAR        | HEBBAL          | MYSORE    | 293679  |
+|     10 | PERMANENT    | 58           | MG ROAD      | BELGUM EAST     | BELGUM          | BELGUM    | 109374  |
++--------+--------------+--------------+--------------+-----------------+-----------------+-----------+---------+
+20 rows in set (0.00 sec)
+
+mysql> select * from employee_EDUCATION_info;
++--------+----------------+--------------+------------+--------+------------+-----------------+
+| EMP_ID | EDUCATION_TYPE | COLLEGE_NAME | YOP        | STREAM | PERCENTAGE | UNIVERSITY_NAME |
++--------+----------------+--------------+------------+--------+------------+-----------------+
+|      1 | B.E            | SIT          | 2019-07-15 | ECE    |       67.1 | VTU             |
+|      2 | B.E            | CANARA       | 2018-10-11 | ECE    |       63.4 | VTU             |
+|      3 | B.E            | SIT          | 2019-12-25 | CSE    |      69.11 | VTU             |
+|      4 | B.E            | CANARA       | 2019-06-23 | ECE    |       77.1 | VTU             |
+|      5 | B.E            | VCET         | 2019-10-25 | ECE    |      67.88 | VTU             |
+|      6 | B.E            | SIT          | 2019-07-15 | ISE    |       67.6 | VTU             |
+|      7 | B.E            | PA           | 2017-07-23 | ME     |       56.9 | RAJEEVGANDHI    |
+|      8 | B.E            | JOSEPH       | 2019-07-15 | ECE    |         80 | VTU             |
+|      9 | B.E            | SAHYADRI     | 2019-04-19 | CSE    |      69.19 | VTU             |
+|     10 | B.E            | VCET         | 2018-07-15 | EEE    |      75.59 | RAJEEVGANDHI    |
++--------+----------------+--------------+------------+--------+------------+-----------------+
+10 rows in set (0.16 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(1, 'SSLC', 'JANATHA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 90.56, 'KARNATAKA');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(2, 'SSLC', 'JANATHA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 80.16, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(3, 'SSLC', 'JANATHA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 71.24, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(4, 'SSLC', 'JANATHA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 82.04, 'KARNATAKA');
+Query OK, 1 row affected (0.36 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(5, 'SSLC', 'JANATHA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 72.00, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(6, 'SSLC', 'VIVEKANANDA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 72.00, 'KARNATAKA');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(7, 'SSLC', 'VIVEKANANDA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 75.90, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(8, 'SSLC', 'VIVEKANANDA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 85.99, 'KARNATAKA');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(9, 'SSLC', 'VIVEKANANDA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 83.79, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(10, 'SSLC', 'VIVEKANANDA HIGH SCHOOL', '2013-06-01', 'STATE BOARD', 69.79, 'KARNATAKA');
+Query OK, 1 row affected (0.34 sec)
+
+mysql> select * from employee_EDUCATION_info;
++--------+----------------+-------------------------+------------+-------------+------------+-----------------+
+| EMP_ID | EDUCATION_TYPE | COLLEGE_NAME            | YOP        | STREAM      | PERCENTAGE | UNIVERSITY_NAME |
++--------+----------------+-------------------------+------------+-------------+------------+-----------------+
+|      1 | B.E            | SIT                     | 2019-07-15 | ECE         |       67.1 | VTU             |
+|      1 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |      90.56 | KARNATAKA       |
+|      2 | B.E            | CANARA                  | 2018-10-11 | ECE         |       63.4 | VTU             |
+|      2 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |      80.16 | KARNATAKA       |
+|      3 | B.E            | SIT                     | 2019-12-25 | CSE         |      69.11 | VTU             |
+|      3 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |      71.24 | KARNATAKA       |
+|      4 | B.E            | CANARA                  | 2019-06-23 | ECE         |       77.1 | VTU             |
+|      4 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |      82.04 | KARNATAKA       |
+|      5 | B.E            | VCET                    | 2019-10-25 | ECE         |      67.88 | VTU             |
+|      5 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |         72 | KARNATAKA       |
+|      6 | B.E            | SIT                     | 2019-07-15 | ISE         |       67.6 | VTU             |
+|      6 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |         72 | KARNATAKA       |
+|      7 | B.E            | PA                      | 2017-07-23 | ME          |       56.9 | RAJEEVGANDHI    |
+|      7 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |       75.9 | KARNATAKA       |
+|      8 | B.E            | JOSEPH                  | 2019-07-15 | ECE         |         80 | VTU             |
+|      8 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |      85.99 | KARNATAKA       |
+|      9 | B.E            | SAHYADRI                | 2019-04-19 | CSE         |      69.19 | VTU             |
+|      9 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |      83.79 | KARNATAKA       |
+|     10 | B.E            | VCET                    | 2018-07-15 | EEE         |      75.59 | RAJEEVGANDHI    |
+|     10 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |      69.79 | KARNATAKA       |
++--------+----------------+-------------------------+------------+-------------+------------+-----------------+
+20 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(1, 'PUC', 'VIVEKANANDA PU COLLEGE', '2015-07-01', 'STATE BOARD', 75.00, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(2, 'PUC', 'VIVEKANANDA PU COLLEGE', '2015-07-01', 'STATE BOARD', 65.40, 'KARNATAKA');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(3, 'PUC', 'VIVEKANANDA PU COLLEGE', '2015-07-01', 'STATE BOARD', 85.48, 'KARNATAKA');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(4, 'PUC', 'VIVEKANANDA PU COLLEGE', '2015-07-01', 'STATE BOARD', 75.48, 'KARNATAKA');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(5, 'PUC', 'VIVEKANANDA PU COLLEGE', '2015-07-01', 'STATE BOARD', 65.78, 'KARNATAKA');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(6, 'PUC', 'CANARA PU COLLEGE', '2015-07-01', 'STATE BOARD', 84.68, 'KARNATAKA');
+Query OK, 1 row affected (0.36 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(7, 'PUC', 'CANARA PU COLLEGE', '2015-07-01', 'STATE BOARD', 94.08, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(8, 'PUC', 'CANARA PU COLLEGE', '2015-07-01', 'STATE BOARD', 84.00, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(9, 'PUC', 'CANARA PU COLLEGE', '2015-07-01', 'STATE BOARD', 94.90, 'KARNATAKA');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMPLOYEE_EDUCATION_INFO VALUES(10, 'PUC', 'CANARA PU COLLEGE', '2015-07-01', 'STATE BOARD', 74.99, 'KARNATAKA');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from employee_EDUCATION_info;
++--------+----------------+-------------------------+------------+-------------+------------+-----------------+
+| EMP_ID | EDUCATION_TYPE | COLLEGE_NAME            | YOP        | STREAM      | PERCENTAGE | UNIVERSITY_NAME |
++--------+----------------+-------------------------+------------+-------------+------------+-----------------+
+|      1 | B.E            | SIT                     | 2019-07-15 | ECE         |       67.1 | VTU             |
+|      1 | PUC            | VIVEKANANDA PU COLLEGE  | 2015-07-01 | STATE BOARD |         75 | KARNATAKA       |
+|      1 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |      90.56 | KARNATAKA       |
+|      2 | B.E            | CANARA                  | 2018-10-11 | ECE         |       63.4 | VTU             |
+|      2 | PUC            | VIVEKANANDA PU COLLEGE  | 2015-07-01 | STATE BOARD |       65.4 | KARNATAKA       |
+|      2 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |      80.16 | KARNATAKA       |
+|      3 | B.E            | SIT                     | 2019-12-25 | CSE         |      69.11 | VTU             |
+|      3 | PUC            | VIVEKANANDA PU COLLEGE  | 2015-07-01 | STATE BOARD |      85.48 | KARNATAKA       |
+|      3 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |      71.24 | KARNATAKA       |
+|      4 | B.E            | CANARA                  | 2019-06-23 | ECE         |       77.1 | VTU             |
+|      4 | PUC            | VIVEKANANDA PU COLLEGE  | 2015-07-01 | STATE BOARD |      75.48 | KARNATAKA       |
+|      4 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |      82.04 | KARNATAKA       |
+|      5 | B.E            | VCET                    | 2019-10-25 | ECE         |      67.88 | VTU             |
+|      5 | PUC            | VIVEKANANDA PU COLLEGE  | 2015-07-01 | STATE BOARD |      65.78 | KARNATAKA       |
+|      5 | SSLC           | JANATHA HIGH SCHOOL     | 2013-06-01 | STATE BOARD |         72 | KARNATAKA       |
+|      6 | B.E            | SIT                     | 2019-07-15 | ISE         |       67.6 | VTU             |
+|      6 | PUC            | CANARA PU COLLEGE       | 2015-07-01 | STATE BOARD |      84.68 | KARNATAKA       |
+|      6 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |         72 | KARNATAKA       |
+|      7 | B.E            | PA                      | 2017-07-23 | ME          |       56.9 | RAJEEVGANDHI    |
+|      7 | PUC            | CANARA PU COLLEGE       | 2015-07-01 | STATE BOARD |      94.08 | KARNATAKA       |
+|      7 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |       75.9 | KARNATAKA       |
+|      8 | B.E            | JOSEPH                  | 2019-07-15 | ECE         |         80 | VTU             |
+|      8 | PUC            | CANARA PU COLLEGE       | 2015-07-01 | STATE BOARD |         84 | KARNATAKA       |
+|      8 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |      85.99 | KARNATAKA       |
+|      9 | B.E            | SAHYADRI                | 2019-04-19 | CSE         |      69.19 | VTU             |
+|      9 | PUC            | CANARA PU COLLEGE       | 2015-07-01 | STATE BOARD |       94.9 | KARNATAKA       |
+|      9 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |      83.79 | KARNATAKA       |
+|     10 | B.E            | VCET                    | 2018-07-15 | EEE         |      75.59 | RAJEEVGANDHI    |
+|     10 | PUC            | CANARA PU COLLEGE       | 2015-07-01 | STATE BOARD |      74.99 | KARNATAKA       |
+|     10 | SSLC           | VIVEKANANDA HIGH SCHOOL | 2013-06-01 | STATE BOARD |      69.79 | KARNATAKA       |
++--------+----------------+-------------------------+------------+-------------+------------+-----------------+
+30 rows in set (0.00 sec)
