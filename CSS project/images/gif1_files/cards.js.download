@@ -1,0 +1,1056 @@
+// Masonry and card code that runs at initial first page load
+$(function() {
+	
+	autoanimate_cards(); // disable animation on cards now visible
+	
+	$('.fanpup_bubble').each(function() {
+		var height = $(this).outerHeight();
+		$(this).parents('.fanpup_says').css('height', height);
+	});
+
+	$('#cardcontainer').masonry({
+		itemSelector: '.contentcard',
+		columnWidth: 302,
+		gutter:20,
+		isFitWidth: true,
+		isAnimated: false,
+		transitionDuration: 0
+	});
+	$('#cardcontainer').masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) {
+			//console.log('Masonry layout completed on ' + laidOutItems.length + ' items');
+			$.each(laidOutItems, (function(i, value) {
+					$(value.element).addClass('masonry-complete');
+			}));
+	} );
+	resize_masonry(); // sets the initial cardcontainer size based on screen size for container doesn't expand as cards are loaded but starts fully expanded
+
+	(function () {
+			if ($('body').hasClass('mobile')) {
+				var wwidth = $(window).width();
+				var wheight = $(window).height();
+				var max_dim = wwidth;
+				if (wheight > max_dim) {
+					max_dim = wheight;
+				}
+				if (max_dim > 640 && wwidth > 640 && wheight > 640) {
+					$('body').addClass('tablet');
+				}
+			}
+	})();
+		
+	bindKeyActions();
+	bindHeaderActions();
+	
+	// Load a leaderboard ad if device is a tablet or desktop
+	load_leaderboard_ad();
+	
+	// This code causes content in #cardcontainer-hidden to appear in #cardcontainer for a pleasing entry effect provided by masonry	
+	var newElements = $('#cardcontainer-hidden').children();
+	if ($('#cardcontainer').children().length > 0) { // If #cardcontainer was populated then this is a permalink page so we deal with it a little differently checking for browser window size
+		check_if_big_card_fits_on_device($('#cardcontainer'));
+		masonry_reflow($('#cardcontainer'));
+		if (newElements.length > 0) {
+		//window.setTimeout(function() {
+				$('#cardcontainer').append(newElements);
+				$('#cardcontainer').masonry("appended", newElements);
+		//}, 400);
+		}
+	} else {
+		if (newElements.length > 0) {
+			$('#cardcontainer').append(newElements).masonry("appended", newElements);
+		}
+	}
+	
+	// Bind reflow and resizing of big cards to window resize
+	$(window).bind('resize.masonry', resize_masonry);
+	
+	//If there are low res images in the cards, then load the hires version instead
+	load_hires_images_into_cards();
+	
+	// Cause window to jump to top so it doesn't scroll down on refresh
+	//$(window).bind('beforeunload', function() {
+	//		$(window).scrollTop(0);
+	//});
+
+	// Run masonry again in 2 seconds in case of larger than expected large ad fill in
+	window.setTimeout(function(){ masonry_reflow($('#cardcontainer')); }, 2000);
+});
+
+jQuery( function($) {
+		
+	// adds a binding that will add a binding to enable infinite scroll when triggered
+	$(window).bind("add_infinite_scroll", function(event, ga_event_function) {
+			add_infinite_scroll($(window), function() {if (typeof ga_event !== "undefined") { ga_event('infinite_scroll', '<%=@viewer_next_page%>'); }});
+	});	
+
+});
+var testvar = false;
+var touch_start_y;
+var hover_intent_timeout_handler;
+var fanpop_data = fanpop_data || {};
+
+function getDocHeight() {
+	var db = document.body;
+	var dde = document.documentElement;
+	return Math.max(
+			Math.max(db.scrollHeight, dde.scrollHeight),
+			Math.max(db.offsetHeight, dde.offsetHeight),
+			Math.max(db.clientHeight, dde.clientHeight)
+	);
+}
+
+var infinite_scroll_function = function() {
+		var target_area;
+		var doc_height;
+		var trigger_height;
+		if ($(this)[0] == window) {
+			target_area = $('#cardcontainer').parent();
+			doc_height = getDocHeight();
+			trigger_height = $('.contentcard', $('#cardcontainer')).not('.collapse').last().offset().top;
+		} else {
+			target_area = $(this);
+			doc_height = $(this).contents().height();
+			trigger_height = $('.contentcard', $(this)).not('.collapse').last().offset().top - $(window).scrollTop();
+		}
+		
+		// when scrolling turn on and off animated gifs based on viewport
+		autoanimate_cards(target_area);
+		
+		//this sets the height where infinite scroll triggers.  If the height is higher than the height of the new cards brought in, strange things may happen
+		var trigger_load = false;
+		if ($(this).parents('.lightbox').length > 0) {
+			if (testvar == true) { console.log("lightbox scroll detected. window height: "+$(window).height()+"; trigger height: "+trigger_height); }
+			trigger_load = trigger_height < $(window).height(); 
+		} else {
+			if (testvar == true) { console.log("scroll detected. position is: "+ ($(this).scrollTop() + $(window).height()) + "; trigger height is: "+trigger_height); }
+			trigger_load = trigger_height < $(this).scrollTop() + $(window).height() + 100;
+		}
+		if (trigger_load) {
+			if (testvar == true) {
+				console.log("starting code to trigger a load");
+			}
+			$(this).unbind("scroll");
+			if (typeof ga_event_function === "function") {
+				try {
+					ga_event_function();
+				} catch(e) {
+				}
+			}
+			var more_cards = $('.more_cards_link', target_area);
+			var more_cards_link = more_cards.first().children('a').first();
+			if (more_cards_link.length > 0 && more_cards_link.attr("href") != "")	{			
+				if (testvar == true) {
+					console.log("triggering: " + more_cards_link.attr("href"));
+				}
+				manual_card_load(more_cards_link.attr("href"), target_area);
+				
+				// load a failsafe link if no more cards load after 10 sec
+				var failsafe_url;
+				var last_card;
+				last_card = $('.contentcard', target_area).last(); // This is supposedly faster than $('#cardcontainer .contentcard:last')
+				if ($('.ad', last_card).length > 0) {
+					// This card is an ad; get the second to last card instead
+					last_card = last_card.siblings().last();
+				}
+				if ( last_card.length > 0 ) {
+					failsafe_url = last_card.attr("data-permalink");
+					if (typeof failsafe_url !== "undefined") {
+						window.setTimeout(function() { load_failsafe_link(failsafe_url, more_cards); }, 10*1000);
+					}
+					else {
+						console.log("Unable to find url for failsafe link.");
+					}
+				}
+			}
+		}
+};
+function add_infinite_scroll(target, ga_event_function) {
+	if (typeof target === "undefined") {
+		target = $(window);
+	}
+	target.unbind("scroll"); // unbind scroll action if previously bound
+	target.bind("scroll", infinite_scroll_function);
+	
+	if (target == $(window)) {
+		touch_target = $('body');
+	} else {
+		touch_target = target;
+	}
+	//touch_target.append($('<div id="debug" style="z-index:10000;position:fixed;top:10px;left:10px;padding:20px;background-color:#FFFFFF;"></div>'));
+	touch_target.unbind("touchstart");
+	touch_target.bind("touchstart", function(e) {
+			event1 = e.originalEvent; // Touch is part of the original event, but not the jQuery event object
+			if (event1.touches && event1.touches.length > 0) {
+				touch_start_y = event1.touches[0].pageY;
+			}
+	});
+	touch_target.unbind("touchmove");
+	touch_target.bind("touchmove", function(e) {
+			event1 = e.originalEvent; // Touch is part of the original event, but not the jQuery event object
+			var touch_y_delta = 0;
+			var touch_y;
+			if (event1.touches && event1.touches.length > 0) {
+				touch_y = event1.touches[0].pageY;
+				touch_y_delta = touch_y - touch_start_y;
+				//$("#debug").html($(this).scrollTop());
+				if (touch_y_delta < -50) {
+					// scroll down (touch finger moving upward) detected
+					infinite_scroll_function();
+				}
+			}
+			
+	});
+	
+	// Run masonry again in 2 seconds in case of larger than expected large ad fill in
+	var container = $('#lightboxcardcontainer');
+	if (container.length == 0) {
+		container = $('#cardcontainer');
+	}
+	if (container.length > 0) {
+		window.setTimeout(function(){masonry_reflow(container);}, 2000);
+	}
+}
+
+
+function load_failsafe_link(permalink_url, more_cards) {
+	if (more_cards.children('.more_cards_loader').length == 0)
+	{
+		// No loader found - so infinite scroll load was probably successful
+		//console.log("Fail safe code executed and no loader found. Exiting.");
+		return false;
+	}
+	// make sure the last card on the page is the same as the permalink_url (otherwise new cards have been loaded and this failsafe call can be ignored
+	//console.log("Fail safe code executed and loader found. Checking last card for match.");
+	var last_card;
+	last_card = $('.contentcard', more_cards.parent()).last();
+	if ($('.ad', last_card).length > 0) {
+		// This card is an ad; get the second to last card instead
+		last_card = last_card.siblings().last();
+	}
+	if ( last_card.length > 0 ) {
+		if (last_card.attr("data-permalink") == permalink_url) {
+			// everything checks out; proceed
+			var fail_safe_link;
+			fail_safe_link = $('<a></a>').html("click here for more...").attr("href", permalink_url);
+			fail_safe_link.click( function() {
+					ga_event("infinite_scroll", "fail_safe", "clicked");
+			});
+			more_cards.empty().append(fail_safe_link);
+			ga_event("infinite_scroll", "fail_safe", "inserted_link");
+			//console.log("Fail safe link inserted.");
+			return;
+		}
+	}
+}
+
+function bind_actions_to_cards(scope) { // This function binds jquery functions to various elements on cards including the footer controls and clicking on a video, etc
+	// Because various functions were already written this function simply consolidates the calls into one grouping in case we want to call the others separately for whatever reason
+	// Calling bind_actions_to_cards() without scope will affect the whole page; future cards should have this called on those cards only (using scope to limit the affect)
+	enable_lightbox_on_cards(scope);
+	bind_body_controls_on_cards(scope);
+	bind_footer_controls_on_cards(scope);
+	bind_video_controls_on_cards(scope);
+}
+
+function enable_lightbox_on_cards(scope) {
+	var loggedout = $('body').hasClass('logged-out');
+	var tablet = $('body').hasClass('tablet') || $('body').hasClass('desktop');
+
+	if (tablet) {
+		var cards = $('.contentcard', scope);
+		cards.each( function (index) {
+				if ($(this).hasClass('bigcard')==false && $(this).hasClass('bigclassx')==false) {
+					var permalink = $(this).attr('data-permalink');
+					if ($(this).hasClass('photocontentcard') || $(this).hasClass('fanartcontentcard') || $(this).hasClass('wallpapercontentcard') || $(this).hasClass('iconcontentcard')) {
+						if (permalink.indexOf("?") == -1) {
+							permalink = permalink + "?card";
+						} else {
+							if (permalink.indexOf("?card") == -1 && permalink.indexOf("&card") == -1) {
+								permalink = permalink + "&card";
+							}
+						}
+						var links = $('.card-body a', $(this));
+						links.each( function(index) {
+							if ($(this).parents('.slideshow-arrows').length == 0) {
+								$(this).addClass('ajax').addClass('targetlightbox').attr('href', permalink);
+							}
+						});
+					}
+				}
+		});
+		bindAjaxLinks(scope);
+	}
+}
+
+function bind_video_controls_on_cards(scope) {
+	var tablet = $('body').hasClass('tablet') || $('body').hasClass('desktop');
+	tablet = false;
+	
+	// Bind click action on videos to autoplay video (if no .lod_card_video class found in scope, then this does nothing)
+	if (!tablet) {
+		$('.lod_card_video', scope).unbind('click');
+		$('.lod_card_video', scope).click( function(cardClickEvent){
+				//	$('.lod_card_video').on('click', function(cardClickEvent){
+				cardClickEvent.preventDefault();
+				//$('.video_container').html('VIDEO_CONTAINER');
+				//	$('.video_card_iframe').attr('src', ' ');
+				//	$('.card-main-image-element').css('visibility', 'visible');
+				//	$('.video_card_iframe').remove();
+		
+				//	var video_id = $(this).attr('href');
+				var video_id = $(this).attr('media');
+	
+				var video_iframe = '<iframe class="video_card_iframe" src="http://www.youtube.com/embed/' + video_id + '?autoplay=1" frameborder="0" allowfullscreen ></iframe>';
+		
+				$('#lod_video_' + video_id).html(video_iframe);
+		
+				// Added GA Event tracking
+				ga_event('card_click', 'video', 'play');
+				
+				return false;
+		});
+	}
+	
+}
+
+function bind_body_controls_on_cards(scope) {
+	$('.articlecontentcard .card-body .continue-reading', scope).unbind('click.controls');
+	$('.articlecontentcard .card-body .continue-reading', scope).bind('click.controls', function( event ) {
+			event.stopPropagation();
+			//$(this).parents('.article_body').removeClass('clickable').unbind('click');
+			if (typeof ga_event !== "undefined") {
+				ga_event('card_click', 'bottom text link', 'load_article_remainder');
+			}
+	});
+	$('.articlecontentcard .card-body .article_body.clickable', scope).unbind('click.controls');
+	$('.articlecontentcard .card-body .article_body.clickable', scope).bind('click.controls', function() {
+			if (true) { // new behavior - same as clicking on title link
+				title_link = $('.card-title', $(this).parents('.card-body'));
+				if (title_link.length > 0) {
+					title_link[0].click();
+					if (typeof ga_event !== "undefined") {
+						ga_event('card_click', 'article body', 'load_permalink_page');
+					}				
+				}
+			} else { // former behavior - expand article card
+				$('.continue-reading', $(this)).click();
+				if (typeof ga_event !== "undefined") {
+					ga_event('card_click', 'article body', 'load_article_remainder');
+				}
+			}
+	});
+	$('.articlecontentcard .card-body .card-title', scope).unbind('click.controls');
+	$('.articlecontentcard .card-body .card-title', scope).bind('click.controls', function() {
+			if (typeof ga_event !== "undefined") {
+				ga_event('card_click', 'article title', 'load_permalink_page');
+			}				
+	});
+	
+	apply_optimizely_variation_article_animation(scope)
+	$('.articlecontentcard .card-body .card-article-image-container.animated-gif', scope).unbind('mouseenter.controls mouseleave.controls');
+	$('.articlecontentcard .card-body .card-article-image-container.animated-gif', scope).bind({
+			'mouseenter.controls': function() {
+				var animated_image = $('img', $(this));
+				if (animated_image.hasClass('hover-animate') && typeof animated_image.attr('data-animated-src') !== "undefined") {
+					if (typeof animated_image.attr('data-still-src') === "undefined") { animated_image.attr('data-still-src', animated_image.attr('src'));	}
+					animated_image.attr('src', animated_image.attr('data-animated-src'));
+				}
+			},
+			'mouseleave.controls': function() {
+				var animated_image = $('img', $(this));
+				if (animated_image.hasClass('hover-animate') && typeof animated_image.attr('data-still-src') !== "undefined") {
+					animated_image.attr('src', animated_image.attr('data-still-src'));
+				}
+			}
+	});
+	$('.articlecontentcard .card-body .card-article-image-container.animated-gif .card-article-image-block', scope).unbind('click.controls mouseleave.controls');
+	$('.articlecontentcard .card-body .card-article-image-container.animated-gif .card-article-image-block', scope).bind('click.controls', function(event) {
+			var controls = $('.animated-gif-controls', $(this).parents('.card-article-image-container'));
+			var image = $(this).children('img');
+			if (controls.hasClass('show-controls') && typeof image.attr('data-animated-src') !== "undefined") {
+				event.stopPropagation();
+				event.preventDefault();
+				if (typeof image.attr('data-still-src') === "undefined") { image.attr('data-still-src', image.attr('src'));	}
+				if (controls.hasClass('playing')) {
+					controls.removeClass('playing')
+					image.attr('src', image.attr('data-still-src'));
+				} else {
+					image.attr('src', image.attr('data-animated-src'));
+					controls.addClass('playing')
+				}
+			}
+	});
+
+	$('.contentcard.related-club-card .related-club-block', scope).unbind('click.controls');
+	$('.contentcard.related-club-card .related-club-block', scope).bind('click.controls', function() {
+			window.location=$('a', $(this)).attr('href');
+			if (typeof ga_event !== "undefined") {
+				var card_number = $(this).parents('.contentcard').prevAll('.related-club-card').length;
+				ga_event('card_click', 'related card', 'card '+card_number);
+			}
+	});
+	$('.contentcard .tags .tag', scope).unbind('click.controls');
+	$('.contentcard .tags .tag', scope).bind('click.controls', function() {
+			if ($(this).hasClass('clickable')==true) {
+				if ($(this).attr('data-target-url') !== "undefined" && $(this).attr('data-target-url') != "") {
+					window.location=$(this).attr('data-target-url');
+					if (typeof ga_event !== "undefined") {
+						ga_event('card_click', 'tag filter', $(this).html(), {'nonInteraction': 1});
+					}
+				}
+			} else {
+				if (typeof ga_event !== "undefined") {
+					//console.log("ga_event('card_click', 'tag filter (not clickable)', '"+$(this).html()+"', {'nonInteraction': 1});");
+					ga_event('card_click', 'tag filter (not clickable)', $(this).html(), {'nonInteraction': 1});
+				}
+			}
+	});
+}
+function bind_footer_controls_on_cards(scope) {
+	$('.contentcard .title-bar .like, .contentcard .title-bar .unlike, .contentcard .card-footer-controls .collect', scope).unbind('click');
+	$('.contentcard .title-bar .like, .contentcard .title-bar .unlike, .contentcard .card-footer-controls .collect', scope).click(function() {
+			if ($(this).hasClass('clickable')==true) {
+				$(this).removeClass('clickable');
+				ajax_complex($(this).attr('data-target-url'), "ajax_handler_div", {on_status: $(this).hasClass("on")}, null, null, null, null);
+			}
+	});
+	$('.contentcard .title-bar .like', scope).unbind('hover');
+	$('.contentcard .title-bar .like', scope).hover(function() {
+			var hover_url = $(this).attr('data-hover-url');
+			if (typeof hover_url !== "undefined" && hover_url != "") {
+				// only load like on hover if user holds mouse over it for longer than a second
+				if (hover_intent_timeout_handler) { clearTimeout(hover_intent_timeout_handler);	}
+				var that = $(this); // $(this) disappears in anonymous functions so we have to save it in a variable
+				hover_intent_timeout_handler = window.setTimeout(function () {
+					ajax_complex(hover_url, "ajax_handler_div", {on_status: that.hasClass("on")}, null, null, null, null);
+					that.attr('data-hover-url','');
+				}, 1000);
+			}
+	}, function () {
+			if (hover_intent_timeout_handler) { clearTimeout(hover_intent_timeout_handler);	}
+	});
+	
+	$('.contentcard .title-bar .comment-icon', scope).unbind('click');
+	$('.contentcard .title-bar .comment-icon', scope).click(function() {
+			if ($(this).hasClass('clickable')==true) {
+				$(this).removeClass('clickable');
+				if ($(this).parents('.title-bar').siblings('.card-footer').children('.card-footer-comments').length > 0) {
+					$('.card-footer-comments form input[type=\'text\']', $(this).parents('.title-bar').siblings('.card-footer')).focus();
+				} else {
+					ajax($(this).attr('data-target-url'), "ajax_handler_div");
+				}
+			}
+			if (typeof ga_event !== "undefined") {
+				ga_event('card_click', 'control_bar', 'comment', {'nonInteraction': 1});
+			}
+	});
+	$('.contentcard .card-footer-controls .share', scope).unbind('click');
+	$('.contentcard .card-footer-controls .share', scope).click(function() {
+			var pause = 0;
+			if ($(this).hasClass('clickable')==true) {
+				pause = 20;
+				var footer_share_elem = $(this).parents('.card-footer-controls').siblings('.card-footer-share');
+				if (footer_share_elem.length == 0) {
+					// share block is missing, must insert it first
+					$('<div class="card-footer-share"></div>').insertAfter($(this).parents('.card-footer-controls'));
+				}
+				var footer_share_buttons_elem = footer_share_elem.children('.share-buttons');
+				if (footer_share_buttons_elem.length == 0) {
+					// interior share block is missing, must insert it first
+					footer_share_buttons_elem = $('<div class="share-buttons"></div>');
+					footer_share_elem.append(footer_share_buttons_elem);
+				}
+				if (footer_share_buttons_elem.children().length == 0) {
+					// need to create sharing widget
+					sharethis_widget_create(footer_share_buttons_elem);
+				}
+				if ($(this).hasClass('on')) {
+					$(this).removeClass('on');
+					$(this).parents('.card-footer-controls').siblings('.card-footer-share').removeClass('open');
+				} else {
+					$(this).addClass('on');
+					//var that = $(this);
+					//window.setTimeout(function() { that.parents('.card-footer-controls').siblings('.card-footer-share').addClass('open'); }, pause);
+					$(this).parents('.card-footer-controls').siblings('.card-footer-share').addClass('open');
+				}
+				//that = $(this) // need to copy $(this) or it will be a different $(this) in the next anonymous function
+				//window.setTimeout(function() { masonry_reflow(that); }, 220);
+				masonry_reflow($(this));
+			}
+			if (typeof ga_event !== "undefined") {
+				if ($(this).parents('.bigcard').length == 0 && $(this).parents('.bigcardx').length == 0) {
+					ga_event('card_click', 'control_bar', 'share', {'nonInteraction': 1});
+				}
+			}
+	});
+	var bigcard = $('.contentcard.bigcard').first();
+	if (bigcard.length == 0) {
+		bigcard = $('.contentcard.bigcardx').first();
+	}
+	if ($('.card-footer-controls', bigcard).siblings('.card-footer-share').length == 0 || $('.card-footer-controls', bigcard).siblings('.card-footer-share').children('.share-buttons').length == 0 || $('.card-footer-controls', bigcard).siblings('.card-footer-share').children('.share-buttons').children().length == 0) {
+		$('.card-footer-controls .share', bigcard).click(); //auto click big cards
+	}
+	
+	// Bind some GA events to clicking on cards to determine card usage
+	$('.contentcard .card-body .card-body-image a', scope).unbind('click.ga_tracking');
+	$('.contentcard .card-body .card-body-image a', scope).bind('click.ga_tracking', function() {
+			if (typeof ga_event !== "undefined") {
+				var image = "image";
+				if ($(this).parents('.contentcard').attr('data-site-id') == $('.contentcard:first').attr('data-site-id')) {
+					image = "first_image";
+				}
+				if ($(this).attr("target")=="_blank") {
+					ga_event('card_click', image, 'load_big_image_in_tab');
+				} else {
+					ga_event('card_click', image, 'load_permalink_page');
+				}
+			}
+	});
+	$('.contentcard .card-body .title-bar .title a', scope).unbind('click.ga_tracking');
+	$('.contentcard .card-body .title-bar .title a', scope).bind('click.ga_tracking', function() {
+			var title_text = "title_text";
+			if ($(this).parents('.contentcard').attr('data-site-id') == $('.contentcard:first').attr('data-site-id')) {
+				title_text = "first_image_title_text";
+			}
+			if (typeof ga_event !== "undefined") {
+				if ($(this).attr("target")=="_blank") {
+					ga_event('card_click', title_text, 'load_big_image_in_tab');
+				} else {
+					ga_event('card_click', title_text, 'load_permalink_page');
+				}
+			}
+	});
+}
+
+var infinite_scroll_key = ""; // needed to make sure that infinite scroll load doesn't do anything if the url/page has changed
+function manual_card_load(u, target_area){
+	if (typeof target_area === "undefined") {
+		target_area = $('#cardcontainer').parent();
+	}
+	infinite_scroll_key = window.location.href; // assign the current url as the key to prevent incorrect application of infinite scroll result
+	$('.more_cards_link',target_area).empty().append('<div class="more_cards_loader" style="background: url(http://www.fanpop.com/images/transition/boxloader.gif) no-repeat center center;height:24px"></div>');
+	ajax(u, 'ajax_handler_div');
+}
+
+function load_hires_images_into_cards(scope) {
+	$('.contentcard .card-body .card-body-image img.fast', scope).each(function(index) {
+			if ( $(this).attr("src") != $(this).attr("data-hires-img") ) {
+				$(this).attr("src", $(this).attr("data-hires-img"));
+				$(this).removeClass("fast");
+			}
+	});
+}
+
+function check_if_big_card_fits_on_device(scope) {
+	var current_window_width = $(window).width();
+	//console.log("window width:" + current_window_width);
+	var bigcard;
+	if (current_window_width < 664) { // 624 is big card width + 20px margin on both sides
+		bigcard = $('.contentcard.bigcard', scope);
+		bigcard.removeClass('bigcard').addClass('bigcardx');
+		if (bigcard.length == 0) {
+			bigcard = $('.contentcard.bigcardx', scope);
+		}
+		$('.card-body .card-body-image', bigcard).attr('style', '');
+		ratio = $('.card-body .card-body-image .card-main-image-element', bigcard).attr('data-max-height') / $('.card-body .card-body-image .card-main-image-element', bigcard).attr('data-max-width');
+		//console.log("data-max-height:" + $('.card-body .card-body-image .card-main-image-element', bigcard).attr('data-max-height'));
+		//console.log("data-max-width:" + $('.card-body .card-body-image .card-main-image-element', bigcard).attr('data-max-width'));
+		$('.card-body .card-body-image .card-main-image-element', bigcard).css({'height':(300*ratio)+'px', 'width':'300px', 'border-width':'', 'padding':''});
+	} else {
+		bigcard = $('.contentcard.bigcardx',scope);
+		bigcard.removeClass('bigcardx').addClass('bigcard');
+		$('.card-body .card-body-image', bigcard).attr('style', $('.card-body .card-body-image', bigcard).attr('data-style'));
+		$('.card-body .card-body-image .card-main-image-element', bigcard).css(
+			{
+				'height':$('.card-body .card-body-image .card-main-image-element', bigcard).attr('data-max-height'), 
+				'width':$('.card-body .card-body-image .card-main-image-element', bigcard).attr('data-max-width'), 
+				'border-width':$('.card-body .card-body-image .card-main-image-element', bigcard).attr('data-border-width')+"px",
+				'padding':$('.card-body .card-body-image .card-main-image-element', bigcard).attr('data-padding')+"px"
+			}
+		);
+		$('.card-body .card-body-image .card-main-image-element', bigcard).attr('style'); // reading locks in the css
+	}
+}
+
+var resize_masonry = function(){
+	if (typeof fanpopVars !== "undefined") {
+		if (typeof fanpopVars.skin_width !== "undefined") {
+			$('body').attr('data-max-container-width',fanpopVars.skin_width);
+			delete fanpopVars.skin_width;
+		}
+	}
+	var current_window_width = $(window).width();
+	var allowed_container_width = current_window_width;
+	var max_container_width = $('body').attr('data-max-container-width');
+	if (typeof max_container_width !== "undefined") {
+		allowed_container_width = parseInt(max_container_width);
+		if (isNaN(allowed_container_width) || allowed_container_width <= 0 || allowed_container_width > current_window_width) {
+			allowed_container_width = current_window_width;
+		}
+	}
+	if ($('#cardcontainer').length > 0) {
+		// card container widths are 1590, 1268, 946, 624, 302 (n = 302 + 322*(n-1))
+		var n = 1;
+		while (allowed_container_width > (302+322*(n))) { n = n + 1;	}
+		if (allowed_container_width - (302+322*(n-1)) < 20) {
+			n = n - 1;
+		}
+		if (n < 1) { n = 1; }
+		$('#cardcontainer').css('min-width', (302+322*(n-1))+'px');
+		$('#cardcontainer').css('max-width', allowed_container_width+'px');
+		if (allowed_container_width < current_window_width) {
+			$('#cardcontainer').parent().css('margin','auto').css('max-width',allowed_container_width+'px');
+		} else {
+			$('#cardcontainer').parent().css('margin','').css('max-width','');
+		}
+	}
+	check_if_big_card_fits_on_device($('#cardcontainer'));
+	masonry_reflow($('#cardcontainer'));//allows for the fluid layout on browser resize
+	if ($('#lightboxcardcontainer').length > 0) {
+		var lightbox_width = current_window_width;
+		if (lightbox_width > 2576) {
+			lightbox_width = 2556;
+		} else if (lightbox_width > 2254) {
+			lightbox_width = 2234;
+		} else if (lightbox_width > 1932) {
+			lightbox_width = 1912;
+		} else if (lightbox_width > 1610) {
+			lightbox_width = 1590;
+		} else if (lightbox_width > 1288) {
+			lightbox_width = 1268;
+		} else if (lightbox_width > 966) {
+			lightbox_width = 946;
+		} else {
+			lightbox_width = 624;
+		}
+		$('#lightboxcardcontainer').css('width',lightbox_width); // Allow container to animate to width specified in cards.css file
+		$('.lightbox .viewport').css('width',current_window_width);
+		//resizeSlideshowArrows($('.lightbox'));
+		masonry_reflow($('#lightboxcardcontainer'));
+		setTimeout(function() {	
+			masonry_reflow($('#lightboxcardcontainer'));
+			//resizeSlideshowArrows($('.lightbox'));
+		}, 1000);
+	}
+	if (typeof load_cards_if_no_scrollbar !== "undefined") {
+		load_cards_if_no_scrollbar();
+	}
+};
+// Adding function that calls target.masonry() but first handles any clean up needed (such as ad collapsing)
+function masonry_reflow(target, refreshcount) {
+	if (typeof target === "undefined" && typeof jQuery !== "undefined") {
+		target = $('#cardcontainer');
+	}
+	if (typeof target === "object" && typeof jQuery !== "undefined" && target instanceof jQuery) {
+		// if passed a target [jquery object] that is not #cardcontainer or #lightboxcardcontainer then try to find the parent cardcontainer and run masonry on that
+		var container_target = [];
+		if (/cardcontainer$/.test(target.attr('id'))) {
+			container_target = target; 
+		} else {
+			if (target.parents('#cardcontainer').length > 0) {
+				container_target = target.parents('#cardcontainer');
+			} else if (target.parents('#lightboxcardcontainer').length > 0) {
+				container_target = target.parents('#lightboxcardcontainer');
+			}
+		}
+		if (container_target.length > 0) {
+			check_if_big_card_fits_on_device(container_target);
+			$('.adcard', container_target).each(function(i) {
+					if ($(this).height() <= 20) {
+						$(this).css('margin','');
+						$(this).addClass('collapse');
+					} else {
+						$(this).removeClass('collapse');
+					}	
+			});
+			container_target.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) {
+					$.each(laidOutItems, (function(i, value) {
+							$(value.element).addClass('masonry-complete');
+					}));
+					return true;
+			} );
+			container_target.masonry();
+			if (typeof refreshcount === "undefined") {
+				refreshcount = 2;
+			}
+			if (refreshcount > 0) {
+				window.setTimeout(function() { masonry_reflow(container_target, refreshcount - 1); }, 1000);
+			}
+		}
+	}
+}
+
+// This handles cursor / arrow key movement on the main window and in lightbox
+function bindKeyActions() {
+	$(document).unbind('keydown');
+	var scrollTarget = "body, html";
+	if ( $('.lightbox .viewport').length > 0 ) {
+		scrollTarget = ".lightbox .viewport";
+	}
+	var slideshow_scope;
+	if ($('.lightbox').length > 0) {
+		slideshow_scope = $('.lightbox');
+	} else {
+		slideshow_scope = $('main');
+	}
+	$(document).keydown(function(event) {
+			var slideshow_obj;
+			switch (event.which) {
+			case 37: //left
+				if (typeof key_console !== "undefined" && key_console == true) { console.log("Key Press: LEFT"); }
+				slideshow_obj = $('.slideshow-arrows .slideshow-left-arrow', slideshow_scope);
+				if (slideshow_obj.length > 0) {
+					slideshow_obj.click();
+					slideshow_obj.addClass('hover');
+					window.setTimeout(function() { slideshow_obj.removeClass('hover'); }, 75);
+				}
+				break;
+			//case 38: //up
+			//	if (typeof key_console !== "undefined" && key_console == true) { console.log("Key Press: UP"); }
+			//	$(scrollTarget).animate({scrollTop: "-="+($(window).height()-100)}, 400);
+			//	break;
+			case 39: //right
+				if (typeof key_console !== "undefined" && key_console == true) { console.log("Key Press: RIGHT"); }
+				slideshow_obj = $('.slideshow-arrows .slideshow-right-arrow', slideshow_scope);
+				if (slideshow_obj.length > 0) {
+					slideshow_obj.click();
+					slideshow_obj.addClass('hover');
+					window.setTimeout(function() { slideshow_obj.removeClass('hover'); }, 75);
+				}
+				break;
+			//case 40: //down
+			//	if (typeof key_console !== "undefined" && key_console == true) { console.log("Key Press: DOWN"); }
+			//	$(scrollTarget).animate({scrollTop: "+="+($(window).height()-100)}, 400);
+			//	break;
+			case 27: //escape key
+				if (typeof key_console !== "undefined" && key_console == true) { console.log("Key Press: ESC"); }
+				if ( $('.lightbox').length > 0 ) {
+					// close lightbox
+					$('.lightbox').click();
+				}
+				break;
+			default:
+				return;
+			}
+			event.preventDefault();
+	});
+}
+
+function bindHeaderActions() {
+	$('header.fanpop .nav-btn').click(function(event) {
+			if ($('body').hasClass('shownav')) {
+				$('body').removeClass('shownav').addClass('hidenav');
+				//$('#nav-open-btn').removeClass('navmenuopen');
+				$('#nav-open-btn').css('background-color','rgba(0,0,0,0)');
+				try {
+					ga_event('left_nav_menu', 'close', {'nonInteraction': 1});
+				} catch(e) {
+				}
+			} else {
+				$('body').removeClass('hidenav').addClass('shownav');
+				//$('#nav-open-btn').addClass('navmenuopen');
+				$('#nav-open-btn').css('background-color','rgba(0,0,0,0.5)');
+				try {
+					ga_event('left_nav_menu', 'open', {'nonInteraction': 1});
+				} catch(e) {
+				}
+			}
+			event.preventDefault();
+	});
+	$('#nav ul li a').click( function() {
+			try {
+				ga_event('left_nav_menu', 'click', $(this).html());
+			} catch(e) {
+			}
+	});
+}
+
+// This is support for placeholders on input:text fields for browsers that don't support it and to unify behavior between HTML5 browsers; this code should eventually be moved to script.js for use on all pages
+// Placeholder was moved to script.js - needs to be copied back when script.js is no longer loaded on cards
+var placeholderBehaviorSet = false;
+function enablePlaceholderBehavior(scope) {
+	if(true || !$.support.placeholder) { 
+		var active = document.activeElement;
+		$('[placeholder]', scope).each(function() {
+			if (typeof $(this).attr('placeholder') !== "undefined" && $(this).attr('placeholder') != '') {
+				$(this).attr('data-placeholder', $(this).attr('placeholder'));
+				$(this).attr('placeholder', '');
+			}
+		});
+		$(':text').blur();
+		$(active).focus();
+	}
+}
+function loadPlaceholderFix() {
+	console.log('enable called');
+	if(true || !$.support.placeholder) { 
+		if (placeholderBehaviorSet == false) {
+			placeholderBehaviorSet = true;
+			$(document).delegate(':text', 'focus', function () {
+				if (typeof $(this).attr('data-placeholder') !== "undefined" && $(this).attr('data-placeholder') != '' && $(this).val() == $(this).attr('data-placeholder')) {
+					$(this).val('').removeClass('hasPlaceholder');
+				}
+			});
+			$(document).delegate(':text', 'blur', function() {
+				if (typeof $(this).attr('data-placeholder') !== "undefined" && $(this).attr('data-placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('data-placeholder'))) {
+					$(this).val($(this).attr('data-placeholder')).addClass('hasPlaceholder');
+				}
+			});
+			$(document).delegate('form', 'submit', function() {
+				$(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
+			});					
+			/*
+			$('form').submit(function () {
+				$(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
+			});
+			*/
+		}
+		enablePlaceholderBehavior();
+		/*
+		$('.needsPlaceholderBinding:text', scope).focus(function () {
+			if ($(this).attr('data-placeholder') != '' && $(this).val() == $(this).attr('data-placeholder')) {
+				$(this).val('').removeClass('hasPlaceholder');
+			}
+		}).blur(function () {
+			if ($(this).attr('data-placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('data-placeholder'))) {
+				$(this).val($(this).attr('data-placeholder')).addClass('hasPlaceholder');
+			}
+		}).removeClass('needsPlaceholderBinding').addClass('PlaceholderBound');
+		*/
+	}
+}
+jQuery(function() {
+	jQuery.support.placeholder = false;
+	test = document.createElement('input');
+	// if('placeholder' in test) jQuery.support.placeholder = true; // This line tests if the browser has native placeholder support
+	loadPlaceholderFix();
+});
+
+// Resizing of slideshow arrows
+function resizeSlideshowArrows(scope) {
+	//console.log('resize: '+(($('#lightboxcardcontainer').parent().width() - $('#lightboxcardcontainer').width()) / 2));
+	if ( ($('#lightboxcardcontainer').length > 0 && (($('#lightboxcardcontainer').parent().width() - $('#lightboxcardcontainer').width()) / 2) > 65) || (($('main').width() - $('#cardcontainer').width()) / 2) > 65 ) {
+		$('.slideshow-right-arrow', scope).removeClass('small');
+		$('.slideshow-left-arrow', scope).removeClass('small');
+	} else {
+		$('.slideshow-right-arrow', scope).addClass('small');
+		$('.slideshow-left-arrow', scope).addClass('small');
+	}
+}
+
+//Load a leaderboard ad if device is desktop or tablet 
+var load_leaderboard_ad = function(target) {
+	if ($('body').hasClass('logged-out') && !$('body').hasClass('noleader')) {
+		if (typeof window.dfp_gpt_uncensored === "undefined" || window.dfp_gpt_uncensored == false) {
+			var tablet = $('body').hasClass('tablet') || $('body').hasClass('desktop');
+			var ad_network;
+			ad_network = $('body').attr('data-ad-network');
+			if (typeof ad_network === "undefined") {
+				ad_network = "dfp-gpt-nsr";
+			}
+			if (true || ad_network != "townsquare") {
+				if (tablet && $(window).width() > 900) {
+					if (typeof target !== "undefined" && $('#lightboxcardcontainer').is(target)) {
+						if ($('#lightbox-leader-ad').length == 0) {
+							$(target).before($('<div id="lightbox-leader-ad" style="width:728px; margin:12px auto -20px auto; padding-top:8px"></div>'));
+							ajax('http://www.fanpop.com/administrator/ajax_load_ad?size=leader&type=image_text&ad_network_override='+ad_network+'&no_ad_div=false', 'lightbox-leader-ad');
+						} else {
+							ajax('http://www.fanpop.com/administrator/ajax_load_ad?size=leader&type=image_text&ad_network_override='+ad_network+'&no_ad_div=false', 'lightbox-leader-ad');
+						}
+					} else {
+						if ($('#main-head-leader-ad').length == 0) {
+							$('body main .modulepage').before($('<div id="main-head-leader-ad" style="margin:0 auto; padding-top:8px"></div>'));
+							ajax('http://www.fanpop.com/administrator/ajax_load_ad?size=leader&type=image_text&ad_network_override='+ad_network+'&no_ad_div=false', 'main-head-leader-ad');
+						} else {
+							ajax('http://www.fanpop.com/administrator/ajax_load_ad?size=leader&type=image_text&ad_network_override='+ad_network+'&no_ad_div=false', 'main-head-leader-ad');
+						}
+					}
+				}
+			}
+		}
+	}
+};
+
+// Reflow polling for sharethrough
+var sharethrough_div_height = 0;
+var expand_sharethrough_div = function(counter) {
+	if (typeof counter === "undefined") {
+		counter = 1;
+	}
+	if (counter > 10) {
+	}	else if (sharethrough_div_height == $('[data-str-native-key]').height()) {
+		window.setTimeout(function() { expand_sharethrough_div(); }, 500);
+	} else {
+		try {
+			if (typeof sharethrough_expanded === "undefined") {
+				if (sharethrough_div_height != 0) {
+					sharethrough_expanded = true;
+					ga_event('sharethrough', 'div', 'expanded', {'nonInteraction': 1});
+				}
+			}
+		} catch(e) {
+		}
+		sharethrough_div_height = $('[data-str-native-key]').height();
+		masonry_reflow($('#cardcontainer'));
+		window.setTimeout(function() { expand_sharethrough_div(); }, 500);
+	}
+};
+$(function() {
+		if ($('[data-str-native-key]').length > 0) {
+			sharethrough_div_height = $('[data-str-native-key]').height();
+			//console.log("sharethrough schedule");
+			window.setTimeout(function() { expand_sharethrough_div(); }, 2000);
+		}
+});
+
+
+// Outbrain Ad generic callback function
+var outbrain_callback_generic = function(unique_identifier, json_response) {
+	//console.log('outbrain callback: <%=unique_id%>');
+	//console.log(json_response);
+	//console.log(JSON.stringify(json_response));
+	//console.log('outbrain json saved');
+	//json_response = {"total_count":4,"count":4,"doc":[{"source_name":"Fanpop - Fan clubs for everything. What are you a fan of?","same_source":"true","publish_date":"1969-12-31 19:00","orig_url":"http://www.fanpop.com/clubs/ad-test-a/images/13196689/title/family-photos-photo","url":"http://traffic.outbrain.com/network/redir?key=c052662b87c572179fd96c521f76e�reqType=1&wid=140&imgType=2&refPub=2354&prs=true&scp=false&origSrc=2945578","author":"Fanpop, Inc.","content":"Family Photos - Ad Test A Photo (13196689) - Fanpop fanclubs","thumbnail":{"url":"http://images.outbrain.com/imageserver/v2/s/CMHK/n/Wbiel/abc/M1tpZ/Wbiel-Fci-60x60.jpg","width":109,"height":109,"imageImpressionType":"DOCUMENT_IMAGE"}},{"source_name":"Fanpop - Fan clubs for everything. What are you a fan of?","same_source":"true","publish_date":"1969-12-31 19:00","orig_url":"http://www.fanpop.com/clubs/iron-man/images/33616865/title/iron-man-3-don-cheadle-poster-photo","url":"http://traffic.outbrain.com/network/redir?key=be28a463ad0aa18545a4a18627717�reqType=1&wid=140&imgType=2&refPub=2354&prs=true&scp=false&origSrc=2945578","author":"Fanpop, Inc.","content":"Iron Man Photo: Iron Man 3 - Don Cheadle Poster","thumbnail":{"url":"http://images.outbrain.com/imageserver/v2/s/CMHK/n/VxLr8/abc/LP09c/VxLr8-Fci-60x60.jpg","width":109,"height":109,"imageImpressionType":"DOCUMENT_IMAGE"}},{"source_name":"Fanpop - Fan clubs for everything. What are you a fan of?","same_source":"true","publish_date":"1969-12-31 19:00","orig_url":"http://www.fanpop.com/clubs/ad-test-a/images/13196688/title/family-photos-photo","url":"http://traffic.outbrain.com/network/redir?key=f72d605bd009793ab1fc315eded8a�reqType=1&wid=140&imgType=2&refPub=2354&prs=true&scp=false&origSrc=2945578","author":"Fanpop, Inc.","content":"Family Photos - Ad Test A Photo (13196688) - Fanpop fanclubs","thumbnail":{"url":"http://images.outbrain.com/imageserver/v2/s/CMHK/n/WbifP/abc/M1tpa/WbifP-Fci-60x60.jpg","width":109,"height":109,"imageImpressionType":"DOCUMENT_IMAGE"}},{"source_name":"Fanpop - Fan clubs for everything. What are you a fan of?","same_source":"true","publish_date":"1969-12-31 19:00","orig_url":"http://www.fanpop.com/clubs/ad-test-a/images/34049748/title/food-photo","url":"http://traffic.outbrain.com/network/redir?key=9dabede9ddc5ad09935c6d2c523e1�reqType=1&wid=140&imgType=2&refPub=2354&prs=true&scp=false&origSrc=2945578","author":"Fanpop, Inc.","content":"food - Ad Test A Photo (34049748) - Fanpop fanclubs","thumbnail":{"url":"http://images.outbrain.com/imageserver/v2/s/CMHK/n/cCj1G/abc/UbLjq/cCj1G-Fci-60x60.jpg","width":109,"height":109,"imageImpressionType":"DOCUMENT_IMAGE"}}]};
+	//outbrain_json = json_response;
+	if (typeof json_response !== 'undefined' && typeof json_response.doc !== 'undefined') { 
+		target_card = $('#outbrain_'+unique_identifier);
+		target_card.empty();
+		target_card.append($('<div class="card-border"><div class="outbrain-card-header" style="display:none;">From Around the Web</div><div class="outbrain-card-body"></div></div>'));
+		$.each(json_response.doc, function(i, item) {
+				if (typeof item !== "undefined" && typeof item.content !== "undefined") {
+					content_name = item.content;
+					//console.log(content_name);
+					//console.log(/^http[s]*:\/\/www\.fanpop\.com/.test(item.orig_url));
+					if (/^http[s]*:\/\/www\.fanpop\.com/.test(item.orig_url)) {
+						content_name = content_name.replace(/ - Fanpop fanclubs$/, "");
+						content_name = content_name.replace(/ \([0-9]+\)$/, "");
+					}
+					source_name = item.source_name;
+					if (/^fanpop/i.test(item.source_name)) {
+						source_name = "Fanpop";
+					}
+					source_name = source_name.toUpperCase();
+					$('.outbrain-card-body', target_card).append($('<div class="outbrain-link-block"><a href="'+item.orig_url+'" onclick="this.href=\''+item.url+'\';" rel="nofollow"><img class="outbrain-link-logo" src="'+item.thumbnail.url+'" height="50" width="50" /><div class="outbrain-link-name">'+content_name+'<div class="outbrain-link-author">'+source_name+'</div></div></div>'));
+				}
+		});
+		if ($('.outbrain-card-body', target_card).children().length > 0) {
+			$('.outbrain-card-header', target_card).css('display','');
+		} else {
+			target_card.removeClass('collapse');
+		}
+		$('.outbrain-card-body .outbrain-link-block .outbrain-link-name', target_card).each(function() { if ($(this).height()>55) { $(this).css('vertical-align','top'); } } );
+		if ($('#cardcontainer .contentcard.masonry-complete').length > 0) {
+			window.setTimeout(function() {masonry_reflow($('#cardcontainer'));}, 200);
+		}
+	}
+};
+
+var sharethis_widget_create = function(target) {
+	// target should be a jQuery object
+	var services = ["facebook", "twitter", "pinterest", "tumblr", "googleplus", "email"];
+	target.empty();
+	$.each(services, function(index, value) {
+			target.append($('<span class="'+value+' sharethis_button" st_service="'+value+'"></span>'));
+	});
+	$('.sharethis_button', target).each(function() {
+		$(this).attr('st_title', $(this).parents('.contentcard').attr('data-title')); $(this).attr('st_url', $(this).parents('.contentcard').attr('data-permalink'));
+		if (stWidget !== "undefined") {
+			stLight.options({'onhover':'true'});
+			stWidget.addEntry({
+					"service":$(this).attr('st_service'),
+					"element":$(this)[0],
+					"url":$(this).parents('.contentcard').attr('data-permalink'),
+					"title":$(this).parents('.contentcard').attr('data-title'),
+					"type":"custom",
+					"image":$(this).parents('.contentcard').attr('data-image'),
+					"summary":$(this).parents('.contentcard').attr('data-description')
+			});
+		}
+	});
+};
+
+/* Temporary functions to support optimizely testing of article animations */
+function optimizely_change_article_animation(type) {
+	$('body').removeClass('optimizely-article-animation-hover-hint');
+	$('body').removeClass('optimizely-article-animation-play-button');
+	if (type == "hover") {
+	} else if (type == "hover hint") {
+		$('body').addClass('optimizely-article-animation-hover-hint');
+	} else if (type == "click") {
+		$('body').addClass('optimizely-article-animation-play-button');
+	} else if (type == "always") {
+		$('body').addClass('optimizely-article-animation-always');
+	}
+	apply_optimizely_variation_article_animation();
+}
+function apply_optimizely_variation_article_animation(scope) {
+	if ($('body').hasClass('optimizely-article-animation-hover-hint')) {
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-label', scope).css('display','');
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-label', scope).css('display');
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-label', scope).addClass('show-label');
+		$('.card-body .card-article-image-container.animated-gif .card-article-image', scope).addClass('hover-animate');
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-controls', scope).css('display','none').removeClass('show-controls');
+	} else if ($('body').hasClass('optimizely-article-animation-play-button')) {
+		$('.card-body .card-article-image-container .animated-gif-label', scope).css('display','none').removeClass('show-label');
+		$('.card-body .card-article-image-container.animated-gif .card-article-image', scope).removeClass('hover-animate');
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-controls', scope).css('display','');
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-controls', scope).css('display');
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-controls', scope).addClass('show-controls');
+	} else if ($('body').hasClass('optimizely-article-animation-always')) {
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-label', scope).css('display','none').removeClass('show-label');
+		$('.card-body .card-article-image-container.animated-gif .card-article-image', scope).removeClass('hover-animate');
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-controls', scope).css('display','none').removeClass('show-controls');
+		$('.card-body .card-article-image-container.animated-gif .card-article-image', scope).each(function() {
+				$(this).attr('src', $(this).attr('data-animated-src'));
+		});
+	} else {
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-label', scope).css('display','none').removeClass('show-label');
+		$('.card-body .card-article-image-container.animated-gif .card-article-image', scope).addClass('hover-animate');
+		$('.card-body .card-article-image-container.animated-gif .animated-gif-controls', scope).css('display','none').removeClass('show-controls');
+	}
+}
+
+function autoanimate_cards(scope) {
+	$('.contentcard.animated').each(function() {
+			if ($(this).attr('data-animated-image') != "" && $(this).attr('data-frozen-image') != "" && is_visible($('.card-body-image', $(this)))) {
+				if ($(this).hasClass('frozen')) {
+					// visible and frozen - unfreeze
+					$(this).removeClass('frozen');
+					$('img.card-main-image-element', $(this)).attr('src', $(this).attr('data-animated-image'));
+				} else {
+					// visible, but not frozen - do nothing
+				}
+			} else {
+				if ($(this).hasClass('frozen')) {
+					// not visible and already frozen - do nothing
+				} else {
+					// not visible - freeze it
+					$(this).addClass('frozen');
+					$('img.card-main-image-element', $(this)).attr('src', $(this).attr('data-frozen-image'));
+				}
+			}
+	});
+}
+
+var is_visible = function(object) {
+	if (object instanceof jQuery) {
+		object = object[0];
+	}
+	var object_rectangle = object.getBoundingClientRect();
+	var test_rectangle;
+	var parentnode = object.parentNode;
+	do {
+		test_rectangle = parentnode.getBoundingClientRect();
+		if (object_rectangle.top <= test_rectangle.bottom == false) {
+			return false;
+		}
+		parentnode = parentnode.parentNode;
+	} while (parentnode != document.body);
+	// Check its within the document viewport
+	if (object_rectangle.top <= document.documentElement.clientHeight && object_rectangle.bottom > 0) {
+		return true;
+	} else {
+		return false;
+	}
+};
+

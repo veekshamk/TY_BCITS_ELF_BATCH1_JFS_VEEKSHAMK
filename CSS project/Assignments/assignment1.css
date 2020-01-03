@@ -1,0 +1,43 @@
+form{
+    border: 1px solid white;
+    width: 1742px;
+    text-align: center;
+    margin-top: -3px;
+    height: 584px;
+    padding-top: 150px;
+    background-color: orange;
+    color: white;
+}
+ h6{
+    font-family: monospace;
+    font-size: 70px;
+   /* color: white;*/
+   margin-top: 6px;
+}
+
+
+h3{
+    text-align: center;
+   /* color: white;*/
+    font-size: 30px;
+    margin-top: -107px;
+}
+input[type="button"]{
+    background-color: pink;
+    color: white;
+}
+input[type="button"], input[type="email"]{
+    font-size: 47px;
+    border-radius: 10px;
+}
+input[type="email"]{
+    color: papayawhip;
+}
+
+
+
+/*
+input[type="email"]{
+    
+    align-items: center;
+} */

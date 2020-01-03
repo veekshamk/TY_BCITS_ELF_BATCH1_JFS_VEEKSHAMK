@@ -1,0 +1,42 @@
+form{
+    border: 1px solid black;
+    width: 400px;
+    height: 300px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: rgb(33, 33, 51);
+    
+}
+h6{
+    font-size: 30px;
+    font-family: monospace;
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+input[type="email"], input[type="password"], input[type="button3"]{
+    height:20px;
+    width: 332px;
+    margin-top: 15px;
+    color: white;
+    background-color:  rgb(33, 33, 51);
+    
+}
+input[type="text"]{
+    color: white;
+    background-color:  rgb(33, 33, 51);
+    width: 162px;
+}
+input[type="button3"]{
+    background-color: green;
+    color: white;
+}
+input[type="button1"],input[type="button2"]{
+    margin-top: 15px;
+    background-color: rgb(47, 66, 66);
+    color: white;
+    margin-left: -5px;
+    width: 166px;
+}
+input[type="button1"],input[type="button2"]:hover{
+    background-color: green;
