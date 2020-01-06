@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+    <script>
+        var firstName='Veeksha';
+        console.log('First Name '+firstName);
+        var lastName='M K';
+        console.log('Last Name '+lastName);
+
+        var hadBF =false;
+        console.log('Had BF '+hadBF);
+
+        var sisters;
+        console.log("Sisters "+sisters);
+
+        var children=null;
+        console.log('children '+children);
+
+        var noOfWives=1;
+        console.log("no of wives "+noOfWives);
+
+        
+    
+    </script>
+</head>
+<body>
+    <script>
+        var hobbies=['singing', 'dancing', 'painting','drawing'];
+        console.log("Hobby 1 : "+hobbies[3]);
+        console.log("Hobby 2 :"+hobbies[4]);
+        
+        for (var i=0; i<hobbies.length; i++){
+             console.log("My hobbies "+ hobbies[i]);
+        }
+        console.log("========================================");
+        
+        var person = {
+            firstName:'Dinga',
+            lastName:'K',
+            hobbies:['dancing','singing'],
+            address:{
+                city: 'bangalore',
+                pincode: 560068,
+                state: 'karnataka'
+            }
+            }
+        console.log("First Name: "+person.firstName);
+        console.log("Last Name: "+person.lastName);
+        console.log("Hobbies: "+person.hobbies);
+        console.log("=========================================");
+        
+
+        var n1=10;
+        var str='10';
+        if(n1==str){
+            console.log("equal"); 
+        }else{
+            console.log("not equal");
+            
+        }
+        console.log("=======================================");
+
+        console.log(typeof(10));
+         console.log(typeof("hello"));
+         console.log(typeof true);
+
+         console.log("=====================================");
+         
+         var a=10;
+         console.log(typeof a);
+         console.log(typeof(a));
+         console.log();
+         console.log("=======================================");
+         
+        var nums=[10,20,30];
+        console.log(typeof nums);
+        console.log(typeof null);
+        console.log(typeof undefined);
+        console.log("=========================================");
+        
+        var isAry=Array.isArray(nums)
+        if(isAry===true){
+            console.log("nums is an array");
+        }else{
+            console.log("nums is not an array");
+            
+        }
+        console.log("========================================");
+
+        var add=(a,b)=> a+b;
+        var s=add(10,20);
+        console.log("Sum", s);
+        console.log("===========================================");
+
+        var sqr=(a,b)=> a*a;
+        var n=sqr(10);
+        console.log("Square", n);
+        console.log(`square is ${n}`);
+        console.log(`square of 10 is ${10*10}`);
+        console.log("=========================================== ");
+        
+        
+        
+        
+        
+        
+
+        
+        
+    </script>
+    
+</body>
+</html>
