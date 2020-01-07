@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .prop{
+        display: none;
+    }
+    </style>
+    
+</head>
+<body>
+    <button onclick="showAlert()">
+    Click Me!!
+    </button> 
+    <button onclick="elementCreation()" id="demo">
+        Click to create Element
+    </button>
+    <h1 class="prop" id="disp">
+        Display properties
+    </h1>
+    <button id="h1button" onclick="displayElement()">Click this to show h1 element</button>
+    <p id="clr" onmouseover="changeColor1()" onmouseout="changeColor2()" >
+        Welcome to Bangalore!!!
+    </p>
+
+    <input onkeyup="showData()" onkeydown="showDetail()" id="myIpt"/>
+    <br>
+    <input id="inp" onkeyup="getInputValue()">
+    <br>
+    <h1 id="show"></h1>
+
+
+
+
+
+    <script src="/events/event.js"></script>
+    
+</body>
+</html>
