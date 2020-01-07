@@ -8,7 +8,7 @@ import java.util.Properties;
 public class PropertiesFileWriter {
 	public static void main(String[] args) {
 		try {
-		FileOutputStream fileOutputStream=new FileOutputStream("db1info.properties");
+		FileOutputStream fileOutputStream=new FileOutputStream("dbinfo2.properties");
 		Properties properties=new Properties();
 		properties.setProperty("driverNM","com.mysql.jdbc.Driver" );
 		properties.setProperty("dbURL", "jdbc:mysql://localhost:3306/employee_management_info");
