@@ -9,18 +9,27 @@ import com.bcits.jpawithhibernateapp.bean.Test;
 
 public class App {
 	public static void main(String[] args) {
+		EntityTransaction transaction=null;
+		EntityManager manager=null;
+
 		Test test = new Test();
-		test.setId(1);
+		test.setId(4);
 		test.setMovieName("Kuch Kuch Hota Hai");
 		test.setMovierating("Best");
 
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
-		EntityManager manager = entityManagerFactory.createEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
-		transaction.begin();
-		manager.persist(test);
-		System.out.println("Record Saved");
-		transaction.commit();
-		manager.close();
+		try {
+			EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+			manager = entityManagerFactory.createEntityManager();
+			transaction = manager.getTransaction();
+			transaction.begin();
+			manager.persist(test);
+			System.out.println("Record Saved");
+			transaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+		}finally {
+			manager.close();
+		}
 	}
 }

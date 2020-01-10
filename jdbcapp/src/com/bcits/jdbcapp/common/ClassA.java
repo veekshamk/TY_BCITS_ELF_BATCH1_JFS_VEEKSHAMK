@@ -1,6 +1,6 @@
 package com.bcits.jdbcapp.common;
 
-public class ClassA implements Connection{
+public class ClassA implements Connection1{
 
 	@Override
 	public void print() {
