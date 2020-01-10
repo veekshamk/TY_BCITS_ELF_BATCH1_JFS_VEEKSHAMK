@@ -27,8 +27,8 @@ public class InsertQuery {
 			prop.load(fileInputReader);
 			con=DriverManager.getConnection(dburl, prop);
 
-		String query=" insert into employee_primary_info values "
-					+ " (11, 'prathiksha', 1234567891,'prathiksha@gmail.com','1990-10-10',"
+			  String query=" insert into employee_primary_info values "
+					+ " (12, 'prathiksha', 1234567891,'prathiksha@gmail.com','1990-10-10',"
 					+ "'2020-12-08', 'tester','o-', 10000, 20, 50)";
 			//String query=" insert into employee_proj_info values(12,15)";
 			stmt=con.createStatement();

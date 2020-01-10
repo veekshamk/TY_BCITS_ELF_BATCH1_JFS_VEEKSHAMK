@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
@@ -19,21 +18,15 @@ public class MYJDBCProgramWithPropertyFile {
 		// 1. Load the Driver.
 
 		try {
-			FileInputStream fileInputStream=new FileInputStream("dbinfo.properties");
-			Properties properties=new Properties();
-			/*Driver d = new Driver();
-			DriverManager.registerDriver(d);*/
-			properties.load(fileInputStream);
-			String driver_name=properties.getProperty("driverNM");
-			Class.forName(driver_name).newInstance();
 
-			// 2. Get the DB connection via Driver.
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			String dburl="jdbc:mysql://localhost:3306/employee_management_info";
+			FileInputStream file=new FileInputStream("db.properties");
+			Properties prop=new Properties();
+			prop.load(file);
 
-			//String dburl = properties.getProperty("dbURL");
-			con = DriverManager.getConnection(properties.getProperty("dbURL"),
-					properties.getProperty("user"),properties.getProperty("password"));
+			con = DriverManager.getConnection(dburl, prop);
 
-			//3. Issue SQL queries via connection.
 
 			String query = "select * from employee_primary_info";
 			stmt = con.createStatement();
@@ -68,6 +61,7 @@ public class MYJDBCProgramWithPropertyFile {
 
 			}
 		} catch (Exception s) {
+			System.out.println("3333333333333");
 			s.printStackTrace();
 
 		}finally {
@@ -83,7 +77,7 @@ public class MYJDBCProgramWithPropertyFile {
 				if(stmt!=null) {
 					stmt.close();
 				}
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}//End of inner try-catch block
 		}//End of Finally
