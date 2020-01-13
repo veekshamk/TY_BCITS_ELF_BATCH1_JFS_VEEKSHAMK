@@ -1,0 +1,63 @@
+package com.bcits.jpawithhibernate.test;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.bcits.jpawithhibernate.common.bean.EmployeePrimaryInfo;
+import com.bcits.jpawithhibernate.one.to.one.EmployeeBankInfo;
+import com.bcits.jpawithhibernate.one.to.one.EmployeeSecondaryInfo;
+
+public class InsertBankInfo {
+	public static void main( String[] args )
+	{
+		EntityManager manager=null;
+		EntityTransaction transaction=null;
+
+		EmployeePrimaryInfo primary = new EmployeePrimaryInfo();
+		primary.setBlood_group("a+");
+		primary.setDept_id(150);
+		primary.setDesignation("manager");
+		primary.setDob(java.sql.Date.valueOf("2000-10-10"));
+		primary.setDoj(java.sql.Date.valueOf("2000-10-10"));
+		primary.setEmp_id(35);
+		primary.setManager_id(100);
+		primary.setMobile_number(784561235);
+		primary.setName("varuna");
+		primary.setOfficial_mail_id("varuna123@gmail.com");
+		primary.setSalary(10000);
+
+		EmployeeBankInfo bank= new EmployeeBankInfo();
+		bank.setAccount_number(123456678);
+		bank.setBank_name("ICICI bank");
+		bank.setBranch_name("basavanagudi");
+		//bank.setEmp_id(10);
+		bank.setIfsc_code("icici123");
+		bank.setPrimary(primary);
+		primary.setBank(bank);
+		
+		
+		
+		
+
+		try {
+			EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+			manager = entityManagerFactory.createEntityManager();
+			transaction = manager.getTransaction();
+			transaction.begin();
+			//manager.persist(primary);
+			EmployeeBankInfo bankInfo=manager.find(EmployeeBankInfo.class, 10);
+			System.out.println(bankInfo.getBank_name());
+			System.out.println(primary.getBlood_group());
+			System.out.println("Record Inserted");
+			transaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+		}
+		manager.close();
+	}
+
+
+}
