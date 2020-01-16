@@ -5,23 +5,19 @@ import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DateServlet extends HttpServlet{
+public class DateConfig extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//Code to generate current system date and time(dynamic)
 		Date date=new Date();
 		
 		ServletConfig config=getServletConfig();
-		String myConfigVal=config.getInitParameter("servletName");
-		
-		ServletContext context=getServletContext();
-		String myContextVal=context.getInitParameter("appName");
+		String myConfigval=config.getInitParameter("servletName");
 		
 		//Code to generate dynamic response
 		resp.setContentType("text/html");
@@ -31,10 +27,9 @@ public class DateServlet extends HttpServlet{
 		out.println("<html>");
 		out.println("<body>");
 		out.println("<h1>Current System Date & Time is: "+date +"</h1>");
-		out.println("<h3>Servlet name= "+myConfigVal);
-		out.println("<h3>App name= "+myContextVal);
+		out.println("<h3>Servlet name= "+myConfigval);
 		out.println("</body>");
 		out.println("</html>");
 	}//End of doGet
 
-}//End of Class
+}
