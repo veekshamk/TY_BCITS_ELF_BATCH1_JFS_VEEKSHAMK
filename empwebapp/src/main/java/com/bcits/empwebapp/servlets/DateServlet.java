@@ -12,6 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class DateServlet extends HttpServlet{
+	
+	public DateServlet() {
+		System.out.println("Its instantiation phase");
+	}
+	
+	@Override
+	public void init() throws ServletException {
+		System.out.println("Its initialization phase");
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//Code to generate current system date and time(dynamic)
@@ -36,5 +46,9 @@ public class DateServlet extends HttpServlet{
 		out.println("</body>");
 		out.println("</html>");
 	}//End of doGet
-
+	 
+	@Override
+	public void destroy() {
+		System.out.println("Its Destroy phase");
+	}
 }//End of Class
