@@ -1,0 +1,32 @@
+*{
+    padding-top: 5px;
+    margin-top: 0px;
+    color: black;
+    font-family: arial;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(/img/light-sun-day-wires-wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-top: -4px;
+    margin-left: -12px;
+}
+.box{
+    width: 400px;
+    height:200px;
+    margin-left: 600px;
+    background-color: white;
+    margin-top: 50px;
+    padding-top: 39px;
+    padding-left: 22px;
+   
+}
+a{
+    text-decoration: none; 
+    font-weight: 600;
+    padding-right: 100px;
+}
+.link{
+    color:skyblue;
+}
