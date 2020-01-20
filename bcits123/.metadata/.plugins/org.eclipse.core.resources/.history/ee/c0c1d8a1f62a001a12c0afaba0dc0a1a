@@ -1,0 +1,5 @@
+package com.bcits.jdbcapp.common;
+
+public class ClassA {
+
+}

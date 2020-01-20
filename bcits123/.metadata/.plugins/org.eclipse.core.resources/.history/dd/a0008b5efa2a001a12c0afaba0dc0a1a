@@ -1,0 +1,17 @@
+package com.bcits.jdbcapp.common;
+
+public class MyClass {
+	private MyClass() {}
+	public MyInterface myMethod(String str) {
+		MyInterface ref=null;
+		if (str.equals(ref)) {
+			ref=new ClassA();
+			
+		}else {
+			ref=new ClassB();
+		}
+		
+		return ref;
+	}//End of myMethod
+
+}//End of Class

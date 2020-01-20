@@ -1,0 +1,9 @@
+package com.bcits.jdbcapp.common;
+
+public class ClassA implements MyInterface{
+	/*
+	 * SHOULD provide implementation for all
+	 * 10 Abstract Methods
+	 */
+
+}//End of ClassA

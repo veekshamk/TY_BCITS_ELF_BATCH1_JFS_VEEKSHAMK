@@ -1,0 +1,6 @@
+
+{squid:S2259"IA "NullPointerException" could be thrown; "transaction" is nullable here.(ì‚—ôúÿÿÿÿ8ûðÝœù-H—RMAJORZBUG
+_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ûðÝœù-H˜RMINORZVULNERABILITY
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÒþßÅøÿÿÿÿ8ûðÝœù-H™RMAJORZ
+CODE_SMELL

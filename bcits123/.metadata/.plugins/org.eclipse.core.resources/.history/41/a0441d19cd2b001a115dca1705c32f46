@@ -1,0 +1,11 @@
+package com.bcits.jdbc.abstraction;
+
+public class MainMethodprogram {
+	public static void main(String[] args) {
+		String dburl="one";
+		Connection con=DriverManager.getConnection(dburl);
+		Statement stmt=con.getInstance();
+		stmt.method1();
+	}
+
+}

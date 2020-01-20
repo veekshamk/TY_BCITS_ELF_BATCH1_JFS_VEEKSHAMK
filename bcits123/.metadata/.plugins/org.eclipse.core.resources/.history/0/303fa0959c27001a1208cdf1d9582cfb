@@ -1,0 +1,9 @@
+package java;
+
+public interface Ola {
+	abstract void search();
+	default void pay() {
+		System.out.println("pay the bill");
+	}
+
+}

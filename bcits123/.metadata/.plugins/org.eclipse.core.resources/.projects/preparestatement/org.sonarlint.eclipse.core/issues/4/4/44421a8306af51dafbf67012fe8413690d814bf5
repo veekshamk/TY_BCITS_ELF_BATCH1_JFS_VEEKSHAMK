@@ -1,0 +1,19 @@
+
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(–¯…€üÿÿÿÿ8¶äŽïø-H¬RMAJORZ
+CODE_SMELL
+^squid:S2068" Remove this hard-coded password.(¼Ö£ºþÿÿÿÿ8¶äŽïø-H¥RBLOCKERZVULNERABILITY
+l
+squid:S106%"9Replace this use of System.out or System.err by a logger.(°ÁÙÅ8¶äŽïø-H¨RMAJORZ
+CODE_SMELL
+_squid:S11489"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8¶äŽïø-H¦RMINORZVULNERABILITY
+~squid:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ò’ù¥8¶äŽïø-H¤RBLOCKERZBUG
+~squid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(¢½¾*8Äç”ïø-H§RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Íäõ‘þÿÿÿÿ8¶äŽïø-H­RMAJORZ
+CODE_SMELL
+asquid:S4925"-Remove this "Class.forName()", it is useless.(Æ…ÈŸ8¶äŽïø-HªRMAJORZ
+CODE_SMELL
+l
+squid:S106'"9Replace this use of System.out or System.err by a logger.(ÆÛØó8¶äŽïø-H«RMAJORZ
+CODE_SMELL
+_squid:S1148,"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8¶äŽïø-H©RMINORZVULNERABILITY

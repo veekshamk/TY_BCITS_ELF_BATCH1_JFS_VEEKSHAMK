@@ -1,0 +1,19 @@
+
+~squid:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ò’ù¥8©Íéõø-H…RBLOCKERZBUG
+_squid:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8©Íéõø-H†RMINORZVULNERABILITY
+_squid:S1148;"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8©Íéõø-H‡RMINORZVULNERABILITY
+asquid:S4925"-Remove this "Class.forName()", it is useless.(Æ…ÈŸ8©Íéõø-HˆRMAJORZ
+CODE_SMELL
+^squid:S2068" Remove this hard-coded password.(¼Ö£ºşÿÿÿÿ8©Íéõø-H‰RBLOCKERZVULNERABILITY
+q
+squid:S106'"9Replace this use of System.out or System.err by a logger.(šĞ‰Ôşÿÿÿÿ8©Íéõø-HŠRMAJORZ
+CODE_SMELL
+l
+squid:S106)"9Replace this use of System.out or System.err by a logger.(ÆÛØó8©Íéõø-H‹RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Íäõ‘şÿÿÿÿ8©Íéõø-HŒRMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(«‚èÜ8©Íéõø-HRMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(¹†Ë‰8©Íéõø-HRMAJORZ
+CODE_SMELL

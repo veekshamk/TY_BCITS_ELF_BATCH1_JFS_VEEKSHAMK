@@ -1,0 +1,9 @@
+
+squid:S00116!"SRename this field "end_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½¸Ç¢ÿÿÿÿÿ8»æÇñù-H»"RMINORZ
+CODE_SMELL
+Œsquid:S00116"RRename this field "proj_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éİïûÿÿÿÿ8»æÇñù-H¼"RMINORZ
+CODE_SMELL
+‰squid:S00116"URename this field "start_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ı³W8»æÇñù-H½"RMINORZ
+CODE_SMELL
+squid:S00116"TRename this field "proj_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Â×Àùÿÿÿÿ8»æÇñù-H¾"RMINORZ
+CODE_SMELL

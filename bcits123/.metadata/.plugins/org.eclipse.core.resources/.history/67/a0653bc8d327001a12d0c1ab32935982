@@ -1,0 +1,19 @@
+package com.bcits.collection;
+
+import java.util.TreeSet;
+
+public class TreeSet1 {
+	public static void main(String[] args) {
+		TreeSet <Integer> t1=new TreeSet<Integer>();
+		int age;
+		String name;
+		TreeSet1() {
+			age=24;
+			name="Divya";
+			
+			
+			
+		}
+	}
+
+}

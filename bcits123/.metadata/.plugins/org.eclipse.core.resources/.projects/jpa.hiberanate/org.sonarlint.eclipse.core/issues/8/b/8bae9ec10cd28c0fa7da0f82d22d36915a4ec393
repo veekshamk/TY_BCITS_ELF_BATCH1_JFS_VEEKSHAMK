@@ -1,0 +1,20 @@
+
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¼÷ˆŠ8ïÜÓŸù-HÝRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ç‘‡Ÿþÿÿÿÿ8ïÜÓŸù-HÞRMAJORZ
+CODE_SMELL
+xsquid:S1854"?Remove this useless assignment to local variable "transaction".(ðòþúÿÿÿÿ8ïÜÓŸù-H×RMAJORZ
+CODE_SMELL
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(—™í»ýÿÿÿÿ8ïÜÓŸù-HÙRMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(¹ÿÃ¶8ïÜÓŸù-HØRMAJORZ
+CODE_SMELL
+isquid:S1481"0Remove this unused "transaction" local variable.(ðòþúÿÿÿÿ8ïÜÓŸù-HÛRMINORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(­û”ô8ïÜÓŸù-HÚRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(àùÿ³üÿÿÿÿ8ŒøÖŸù-HäRMAJORZ
+CODE_SMELL

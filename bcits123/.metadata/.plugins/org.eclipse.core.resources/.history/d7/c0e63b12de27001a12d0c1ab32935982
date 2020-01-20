@@ -1,0 +1,8 @@
+package com.bcits.collection;
+
+public class Student implements Comparable<Student>{
+	int age;
+	String name;
+	
+
+}

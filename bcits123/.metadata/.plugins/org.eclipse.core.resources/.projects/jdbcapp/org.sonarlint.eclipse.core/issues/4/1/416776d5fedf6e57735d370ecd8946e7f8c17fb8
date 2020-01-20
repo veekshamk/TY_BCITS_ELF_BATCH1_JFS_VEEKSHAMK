@@ -1,0 +1,12 @@
+
+psquid:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(ÆØË€HÉRBLOCKERZBUG
+zsquid:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(àÙ½ÔúÿÿÿÿHÊRBLOCKERZBUG
+osquid:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(œïì”HËRBLOCKERZBUG
+Xsquid:S1148!"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÌRMINORZVULNERABILITY
+_squid:S4925"-Remove this "Class.forName()", it is useless.(¹µÖÁüÿÿÿÿHÍRMAJORZ
+CODE_SMELL
+j
+squid:S106"9Replace this use of System.out or System.err by a logger.(ž´üŠüÿÿÿÿHÎRMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(§ÌíáHÏRMAJORZ
+CODE_SMELL

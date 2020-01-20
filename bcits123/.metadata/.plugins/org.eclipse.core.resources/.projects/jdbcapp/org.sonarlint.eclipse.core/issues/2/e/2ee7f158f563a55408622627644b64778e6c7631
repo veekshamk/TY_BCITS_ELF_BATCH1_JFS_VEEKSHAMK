@@ -1,0 +1,25 @@
+
+ssquid:UselessImportCheck"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8‘¹îø-H±RMINORZ
+CODE_SMELL
+^squid:S2068" Remove this hard-coded password.(¼Ö£ºşÿÿÿÿ8Ä„ãÑø-H¨RBLOCKERZVULNERABILITY
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Íäõ‘şÿÿÿÿ8­Œ„Õø-H©RMAJORZ
+CODE_SMELL
+_squid:S11482"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ä„ãÑø-H§RMINORZVULNERABILITY
+l
+squid:S106-"9Replace this use of System.out or System.err by a logger.(ÆÛØó8„™§Õø-H«RMAJORZ
+CODE_SMELL
+_squid:S1148?"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ä„ãÑø-HªRMINORZVULNERABILITY
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ö·öŞ8‘¹îø-H¶RMAJORZ
+CODE_SMELL
+usquid:UselessImportCheck"4Remove this unused import 'java.io.FileInputStream'.(˜³ÉÓ8‘¹îø-H³RMINORZ
+CODE_SMELL
+q
+squid:S106+"9Replace this use of System.out or System.err by a logger.(šĞ‰Ôşÿÿÿÿ8Ä„ãÑø-H¦RMAJORZ
+CODE_SMELL
+~squid:S2095$"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ò’ù¥8Ä„ãÑø-H¬RBLOCKERZBUG
+asquid:S4925"-Remove this "Class.forName()", it is useless.(Æ…ÈŸ8Ä„ãÑø-H­RMAJORZ
+CODE_SMELL
+rsquid:UselessImportCheck"1Remove this unused import 'java.util.Properties'.(¬µ²8‘¹îø-H²RMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(«‚èÜ8ÔÁîø-HºRMAJORZ
+CODE_SMELL

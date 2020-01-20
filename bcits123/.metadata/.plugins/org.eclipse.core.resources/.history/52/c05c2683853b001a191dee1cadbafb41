@@ -1,0 +1,35 @@
+package com.bcits.empwebapp.servletsforjsp;
+
+import java.io.IOException;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bcits.empwebapp.beans.EmployeePrimaryInfo;
+
+public class LoginServlet extends HttpServlet{
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int empIdVal = Integer.parseInt(req.getParameter("empId"));
+		String password=req.getParameter("password");
+
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("emsPersistenceUnit");
+		EntityManager manager=emf.createEntityManager();
+
+		String jpql=" from EmployeePrimaryInfo where empId=:empId and password=:pwd";
+		Query query=manager.createQuery(jpql);
+		query.setParameter("empId", empIdVal);
+		query.setParameter("pwd", password);
+
+		EmployeePrimaryInfo employeePrimaryInfo=null;
+		
+	
+	}
+
+}

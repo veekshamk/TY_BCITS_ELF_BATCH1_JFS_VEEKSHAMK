@@ -1,0 +1,59 @@
+
+~squid:CommentedOutCodeLine?"<This block of commented-out lines of code should be removed.(À©±m8¢Ë·ìù-Hö"RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine_"<This block of commented-out lines of code should be removed.(—§×–ÿÿÿÿÿ8¢Ë·ìù-Hþ"RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLineG"<This block of commented-out lines of code should be removed.(²áÓÆüÿÿÿÿ8¢Ë·ìù-H#RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLines"<This block of commented-out lines of code should be removed.(ßîð8¢Ë·ìù-Hú"RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(«°È¯8¢Ë·ìù-H‰#RMAJORZ
+CODE_SMELL
+squid:S00116"[Rename this field "personal_mail_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô¸Àä8¥í©¢ù-H€#RMINORZ
+CODE_SMELL
+Šsquid:S00116"URename this field "is_married" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¤÷Ž8¥í©¢ù-H‘#RMINORZ
+CODE_SMELL
+’squid:S00116 "XRename this field "government_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒù©ªþÿÿÿÿ8¥í©¢ù-H„#RMINORZ
+CODE_SMELL
+—squid:S00116$"bRename this field "guardian_contact_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÏËµ8¥í©¢ù-Hÿ"RMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(£ÀÉÆ8¢Ë·ìù-HŽ#RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLinew"<This block of commented-out lines of code should be removed.(“½œe8¢Ë·ìù-H#RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine/"<This block of commented-out lines of code should be removed.(ã¿¼Ÿýÿÿÿÿ8¢Ë·ìù-Hü"RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLineg"<This block of commented-out lines of code should be removed.(þ²–—üÿÿÿÿ8¢Ë·ìù-Hø"RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineo"<This block of commented-out lines of code should be removed.(ÿÑŒF8¢Ë·ìù-H‹#RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚÏ£´ýÿÿÿÿ8¢Ë·ìù-HŒ#RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine{"<This block of commented-out lines of code should be removed.(‹Å®§8¢Ë·ìù-H†#RMAJORZ
+CODE_SMELL
+€squid:CommentedOutCodeLineƒ"<This block of commented-out lines of code should be removed.(ìæê¤8¢Ë·ìù-H…#RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineS"<This block of commented-out lines of code should be removed.(…—¨8¢Ë·ìù-H‚#RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLinec"<This block of commented-out lines of code should be removed.(µ§°Á8¢Ë·ìù-HŠ#RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLinek"<This block of commented-out lines of code should be removed.(ïáôüùÿÿÿÿ8¢Ë·ìù-Hù"RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLineO"<This block of commented-out lines of code should be removed.(·àç8¢Ë·ìù-H#RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine;"<This block of commented-out lines of code should be removed.(ø› ûÿÿÿÿ8¢Ë·ìù-Hƒ#RMAJORZ
+CODE_SMELL
+‹squid:S00116"QRename this field "emp_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÄÄõøÿÿÿÿ8ã«£¢ù-Hû"RMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(·¤‹½úÿÿÿÿ8¢Ë·ìù-H‡#RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine["<This block of commented-out lines of code should be removed.(ç ¼øÿÿÿÿ8¢Ë·ìù-Hõ"RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLineW"<This block of commented-out lines of code should be removed.(Â†â†8¢Ë·ìù-Hˆ#RMAJORZ
+CODE_SMELL
+‘squid:S00116&"WRename this field "job_location" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ôÐþÿÿÿÿ8¥í©¢ù-H÷"RMINORZ
+CODE_SMELL
+squid:S00116""XRename this field "guardian_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô¨åÔ8¥í©¢ù-Hý"RMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(™ÊÛ8¢Ë·ìù-H#RMAJORZ
+CODE_SMELL

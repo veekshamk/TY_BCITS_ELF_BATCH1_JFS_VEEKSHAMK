@@ -1,0 +1,17 @@
+package com.bcits.exception;
+
+public class CheckedCustom1 {
+	public static void main(String[] args) {
+		Student s=new Student();
+		try {
+			s.clone();
+			System.out.println("object is cloned");
+			Class.forName("Student");
+		} catch (CloneNotSupportedException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

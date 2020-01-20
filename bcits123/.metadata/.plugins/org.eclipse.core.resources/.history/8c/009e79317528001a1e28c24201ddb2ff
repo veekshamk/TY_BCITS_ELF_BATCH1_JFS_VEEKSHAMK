@@ -1,0 +1,10 @@
+package com.bcits.exception;
+
+public class TestE {
+	public static void main(String[] args) {
+		System.out.println("main started");
+		A.a();
+		System.out.println("main ended");
+	}
+
+}

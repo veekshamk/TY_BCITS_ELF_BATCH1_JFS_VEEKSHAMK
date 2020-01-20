@@ -1,0 +1,12 @@
+package com.bcits.threds;
+
+public class ThreadTest4 {
+	public static void main(String[] args) {
+		Thread4 t1= new Thread4();
+		Thread4 t2= new Thread4();
+		t1.start();
+		t2.start();
+		
+	}
+
+}

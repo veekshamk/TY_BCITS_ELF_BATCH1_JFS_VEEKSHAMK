@@ -1,0 +1,15 @@
+package com.bcits.collection;
+
+import java.util.TreeSet;
+
+public class TreeSet1 {
+	public static void main(String[] args) {
+		TreeSet <Person> t1=new TreeSet<Person>();
+		t1.add()
+		
+			
+			
+		
+	}
+
+}

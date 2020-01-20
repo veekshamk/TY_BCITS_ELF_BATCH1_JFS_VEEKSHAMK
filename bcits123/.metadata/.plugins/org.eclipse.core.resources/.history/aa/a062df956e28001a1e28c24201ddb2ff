@@ -1,0 +1,8 @@
+package com.bcits.exception;
+
+public class Calculator1 {
+	void division(int a, int b) throws ClassNotFoundException {
+		Class.forName("Person");
+	}
+
+}

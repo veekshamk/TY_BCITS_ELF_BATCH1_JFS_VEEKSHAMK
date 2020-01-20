@@ -1,0 +1,11 @@
+package com.bcits.jdbc.abstraction;
+
+public class ClassY implements MyInterface2{
+
+	@Override
+	public MyInterface1 getInstance() {
+		return new ClassB();
+	}
+	
+
+}

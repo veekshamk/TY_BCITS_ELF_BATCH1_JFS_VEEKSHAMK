@@ -1,0 +1,59 @@
+
+osquid:S2095'"GUse try-with-resources or close this "Statement" in a "finally" clause.(œïì”H™RBLOCKERZBUG
+osquid:S2095("GUse try-with-resources or close this "ResultSet" in a "finally" clause.(®ÀÚ¯HšRBLOCKERZBUG
+zsquid:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(÷”§üÿÿÿÿH›RBLOCKERZBUG
+„squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò¯ûÿÿÿÿHœRMINORZ
+CODE_SMELL
+„squid:S00117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆõíøÿÿÿÿHRMINORZ
+CODE_SMELL
+„squid:S00117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôè¥˜üÿÿÿÿHRMINORZ
+CODE_SMELL
+„squid:S001170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö” ½ÿÿÿÿÿHŸRMINORZ
+CODE_SMELL
+squid:S001174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¸¿ÔH RMINORZ
+CODE_SMELL
+squid:S001176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´¹ıĞH¡RMINORZ
+CODE_SMELL
+squid:S001177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÉ§²H¢RMINORZ
+CODE_SMELL
+Xsquid:S1148G"#Use a logger to log this exception.(°˜Ì§şÿÿÿÿH£RMINORZVULNERABILITY
+Xsquid:S1148W"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH¤RMINORZVULNERABILITY
+e
+squid:S1069"9Replace this use of System.out or System.err by a logger.(±´¶–H¥RMAJORZ
+CODE_SMELL
+e
+squid:S106:"9Replace this use of System.out or System.err by a logger.(Ø¨—½H¦RMAJORZ
+CODE_SMELL
+j
+squid:S106;"9Replace this use of System.out or System.err by a logger.(œ·ÕäùÿÿÿÿH§RMAJORZ
+CODE_SMELL
+j
+squid:S106<"9Replace this use of System.out or System.err by a logger.(»‡ô§ıÿÿÿÿH¨RMAJORZ
+CODE_SMELL
+e
+squid:S106="9Replace this use of System.out or System.err by a logger.(Äø«‰H©RMAJORZ
+CODE_SMELL
+e
+squid:S106>"9Replace this use of System.out or System.err by a logger.(Ü×»ÀHªRMAJORZ
+CODE_SMELL
+j
+squid:S106?"9Replace this use of System.out or System.err by a logger.(†æÁ’ùÿÿÿÿH«RMAJORZ
+CODE_SMELL
+e
+squid:S106@"9Replace this use of System.out or System.err by a logger.(Á–ğ”H¬RMAJORZ
+CODE_SMELL
+j
+squid:S106A"9Replace this use of System.out or System.err by a logger.(â„œÑûÿÿÿÿH­RMAJORZ
+CODE_SMELL
+e
+squid:S106B"9Replace this use of System.out or System.err by a logger.(æøH®RMAJORZ
+CODE_SMELL
+j
+squid:S106C"9Replace this use of System.out or System.err by a logger.(ÜŠŸùÿÿÿÿH¯RMAJORZ
+CODE_SMELL
+_squid:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿH°RCRITICALZ
+CODE_SMELL
+}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‡ÖŒ üÿÿÿÿH±RMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(ß×ªùÿÿÿÿH²RMAJORZ
+CODE_SMELL

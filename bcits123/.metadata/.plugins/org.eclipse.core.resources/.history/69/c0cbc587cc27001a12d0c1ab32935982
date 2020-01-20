@@ -1,0 +1,16 @@
+package com.bcits.collection;
+import java.util.*;
+
+public class PriorityQueue {
+	public static void main(String[] args) {
+		PriorityQueue1 <Integer> p1=new PriorityQueue1<Integer>();
+		p1.add(12);
+		p1.add(90);
+		p1.add(55);
+		p1.add(67);
+		p1.add(16);
+		p1.add(2);
+		System.out.println(p1);
+	}
+
+}

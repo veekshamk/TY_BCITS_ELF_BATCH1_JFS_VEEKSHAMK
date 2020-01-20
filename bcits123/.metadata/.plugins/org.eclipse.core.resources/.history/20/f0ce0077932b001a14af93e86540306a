@@ -1,0 +1,27 @@
+package com.bcits.myproperties.common;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class PropertiesFileReader {
+	public static void main(String[] args) {
+		try {
+			FileInputStream fileInputStream=new FileInputStream("dbinfo.properties");
+			Properties properies=new Properties();
+			
+			try {
+				properies.load(fileInputStream);
+				System.out.println("driver name=>"+ properies.getProperty("driverNM"));
+				System.out.println("DBURL=>"+ properies.getProperty("dbURL"));
+				System.out.println("User Name=>"+ properies.getProperty("user"));
+				System.out.println("Password=>"+properies.getProperty("password"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	}
+}
+}

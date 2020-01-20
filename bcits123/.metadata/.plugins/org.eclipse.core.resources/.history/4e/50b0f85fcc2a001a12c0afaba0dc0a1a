@@ -1,0 +1,72 @@
+package com.bcits.jdbcapp.common;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class MySecondJDBCProgram {
+	public static void main(String[] args) {
+		Connection con=null;
+		Statement stmt=null;
+		ResultSet rs=null;
+		try {
+		Driver d=new Driver();
+		DriverManager.registerDriver(d);
+		
+		String dburl="jdbc:mysql://localhost:3306/employee_management_info?user=root&password=root";
+		con=DriverManager.getConnection(dburl);
+		
+		String query="select * from employee_primary_info where emp_id=1";
+		stmt=con.createStatement();
+		rs=stmt.executeQuery(query);
+		
+		while(rs.next()) {
+			int emp_id=rs.getInt("Employee ID");
+			String name=rs.getString("Name");
+			Long mobile_number=rs.getLong("Mobile Number");
+			String official_mail_id=rs.getString("Official Mail ID");
+			Date dob=rs.getDate("Date of Birth");
+			Date doj=rs.getDate("Date of Joining");
+			String designation=rs.getString("Designation");
+			String blood_group=rs.getString("Blood Group");
+			Double salary=rs.getDouble("Salary");
+			int dept_id=rs.getInt("Department ID");
+			int manager_id=rs.getInt("Manager ID");
+			
+			System.out.println("Employee ID=>"+emp_id);
+			System.out.println("Name=>"+name);
+			System.out.println("Mobile Number=>"+mobile_number);
+			System.out.println("Official Mail ID=>"+official_mail_id);
+			System.out.println("Date of Birth=>"+dob);
+			System.out.println("Date of Joining=>"+doj);
+			System.out.println("Designation=>"+designation);
+			System.out.println("Blood Group=>"+blood_group);
+			System.out.println("Salary=>"+salary);
+			System.out.println("Department ID=>"+dept_id);
+			System.out.println("Manager ID=>"+manager_id);
+			
+		}
+		
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}
+				if(stmt!=null) {
+					stmt.close();
+				}
+				if(rs!=null) {
+					rs.close();
+				}
+			
+		}
+		}
+	}
+
+}

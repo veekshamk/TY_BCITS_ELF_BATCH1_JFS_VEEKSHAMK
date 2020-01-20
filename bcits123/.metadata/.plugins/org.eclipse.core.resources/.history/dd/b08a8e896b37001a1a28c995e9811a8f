@@ -1,0 +1,39 @@
+package com.bcits.empwebapp.beans;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="employee_primary_info")
+public class EmployeePrimaryInfo implements Serializable{
+	@Id
+	private int emp_id;
+	@Column
+	private String name;
+	@Column
+	private long mobile_number;
+	@Column
+	private String official_mail_id;
+	@Column
+	private Date dob;
+	@Column
+	private Date doj;
+	@Column
+	private String designation;
+	@Column
+	private String blood_group;
+	@Column
+	private double salary;
+	@Column
+	private int dept_id;
+	@Column
+	private int manager_id;
+}

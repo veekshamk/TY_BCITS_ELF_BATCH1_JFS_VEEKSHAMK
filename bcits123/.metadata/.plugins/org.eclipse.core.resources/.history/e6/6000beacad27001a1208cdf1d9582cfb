@@ -1,0 +1,41 @@
+package com.bcits.collection;
+
+import java.util.ArrayList;
+
+public class List1 {
+	public static void main(String[] args) {
+		ArrayList<Integer> a1= new ArrayList<Integer>();
+		a1.add(22);
+		a1.add(43);
+		a1.add(65);
+		System.out.println(a1);
+		System.out.println("---------------");
+		
+		a1.add(2, 56);
+		System.out.println(a1);
+		System.out.println("-------------------");
+		
+		a1.remove(3);
+		System.out.println(a1);
+		System.out.println("-------------------");
+		
+		System.out.println(a1);
+		a1.set(0, 99);
+		System.out.println("--------------------");
+		
+		System.out.println(a1.indexOf(99));
+		System.out.println(a1);
+		System.out.println("--------------------");
+		
+		add
+		System.out.println(a1.lastIndexOf(43));
+		System.out.println(a1);
+		System.out.println("------------------");
+		
+		for(int i=0; i<a1.size(); i++) {
+			System.out.println(a1.get(i));
+		}
+		
+	}
+
+}

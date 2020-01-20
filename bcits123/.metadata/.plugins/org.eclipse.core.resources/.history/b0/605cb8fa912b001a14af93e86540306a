@@ -1,0 +1,5 @@
+package com.bcits.myproperties.common;
+
+public class PropertiesFileReader {
+
+}

@@ -1,0 +1,16 @@
+
+squid:UselessImportCheck"URemove this unused import 'com.bcits.jpawithhibernate.one.to.many.EmployeeAddressPK'.(Â¹ŞÑHİ"RMINORZ
+CODE_SMELL
+e
+squid:S106S"9Replace this use of System.out or System.err by a logger.(©ÿ¥ÓHŞ"RMAJORZ
+CODE_SMELL
+’squid:S2293F"YReplace the type specification in this constructor call with the diamond operator ("<>").(¶ò¶ïûÿÿÿÿ8¢×Çóù-Hß"RMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLineR"<This block of commented-out lines of code should be removed.(¡ ª§8Ù·Ş÷ù-Hà"RMAJORZ
+CODE_SMELL
+‘squid:UselessImportCheck"WRemove this unused import 'com.bcits.jpawithhibernate.one.to.many.EmployeeAddressInfo'.(‡„ÒÚHá"RMINORZ
+CODE_SMELL
+tsquid:S2259W"IA "NullPointerException" could be thrown; "transaction" is nullable here.(ì‚—ôúÿÿÿÿHâ"RMAJORZBUG
+†squid:S2293/"YReplace the type specification in this constructor call with the diamond operator ("<>").(ï÷æHã"RMINORZ
+CODE_SMELL
+Xsquid:S1148V"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHä"RMINORZVULNERABILITY

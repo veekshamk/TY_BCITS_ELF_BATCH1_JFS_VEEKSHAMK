@@ -1,0 +1,19 @@
+
+e
+squid:S106)"9Replace this use of System.out or System.err by a logger.(∆€ÿÛHóRMAJORZ
+CODE_SMELL
+Zsquid:S4925"-Remove this "Class.forName()", it is useless.(∆Ö»üHîRMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(πÜÀâHöRMAJORZ
+CODE_SMELL
+wsquid:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(“í˘•HëRBLOCKERZBUG
+Xsquid:S1148;"#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇHìRMINORZVULNERABILITY
+Xsquid:S1148."#Use a logger to log this exception.(Ä…‘Ö˝ˇˇˇˇHíRMINORZVULNERABILITY
+Wsquid:S2068" Remove this hard-coded password.(º÷£∫˛ˇˇˇˇHïRBLOCKERZVULNERABILITY
+xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´ÇË‹HôRMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Õ‰ıë˛ˇˇˇˇHòRMAJORZ
+CODE_SMELL
+j
+squid:S106'"9Replace this use of System.out or System.err by a logger.(ö–â‘˛ˇˇˇˇHñRMAJORZ
+CODE_SMELL

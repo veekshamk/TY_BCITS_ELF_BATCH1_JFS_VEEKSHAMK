@@ -1,0 +1,12 @@
+package com.bcits.jdbcapp.common;
+
+public class MainMethodclass {
+	public static void main(String[] args) {
+		String str="one";
+		Connection con=DriverManager.getConnection(str);
+		con.toString();
+		con.print();
+		
+	}
+
+}

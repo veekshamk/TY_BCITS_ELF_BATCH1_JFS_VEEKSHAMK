@@ -1,0 +1,18 @@
+package com.bcits.jdbcapp.common;
+
+public class MyClass {
+	private MyClass() {}
+	public static MyInterface myMethod(String str) {
+		//Some Business Logic
+		MyInterface ref=null;
+		if (str.equals(ref)) {
+			ref=new ClassA();
+			
+		}else {
+			ref=new ClassB();
+		}
+		
+		return ref;
+	}//End of myMethod
+
+}//End of Class

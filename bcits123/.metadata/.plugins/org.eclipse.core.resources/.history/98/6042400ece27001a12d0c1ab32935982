@@ -1,0 +1,8 @@
+package com.bcits.collection;
+
+public class HashSet {
+	public static void main(String[] args) {
+		HashSet <Integer> h
+	}
+
+}

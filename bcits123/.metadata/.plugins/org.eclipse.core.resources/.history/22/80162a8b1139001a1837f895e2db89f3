@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="./searchEmployee.html">Search</a>
+	<a href="./addemployee.html">Add Employee</a>
+	<a href="#">Update Employee</a>
+	<a href="#">Delete Employee</a>
+	<a href="./searchEmployee.html">Search</a>
+
+	<a href="#">Logout</a>
+</body>
+</html>

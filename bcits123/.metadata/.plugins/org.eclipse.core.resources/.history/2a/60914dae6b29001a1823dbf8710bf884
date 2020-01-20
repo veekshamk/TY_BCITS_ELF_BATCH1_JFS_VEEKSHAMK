@@ -1,0 +1,8 @@
+package com.mycomp.calculator.basic;
+
+public class BasicCalculator {
+	int a(int i, int j) {
+		return i+j;
+	}
+
+}

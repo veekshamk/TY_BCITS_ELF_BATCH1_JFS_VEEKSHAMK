@@ -1,0 +1,58 @@
+
+q
+squid:S1063"9Replace this use of System.out or System.err by a logger.(†æÁ’ùÿÿÿÿ8äªî¥ø-HÏRMAJORZ
+CODE_SMELL
+~squid:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Íœ¤8ØĞû¥ø-HĞRBLOCKERZBUG
+‹squid:S00117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æõíøÿÿÿÿ8úäú¥ø-HÑRMINORZ
+CODE_SMELL
+q
+squid:S1065"9Replace this use of System.out or System.err by a logger.(â„œÑûÿÿÿÿ8äªî¥ø-HÒRMAJORZ
+CODE_SMELL
+†squid:S00117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¸¿Ô8úäú¥ø-HÓRMINORZ
+CODE_SMELL
+l
+squid:S106-"9Replace this use of System.out or System.err by a logger.(±´¶–8äªî¥ø-HÔRMAJORZ
+CODE_SMELL
+q
+squid:S1067"9Replace this use of System.out or System.err by a logger.(ÜŠŸùÿÿÿÿ8úäú¥ø-HÕRMAJORZ
+CODE_SMELL
+asquid:S4925"-Remove this "Class.forName()", it is useless.(Æ…ÈŸ8ØĞû¥ø-HÖRMAJORZ
+CODE_SMELL
+{squid:S2095"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(Ğî½•ÿÿÿÿÿ8ØĞû¥ø-H×RBLOCKERZBUG
+l
+squid:S1061"9Replace this use of System.out or System.err by a logger.(Äø«‰8äªî¥ø-HØRMAJORZ
+CODE_SMELL
+l
+squid:S1064"9Replace this use of System.out or System.err by a logger.(Á–ğ”8äªî¥ø-HÙRMAJORZ
+CODE_SMELL
+q
+squid:S1060"9Replace this use of System.out or System.err by a logger.(»‡ô§ıÿÿÿÿ8äªî¥ø-HÚRMAJORZ
+CODE_SMELL
+†squid:S00117+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÉ§²8ØĞû¥ø-HÛRMINORZ
+CODE_SMELL
+l
+squid:S1062"9Replace this use of System.out or System.err by a logger.(Ü×»À8äªî¥ø-HÜRMAJORZ
+CODE_SMELL
+_squid:S1148L"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ØĞû¥ø-HİRMINORZVULNERABILITY
+_squid:S1148="#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ØĞû¥ø-HŞRMINORZVULNERABILITY
+ssquid:UselessImportCheck"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8–Àü¥ø-HßRMINORZ
+CODE_SMELL
+q
+squid:S106/"9Replace this use of System.out or System.err by a logger.(œ·Õäùÿÿÿÿ8äªî¥ø-HàRMAJORZ
+CODE_SMELL
+‹squid:S00117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôè¥˜üÿÿÿÿ8úäú¥ø-HáRMINORZ
+CODE_SMELL
+‹squid:S00117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö” ½ÿÿÿÿÿ8ØĞû¥ø-HâRMINORZ
+CODE_SMELL
+^squid:S2068" Remove this hard-coded password.(¼Ö£ºşÿÿÿÿ8ØĞû¥ø-HãRBLOCKERZVULNERABILITY
+l
+squid:S106."9Replace this use of System.out or System.err by a logger.(Ø¨—½8äªî¥ø-HäRMAJORZ
+CODE_SMELL
+l
+squid:S1066"9Replace this use of System.out or System.err by a logger.(æø8äªî¥ø-HåRMAJORZ
+CODE_SMELL
+q
+squid:S1069"9Replace this use of System.out or System.err by a logger.(ŠâœÒøÿÿÿÿ8ØĞû¥ø-HæRMAJORZ
+CODE_SMELL
+†squid:S00117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´¹ıĞ8úäú¥ø-HçRMINORZ
+CODE_SMELL

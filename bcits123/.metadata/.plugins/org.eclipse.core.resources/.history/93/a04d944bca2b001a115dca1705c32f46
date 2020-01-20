@@ -1,0 +1,11 @@
+package com.bcits.jdbc.abstraction;
+
+public class ClassX implements Collection{
+
+	@Override
+	public Statement getInstance() {
+		return new ClassA();
+	}
+	
+
+}

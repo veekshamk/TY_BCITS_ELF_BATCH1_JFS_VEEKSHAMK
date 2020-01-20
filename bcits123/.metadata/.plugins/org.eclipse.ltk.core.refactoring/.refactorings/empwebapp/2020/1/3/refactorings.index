@@ -1,0 +1,12 @@
+1578986405505	Delete element
+1579073299347	Move 'searchEmployee.html' to 'webapp'
+1579074150434	Move 'persistence.xml' to 'META-INF'
+1579149369216	Move 'deleteemployee.html' to 'webapp'
+1579152672096	Move 'Employee.html' to 'webapp'
+1579156874058	Rename resource 'Employee.html'
+1579161280824	Delete element
+1579255463255	Delete element
+1579258883022	Delete element
+1579258916039	Rename type 'SearchEmployeeServlet2'
+1579260242440	Move 'employeeform.html' to 'webapp'
+1579260247862	Move 'loginform.html' to 'webapp'

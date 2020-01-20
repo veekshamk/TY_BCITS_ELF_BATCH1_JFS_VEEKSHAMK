@@ -1,0 +1,17 @@
+package com.bcits.collection;
+
+import java.util.TreeSet;
+
+public class TreeSet1 {
+	public static void main(String[] args) {
+		TreeSet <Person, Integer> t1=new TreeSet<Person, Integer>();
+		t1.put(new Person(20, "Veeksha"),56);
+		t1.put(new Person(15, "Likhith"),65);
+		t1.put(new Person(18, "Sampreeth"),45);
+		System.out.println(t1);
+			
+			
+		
+	}
+
+}

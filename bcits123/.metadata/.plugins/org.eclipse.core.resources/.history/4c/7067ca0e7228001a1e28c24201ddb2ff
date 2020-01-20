@@ -1,0 +1,17 @@
+package com.bcits.exception;
+
+public class TestB {
+	public static void main(String[] args) {
+	String name=null;
+	 
+	System.out.println("main started");
+	try {
+		System.out.println(name.length());
+	System.out.println(100/0);
+	
+	}catch(ArithmeticException | NullPointerException a) {
+		System.out.println(a.getMessage());
+	}
+	System.out.println("main ended");
+	}
+}

@@ -1,0 +1,6 @@
+package com.bcits.jdbc.abstraction;
+
+public class ClassY implements MyInterface2{
+	
+
+}

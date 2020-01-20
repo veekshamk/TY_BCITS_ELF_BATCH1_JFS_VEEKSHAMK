@@ -1,0 +1,10 @@
+package com.bcits.myproperties.common;
+
+import java.io.FileInputStream;
+
+public class PropertiesFileReader {
+	public static void main(String[] args) {
+		FileInputStream fileInputStream=new FileInputStream("dbinfo.properties");
+	}
+
+}

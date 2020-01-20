@@ -1,0 +1,13 @@
+
+‹squid:S00116"QRename this field "emp_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÄÄõøÿÿÿÿ8³Ê–êù-H®#RMINORZ
+CODE_SMELL
+‰squid:S00116"TRename this field "ifsc_code" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÄÜÓ8¶‚Œêù-H­#RMINORZ
+CODE_SMELL
+“squid:S00116"YRename this field "account_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§×³êûÿÿÿÿ8¶‚Œêù-Hª#RMINORZ
+CODE_SMELL
+squid:S00116"VRename this field "Branch_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾’¢ˆüÿÿÿÿ8¶‚Œêù-H«#RMINORZ
+CODE_SMELL
+squid:S00116"TRename this field "bank_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å«ôÇüÿÿÿÿ8¶‚Œêù-H¬#RMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(ÚÏ£´ıÿÿÿÿ8¸¥Ïìù-H©#RMAJORZ
+CODE_SMELL

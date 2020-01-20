@@ -1,0 +1,18 @@
+package com.bcits.myproperties.common;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.Properties;
+
+public class MyFirstProperty {
+	public static void main(String[] args) {
+		try {
+		FileOutputStream fileOutputStream=new FileoutputStream("dbinfo.properties");
+		Properties properties=new Properties();
+		
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

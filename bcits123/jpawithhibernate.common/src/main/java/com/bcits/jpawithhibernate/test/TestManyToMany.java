@@ -1,0 +1,93 @@
+package com.bcits.jpawithhibernate.test;
+
+import java.util.ArrayList;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.bcits.jpawithhibernate.common.bean.EmployeePrimaryInfo;
+import com.bcits.jpawithhibernate.many.to.many.ProjectInfo;
+import com.bcits.jpawithhibernate.one.to.many.EmployeeAddressInfo;
+import com.bcits.jpawithhibernate.one.to.many.EmployeeAddressPK;
+
+public class TestManyToMany {
+	public static void main( String[] args )
+	{
+		EntityManager manager=null;
+		EntityTransaction transaction=null;
+
+		EmployeePrimaryInfo primary = new EmployeePrimaryInfo();
+		primary.setBlood_group("a+");
+		primary.setDept_id(150);
+		primary.setDesignation("manager");
+		primary.setDob(java.sql.Date.valueOf("2000-10-10"));
+		primary.setDoj(java.sql.Date.valueOf("2000-10-10"));
+		primary.setEmp_id(171);
+		primary.setManager_id(100);
+		primary.setMobile_number(784561235);
+		primary.setName("nagaveni");
+		primary.setOfficial_mail_id("nagaveni123@gmail.com");
+		primary.setSalary(10000);
+		
+		EmployeePrimaryInfo primary1 = new EmployeePrimaryInfo();
+		primary1.setBlood_group("a-");
+		primary1.setDept_id(201);
+		primary1.setDesignation(" junior manager");
+		primary1.setDob(java.sql.Date.valueOf("2030-10-10"));
+		primary1.setDoj(java.sql.Date.valueOf("2100-10-10"));
+		primary1.setEmp_id(172);
+		primary1.setManager_id(103);
+		primary1.setMobile_number(784561235);
+		primary1.setName("Theertha");
+		primary1.setOfficial_mail_id("theertha123@gmail.com");
+		primary1.setSalary(12000);
+		
+		ArrayList<EmployeePrimaryInfo> alEmployeePrimaryInfo=new ArrayList<EmployeePrimaryInfo>();
+		alEmployeePrimaryInfo.add(primary);
+		alEmployeePrimaryInfo.add(primary1);
+		
+		ProjectInfo proj=new ProjectInfo();
+		proj.setEnd_date(java.sql.Date.valueOf("2010-10-10"));
+		proj.setLocation("Mumbai");
+		proj.setProj_id(173);
+		proj.setProj_name("Image processing");
+		proj.setStart_date(java.sql.Date.valueOf("2017-12-10"));
+		proj.setTechnology("Spring");
+		proj.setPrimaryinfo(alEmployeePrimaryInfo);
+	
+		
+		ProjectInfo proj1=new ProjectInfo();
+		proj1.setEnd_date(java.sql.Date.valueOf("2010-10-10"));
+		proj1.setLocation("Mumbai");
+		proj1.setProj_id(174);
+		proj1.setProj_name("Speech Processing");
+		proj1.setStart_date(java.sql.Date.valueOf("2017-12-10"));
+		proj1.setTechnology("Bootstrap");
+		proj1.setPrimaryinfo(alEmployeePrimaryInfo);
+		
+		ArrayList<ProjectInfo> alProjectInfo=new ArrayList<ProjectInfo>();
+		alProjectInfo.add(proj);
+		alProjectInfo.add(proj1);
+		
+		
+		try {
+			EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+			manager = entityManagerFactory.createEntityManager();
+			transaction = manager.getTransaction();
+			transaction.begin();
+			
+			manager.persist(primary);
+			//manager.persist(proj);
+			System.out.println("record saved");
+			transaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+		}
+		manager.close();
+	}
+
+
+}

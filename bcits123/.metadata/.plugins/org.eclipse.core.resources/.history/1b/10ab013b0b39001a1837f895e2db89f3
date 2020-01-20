@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<fieldset>
+	<legend>Employee Login</legend>
+	<form action="">
+	<label>Employee ID:</label>
+	<input type="text" name="empId" required>
+	&nbsp;&nbsp;
+	<label>Password:</label>
+	<input type="password" value="password" required>
+	&nbsp;&nbsp;
+	<input type="submit" value="Login">
+	</form>
+	</fieldset>
+
+</body>
+</html>
+
+<table>
+	<tr>
+	<td>Employee ID</td>
+	<td>:</td>
+	<td><input type="text" name="empId" required></td>
+	</tr>
+	
+	<tr>
+	<td>Password</td>
+	<td>:</td>
+	<td><input type="password" name="password" required></td>
+	</tr>
+	
+	<tr>
+	<td>Employee ID</td>
+	<td>:</td>
+	<td><input type="submit" value="Login"></td>
+	</tr>
+	
+	
+</table>

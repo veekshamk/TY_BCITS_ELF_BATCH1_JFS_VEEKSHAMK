@@ -1,0 +1,18 @@
+package com.bcits.hibernate.practice;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+@Data
+@Entity
+@Table(name="Employee_Bank_Info")
+public class EmployeeBankInfo implements Serializable{
+	private int id;
+	private long account_num;
+	private String account_holder_name;
+	private String ifsc_code;
+
+}

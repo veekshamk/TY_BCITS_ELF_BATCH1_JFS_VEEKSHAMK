@@ -1,0 +1,12 @@
+package com.bcits.constructor;
+
+ class ClassA {
+	 
+		ClassA(){
+			System.out.println("x");
+		}
+	
+	
+	
+
+}

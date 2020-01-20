@@ -1,0 +1,11 @@
+package com.bcits.hibernate.practice;
+
+import java.io.Serializable;
+
+public class EmployeeBankInfo implements Serializable{
+	private int id;
+	private long account_num;
+	private String account_holder_name;
+	private String ifsc_code;
+
+}

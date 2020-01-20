@@ -1,0 +1,12 @@
+
+k
+squid:S106"9Replace this use of System.out or System.err by a logger.(טפ‘8‡·־תר-H¥!RMAJORZ
+CODE_SMELL
+k
+squid:S106"9Replace this use of System.out or System.err by a logger.(טפ‘8ֹ‹ֵׂû-Hן!RMAJORZ
+CODE_SMELL
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(ֵ”ףנרÿÿÿÿ8ßֳעֵû-H‘"RMAJORZ
+CODE_SMELL
+wsquid:S2259"EA "NullPointerException" could be thrown; "manager" is nullable here.(טעפÊÿÿÿÿÿ8כ¨תר-H₪!RMAJORZBUG
+_squid:S1148"#Use a logger to log this exception.(€ֹװ…‎ÿÿÿÿ8Ùי¥תר-H¦!RMINORZVULNERABILITY

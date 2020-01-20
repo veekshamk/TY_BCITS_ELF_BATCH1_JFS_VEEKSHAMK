@@ -1,0 +1,6 @@
+package com.bcits.jdbc.abstraction;
+
+public interface MyInterface2 {
+	public MyInterface1 getInstance();
+
+}

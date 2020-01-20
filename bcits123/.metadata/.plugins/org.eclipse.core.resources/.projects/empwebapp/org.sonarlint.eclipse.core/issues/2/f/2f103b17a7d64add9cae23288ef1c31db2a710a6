@@ -1,0 +1,11 @@
+
+_squid:S1989("(Add a "try/catch" block for "getWriter".(ѕљзЮ8Џѕ©›ъ-H‡!RMINORZVULNERABILITY
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(‰псіщяяяя8Дэё‘ы-H€!RMAJORZ
+CODE_SMELL
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(‚ •Ююяяяя8Дэё‘ы-H‰!RMAJORZ
+CODE_SMELL
+q
+squid:S1064"9Replace this use of System.out or System.err by a logger.(Ъ›дяяяяя8Дэё‘ы-HЉ!RMAJORZ
+CODE_SMELL

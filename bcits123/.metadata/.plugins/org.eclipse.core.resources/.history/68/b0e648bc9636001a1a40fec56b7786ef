@@ -1,0 +1,18 @@
+package com.bcits.hibernate.practice;
+
+import java.io.Serializable;
+
+import lombok.Data;
+@Data
+@E
+
+public class EmployeeInfo implements Serializable {
+	private int id;
+	private String name;
+	private int dept_id;
+	private String email;
+	private String designation;
+	private long phone_num;
+	
+
+}

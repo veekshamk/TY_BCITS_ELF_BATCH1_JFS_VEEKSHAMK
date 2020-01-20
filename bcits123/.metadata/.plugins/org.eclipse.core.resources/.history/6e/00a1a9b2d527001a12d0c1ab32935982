@@ -1,0 +1,12 @@
+package com.bcits.collection;
+
+public class Person {
+	int age;
+	String name;
+	Person(int age, String name){
+		this.age=24;
+		this.name="Divya";
+	}
+	
+
+}

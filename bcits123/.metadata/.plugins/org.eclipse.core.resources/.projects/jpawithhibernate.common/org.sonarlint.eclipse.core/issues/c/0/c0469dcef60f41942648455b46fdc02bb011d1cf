@@ -1,0 +1,8 @@
+
+_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ƒ–şœù-H¬RMINORZVULNERABILITY
+qsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ôéŠù-H²RMINORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(²àƒ€8ƒ–şœù-H­RMAJORZ
+CODE_SMELL
+{squid:S2259"IA "NullPointerException" could be thrown; "transaction" is nullable here.(ì‚—ôúÿÿÿÿ8ƒ–şœù-H«RMAJORZBUG

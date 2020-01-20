@@ -1,0 +1,9 @@
+package com.bcits.exception;
+
+public class CheckedCustom {
+	public static void main(String[] args) {
+		System.out.println("main started");
+		
+	}
+
+}

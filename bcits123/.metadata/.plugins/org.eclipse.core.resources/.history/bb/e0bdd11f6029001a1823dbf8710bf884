@@ -1,0 +1,62 @@
+package com.bcits.jdbcapp.common;
+
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.mysql.jdbc.Driver;
+import com.sql.jdbc.DriverManager;
+
+public class MyFirstJBDBCProgram {
+	public static void main(String[] args) {
+		// 1. Load the Driver.
+		try {
+			Driver d = new Driver();
+			Driver.registerDriver(d);
+
+			// 2. Get the DB connection via Driver
+
+			String dburl = "jdbc.mysql://localhost:3306/employee_management_info?user=root&password=root";
+			Connection con = Driver.getConnection(dburl);
+
+			String query = "select * from employee_primary_info";
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+
+			while (rs.next()) {
+				int emp_id = rs.getInt("emp_id");
+				String name = rs.getString("name");
+				BigDecimal mobile_number = rs.getBigDecimal("mobile_number");
+				String official_mail_id = rs.getString("official_mail_id");
+				Date dob = rs.getDate("dob");
+				Date doj = rs.getDate("doj");
+				String designation = rs.getString("designation");
+				String blood_group = rs.getString("blood_group");
+				Double salary = rs.getDouble("salary");
+				int dept_id = rs.getInt("dept_id");
+				int manager_id = rs.getInt("manager_id");
+
+				System.out.println("employee id->" + emp_id);
+				System.out.println("name->" + name);
+				System.out.println("mobile_number->" + mobile_number);
+				System.out.println("official_mail_id->" + official_mail_id);
+				System.out.println("dob->" + dob);
+				System.out.println("doj->" + doj);
+				System.out.println("designation->" + designation);
+				System.out.println("blood_group->" + blood_group);
+				System.out.println("salary->" + salary);
+				System.out.println("dept_id->" + dept_id);
+				System.out.println("manager_id->+manager_id");
+
+			}
+		} catch (SQLException s) {
+			s.printStackTrace();
+
+		}
+
+	}// End of Main
+
+}// End of Class

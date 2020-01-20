@@ -1,0 +1,6 @@
+package com.bcits.jdbc.abstraction;
+
+public interface Collection {
+	public void method1();
+
+}

@@ -1,0 +1,9 @@
+package com.bcits.collection;
+
+public class Dequeue1 {
+	public static void main(String[] args) {
+		Dequeue <Integer> d1=new Dequeue<Integer>();
+		
+	}
+
+}

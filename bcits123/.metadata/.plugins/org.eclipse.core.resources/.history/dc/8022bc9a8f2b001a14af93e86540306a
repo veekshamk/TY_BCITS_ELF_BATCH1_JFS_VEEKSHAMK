@@ -1,0 +1,11 @@
+package com.bcits.myproperties.common;
+
+import java.io.FileOutputStream;
+
+public class MyFirstProperty {
+	public static void main(String[] args) {
+		FileOutputStream f=new FileoutputStream("dbinfo.properties");
+		
+	}
+
+}

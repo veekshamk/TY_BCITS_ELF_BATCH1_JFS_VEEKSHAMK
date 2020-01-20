@@ -1,0 +1,9 @@
+package com.bcits.constructor;
+
+private class ClassA {
+	private ClassA(){
+		
+	}
+	
+
+}

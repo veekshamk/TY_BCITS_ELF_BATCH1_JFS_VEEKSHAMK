@@ -1,0 +1,76 @@
+package com.bcits.empwebapp.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bcits.empwebapp.beans.EmployeePrimaryInfo;
+
+@WebServlet("/updateEmployee")
+
+public class Update {
+	public class update extends HttpServlet {
+		@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			String empIdVal = req.getParameter("empId");
+			//String managerIdVal=req.getParameter("managerIdVal");
+			int empId = Integer.parseInt(empIdVal);
+			//int managerId=Integer.parseInt(managerIdVal);
+			String nameVal=req.getParameter("name");
+			
+			EntityTransaction transaction=null;
+			EntityManager manager=null;
+			
+				EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("emsPersistenceUnit");
+				manager=entityManagerFactory.createEntityManager();
+				transaction = manager.getTransaction();
+				transaction.begin();
+				EmployeePrimaryInfo info=manager.find(EmployeePrimaryInfo.class, empId);
+				//info.setSalary(25000);
+				resp.setContentType("text/html");
+
+				PrintWriter out = resp.getWriter();
+
+				transaction.commit();
+				System.out.println("Record Updated");
+			
+				transaction.rollback();
+			
+			
+			
+			if (info != null) {
+				out.println("<html>");
+				out.println("<body>");
+				out.println("<h1 style='color:red'>Employee details found for empId " + empId + " & updated <h1>");
+				out.println("</body>");
+				out.println("</html>");
+			} else {
+				
+				//transaction.commit();
+
+				out.println("<html>");
+				out.println("<body>");
+				out.println("<h1 style='color:red'>Employee record for " + empId + " is not found <h1>");
+				out.println("</body>");
+				out.println("</html>");
+			}
+			transaction.commit();
+			manager.close();
+			entityManagerFactory.close();
+
+		}
+
+	}
+}
+
+
+

@@ -1,0 +1,13 @@
+package com.bcits.threds;
+
+public class Thread1 extends Thread{
+	void run() {
+		System.out.println("Thread is called");
+		
+		for (int i = 0; i < 5; i++) {
+			System.out.println(i);
+			
+		}
+	}
+
+}

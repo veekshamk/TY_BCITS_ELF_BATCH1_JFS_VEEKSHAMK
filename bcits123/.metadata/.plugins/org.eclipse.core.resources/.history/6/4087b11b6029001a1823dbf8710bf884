@@ -1,0 +1,31 @@
+package com.bcits.jdbcapp.common;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.sql.jdbc.DriverManager;
+public class MyFirstJBDBCProgram {
+	public static void main(String[] args) {
+		//1. Load the Driver.
+		try {
+		Driver d=new Driver();
+		DriverManger.registerDriver(d);
+		
+		//2. Get the DB connection via Driver
+		
+		String dburl="jdbc.mysql://localhost:3306/employee_management_info?user=root&password=root";
+		Connection con=DriverManger.getConnection(dburl);
+		
+		String query="select * from employee_primary_info";
+		Statement stmt=con.createStatement();
+		ResultSet rs=stmt.executeQuery(query);
+		
+		}catch(SQLException s){
+			s.printStackTrace();
+			
+		}
+			
+		
+		
+	}//End of Main
+
+}//End of Class

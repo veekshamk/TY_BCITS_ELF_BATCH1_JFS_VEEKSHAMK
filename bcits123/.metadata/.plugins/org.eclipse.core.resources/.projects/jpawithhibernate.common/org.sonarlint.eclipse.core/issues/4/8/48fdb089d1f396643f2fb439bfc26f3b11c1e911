@@ -1,0 +1,19 @@
+
+squid:UselessImportCheck
+"XRemove this unused import 'com.bcits.jpawithhibernate.one.to.one.EmployeeSecondaryInfo'.(‡®θϋÿÿÿÿ8ρνªκω-HΛ#RMINORZ
+CODE_SMELL
+Xsquid:S11484"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿHΜ#RMINORZVULNERABILITY
+e
+squid:S1060"9Replace this use of System.out or System.err by a logger.(ιήΛHΘ#RMAJORZ
+CODE_SMELL
+l
+squid:S106/"9Replace this use of System.out or System.err by a logger.(λ“ο„8ήκ›μω-HΙ#RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(ώΫκ8ή»ολω-HΚ#RMAJORZ
+CODE_SMELL
+tsquid:S22595"IA "NullPointerException" could be thrown; "transaction" is nullable here.(μ‚—τϊÿÿÿÿHΞ#RMAJORZBUG
+squid:CommentedOutCodeLine#"<This block of commented-out lines of code should be removed.(ι¬΄κ8»‘¬κω-HΝ#RMAJORZ
+CODE_SMELL
+l
+squid:S1061"9Replace this use of System.out or System.err by a logger.(―Λρ—8ή»ολω-HΗ#RMAJORZ
+CODE_SMELL

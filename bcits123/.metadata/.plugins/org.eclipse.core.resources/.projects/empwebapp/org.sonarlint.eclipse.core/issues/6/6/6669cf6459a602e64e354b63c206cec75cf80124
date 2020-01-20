@@ -1,0 +1,20 @@
+
+tsquid:S1854";Remove this useless assignment to local variable "nameVal".(›¢á¿üÿÿÿÿ8¯Øì•û-HîRMAJORZ
+CODE_SMELL
+‡squid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Œþ¶°ÿÿÿÿÿ8¸î¦Žû-HÀRMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(±È¶õ8Å‹é•û-HéRMAJORZ
+CODE_SMELL
+csquid:S1989"'Add a "try/catch" block for "parseInt".(Ããžëÿÿÿÿÿ8¸î¦Žû-HÁRMINORZVULNERABILITY
+l
+squid:S106,"9Replace this use of System.out or System.err by a logger.(Á˜ÞÂ8ö‰Ô•û-HÖRMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñÒñ8Å‹é•û-HèRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine&"<This block of commented-out lines of code should be removed.(îùÝ²úÿÿÿÿ8¯Øì•û-HïRMAJORZ
+CODE_SMELL
+_squid:S1989)"(Add a "try/catch" block for "getWriter".(¾šçÞ8¸î¦Žû-HíRMINORZVULNERABILITY
+esquid:S1481",Remove this unused "nameVal" local variable.(›¢á¿üÿÿÿÿ8Å‹é•û-HçRMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine:"<This block of commented-out lines of code should be removed.(žöÀ·ÿÿÿÿÿ8ûåò•û-HöRMAJORZ
+CODE_SMELL

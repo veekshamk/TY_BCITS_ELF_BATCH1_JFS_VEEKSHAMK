@@ -1,0 +1,16 @@
+package com.bcits.exception;
+
+public class AgeLimitException extends Exception {
+	String msg="Age is less than 18";
+	
+	AgeLimitException(){
+		
+	}
+	AgeLimitException(String msg){
+		this.msg=msg;
+	}
+	public String getMsg() {
+		return this.msg;
+	}
+
+}

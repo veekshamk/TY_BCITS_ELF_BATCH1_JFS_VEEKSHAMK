@@ -1,0 +1,9 @@
+
+]squid:S1989?"&Add a "try/catch" block for "include".(‘‹€†8ôÔ³˜û-H‡'RMINORZVULNERABILITY
+]squid:S1989;"&Add a "try/catch" block for "include".(‘‹€†8ôÔ³˜û-Hˆ'RMINORZVULNERABILITY
+”squid:S2068"V'password' detected in this expression, review this potentially hard-coded credential.(ªé’şÿÿÿÿ8‘˜û-H‰'RBLOCKERZVULNERABILITY
+_squid:S1148("#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‘˜û-HŠ'RMINORZVULNERABILITY
+_squid:S1989,"(Add a "try/catch" block for "getWriter".(¾šçŞ8ôÔ³˜û-H‹'RMINORZVULNERABILITY
+]squid:S1989;"&Add a "try/catch" block for "include".(‘‹€†8ôÔ³˜û-HŒ'RMINORZVULNERABILITY
+]squid:S1989?"&Add a "try/catch" block for "include".(‘‹€†8ôÔ³˜û-H'RMINORZVULNERABILITY
+csquid:S1989"'Add a "try/catch" block for "parseInt".(º×è¯ıÿÿÿÿ8‘˜û-H'RMINORZVULNERABILITY
