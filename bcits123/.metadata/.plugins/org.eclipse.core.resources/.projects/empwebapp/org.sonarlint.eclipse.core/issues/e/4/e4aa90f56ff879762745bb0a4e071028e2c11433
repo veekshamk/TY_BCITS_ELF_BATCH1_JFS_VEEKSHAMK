@@ -1,8 +1,8 @@
 
-]squid:S19891"&Add a "try/catch" block for "forward".(λΪ²8Υ€»ό-HΈ'RMINORZVULNERABILITY
-”squid:S2068"V'password' detected in this expression, review this potentially hard-coded credential.(ªι’ώÿÿÿÿ8όμ…ό-HΉ'RBLOCKERZVULNERABILITY
-]squid:S1989,"&Add a "try/catch" block for "forward".(…γι8Υ€»ό-H·'RMINORZVULNERABILITY
-]squid:S1989,"&Add a "try/catch" block for "forward".(…γι8Υ€»ό-H¶'RMINORZVULNERABILITY
-csquid:S1989"'Add a "try/catch" block for "parseInt".(ΊΧθ―ύÿÿÿÿ8όμ…ό-H³'RMINORZVULNERABILITY
-]squid:S19891"&Add a "try/catch" block for "forward".(λΪ²8Υ€»ό-H΄'RMINORZVULNERABILITY
-_squid:S1148&"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8Υ€»ό-Hµ'RMINORZVULNERABILITY
+_squid:S1148&"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8Υ€»ό-Hσ1RMINORZVULNERABILITY
+]squid:S19891"&Add a "try/catch" block for "forward".(λΪ²8Υ€»ό-Hτ1RMINORZVULNERABILITY
+]squid:S1989,"&Add a "try/catch" block for "forward".(…γι8Υ€»ό-Hυ1RMINORZVULNERABILITY
+]squid:S19891"&Add a "try/catch" block for "forward".(λΪ²8Υ€»ό-Hφ1RMINORZVULNERABILITY
+”squid:S2068"V'password' detected in this expression, review this potentially hard-coded credential.(ªι’ώÿÿÿÿ8όμ…ό-Hχ1RBLOCKERZVULNERABILITY
+csquid:S1989"'Add a "try/catch" block for "parseInt".(ΊΧθ―ύÿÿÿÿ8όμ…ό-Hψ1RMINORZVULNERABILITY
+]squid:S1989,"&Add a "try/catch" block for "forward".(…γι8Υ€»ό-Hω1RMINORZVULNERABILITY

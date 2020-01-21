@@ -23,8 +23,6 @@ Nsrc/main/java/com/bcits/jpawithhibernate/jpql/dynamicquery/UpdateEmployee.java
 Nsrc/main/java/com/bcits/jpawithhibernate/jpql/dynamicquery/DeleteEmployee.java,3\a\3a29941ef5c2a6fc0f1cf0b885ffb31604315a1c
 
 Osrc/main/java/com/bcits/jpawithhibernate/jpql/dynamicquery/CountOfEmployee.java,c\0\c0469dcef60f41942648455b46fdc02bb011d1cf
-
-Osrc/main/java/com/bcits/jpawithhibernate/common/bean/EmployeeEducationInfo.java,9\1\918d2ed443433904afece14f3753c7746db28535
 x
 Hsrc/main/java/com/bcits/jpawithhibernate/common/crud/InsertEmployee.java,3\7\37c5a19dea66b67bd217317b0bcd39e2c6f3026d
 ~

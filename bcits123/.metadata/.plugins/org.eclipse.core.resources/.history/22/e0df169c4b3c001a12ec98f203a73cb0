@@ -1,0 +1,26 @@
+package com.bcits.project.usecase.monthlyconsumption;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="Monthly_Consumption")
+public class MonthlyConsumption {
+	@Id
+	@Column
+	private String meterNumber;
+	@Column
+	private String nameOfMonth;
+	@Column
+	private int units;
+	@Column
+	private String status;
+
+}

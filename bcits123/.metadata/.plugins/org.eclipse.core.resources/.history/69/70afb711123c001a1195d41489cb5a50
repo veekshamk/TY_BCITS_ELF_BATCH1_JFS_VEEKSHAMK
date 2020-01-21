@@ -1,0 +1,5 @@
+package com.bcits.project.usecase.employee;
+
+public class EmployeeLogin {
+
+}

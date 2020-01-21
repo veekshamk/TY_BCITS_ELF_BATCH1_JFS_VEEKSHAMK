@@ -1,0 +1,44 @@
+package com.bcits.project.usecase.test;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.bcits.project.usecase.consumer.ConsumerMaster;
+
+public class Test {
+	public static void main(String[] args) {
+		EntityManagerFactory emf=null;
+		EntityManager manager=null;
+		EntityTransaction transaction=null;
+		
+		ConsumerMaster consumer=new ConsumerMaster();
+		consumer.setAddress("Kodandoor House, Kepu Village, Bantwal Taluk, D.K");
+		consumer.setConfirmPassword("Geetha123");
+		consumer.setEmailAddress("veekshakodandoor2010@gmail.com");
+		consumer.setMeterNumber("12343215");
+		consumer.setMobileNumber(944835159);
+		consumer.setName("Veeksha M K");
+		consumer.setPassword("Geetha123");
+		consumer.setRegion("South");
+		consumer.setTypeOfConsumer("Residential");
+		
+		try {
+			emf=Persistence.createEntityManagerFactory("emsPersistenceUnit");
+			manager=emf.createEntityManager();
+			transaction=manager.getTransaction();
+			
+			transaction.begin();
+			manager.persist(consumer);
+			transaction.commit();
+			System.out.println("Data saved");
+		}catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+	}
+
+}

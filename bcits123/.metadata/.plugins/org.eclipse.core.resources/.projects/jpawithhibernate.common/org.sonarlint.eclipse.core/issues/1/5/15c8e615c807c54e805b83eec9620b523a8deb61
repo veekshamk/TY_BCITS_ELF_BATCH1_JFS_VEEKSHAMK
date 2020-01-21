@@ -1,17 +1,17 @@
 
-squid:S00116$"[Rename this field "official_mail_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µĞ§ÑøÿÿÿÿHô"RMINORZ
+gsquid:S19486"+Make "secondary" transient or serializable.(êùâÿÿÿÿÿ8–«˜ëù-H…)RCRITICALZ
 CODE_SMELL
-‹squid:S00116""XRename this field "mobile_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö§™ÈÿÿÿÿÿHó"RMINORZ
+‰squid:S00116,"VRename this field "blood_group" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä³·ÊüÿÿÿÿH†)RMINORZ
 CODE_SMELL
-‰squid:S00116,"VRename this field "blood_group" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä³·ÊüÿÿÿÿHò"RMINORZ
+‹squid:S00116""XRename this field "mobile_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö§™ÈÿÿÿÿÿH‡)RMINORZ
 CODE_SMELL
-„squid:S00116"QRename this field "emp_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÄÄõøÿÿÿÿHñ"RMINORZ
+squid:S00116$"[Rename this field "official_mail_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µĞ§ÑøÿÿÿÿHˆ)RMINORZ
 CODE_SMELL
-gsquid:S19486"+Make "secondary" transient or serializable.(êùâÿÿÿÿÿ8–«˜ëù-Hğ"RCRITICALZ
+ˆsquid:S001162"URename this field "manager_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡¬úèıÿÿÿÿH‰)RMINORZ
 CODE_SMELL
-…squid:S001160"RRename this field "dept_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦•‰ïøÿÿÿÿHí"RMINORZ
+„squid:S00116"QRename this field "emp_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÄÄõøÿÿÿÿHŠ)RMINORZ
 CODE_SMELL
-ˆsquid:S001162"URename this field "manager_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡¬úèıÿÿÿÿHï"RMINORZ
+…squid:S001160"RRename this field "dept_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦•‰ïøÿÿÿÿH‹)RMINORZ
 CODE_SMELL
-„squid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(È¦úÓşÿÿÿÿ8°«°ìù-Hî"RMAJORZ
+„squid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(È¦úÓşÿÿÿÿ8°«°ìù-HŒ)RMAJORZ
 CODE_SMELL

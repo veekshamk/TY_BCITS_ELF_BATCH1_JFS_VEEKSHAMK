@@ -1,0 +1,5 @@
+package com.bcits.empweapp_designpattern.servlet;
+
+public class SearchEmployeeServlet {
+
+}

@@ -1,7 +1,7 @@
 
-“squid:S00116"^Rename this field "account_holder_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ§§8öË›¼ú-H²%RMINORZ
+“squid:S00116"^Rename this field "account_holder_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ§§8öË›¼ú-H)RMINORZ
 CODE_SMELL
-squid:S00116"VRename this field "account_num" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤í®šùÿÿÿÿ8öË›¼ú-H±%RMINORZ
+squid:S00116"VRename this field "account_num" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤í®šùÿÿÿÿ8öË›¼ú-H)RMINORZ
 CODE_SMELL
-‰squid:S00116"TRename this field "ifsc_code" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÄÜÓ8öË›¼ú-H°%RMINORZ
+‰squid:S00116"TRename this field "ifsc_code" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÄÜÓ8öË›¼ú-H)RMINORZ
 CODE_SMELL

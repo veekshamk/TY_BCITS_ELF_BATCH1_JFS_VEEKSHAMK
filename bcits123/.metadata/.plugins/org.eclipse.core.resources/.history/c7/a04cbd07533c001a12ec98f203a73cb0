@@ -1,0 +1,5 @@
+package com.bcits.project.usecase.billhistory;
+
+public class BillHistoryPK {
+
+}

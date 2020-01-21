@@ -1,7 +1,7 @@
 
-_squid:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ñ¢Ã¼ú-H´%RMINORZVULNERABILITY
+{squid:S2259*"IA "NullPointerException" could be thrown; "transaction" is nullable here.(ì‚—ôúÿÿÿÿ8õÔ­•ü-H)RMAJORZBUG
+wsquid:S2259-"EA "NullPointerException" could be thrown; "manager" is nullable here.(èòôÊÿÿÿÿÿ8êğ¯•ü-H‘)RMAJORZBUG
 l
-squid:S106&"9Replace this use of System.out or System.err by a logger.(Şı¯ä8ÆŞà¼ú-HÈ%RMAJORZ
+squid:S106&"9Replace this use of System.out or System.err by a logger.(Şı¯ä8ÆŞà¼ú-H’)RMAJORZ
 CODE_SMELL
-wsquid:S2259-"EA "NullPointerException" could be thrown; "manager" is nullable here.(èòôÊÿÿÿÿÿ8êğ¯•ü-H¼%RMAJORZBUG
-{squid:S2259*"IA "NullPointerException" could be thrown; "transaction" is nullable here.(ì‚—ôúÿÿÿÿ8õÔ­•ü-Hº%RMAJORZBUG
+_squid:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ñ¢Ã¼ú-H“)RMINORZVULNERABILITY

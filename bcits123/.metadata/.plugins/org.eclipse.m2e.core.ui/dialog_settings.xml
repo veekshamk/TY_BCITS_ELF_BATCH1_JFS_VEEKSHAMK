@@ -44,6 +44,8 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\"/>
+			<item value="D:\bcitsproject"/>
 			<item value="D:\bcits123"/>
 			<item value="D:\bcits123\jpawithhibernate\src\main\java\com\bcits\jpawithhibernate\App.java"/>
 			<item value="D:\bcits123\jdbcapp\src\com\bcits\jdbcapp\common\InsertQuery.java"/>
@@ -59,6 +61,12 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.bcits.empweapp_designpattern"/>
+			<item value="com.bcits.empweapp.designpattern"/>
+			<item value="com.bcits.empwebapp_designpattern1"/>
+			<item value="com.bcits.empwebapp_designpattern"/>
+			<item value="com.bcits.project"/>
+			<item value="com.bcits.module1"/>
 			<item value="com.bcits.empwebapp"/>
 			<item value="com.bcits.jpa.hiberanate"/>
 			<item value="com.bcits.hibernate1"/>
@@ -69,6 +77,12 @@
 			<item value="com.bcits"/>
 		</list>
 		<list key="artifactId">
+			<item value="empweapp_designpattern"/>
+			<item value="empweapp.designpattern"/>
+			<item value="empwebapp_designpattern1"/>
+			<item value="empwebapp_designpattern"/>
+			<item value="project"/>
+			<item value="module1"/>
 			<item value="empwebapp"/>
 			<item value="jpa.hiberanate"/>
 			<item value="hibernate1"/>

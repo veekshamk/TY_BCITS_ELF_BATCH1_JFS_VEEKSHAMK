@@ -1,0 +1,25 @@
+package com.bcits.project.usecase.consumer;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+
+public class ConsumerSignup implements Serializable{
+	@Column
+	private String meterNumber;
+	@Column
+	private String password;
+	
+	private String name;
+	
+	private String confirmPassword;
+	
+	private String emailAddress;
+	
+	private String address;
+	
+	private String region;
+	
+	private String typeOfConsumer;
+
+}

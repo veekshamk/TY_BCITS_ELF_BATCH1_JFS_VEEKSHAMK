@@ -1,0 +1,9 @@
+package com.bcits.project.usecase.monthlyconsumption;
+
+public class MonthlyConsumption {
+	private String meterNumber;
+	private String nameOfMonth;
+	private double initialMeterReading;
+	private double finalMeterReading;
+
+}

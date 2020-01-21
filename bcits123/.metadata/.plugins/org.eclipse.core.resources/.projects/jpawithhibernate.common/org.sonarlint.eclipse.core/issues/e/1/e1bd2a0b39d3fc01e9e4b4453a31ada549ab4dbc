@@ -1,5 +1,5 @@
 
-rsquid:UselessImportCheck	"1Remove this unused import 'javax.persistence.Id'.(þ¹ÞÜ8·­Œîù-Hç"RMINORZ
+rsquid:UselessImportCheck	"1Remove this unused import 'javax.persistence.Id'.(þ¹ÞÜ8·­Œîù-H„1RMINORZ
 CODE_SMELL
-‘squid:S00116"WRename this field "house_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(þ£¦Êüÿÿÿÿ8Ù‘…îù-Hè"RMINORZ
+‘squid:S00116"WRename this field "house_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(þ£¦Êüÿÿÿÿ8Ù‘…îù-H…1RMINORZ
 CODE_SMELL

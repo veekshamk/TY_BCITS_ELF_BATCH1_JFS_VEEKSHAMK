@@ -56,6 +56,8 @@ public class GetEmployeeServlet extends HttpServlet {
 			out.println("<br>Salary= " +employeePrimaryInfo.getSalary());
 			out.println("</body>");
 			out.println("</html>");
+		
+		
 		}else {
 			//display empId not found
 			out.println("<html>");

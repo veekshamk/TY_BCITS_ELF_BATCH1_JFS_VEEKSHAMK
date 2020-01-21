@@ -1,9 +1,9 @@
 
-rsquid:UselessImportCheck"1Remove this unused import 'javax.persistence.Id'.(þ¹ÞÜ8¢¥ˆîù-Hé"RMINORZ
+squid:UselessImportCheck"9Remove this unused import 'javax.persistence.EmbeddedId'.(Ñ£ù¢üÿÿÿÿ8ÇþŒîù-H†1RMINORZ
 CODE_SMELL
-‘squid:S00116"WRename this field "address_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰’£äüÿÿÿÿ8¢¥ˆîù-Hê"RMINORZ
+‹squid:S00116"QRename this field "emp_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÄÄõøÿÿÿÿ8¢¥ˆîù-H‡1RMINORZ
 CODE_SMELL
-‹squid:S00116"QRename this field "emp_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÄÄõøÿÿÿÿ8¢¥ˆîù-Hë"RMINORZ
+‘squid:S00116"WRename this field "address_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰’£äüÿÿÿÿ8¢¥ˆîù-Hˆ1RMINORZ
 CODE_SMELL
-squid:UselessImportCheck"9Remove this unused import 'javax.persistence.EmbeddedId'.(Ñ£ù¢üÿÿÿÿ8ÇþŒîù-Hì"RMINORZ
+rsquid:UselessImportCheck"1Remove this unused import 'javax.persistence.Id'.(þ¹ÞÜ8¢¥ˆîù-H‰1RMINORZ
 CODE_SMELL
