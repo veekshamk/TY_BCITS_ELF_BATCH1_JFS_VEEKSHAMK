@@ -21,3 +21,5 @@ x
 Hsrc/main/java/com/bcits/project/usecase/paymentdetail/PaymentDetail.java,c\4\c41759e5de30783c3de8dd6debcae6b1a94657fe
 v
 Fsrc/main/java/com/bcits/project/usecase/tarrifmaster/TarrifMaster.java,8\d\8d078c02dc440ae0c55f50f639ea663180aa3e16
+q
+Asrc/main/java/com/bcits/project/usecase/consumer/AddConsumer.java,5\4\54a3c388bf79e657c85de2bace8c51ca62d9916d

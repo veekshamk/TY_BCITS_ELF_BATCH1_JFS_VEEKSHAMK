@@ -1,0 +1,38 @@
+package com.bcits.springcore;
+
+import java.util.Scanner;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.bcits.springcore.beans.EmployeeBean;
+
+public class EmployeeTest {
+	public static void main(String[] args) {
+		ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+		
+		Scanner sc=new Scanner(System.in);
+		
+		EmployeeBean employeeBean=(EmployeeBean) context.getBean("employee");
+		System.out.println("Enter Employee Name:");
+		employeeBean.setName(sc.nextLine());
+		System.out.println("Enter Employee Age:");
+		employeeBean.setAge(sc.nextInt());
+		sc.nextLine();
+		
+		EmployeeBean employeeBean2=(EmployeeBean) context.getBean("employee");
+		System.out.println("Enter Employee Name:");
+		employeeBean2.setName(sc.nextLine());
+		System.out.println("Enter Employee Age:");
+		employeeBean2.setAge(sc.nextInt());
+		
+		System.out.println("Name: "+employeeBean.getName());
+		System.out.println("Age: "+employeeBean.getAge());
+		System.out.println("Name: "+employeeBean2.getName());
+		System.out.println("Age: "+employeeBean2.getAge());
+		
+		
+		
+	}
+
+}

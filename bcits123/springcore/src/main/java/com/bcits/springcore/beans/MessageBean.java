@@ -1,0 +1,41 @@
+package com.bcits.springcore.beans;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class MessageBean implements InitializingBean, DisposableBean {
+
+	private MessageBean() {
+		System.out.println("Its Instantiation Phase");
+	}
+
+	private String message;
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	//	public void init() {
+	//		System.out.println("Its Initialization Phase");
+	//	}
+	//	public void destroy() {
+	//		System.out.println("Its Destruction Phase");
+	//	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Inside int phase...");
+
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("Destroying....");
+
+	}
+
+}

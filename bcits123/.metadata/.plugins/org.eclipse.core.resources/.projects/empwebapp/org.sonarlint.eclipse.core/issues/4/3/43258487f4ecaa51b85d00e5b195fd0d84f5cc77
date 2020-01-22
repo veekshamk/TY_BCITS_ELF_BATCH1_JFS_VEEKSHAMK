@@ -1,5 +1,5 @@
 
-_squid:S1989"(Add a "try/catch" block for "getWriter".(¾šçÞ8¾€„ñú-H¶RMINORZVULNERABILITY
-]squid:S1989"&Add a "try/catch" block for "include".(‘‹€†8¾€„ñú-H·RMINORZVULNERABILITY
-]squid:S1989"&Add a "try/catch" block for "include".(‘‹€†8¾€„ñú-H¸RMINORZVULNERABILITY
-csquid:S3330"$Add the "HttpOnly" cookie attribute.(Žšôéøÿÿÿÿ8¾€„ñú-H¹RCRITICALZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "include".(‘‹€†8¾€„ñú-H”2RMINORZVULNERABILITY
+_squid:S1989"(Add a "try/catch" block for "getWriter".(¾šçÞ8¾€„ñú-H’2RMINORZVULNERABILITY
+]squid:S1989"&Add a "try/catch" block for "include".(‘‹€†8¾€„ñú-H“2RMINORZVULNERABILITY
+csquid:S3330"$Add the "HttpOnly" cookie attribute.(Žšôéøÿÿÿÿ8¾€„ñú-H‘2RCRITICALZVULNERABILITY

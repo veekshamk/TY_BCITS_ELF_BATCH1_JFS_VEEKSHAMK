@@ -45,6 +45,7 @@ public class AddEmployee extends HttpServlet{
 		}catch(Exception e1) {
 			e1.printStackTrace();
 		}
+		
 		EmployeePrimaryInfo employeePrimaryInfo=new EmployeePrimaryInfo();
 		employeePrimaryInfo.setBloodGroup(bloodGroupVal);
 		employeePrimaryInfo.setDeptId(Integer.parseInt(deptIdVal));

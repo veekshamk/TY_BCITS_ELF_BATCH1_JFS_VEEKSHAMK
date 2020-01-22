@@ -1,0 +1,87 @@
+package com.bcits.project.usecase.consumer;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/addConsumer")
+public class AddConsumer extends HttpServlet{
+		@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			//Get the form data
+			String meterNumberval=req.getParameter("meterNumber");
+			String passwordVal=req.getParameter("password");
+			String name=req.getParameter("name");
+			String confirmPassword=req.getParameter("confirmPassword");
+			String emailAddress=req.getParameter("emailAddress");
+			String mobileNumber=req.getParameter("mobileNumber");
+			String address=req.getParameter("address");
+			
+			SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+			Date dob=null;
+			Date doj=null;
+			
+			try {
+			
+			dob=dateFormat.parse(dobVal);
+			doj=dateFormat.parse(dojVal);
+			}catch(Exception e1) {
+				e1.printStackTrace();
+			}
+			
+			EmployeePrimaryInfo employeePrimaryInfo=new EmployeePrimaryInfo();
+			employeePrimaryInfo.setBloodGroup(bloodGroupVal);
+			employeePrimaryInfo.setDeptId(Integer.parseInt(deptIdVal));
+			employeePrimaryInfo.setDesignation(designationVal);
+			employeePrimaryInfo.setDob(dob);
+			employeePrimaryInfo.setDoj(doj);
+			employeePrimaryInfo.setEmpId(Integer.parseInt(empIdVal));
+			employeePrimaryInfo.setManagerId(Integer.parseInt(managerIdVal));
+			employeePrimaryInfo.setMobileNumber(Long.parseLong(mobileNumberVal));
+			employeePrimaryInfo.setName(nameVal);
+			employeePrimaryInfo.setOfficialMailId(officialMailIdVal);
+			employeePrimaryInfo.setPassword(passwordVal);
+			employeePrimaryInfo.setSalary(Double.parseDouble(salaryVal));
+			
+			EntityManagerFactory emf=Persistence.createEntityManagerFactory("emsPersistenceUnit");
+			EntityManager manager=emf.createEntityManager();
+			EntityTransaction transaction=manager.getTransaction();
+			
+			boolean isAdded=false;
+			try {
+				transaction.begin();
+				manager.persist(employeePrimaryInfo);
+				transaction.commit();
+				isAdded=true;
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			manager.close();
+			emf.close();
+			
+			PrintWriter out=resp.getWriter();
+			
+			out.println("<html>");
+			out.println("<body>");
+			if(isAdded) {
+				//Employee added successfully
+				out.println("<h1 style='color:green'>Employee for ID"+ empIdVal + " Found-</h1>");
+			}else {
+				//Not added
+				out.println("<h1 style='color:red'>Unable to add");
+			}
+			out.println("</body>");
+			out.println("</html>");
+			
+		}
+		
+		
+
+	}
+
+
+}

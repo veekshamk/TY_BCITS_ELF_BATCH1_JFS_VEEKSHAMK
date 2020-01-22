@@ -1,0 +1,14 @@
+package com.bcits.springcore.beans;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MessageTest {
+	public static void main(String[] args) {
+		ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+		MessageBean messageBean=(MessageBean)context.getBean("message");
+		
+		System.out.println(messageBean.getMessage());
+	}
+
+}

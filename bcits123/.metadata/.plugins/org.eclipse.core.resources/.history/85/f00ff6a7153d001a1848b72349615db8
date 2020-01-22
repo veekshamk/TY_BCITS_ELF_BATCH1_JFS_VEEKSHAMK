@@ -1,0 +1,19 @@
+package com.bcits.springcore.beans;
+
+public class DepartmentBean {
+	private int deptId;
+	private String septName;
+	
+	public int getDeptId() {
+		return deptId;
+	}
+	public void setDeptId(int deptId) {
+		this.deptId = deptId;
+	}
+	public String getSeptName() {
+		return septName;
+	}
+	public void setSeptName(String septName) {
+		this.septName = septName;
+	}
+}
