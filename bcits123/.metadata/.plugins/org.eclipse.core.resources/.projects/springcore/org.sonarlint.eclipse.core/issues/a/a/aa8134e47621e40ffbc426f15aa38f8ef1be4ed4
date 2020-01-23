@@ -1,0 +1,13 @@
+
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¢Üë×øÿÿÿÿ8²°èèü-Hƒ4RMAJORZ
+CODE_SMELL
+e
+squid:S106"9Replace this use of System.out or System.err by a logger.(ãª€çHè3RMAJORZ
+CODE_SMELL
+tsquid:S1854"@Remove this useless assignment to local variable "messageBean2".(ì‰ýÐ8‰Öˆéü-H‰4RMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(ãª€ç8‰Öˆéü-HŠ4RMAJORZ
+CODE_SMELL
+esquid:S1481"1Remove this unused "messageBean2" local variable.(ì‰ýÐ8‰Öˆéü-H‹4RMINORZ
+CODE_SMELL

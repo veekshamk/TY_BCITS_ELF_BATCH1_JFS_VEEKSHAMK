@@ -1,0 +1,27 @@
+package com.bcits.springcore.annotations.beans;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import lombok.Data;
+
+@Data
+public class EmployeeBean {
+
+	private String name;
+	private int age;
+	
+	private DepartmentBean departmentBean;
+	
+	@PostConstruct
+	public void init() {
+		System.out.println("Its init phase..");
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		System.out.println("Its destruction phase..");
+	}
+
+
+}

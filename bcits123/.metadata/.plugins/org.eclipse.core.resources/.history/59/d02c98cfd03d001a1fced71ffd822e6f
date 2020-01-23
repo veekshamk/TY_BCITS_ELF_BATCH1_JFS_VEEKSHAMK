@@ -1,0 +1,21 @@
+package com.bcits.spring.annotations.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+
+@Configuration
+public class AnimalConfig {
+	
+	@Bean
+	public Goat getAnimal() {
+		return new Goat();
+	}
+	
+	@Bean
+	@Primary
+	public Elephant getElephant() {
+		return new Elephant();
+	}
+
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+   <!--  <bean id="employee" class="com.bcits.springcore.beans.EmployeeBean">
+    	<property name="name" value="Sud"></property>
+    	<property name="age" value="55"></property>
+    	<property name="departmentBean" ref="department"></property>
+    </bean> -->
+    
+    
+     <!-- <bean id="employee" class="com.bcits.springcore.beans.EmployeeBean" autowire="byType">
+    	<property name="name" value="Sud"></property>
+    	<property name="age" value="55"></property>
+    </bean> --> 
+    
+   <!--  <bean id="employee" class="com.bcits.springcore.beans.EmployeeBean" autowire="constructor">
+    	<constructor-arg name="age" value="65"></constructor-arg>
+    	<constructor-arg name="name" value="Prashul"></constructor-arg>
+    </bean> -->
+    
+    <!-- <bean id="employee" class="com.bcits.springcore.beans.EmployeeBean">
+    	<constructor-arg name="age" value="65"></constructor-arg>
+    	<constructor-arg name="name" value="Prashul"></constructor-arg>
+    	<constructor-arg name="departmentBean" ref="department"></constructor-arg>
+    </bean> -->
+    
+   <!--  <bean id="department" class="com.bcits.springcore.beans.DepartmentBean">
+    <property name="deptId" value="11"></property>
+    <property name="deptName" value="Developer"></property>
+    </bean> -->
+    
+    <bean id="dev" class="com.bcits.springcore.beans.DepartmentBean">
+    <property name="deptId" value="11"></property>
+    <property name="deptName" value="Developer"></property>
+    </bean>
+    
+    <bean id="department" class="com.bcits.springcore.beans.DepartmentBean">
+    <property name="deptId" value="11"></property>
+    <property name="deptName" value="Developer"></property>
+    </bean>
+    
+    <bean id="department" class="com.bcits.springcore.beans.DepartmentBean">
+    <property name="deptId" value="11"></property>
+    <property name="deptName" value="Developer"></property>
+    </bean>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+</beans>

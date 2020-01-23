@@ -1,0 +1,19 @@
+package com.bcits.spring.annotations.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.bcits.springcore.annotations.beans.EmployeeBean;
+
+@Configuration
+public class EmployeeConfig {
+	
+	@Bean
+	public EmployeeBean getEmployeeBean() {
+		//new EmployeeBean();
+		
+		
+		return employeeBean;
+	}
+
+}

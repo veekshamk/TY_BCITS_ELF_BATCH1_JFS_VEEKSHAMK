@@ -1,0 +1,30 @@
+package com.bcits.springcore.annotations;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+import com.bcits.springcore.annotations.beans.MessageBean;
+import com.bcits.springcore.annotations.config.MessageConfig;
+import com.bcits.springcore.annotations.mypostprocessors.MyBeanPostProcessor;
+
+public class MessageTest {
+	public static void main(String[] args) {
+		
+		ApplicationContext context=new AnnotationConfigApplicationContext(MessageConfig.class);
+		
+		((ConfigurableApplicationContext)context).registerShutdownHook();
+		
+		MessageBean messageBean=context.getBean(MessageBean.class);
+		
+		System.out.println(messageBean.getMessage());
+		
+	}
+	
+	@Bean
+	public MyBeanPostProcessor getMyBPP() {
+		return new MyBeanPostProcessor();
+	}
+
+}

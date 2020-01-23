@@ -1,0 +1,5 @@
+package com.bcits.spring.annotations.config;
+
+public class PetConfig {
+
+}

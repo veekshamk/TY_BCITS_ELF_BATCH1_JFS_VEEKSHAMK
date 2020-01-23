@@ -1,0 +1,5 @@
+package com.bcits.spring.annotations.interfaces;
+
+public interface Animal {
+
+}

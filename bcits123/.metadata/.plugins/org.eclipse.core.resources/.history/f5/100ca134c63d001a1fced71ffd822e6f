@@ -1,0 +1,31 @@
+package com.bcits.spring.annotations.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.bcits.springcore.annotations.beans.DepartmentBean;
+import com.bcits.springcore.annotations.beans.EmployeeBean;
+
+@Configuration
+public class EmployeeConfig2 {
+	
+	@Bean
+	public EmployeeBean getEmployeeBean() {
+		EmployeeBean employeeBean=new EmployeeBean();
+		employeeBean.setAge(10);
+		employeeBean.setName("Navya");
+		employeeBean.setDepartmentBean(getDepartmentBean());
+		return employeeBean;
+	}
+	
+	@Bean
+	public DepartmentBean getDepartmentBean() {
+		DepartmentBean departmentBean=new DepartmentBean();
+		departmentBean.setDeptId(101);
+		departmentBean.setDeptName("Dev");
+		
+		return departmentBean;
+	}
+	
+
+}

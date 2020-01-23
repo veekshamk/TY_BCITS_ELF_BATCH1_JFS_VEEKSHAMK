@@ -1,0 +1,10 @@
+package com.bcits.springcore.annotations.beans;
+
+import lombok.Data;
+
+
+public class MessageBean {
+	
+	private String name;
+
+}

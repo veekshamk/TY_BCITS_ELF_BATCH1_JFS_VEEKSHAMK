@@ -18,7 +18,7 @@ public class OneToOne {
 		info.setDept_id(109);
 		info.setDesignation("tester");
 		info.setEmail("vikz2020@gmail.com");
-		info.setId(1);
+		info.setId(4);
 		info.setName("Veeksha");
 		info.setPhone_num(1234567890);
 
@@ -27,7 +27,7 @@ public class OneToOne {
 		bank.setAccount_holder_name("veeksha");
 		bank.setAccount_num(12345671);
 		bank.setIfsc_code("ka123");
-		bank.setInfo(info);
+		bank.setEmpInfo(info);
 
 		try {
 			emf=Persistence.createEntityManagerFactory("test");
@@ -41,9 +41,9 @@ public class OneToOne {
 		}catch(Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
-		}finally {
-			manager.close();
 		}
+			manager.close();
+		
 
 	}
 

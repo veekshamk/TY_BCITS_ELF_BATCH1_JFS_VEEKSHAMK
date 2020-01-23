@@ -1,0 +1,19 @@
+package com.bcits.springcore.annotations.beans;
+
+import com.bcits.spring.annotations.interfaces.Animal;
+
+public class Elephant implements Animal {
+
+	@Override
+	public void eat() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void speak() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

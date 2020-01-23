@@ -1,0 +1,9 @@
+package com.bcits.springcore.annotations;
+
+public class MessageTest {
+	public static void main(String[] args) {
+		
+		
+	}
+
+}

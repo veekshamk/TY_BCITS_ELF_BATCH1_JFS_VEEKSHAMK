@@ -1,0 +1,5 @@
+package com.bcits.springcore.annotations.beans;
+
+public class Engine {
+
+}

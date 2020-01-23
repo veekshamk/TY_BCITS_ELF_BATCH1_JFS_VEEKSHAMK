@@ -1,0 +1,8 @@
+package com.bcits.springcore.annotations.beans;
+
+public class Pet {
+	private String name;
+	
+	private Animal animal;
+
+}

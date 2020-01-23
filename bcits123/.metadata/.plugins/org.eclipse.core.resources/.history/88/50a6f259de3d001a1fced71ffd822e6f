@@ -1,0 +1,5 @@
+package com.bcits.springcore.annotations.mypostprocessors;
+
+public class MyBeanFactoryPostProcessor {
+
+}

@@ -1,0 +1,11 @@
+package com.bcits.springcore.annotations;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class CarTest {
+	
+	ApplicationContext context=new ClassPathXmlApplicationContext("carConfig.xml");
+	
+	
+}

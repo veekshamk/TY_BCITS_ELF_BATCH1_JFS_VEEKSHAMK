@@ -1,0 +1,17 @@
+package com.bcits.spring.annotations.config;
+
+import org.springframework.context.annotation.Configuration;
+
+import com.bcits.springcore.annotations.beans.MessageBean;
+
+@Configuration
+public class MessageConfig {
+	
+	public MessageBean getMessageBean() {
+		MessageBean messageBean=new MessageBean();
+		messageBean.setMessage("Welcome to Spring Core....");
+		
+		return messageBean;
+	}
+
+}

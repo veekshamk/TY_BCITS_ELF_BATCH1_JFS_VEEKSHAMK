@@ -11,3 +11,11 @@ G
 src/main/java/beans.xml,e\f\ef295312e09dcc62d4d4ddf1bbbc9388146021d6
 d
 4src/main/java/com/bcits/springcore/EmployeeTest.java,d\5\d5c454a01e3dd6916bbbd1bd5ea85720700c7417
+c
+3src/main/java/com/bcits/springcore/MessageTest.java,a\a\aa8134e47621e40ffbc426f15aa38f8ef1be4ed4
+P
+ src/main/java/employeeConfig.xml,a\5\a59f2763a1891f40136dfd31d8335a12585b723f
+l
+<src/main/java/com/bcits/springcore/beans/DepartmentBean.java,6\0\607733fd087a5e905518245677a8e9e132ca2262
+e
+5src/main/java/com/bcits/springcore/EmployeeTest2.java,a\0\a09a808f4f1f21b24597aace45c30413bcc0485b

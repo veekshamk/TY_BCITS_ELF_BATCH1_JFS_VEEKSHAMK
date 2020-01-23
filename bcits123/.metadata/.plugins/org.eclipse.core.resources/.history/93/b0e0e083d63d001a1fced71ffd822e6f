@@ -1,0 +1,9 @@
+package com.bcits.spring.annotations.config;
+
+import org.springframework.context.annotation.Import;
+
+public class ImportAllConfigs {
+	
+	@Import({EmployeeConfig2.class, DepartmentConfig.class})
+
+}

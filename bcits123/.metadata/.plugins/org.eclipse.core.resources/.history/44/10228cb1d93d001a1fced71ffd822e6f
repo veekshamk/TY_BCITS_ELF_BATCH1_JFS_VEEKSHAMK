@@ -1,0 +1,8 @@
+package com.bcits.springcore.annotations.mypostprocessors;
+
+import org.springframework.beans.factory.config.BeanPostProcessor;
+
+public class MyBeanPostProcessor implements BeanPostProcessor {
+	
+
+}

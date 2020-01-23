@@ -1,0 +1,21 @@
+package com.bcits.springcore.annotations;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.bcits.spring.annotations.config.EmployeeConfig;
+import com.bcits.springcore.annotations.beans.EmployeeBean;
+
+public class EmployeeTest {
+	public static void main(String[] args) {
+
+		ApplicationContext context=new AnnotationConfigApplicationContext(EmployeeConfig.class);
+
+		EmployeeBean employeeBean=context.getBean(EmployeeBean.class);
+
+		System.out.println("Employee Name: "+employeeBean.getName());
+		System.out.println("Employee Age: "+employeeBean.getAge());
+	}
+
+}
+ 

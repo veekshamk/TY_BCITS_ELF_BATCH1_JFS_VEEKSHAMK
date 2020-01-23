@@ -28,6 +28,6 @@ public class EmployeeBankInfo implements Serializable{
 	@MapsId
 	@JoinColumn(name="id")
 	@OneToOne(cascade=CascadeType.ALL)
-	private EmployeeInfo info;
+	private EmployeeInfo empInfo;
 
 }

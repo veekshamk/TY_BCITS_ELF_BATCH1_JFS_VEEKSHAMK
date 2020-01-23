@@ -1,3 +1,25 @@
 
-osquid:S2094"BRemove this empty class, write its code or make it an "interface".(ş¨ã—HÌ3RMINORZ
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.( —×àùÿÿÿÿ8üã¢æü-Hò3RMAJORZ
+CODE_SMELL
+q
+squid:S106 "9Replace this use of System.out or System.err by a logger.(Ë‡Şãÿÿÿÿÿ8ø¾âçü-Hø3RMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÖŸÑ±8üã¢æü-Hï3RMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÖŸÑ±8üã¢æü-Hğ3RMAJORZ
+CODE_SMELL
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.( —×àùÿÿÿÿ8üã¢æü-Hñ3RMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(°‹Û8ø¾âçü-Hö3RMAJORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(ãï 8ø¾âçü-H÷3RMAJORZ
+CODE_SMELL
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(ìıÜ‡şÿÿÿÿ8ø¾âçü-Hù3RMAJORZ
 CODE_SMELL
