@@ -19,3 +19,7 @@ l
 <src/main/java/com/bcits/springcore/beans/DepartmentBean.java,6\0\607733fd087a5e905518245677a8e9e132ca2262
 e
 5src/main/java/com/bcits/springcore/EmployeeTest2.java,a\0\a09a808f4f1f21b24597aace45c30413bcc0485b
+R
+"src/main/java/importAllConfigs.xml,9\8\98406d431c90f4666beeef1e17e1a843eb8fceb1
+P
+ src/main/java/deptConfig.out.xml,6\3\63faa2df53a240341b5faedc5aa3f828773045c6

@@ -15,3 +15,5 @@ m
 =src/main/java/com/bcits/hibernate/practice/test/OneToOne.java,5\2\52e625da8133479a0899590cc06ae2ff570edfd7
 p
 @src/main/java/com/bcits/hibernate/practice/EmployeeBankInfo.java,6\7\67d339bc7aa97b0e85fbaea7ca5e5e2b2941a126
+y
+Isrc/main/java/com/bcits/jpawithhibernateapp/bean/EmployeePrimaryInfo.java,f\7\f7a9354221ecc02c11b0934ad25d1ce9481534e4

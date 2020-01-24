@@ -1,19 +1,19 @@
 
-q
-squid:S1065"9Replace this use of System.out or System.err by a logger.(Ñ ë£ûÿÿÿÿ8³¯Øëù-H¼#RMAJORZ
-CODE_SMELL
+tsquid:S2259<"IA "NullPointerException" could be thrown; "transaction" is nullable here.(ì‚—ôúÿÿÿÿH¤6RMAJORZBUG
 d
-squid:S1068"9Replace this use of System.out or System.err by a logger.(òÌŒ+H·#RMAJORZ
+squid:S1068"9Replace this use of System.out or System.err by a logger.(òÌŒ+H¥6RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(Õ†Ë úÿÿÿÿ8€…ë£ù-H¦6RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(þÛšê8³¯Øëù-H§6RMAJORZ
 CODE_SMELL
 l
-squid:S1067"9Replace this use of System.out or System.err by a logger.(°¶ž£8³¯Øëù-H½#RMAJORZ
+squid:S1067"9Replace this use of System.out or System.err by a logger.(°¶ž£8³¯Øëù-H¨6RMAJORZ
 CODE_SMELL
-squid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(þÛšê8³¯Øëù-H¹#RMAJORZ
-CODE_SMELL
-tsquid:S2259<"IA "NullPointerException" could be thrown; "transaction" is nullable here.(ì‚—ôúÿÿÿÿH¸#RMAJORZBUG
 l
-squid:S1066"9Replace this use of System.out or System.err by a logger.(ÊëÊœ8³¯Øëù-H»#RMAJORZ
+squid:S1066"9Replace this use of System.out or System.err by a logger.(ÊëÊœ8³¯Øëù-H©6RMAJORZ
 CODE_SMELL
-Xsquid:S1148;"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH¶#RMINORZVULNERABILITY
-„squid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(Õ†Ë úÿÿÿÿ8€…ë£ù-Hº#RMAJORZ
+Xsquid:S1148;"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHª6RMINORZVULNERABILITY
+q
+squid:S1065"9Replace this use of System.out or System.err by a logger.(Ñ ë£ûÿÿÿÿ8³¯Øëù-H«6RMAJORZ
 CODE_SMELL

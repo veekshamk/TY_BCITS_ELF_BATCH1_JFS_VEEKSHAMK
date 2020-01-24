@@ -1,0 +1,23 @@
+
+…squid:S00116*"RRename this field "dept_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦•‰ïøÿÿÿÿHØ5RMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(†ÚÆ“8„©õŒý-Hâ5RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(í¸¦Ëþÿÿÿÿ8„©õŒý-Hã5RMAJORZ
+CODE_SMELL
+squid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(áõë—8ðöŒý-Hë5RMAJORZ
+CODE_SMELL
+„squid:S00116"QRename this field "emp_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÄÄõøÿÿÿÿHÔ5RMINORZ
+CODE_SMELL
+‰squid:S00116&"VRename this field "blood_group" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä³·ÊüÿÿÿÿH×5RMINORZ
+CODE_SMELL
+ˆsquid:S00116,"URename this field "manager_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡¬úèýÿÿÿÿHÙ5RMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine;"<This block of commented-out lines of code should be removed.(ÄÔÒ‹8„©õŒý-Hä5RMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine>"<This block of commented-out lines of code should be removed.(È¦úÓþÿÿÿÿHÚ5RMAJORZ
+CODE_SMELL
+‹squid:S00116"XRename this field "mobile_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö§™ÈÿÿÿÿÿHÕ5RMINORZ
+CODE_SMELL
+Žsquid:S00116"[Rename this field "official_mail_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µÐ§ÑøÿÿÿÿHÖ5RMINORZ
+CODE_SMELL

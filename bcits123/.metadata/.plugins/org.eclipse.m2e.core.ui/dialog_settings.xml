@@ -44,9 +44,9 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\bcits123"/>
 			<item value="D:\"/>
 			<item value="D:\bcitsproject"/>
-			<item value="D:\bcits123"/>
 			<item value="D:\bcits123\jpawithhibernate\src\main\java\com\bcits\jpawithhibernate\App.java"/>
 			<item value="D:\bcits123\jdbcapp\src\com\bcits\jdbcapp\common\InsertQuery.java"/>
 		</list>
@@ -61,6 +61,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.bcits.springcore.annotations"/>
 			<item value="com.bcits.springcore"/>
 			<item value="com.bcits.empweapp_designpattern"/>
 			<item value="com.bcits.empweapp.designpattern"/>
@@ -78,6 +79,7 @@
 			<item value="com.bcits"/>
 		</list>
 		<list key="artifactId">
+			<item value="springcore.annotations"/>
 			<item value="springcore"/>
 			<item value="empweapp_designpattern"/>
 			<item value="empweapp.designpattern"/>
