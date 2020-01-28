@@ -1,0 +1,55 @@
+package com.bcits.springmvc.crud.operation;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+public class EmployeeImpl implements EmployeeDAO{
+	
+	private EntityManagerFactory factory=Persistence.createEntityManagerFactory("");
+	
+	@Override
+	public boolean addEmployee(EmployeeInfoBean bean) {
+		EntityManager manager=factory.createEntityManager();
+		EntityTransaction transaction=manager.getTransaction();
+		
+		boolean isAdded=false;
+		try {
+			transaction.begin();
+			manager.persist(empInfoBean);
+			transaction.commit();
+			isAdded=true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+		manager.close();
+		//factory.close();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteEmployee(int empId) {
+		return false;
+	}
+
+	@Override
+	public boolean updateEmployee(EmployeeInfoBean bean) {
+		return false;
+	}
+
+
+	@Override
+	public List<EmployeeInfoBean> getAllEmployees() {
+		return null;
+	}
+
+	@Override
+	public EmployeeInfoBean getEmployee(int empId) {
+		return null;
+	}
+
+}

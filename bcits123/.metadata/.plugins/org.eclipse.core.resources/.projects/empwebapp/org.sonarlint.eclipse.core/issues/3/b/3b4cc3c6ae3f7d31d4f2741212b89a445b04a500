@@ -1,9 +1,9 @@
 
-_squid:S1148."#Use a logger to log this exception.(Âþÿâûÿÿÿÿ8ÀÌ èú-H‡2RMINORZVULNERABILITY
-^squid:S19898"'Add a "try/catch" block for "parseInt".(‹Ä¨‹8œªêçú-HŽ2RMINORZVULNERABILITY
-`squid:S1989="*Add a "try/catch" block for "parseDouble".(¯·Ï<8œªêçú-H2RMINORZVULNERABILITY
-dsquid:S19899"(Add a "try/catch" block for "parseLong".(òü‚Àùÿÿÿÿ8œªêçú-Hˆ2RMINORZVULNERABILITY
-]squid:S19893"'Add a "try/catch" block for "parseInt".(®ôˆz8œªêçú-H‰2RMINORZVULNERABILITY
-_squid:S1148J"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÀŠ•èú-HŠ2RMINORZVULNERABILITY
-^squid:S19897"'Add a "try/catch" block for "parseInt".(Ø¾é¸8œªêçú-HŒ2RMINORZVULNERABILITY
-_squid:S1989O"(Add a "try/catch" block for "getWriter".(¾šçÞ8¥«»çú-H‹2RMINORZVULNERABILITY
+_squid:S1989O"(Add a "try/catch" block for "getWriter".(¾šçÞ8¥«»çú-Hù9RMINORZVULNERABILITY
+^squid:S19897"'Add a "try/catch" block for "parseInt".(Ø¾é¸8œªêçú-Hú9RMINORZVULNERABILITY
+`squid:S1989="*Add a "try/catch" block for "parseDouble".(¯·Ï<8œªêçú-Hû9RMINORZVULNERABILITY
+^squid:S19898"'Add a "try/catch" block for "parseInt".(‹Ä¨‹8œªêçú-Hü9RMINORZVULNERABILITY
+]squid:S19893"'Add a "try/catch" block for "parseInt".(®ôˆz8œªêçú-Hý9RMINORZVULNERABILITY
+_squid:S1148J"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÀŠ•èú-Hþ9RMINORZVULNERABILITY
+dsquid:S19899"(Add a "try/catch" block for "parseLong".(òü‚Àùÿÿÿÿ8œªêçú-Hÿ9RMINORZVULNERABILITY
+_squid:S1148."#Use a logger to log this exception.(Âþÿâûÿÿÿÿ8ÀÌ èú-H€:RMINORZVULNERABILITY

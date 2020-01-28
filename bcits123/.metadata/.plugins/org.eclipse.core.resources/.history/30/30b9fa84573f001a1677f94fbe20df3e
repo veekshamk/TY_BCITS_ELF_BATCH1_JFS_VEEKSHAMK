@@ -1,0 +1,35 @@
+package com.bcits.springmvc.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.bcits.springmvc.crud.operation.EmployeeDAO;
+import com.bcits.springmvc.crud.operation.EmployeeImpl;
+import com.bcits.springmvc.crud.operation.EmployeeInfoBean;
+
+@Controller
+public class EmployeeController {
+	@GetMapping("/login")
+	public String displayLoginForm() {
+		
+		return "empLoginForm";
+	}
+	
+	@PostMapping("/login")
+	public String authenticate(int empId, String password, ModelMap modelMap) {
+		EmployeeDAO dao= new EmployeeImpl();
+		EmployeeInfoBean employeeInfoBean=dao.authenticate(empId, password);
+		
+		if(employeeInfoBean!=null) {
+			//Valid Credentials
+			return "employeeHome";
+		}else {
+			//Invalid Credentials
+			modelMap.addAttribute("errMsg", "Invalid Credentials!....");
+			return "empLoginForm";
+		}
+	}
+
+}

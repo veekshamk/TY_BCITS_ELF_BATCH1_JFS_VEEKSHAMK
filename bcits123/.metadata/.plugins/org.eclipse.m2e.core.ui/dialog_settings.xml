@@ -61,6 +61,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.bcits.springmvc"/>
 			<item value="com.bcits.springcore.annotations"/>
 			<item value="com.bcits.springcore"/>
 			<item value="com.bcits.empweapp_designpattern"/>
@@ -79,6 +80,7 @@
 			<item value="com.bcits"/>
 		</list>
 		<list key="artifactId">
+			<item value="springmvc"/>
 			<item value="springcore.annotations"/>
 			<item value="springcore"/>
 			<item value="empweapp_designpattern"/>

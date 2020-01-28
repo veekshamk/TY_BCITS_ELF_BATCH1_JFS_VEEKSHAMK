@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="box1">
+        <div class="inner-box1">
+
+            <form action="thanks.html" method="post">
+            <h2>User Registration</h2>
+
+            <label for="">Employee Name:</label>
+            <input type="text" name="" id="" placeholder="Your Full Name" required/>
+            <label for="">Employee ID:</label>
+            <input type="number" name="" id="" placeholder="Employee ID" required/>
+            <label for="">Password:</label>
+            <input type="password" name="" id="" placeholder="Password" required/>
+            <label for="">Confirm Password:</label>
+            <input type="password" name="" id="" placeholder="Confirm Password" required/>
+            <label for="">Email Address:</label>
+            <input type="email" name="" id="" placeholder="Email Address" required/>
+            <label for="">Mobile Number:</label>
+            <input type="tel" name="" id="" placeholder="Mobile Number" required>
+            <!-- <label for="">Address:<label>
+            <textarea name="comments" id="" cols="48" rows="5"></textarea> -->
+                
+            <div class="inner">
+                <label for="region" >Region:</label>
+
+                <select name="region" id="region" >
+                    <option value="0" selected disabled>Select</option>
+                    <option value="South">South</option>
+                    <option value="North">North</option>
+                 </select>
+            </div>
+                
+            <input type="submit" value="SignUp"/>
+            <input type="reset" value="Clear">
+
+            <p style="text-align: center;">
+                <span>Already Register ? </span><a class="link" href="login.html">Log In</a>
+            </p>
+
+        </form>
+        </div>
+
+    </div>
+    
+</body>
+</html>

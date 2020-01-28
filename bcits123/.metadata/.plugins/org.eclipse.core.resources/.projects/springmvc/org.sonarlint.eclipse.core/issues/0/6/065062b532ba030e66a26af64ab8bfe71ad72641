@@ -1,0 +1,20 @@
+
+rsquid:S1854C"9Remove this useless assignment to local variable "query".(ïÿ‚©øÿÿÿÿ8áíÆÙı-H:RMAJORZ
+CODE_SMELL
+_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÊÀ’Ùı-H†:RMINORZVULNERABILITY
+`squid:S1481",Remove this unused "isAdded" local variable.(¯œ8ÊÀ’Ùı-Hˆ:RMINORZ
+CODE_SMELL
+isquid:S1481K"5Remove this unused "employeeInfoBean" local variable.(„Í…Õ8áíÆÙı-H£:RMINORZ
+CODE_SMELL
+qsquid:S18542"=Remove this useless assignment to local variable "isDeleted".( öú8‹şËÙı-H¨:RMAJORZ
+CODE_SMELL
+csquid:S1481C"*Remove this unused "query" local variable.(ïÿ‚©øÿÿÿÿ8áíÆÙı-H¢:RMINORZ
+CODE_SMELL
+€squid:UselessImportCheck":Remove this unused import 'javax.persistence.Persistence'.(›²ö¾ıÿÿÿÿ8É¬¡æı-H=RMINORZ
+CODE_SMELL
+gsquid:S1481(".Remove this unused "isDeleted" local variable.(…°Ë†ÿÿÿÿÿ8áíÆÙı-H :RMINORZ
+CODE_SMELL
+xsquid:S1854K"DRemove this useless assignment to local variable "employeeInfoBean".(„Í…Õ8áíÆÙı-HŸ:RMAJORZ
+CODE_SMELL
+_squid:S1168E"+Return an empty collection instead of null.(¥¹ï8ÛåîØı-Hö9RMAJORZ
+CODE_SMELL

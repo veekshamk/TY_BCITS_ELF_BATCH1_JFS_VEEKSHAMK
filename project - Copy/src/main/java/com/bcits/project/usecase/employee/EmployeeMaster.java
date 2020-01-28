@@ -1,0 +1,34 @@
+package com.bcits.project.usecase.employee;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+@Data
+@Entity
+@Table(name="Employee_Master")
+public class EmployeeMaster implements Serializable{
+	@Id
+	@Column
+	private int employeeId;
+	@Column
+	private String employeeName;
+	@Column
+	private String password;
+	@Column
+	private String region;
+	@Column
+	private String designation;
+//	@Column
+//	private String confirmPassword;
+//	@Column
+//	private String emailAddress;
+//	@Column
+//	private long mobileNumber;
+	
+	
+}

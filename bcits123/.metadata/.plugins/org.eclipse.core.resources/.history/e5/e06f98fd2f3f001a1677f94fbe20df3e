@@ -1,0 +1,5 @@
+package com.bcits.springmvc.beans;
+
+public class EmployeeInfoBean {
+
+}

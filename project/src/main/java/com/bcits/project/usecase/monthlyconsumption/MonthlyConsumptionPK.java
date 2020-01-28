@@ -1,0 +1,18 @@
+package com.bcits.project.usecase.monthlyconsumption;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Id;
+
+import lombok.Data;
+
+@Data
+@Embeddable
+public class MonthlyConsumptionPK implements Serializable{
+	
+	private String meterNumber;
+	private String region; 
+
+}

@@ -1,0 +1,14 @@
+package com.bcits.springmvc.config;
+
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+
+public class EntityManagerFactoryConfig {
+	
+	public LocalEntityManagerFactoryBean getEntityManager() {
+		LocalEntityManagerFactoryBean factoryBean= new LocalEntityManagerFactoryBean();
+		factoryBean.setPersistenceUnitName("emsPersistenceUnit");
+		
+		return factoryBean;
+	}
+
+}

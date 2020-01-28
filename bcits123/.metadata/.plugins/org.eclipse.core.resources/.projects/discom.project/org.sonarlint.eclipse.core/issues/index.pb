@@ -23,3 +23,11 @@ v
 Fsrc/main/java/com/bcits/project/usecase/tarrifmaster/TarrifMaster.java,8\d\8d078c02dc440ae0c55f50f639ea663180aa3e16
 q
 Asrc/main/java/com/bcits/project/usecase/consumer/AddConsumer.java,5\4\54a3c388bf79e657c85de2bace8c51ca62d9916d
+O
+src/main/webapp/addEmployee.jsp,7\c\7c65912e8b3ea434884beb2f9579d5dc68b14f03
+O
+src/main/webapp/html/login.html,d\e\de045cb2e4ba533ecef27ff6e59bb979048babc6
+M
+src/main/webapp/css/login.css,c\9\c953adb63298078442a1704870875d6d03cf7c6f
+J
+src/main/webapp/login.html,0\b\0b2312482180eaf8cdf639b64798129ced9aa403

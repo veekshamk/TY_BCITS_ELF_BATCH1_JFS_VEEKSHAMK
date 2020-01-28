@@ -1,0 +1,51 @@
+*{
+    padding-top: 5px;
+    margin-top: 0px;
+    color: black;
+    font-family: arial;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(/img/light-sun-day-wires-wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-top: -4px;
+    margin-left: -12px;
+}
+.box{
+    width: 400px;
+    height: auto;
+    margin:  auto;
+    background-color: white;
+    margin-top: 100px;
+}
+.inner-box{
+    padding: 20px;
+}
+input[type="submit"]{
+    border: 1px solid blue;
+    background-color: rgb(94, 94, 190);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 181px;
+    text-align: center;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+input[type="email"]{
+    width: 100%;
+    padding: 10px 0px;
+    margin: 10px 0px;
+    border: 1px solid black;
+    padding-left: 4px;
+}
+nav{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 50px;
+    margin-top: 50px;
+   
+}

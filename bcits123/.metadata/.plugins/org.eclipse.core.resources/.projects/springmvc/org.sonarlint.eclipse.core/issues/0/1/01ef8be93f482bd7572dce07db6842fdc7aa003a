@@ -1,0 +1,14 @@
+
+} Web:TableHeaderHasIdOrScopeCheck0";Add either an 'id' or a 'scope' attribute to this <th> tag.(«—ßÁ8¤ûŞâı-Hƒ<RMAJORZBUG
+\Web:TableWithoutCaptionCheck" Add a description to this table.(¿‰˜ÿÿÿÿÿHù;RMINORZBUG
+S	Web:S1827")Remove this deprecated "align" attribute.(¬”¿Hû;RMAJORZ
+CODE_SMELL
+‚ Web:TableHeaderHasIdOrScopeCheck1";Add either an 'id' or a 'scope' attribute to this <th> tag.(‚¥­Îúÿÿÿÿ8¤ûŞâı-Hÿ;RMAJORZBUG
+[	Web:S1827*")Remove this deprecated "align" attribute.(òå„ë8¤ûŞâı-Hü;RMAJORZ
+CODE_SMELL
+i	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷ÃûÿÿÿÿHø;RMAJORZBUG
+cWeb:TableWithoutCaptionCheck+" Add a description to this table.(óÀ§¶ÿÿÿÿÿ8¤ûŞâı-Hı;RMINORZBUG
+} Web:TableHeaderHasIdOrScopeCheck-";Add either an 'id' or a 'scope' attribute to this <th> tag.(›õè8¤ûŞâı-H€<RMAJORZBUG
+| Web:TableHeaderHasIdOrScopeCheck/";Add either an 'id' or a 'scope' attribute to this <th> tag.(æó‡i8¤ûŞâı-H‚<RMAJORZBUG
+N	Web:S5256"%Add "<th>" headers to this "<table>".(¿‰˜ÿÿÿÿÿHú;RMAJORZBUG
+‚ Web:TableHeaderHasIdOrScopeCheck.";Add either an 'id' or a 'scope' attribute to this <th> tag.(ûÔ¼úÿÿÿÿ8¤ûŞâı-Hş;RMAJORZBUG

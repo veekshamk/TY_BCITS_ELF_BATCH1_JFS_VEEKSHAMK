@@ -1,0 +1,7 @@
+
+iWeb:UnsupportedTagsInHtml5Check")Remove this deprecated "marquee" element.(âíÖ#8Òî‘İı-H½;RMAJORZBUG
+i	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷ÃûÿÿÿÿHµ;RMAJORZBUG
+‚ Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(Íó™œùÿÿÿÿ8Òî‘İı-H¼;RMAJORZBUG
+cWeb:TableWithoutCaptionCheck" Add a description to this table.(«¯óÅşÿÿÿÿ8Ùêƒİı-H¸;RMINORZBUG
+`	Web:S1827")Remove this deprecated "align" attribute.(Íó™œùÿÿÿÿ8Òî‘İı-H»;RMAJORZ
+CODE_SMELL

@@ -1,0 +1,77 @@
+package com.bcits.springmvc.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.bcits.springmvc.crud.operation.EmployeeDAO;
+import com.bcits.springmvc.crud.operation.EmployeeImpl;
+import com.bcits.springmvc.crud.operation.EmployeeInfoBean;
+
+@Controller
+public class EmployeeController {
+	@GetMapping("/login")
+	public String displayLoginForm() {
+		
+		return "empLoginForm";
+	}
+	
+	@PostMapping("/login")
+	public String authenticate(int empId, String password, HttpServletRequest req, ModelMap modelMap) {
+		EmployeeDAO dao= new EmployeeImpl();
+		EmployeeInfoBean employeeInfoBean=dao.authenticate(empId, password);
+		
+		if(employeeInfoBean!=null) {
+			//Valid Credentials
+			HttpSession session=req.getSession(true);
+			session.setAttribute("loggedInEmpInfo", employeeInfoBean);
+			return "employeeHome";
+		}else {
+			//Invalid Credentials
+			modelMap.addAttribute("errMsg", "Invalid Credentials!....");
+			return "empLoginForm";
+		}
+	}
+	
+	@GetMapping("/searchEmp")
+	public String displaySearchEmployeeForm(HttpSession session, ModelMap modelMap) {
+		
+		if(session.isNew()) {
+			//user Not logged In
+			session.invalidate();
+			
+			modelMap.addAttribute("errMsg", "Please Login First!...");
+			return "empLoginForm";
+		}else {
+			//user already logged In
+			return "searchEmpForm";
+		}
+	}
+	
+	@GetMapping
+	public String searchEmployee(int empId, HttpSession session, ModelMap modelMap) {
+		
+		if(session.getAttribute("loggedInEmpInfo")!=null) {
+			//Valid Session
+			
+			EmployeeDAO dao=new EmployeeImpl();
+			EmployeeInfoBean employeeInfoBean=dao.getEmployee(empId);
+			
+			if(employeeInfoBean!=null) {
+				modelMap.addAttribute("employeeInfoBean", employeeInfoBean);
+			}else {
+				modelMap.addAttribute("errMsg", "Employee ID Not Found!...");
+			}
+			return "searchEmpForm";
+		}else {
+			//Invalid Session
+			modelMap.addAttribute("errMsg", "Please Login First!...");
+			return "empLoginForm";
+		}
+	}
+
+}

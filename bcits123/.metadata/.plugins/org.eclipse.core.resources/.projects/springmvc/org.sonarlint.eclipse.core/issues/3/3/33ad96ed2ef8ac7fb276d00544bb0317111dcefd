@@ -1,0 +1,14 @@
+
+‰squid:S1192"MDefine a constant instead of duplicating this literal "empLoginForm" 7 times.(£í”‰üÿÿÿÿ8çžŸáý-Hï;RCRITICALZ
+CODE_SMELL
+xsquid:S2441%"FMake "EmployeeInfoBean" serializable or don't store it in the session.(Ÿ­èÌúÿÿÿÿ8‰ûààý-Hî;RMAJORZBUG
+‹squid:UselessImportCheck"KRemove this unused import 'com.bcits.springmvc.crud.operation.EmployeeDAO'.( Ã¡Z8¡ÈÄåý-Hî<RMINORZ
+CODE_SMELL
+ƒsquid:S1192)"GDefine a constant instead of duplicating this literal "errMsg" 8 times.(ÙÐ„ùúÿÿÿÿ8™´ªâý-H÷;RCRITICALZ
+CODE_SMELL
+“squid:S1192N"WDefine a constant instead of duplicating this literal "Please Login First!..." 3 times.(¿òÎ©ýÿÿÿÿ8Ë£Æãý-H<RCRITICALZ
+CODE_SMELL
+ysquid:S4684T"@Replace this persistent entity with a simple POJO or DTO object.(åÂá_8â´›äý-H°<RCRITICALZVULNERABILITY
+squid:S4684b"@Replace this persistent entity with a simple POJO or DTO object.(¼µ¥„üÿÿÿÿ8Ë£Æãý-H‘<RCRITICALZVULNERABILITY
+squid:UselessImportCheck"LRemove this unused import 'com.bcits.springmvc.crud.operation.EmployeeImpl'.(ÐüÞè8¡ÈÄåý-Hí<RMINORZ
+CODE_SMELL

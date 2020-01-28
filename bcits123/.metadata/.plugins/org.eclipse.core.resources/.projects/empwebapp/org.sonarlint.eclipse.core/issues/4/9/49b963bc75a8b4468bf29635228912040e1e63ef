@@ -1,6 +1,6 @@
 
-wsquid:S2259E"EA "NullPointerException" could be thrown; "manager" is nullable here.(טעפÊÿÿÿÿÿ8ױסû-Hמ#RMAJORZBUG
-]squid:S1989B"&Add a "try/catch" block for "include".(עב¡™8‏½û-Hס#RMINORZVULNERABILITY
-]squid:S1989B"&Add a "try/catch" block for "include".(עב¡™8‏½û-Hנ#RMINORZVULNERABILITY
-_squid:S1989"(Add a "try/catch" block for "getWriter".(¾חÞ8ײמ×™û-Hע#RMINORZVULNERABILITY
-csquid:S1989$"'Add a "try/catch" block for "parseInt".(ֳדכÿÿÿÿÿ8ײמ×™û-Hן#RMINORZVULNERABILITY
+_squid:S1989"(Add a "try/catch" block for "getWriter".(¾חÞ8ײמ×™û-H:RMINORZVULNERABILITY
+csquid:S1989$"'Add a "try/catch" block for "parseInt".(ֳדכÿÿÿÿÿ8ײמ×™û-H‘:RMINORZVULNERABILITY
+wsquid:S2259G"EA "NullPointerException" could be thrown; "manager" is nullable here.(טעפÊÿÿÿÿÿ8ױסû-H’:RMAJORZBUG
+]squid:S1989D"&Add a "try/catch" block for "include".(עב¡™8‏½û-H“:RMINORZVULNERABILITY
+]squid:S1989D"&Add a "try/catch" block for "include".(עב¡™8‏½û-H”:RMINORZVULNERABILITY

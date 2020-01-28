@@ -1,9 +1,9 @@
 
-l
-squid:S106"9Replace this use of System.out or System.err by a logger.(ãª€ç8¼ÍÅŠý-Hß4RMAJORZ
-CODE_SMELL
-‰squid:UselessImportCheck"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Þ8±Ôð’ý-HÍ7RMINORZ
-CODE_SMELL
 £squid:UselessImportCheck
-"bRemove this unused import 'com.bcits.springcore.annotations.mypostprocessors.MyBeanPostProcessor'.(üææ¢8±Ôð’ý-HÎ7RMINORZ
+"bRemove this unused import 'com.bcits.springcore.annotations.mypostprocessors.MyBeanPostProcessor'.(üææ¢8±Ôð’ý-Hå7RMINORZ
+CODE_SMELL
+‰squid:UselessImportCheck"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Þ8±Ôð’ý-Hæ7RMINORZ
+CODE_SMELL
+l
+squid:S106"9Replace this use of System.out or System.err by a logger.(ãª€ç8¼ÍÅŠý-Hç7RMAJORZ
 CODE_SMELL

@@ -1,3 +1,4 @@
 
-tsquid:S2094"BRemove this empty class, write its code or make it an "interface".(ֳׂ׃ףüÿÿÿÿH–2RMINORZ
-CODE_SMELL
+dsquid:S1989$"(Add a "try/catch" block for "parseLong".(יüֽ€‏ÿÿÿÿ8טת¯‎-H‚8RMINORZVULNERABILITY
+_squid:S1989:"(Add a "try/catch" block for "getWriter".(¾חÞ8טת¯‎-Hƒ8RMINORZVULNERABILITY
+_squid:S11485"#Use a logger to log this exception.(€ֹװ…‎ÿÿÿÿ8טת¯‎-H8RMINORZVULNERABILITY

@@ -1,0 +1,5 @@
+package com.bcits.springmvc.crud.operation;
+
+public interface EmployeeDAO {
+
+}
