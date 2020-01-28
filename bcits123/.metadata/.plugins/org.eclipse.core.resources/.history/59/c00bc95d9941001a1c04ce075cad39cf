@@ -1,0 +1,43 @@
+package com.bcits.springrestjaxb.beans;
+
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import lombok.Data;
+@Data
+@XmlRootElement(name="employee-info")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class EmployeeInfoBean {
+	
+	@XmlAttribute(name="employee-id")
+	private int empId;
+	@XmlElement
+	private String name;
+	@XmlElement(name="mobile-number")
+	private long mobileNumber;
+	@XmlElement(name="mail-id")
+	private String officialMailId;
+	@XmlElement
+	private Date dob;
+	@XmlElement
+	private Date doj;
+	@XmlElement
+	private String designation;
+	@XmlElement(name="blood-group")
+	private String bloodGroup;
+	@XmlElement
+	private double salary;
+	@XmlElement(name="dept-id")
+	private int deptId;
+	@XmlElement(name="manager-id")
+	private int managerId;
+	@XmlTransient
+	private String password;
+
+}

@@ -1,0 +1,13 @@
+{
+	"employeeID": 100,
+	"name": "ShreeVidya",
+	"mobileNumber": 1478523690,
+	"officialMailId": "shri@gmail.com",
+	"dob": 1580208306273,
+	"doj": 1580208306273,
+	"designation": "SD",
+	"bloodGroup": "a+",
+	"salary": 12000.0,
+	"deptId": 10,
+	"managerId": 10
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee-info employee-id="100" name="ShreeVidya">
+    <mobile-number>1478523690</mobile-number>
+    <mail-id>shri@gmail.com</mail-id>
+    <dob>2020-01-28T12:13:21.178+05:30</dob>
+    <doj>2020-01-28T12:13:21.178+05:30</doj>
+    <designation>SD</designation>
+    <blood-group>a+</blood-group>
+    <salary>12000.0</salary>
+    <dept-id>10</dept-id>
+    <manager-id>10</manager-id>
+</employee-info>

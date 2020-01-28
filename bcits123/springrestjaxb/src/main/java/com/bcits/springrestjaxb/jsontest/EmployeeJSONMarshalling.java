@@ -1,0 +1,37 @@
+package com.bcits.springrestjaxb.jsontest;
+
+import java.io.File;
+import java.util.Date;
+
+import org.codehaus.jackson.map.ObjectMapper;
+
+import com.bcits.springrestjaxb.beans.EmployeeInfoBean;
+
+public class EmployeeJSONMarshalling {
+	public static void main(String[] args) {
+		
+		EmployeeInfoBean employeeInfoBean=new EmployeeInfoBean();
+		employeeInfoBean.setBloodGroup("a+");
+		employeeInfoBean.setDeptId(10);
+		employeeInfoBean.setDesignation("SD");
+		employeeInfoBean.setDob(new Date());
+		employeeInfoBean.setDoj(new Date());
+		employeeInfoBean.setEmpId(100);
+		employeeInfoBean.setManagerId(10);
+		employeeInfoBean.setMobileNumber(1478523690);
+		employeeInfoBean.setName("ShreeVidya");
+		employeeInfoBean.setOfficialMailId("shri@gmail.com");
+		employeeInfoBean.setPassword("qwerty");
+		employeeInfoBean.setSalary(12000);
+		
+		try {
+		ObjectMapper mapper= new ObjectMapper();
+		mapper.writerWithDefaultPrettyPrinter();
+		mapper.writeValue(new File("empJson2.json"), employeeInfoBean);
+		mapper.writeValue(System.out, employeeInfoBean);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}		
+	}
+
+}

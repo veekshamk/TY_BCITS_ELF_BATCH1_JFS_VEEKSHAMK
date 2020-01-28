@@ -1,0 +1,5 @@
+package com.bcits.springrest.beans;
+
+public class EmployeeInfoBean {
+
+}

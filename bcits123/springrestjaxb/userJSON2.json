@@ -1,0 +1,31 @@
+{
+	"name": "ShreeVidya",
+	"mobileNumber": 1478523690,
+	"officialMailId": "shri@gmail.com",
+	"dob": 1580209996583,
+	"doj": 1580209996583,
+	"designation": "SD",
+	"bloodGroup": "a+",
+	"salary": 12000.0,
+	"deptId": 10,
+	"managerId": 10,
+	"employeeID": 100,
+	"user-other-info": {
+		"gender": "Female",
+		"adharNumber": 1478520369
+	},
+	"user-address-list": [
+		{
+			"houseNum": 1,
+			"city": "BLR",
+			"addressType": "t",
+			"street": "abc street"
+		},
+		{
+			"houseNum": 2,
+			"city": "HYD",
+			"addressType": "p",
+			"street": "xyz street"
+		}
+	]
+}

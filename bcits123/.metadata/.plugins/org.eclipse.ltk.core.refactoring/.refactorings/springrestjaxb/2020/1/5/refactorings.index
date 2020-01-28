@@ -1,0 +1,13 @@
+1580189991396	Rename package 'com.bcits.springrest.beans'
+1580192572534	Delete element
+1580194114026	Copy file
+1580194610088	Delete element
+1580195484104	Copy compilation unit
+1580196803445	Rename local variable 'employeeInfoBean'
+1580198915807	Rename type 'UseraddressBean'
+1580199066895	Rename local variable 'useraddressList'
+1580206824004	Rename type 'EmployeeUnmarshalling'
+1580207594804	Move 'empJson1.json' to 'target'
+1580207601335	Move 'empJson1.json' to 'springrestjaxb'
+1580207952411	Copy file
+1580209669594	Rename type 'UserUnmarshalling'

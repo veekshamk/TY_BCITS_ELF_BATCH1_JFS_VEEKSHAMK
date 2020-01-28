@@ -1,0 +1,22 @@
+package com.bcits.springrest.beans;
+
+import java.util.Date;
+
+import lombok.Data;
+@Data
+public class EmployeeInfoBean {
+	
+	private int empId;
+	private String name;
+	private long mobileNumber;
+	private String officialMailId;
+	private Date dob;
+	private Date doj;
+	private String designation;
+	private String bloodGroup;
+	private double salary;
+	private int deptId;
+	private int managerId;
+	private String password;
+
+}

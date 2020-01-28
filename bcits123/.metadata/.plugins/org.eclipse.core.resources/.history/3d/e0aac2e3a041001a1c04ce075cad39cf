@@ -1,0 +1,48 @@
+package com.bcits.springrestjaxb.test;
+
+import java.io.File;
+import java.util.Date;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import com.bcits.springrestjaxb.beans.EmployeeInfoBean;
+import com.bcits.springrestjaxb.beans.UserInfoBean;
+import com.bcits.springrestjaxb.beans.UserOtherInfoBean;
+
+public class UserMarshallingTest {
+	public static void main(String[] args) {
+		
+		UserInfoBean userInfoBean=new UserInfoBean();
+		userInfoBean.setBloodGroup("a+");
+		userInfoBean.setDeptId(10);
+		userInfoBean.setDesignation("SD");
+		userInfoBean.setDob(new Date());
+		userInfoBean.setDoj(new Date());
+		userInfoBean.setEmpId(100);
+		userInfoBean.setManagerId(10);
+		userInfoBean.setMobileNumber(1478523690);
+		userInfoBean.setName("ShreeVidya");
+		userInfoBean.setOfficialMailId("shri@gmail.com");
+		userInfoBean.setPassword("qwerty");
+		userInfoBean.setSalary(12000);
+
+		
+		UserOtherInfoBean userOtherInfoBean=new UserOtherInfoBean();
+		userOtherInfoBean.setGender("Female");
+		userOtherInfoBean.setAdharNumber(1478520369L);
+		
+		try {
+			JAXBContext context=JAXBContext.newInstance(UserInfoBean.class);
+			Marshaller marshaller=context.createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			marshaller.marshal(userInfoBean, new File("userInfo.xml"));
+			marshaller.marshal(userInfoBean, System.out);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+
+gsquid:S14810".Remove this unused "isDeleted" local variable.(…°Ë†ÿÿÿÿÿ8©¸Ù¸ş-H¯FRMINORZ
+CODE_SMELL
+_squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8©¸Ù¸ş-H«FRMINORZVULNERABILITY
+squid:S4165'"eRemove this useless assignment; "isAdded" already holds the assigned value along all execution paths.(¤ç øÿÿÿÿ8©¸Ù¸ş-HªFRMAJORZ
+CODE_SMELL
+_squid:S1148&"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8©¸Ù¸ş-H¬FRMINORZVULNERABILITY
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(½ÿéÁÿÿÿÿÿ8©¸Ù¸ş-H°FRMAJORZ
+CODE_SMELL
+qsquid:S1854:"=Remove this useless assignment to local variable "isDeleted".( öú8©¸Ù¸ş-H­FRMAJORZ
+CODE_SMELL
+squid:S3776A"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(šöÁÕıÿÿÿÿ8©¸Ù¸ş-H®FRCRITICALZ
+CODE_SMELL

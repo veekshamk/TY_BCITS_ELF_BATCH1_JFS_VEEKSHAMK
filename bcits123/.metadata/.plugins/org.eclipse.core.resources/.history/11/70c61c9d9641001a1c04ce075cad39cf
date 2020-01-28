@@ -1,0 +1,8 @@
+package com.bcits.springrestjaxb.beans;
+
+public class EmployeeTest {
+	public static void main(String[] args) {
+		
+	}
+
+}

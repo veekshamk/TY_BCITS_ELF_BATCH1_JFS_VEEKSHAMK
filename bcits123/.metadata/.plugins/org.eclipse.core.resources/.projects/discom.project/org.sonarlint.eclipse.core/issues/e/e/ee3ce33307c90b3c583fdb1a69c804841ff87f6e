@@ -1,5 +1,5 @@
 
-lsquid:UselessImportCheck"+Remove this unused import 'java.util.Date'.(¸…¼ü8ÅÍÄÂü-Hà9RMINORZ
+rsquid:UselessImportCheck	"1Remove this unused import 'javax.persistence.Id'.(ş¹ŞÜ8šùÁÂü-HÇFRMINORZ
 CODE_SMELL
-rsquid:UselessImportCheck	"1Remove this unused import 'javax.persistence.Id'.(ş¹ŞÜ8šùÁÂü-Há9RMINORZ
+lsquid:UselessImportCheck"+Remove this unused import 'java.util.Date'.(¸…¼ü8ÅÍÄÂü-HÈFRMINORZ
 CODE_SMELL

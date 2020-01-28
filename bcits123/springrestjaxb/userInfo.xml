@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user-info employee-id="100" name="ShreeVidya">
+    <mobile-number>1478523690</mobile-number>
+    <mail-id>shri@gmail.com</mail-id>
+    <dob>2020-01-28T13:45:41.415+05:30</dob>
+    <doj>2020-01-28T13:45:41.415+05:30</doj>
+    <designation>SD</designation>
+    <blood-group>a+</blood-group>
+    <salary>12000.0</salary>
+    <dept-id>10</dept-id>
+    <manager-id>10</manager-id>
+    <user-other-info>
+        <gender>Female</gender>
+        <adhar>1478520369</adhar>
+    </user-other-info>
+    <user-address-list>
+        <userAddressBean>
+            <house-number>1</house-number>
+            <Street>abc street</Street>
+            <city>BLR</city>
+            <address-type>116</address-type>
+        </userAddressBean>
+        <userAddressBean>
+            <house-number>2</house-number>
+            <Street>xyz street</Street>
+            <city>HYD</city>
+            <address-type>112</address-type>
+        </userAddressBean>
+    </user-address-list>
+</user-info>

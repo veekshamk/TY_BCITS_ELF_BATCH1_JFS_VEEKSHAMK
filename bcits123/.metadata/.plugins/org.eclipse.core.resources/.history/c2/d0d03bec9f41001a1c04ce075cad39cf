@@ -1,0 +1,5 @@
+package com.bcits.springrestjaxb.beans;
+
+public class UserOtherInfoBean {
+
+}
