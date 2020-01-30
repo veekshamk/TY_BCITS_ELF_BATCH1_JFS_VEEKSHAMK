@@ -12,18 +12,18 @@
 			<item value="2"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.ui.navigator.ProjectExplorer"/>
 			<item value="org.eclipse.wst.server.ui.ServersView"/>
+			<item value="org.eclipse.ui.navigator.ProjectExplorer"/>
 		</list>
 		<list key="orderedProviders">
 			<item value="org.eclipse.e4.ui.parts"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textArray">
-			<item value="project ex"/>
-			<item value="p"/>
 			<item value="server"/>
 			<item value="ser"/>
+			<item value="project ex"/>
+			<item value="p"/>
 		</list>
 	</section>
 	<section name="NewWizardAction">

@@ -1,0 +1,8 @@
+package com.bcits.project.usecase.dao;
+
+import com.bcits.project.usecase.consumer.ConsumerMaster;
+
+public interface ConsumerDAO {
+	public boolean consumerSignUp(ConsumerMaster consumerMaster, String confirmPassword);
+
+}

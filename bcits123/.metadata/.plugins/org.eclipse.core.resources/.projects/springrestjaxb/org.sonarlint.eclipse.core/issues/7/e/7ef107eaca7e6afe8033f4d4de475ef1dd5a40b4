@@ -1,0 +1,13 @@
+
+†squid:S00117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş‘á”8œ¼ÚÙş-HHRMINORZ
+CODE_SMELL
+‹squid:S00117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÑ¯Ûùÿÿÿÿ8œ¼ÚÙş-HHRMINORZ
+CODE_SMELL
+l
+squid:S106@"9Replace this use of System.out or System.err by a logger.(ÚéÖò8µ€ĞØş-HóGRMAJORZ
+CODE_SMELL
+_squid:S1148B"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8µ€ĞØş-HòGRMINORZVULNERABILITY
+squid:UselessImportCheck"LRemove this unused import 'com.bcits.springrestjaxb.beans.EmployeeInfoBean'.(½¡¹Ä8µ€ĞØş-HñGRMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(ß¥å8¨ùœŞş-HšJRMAJORZ
+CODE_SMELL

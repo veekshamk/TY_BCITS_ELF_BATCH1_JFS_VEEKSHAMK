@@ -1,0 +1,16 @@
+package com.bcits.project.usecase.controller;
+
+
+
+public class ConsumerController {
+	
+	
+	public String diaplayConsumerSignUpPage() {
+		return "consumerSignUp";
+	}
+	
+	public String diaplayConsumerLoginPage() {
+		return "consumerLogin";
+	}
+
+}

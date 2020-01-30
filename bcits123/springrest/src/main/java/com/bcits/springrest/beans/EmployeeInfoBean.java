@@ -7,11 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 import lombok.Data;
+@JsonRootName("EmployeeInfo")
+@JsonPropertyOrder("empId")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @Entity
 @Table(name="EmployeeInfo")
 public class EmployeeInfoBean {
+	@JsonProperty("employeeID")
 	@Id
 	@Column
 	private int empId;

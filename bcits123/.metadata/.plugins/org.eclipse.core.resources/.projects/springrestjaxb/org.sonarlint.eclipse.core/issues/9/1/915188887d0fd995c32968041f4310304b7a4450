@@ -1,0 +1,9 @@
+
+_squid:S1148?"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8¬–©Þþ-HŸJRMINORZVULNERABILITY
+†squid:S00117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ‘á”8á…µÞþ-H©JRMINORZ
+CODE_SMELL
+k
+squid:S106="9Replace this use of System.out or System.err by a logger.(¾ì¥,8¬–©Þþ-H JRMAJORZ
+CODE_SMELL
+‹squid:S00117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÑ¯Ûùÿÿÿÿ8á…µÞþ-HªJRMINORZ
+CODE_SMELL

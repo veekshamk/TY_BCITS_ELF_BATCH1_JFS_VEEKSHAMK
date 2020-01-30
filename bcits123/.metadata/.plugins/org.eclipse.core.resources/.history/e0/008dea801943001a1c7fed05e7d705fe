@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome To DISCOM ELECTRIITY LIMITED</title>
+        <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+    
+    <h1 style="color: white; text-align: center;">Welcome To DISCOM ELECTRICITY LIMITED</h1>
+    
+<div class="box">
+            
+            <p style="text-align: right;">
+                New User? <a class="link" href="register.html">Click here</a>
+               <br>
+               Already User? <a class="link" href="login.html">Click here</a>
+            </p> 
+            
+        </div>    
+    
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+package com.bcits.project.usecase.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class ConsumerController {
+	
+	@PostMapping("/consumerSignUp")
+	public String diaplayConsumerSignUpPage() {
+		return "consumerSignUp";
+	}
+	
+	@PostMapping("/consumerLogin")
+	public String diaplayConsumerLoginPage() {
+		return "consumerLogin";
+	}
+
+}
