@@ -14,7 +14,7 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 	EntityManagerFactory factory;
 
 	@Override
-	public boolean consumerSignUp(ConsumerMaster consumerMaster, String confirmPassword) {
+	public boolean consumerSignUp(ConsumerMaster consumerMaster, String password) {
 		EntityManager manager= factory.createEntityManager();
 		EntityTransaction transaction=manager.getTransaction();
 		
