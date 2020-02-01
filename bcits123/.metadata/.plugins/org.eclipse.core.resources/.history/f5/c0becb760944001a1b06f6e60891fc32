@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+     <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
+    <spring:url var="css" value="resources/css"/>
+     <spring:url var="js" value="resources/js"/>
+     <spring:url var="images" value="resources/images"/>
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="${css}/home.css">
+</head>
+<body>
+		<form action="./homePage" >
+		
+		<h1 style="color: black; text-align: center;">Welcome To DISCOM ELECTRICITY LIMITED</h1>
+
+        <br> <br><br><br> <br><br><br> <br><br><br> <br><br>
+        <!-- 		
+		<nav class="navbar navbar-light bg-light"> <br> <br><br><br> <br><br><br> <br><br><br> <br><br>
+  <form class="form-inline"> -->
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   
+   <!-- <button class="btn btn-outline-success" type="button" >Consumer Login</button>
+    &nbsp; 
+    <button class="btn btn-sm btn-outline-secondary" type="button">Employee Login</button>  -->
+    <!-- <input type="button" value="Consumer Login" id="myButton1" />
+    <input type="button" value="Employee Login" id="myButton2" /> -->
+    <a href="./consumerLogin" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</a>
+  <a href="#" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</a>
+  </div>
+</form>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<!-- <h1 style="color: white; text-align: center;">Welcome To DISCOM ELECTRICITY LIMITED</h1>
+    
+<div class="box">
+            
+            <p style="text-align: right;">
+                New User? <a class="link" href="./consumerSignUp">Click here</a>
+               <br>
+               Already User? <a class="link" href="./consumerLogin">Click here</a>
+            </p> 
+            
+        </div>    --> 
+</form>
+</body>
+</html>

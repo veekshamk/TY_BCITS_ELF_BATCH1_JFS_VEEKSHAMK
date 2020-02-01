@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+     <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
+    <spring:url var="css" value="resources/css"/>
+     <spring:url var="js" value="resources/js"/>
+     <spring:url var="images" value="resources/images"/>
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+		<form action="./homePage" >
+		
+		<h1 style="color: white; text-align: center;">Welcome To DISCOM ELECTRICITY LIMITED</h1>
+		
+		<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Consumer Login</button>
+    <button class="btn btn-sm btn-outline-secondary" type="button">Employee Login</button>
+  </form>
+</nav>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<!-- <h1 style="color: white; text-align: center;">Welcome To DISCOM ELECTRICITY LIMITED</h1>
+    
+<div class="box">
+            
+            <p style="text-align: right;">
+                New User? <a class="link" href="./consumerSignUp">Click here</a>
+               <br>
+               Already User? <a class="link" href="./consumerLogin">Click here</a>
+            </p> 
+            
+        </div>    --> 
+</form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+package com.bcits.project.usecase.dao;
+
+import com.bcits.project.usecase.beans.ConsumerMaster;
+
+public interface ConsumerDAO {
+	public boolean consumerSignUp(ConsumerMaster consumerMaster, String confirmPassword);
+	public ConsumerMaster consumerLogin(String meterNumber, String password);
+
+}

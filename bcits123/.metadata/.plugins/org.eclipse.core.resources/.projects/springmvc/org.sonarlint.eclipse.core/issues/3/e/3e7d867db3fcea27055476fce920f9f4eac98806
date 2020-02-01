@@ -1,27 +1,27 @@
 
-squid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(†îßà8”»ý-HÙ9RMAJORZ
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ªï‰µÿÿÿÿÿ8Ì„ »ý-Hþ]RMAJORZ
 CODE_SMELL
-squid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(åÓøÙøÿÿÿÿ8ý«Ò²ý-H™9RMINORZ
+squid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(†îßà8”»ý-Hÿ]RMAJORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ªï‰µÿÿÿÿÿ8Ì„ »ý-HÝ9RMAJORZ
+|squid:S4488%"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Á½ë’8Ñ¯´ý-H€^RMINORZ
 CODE_SMELL
-squid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(†îßà8Ä¡’»ý-HØ9RMAJORZ
+squid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(åÓøÙøÿÿÿÿ8ý«Ò²ý-H^RMINORZ
 CODE_SMELL
-ƒsquid:S11927"LDefine a constant instead of duplicating this literal "userDetails" 3 times.(ÊÚÈ8å‰š»ý-HÚ9RCRITICALZ
+ƒsquid:S11927"LDefine a constant instead of duplicating this literal "userDetails" 3 times.(ÊÚÈ8å‰š»ý-H‚^RCRITICALZ
 CODE_SMELL
-|squid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(µ„ô’8‚ôƒ·ý-HÉ9RMINORZ
+squid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(†îßà8Ä¡’»ý-Hƒ^RMAJORZ
 CODE_SMELL
-squid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(ùñ¬8¥‡‰»ý-H×9RMAJORZ
+|squid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(µ„ô’8‚ôƒ·ý-H„^RMINORZ
 CODE_SMELL
-„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(•ÑÛ©üÿÿÿÿ8ˆ¥ž»ý-HÜ9RMAJORZ
+squid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(ÚëËÕ8ª†œ»ý-H…^RMAJORZ
 CODE_SMELL
-|squid:S4488%"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Á½ë’8Ñ¯´ý-HÃ9RMINORZ
+~squid:S4488-"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ÿæñ‡8¿¬Ë·ý-H†^RMINORZ
 CODE_SMELL
-~squid:S4488-"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ÿæñ‡8¿¬Ë·ý-HÊ9RMINORZ
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(•ÑÛ©üÿÿÿÿ8ˆ¥ž»ý-H‡^RMAJORZ
 CODE_SMELL
-squid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(ÚëËÕ8ª†œ»ý-HÛ9RMAJORZ
+squid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(ùñ¬8¥‡‰»ý-Hˆ^RMAJORZ
 CODE_SMELL
-„squid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(Îß’·ÿÿÿÿÿ8Ûê†»ý-HÖ9RMAJORZ
+}squid:S1192"FDefine a constant instead of duplicating this literal "empId" 6 times.(öÞÃª8¼õÔ·ý-H‰^RCRITICALZ
 CODE_SMELL
-}squid:S1192"FDefine a constant instead of duplicating this literal "empId" 6 times.(öÞÃª8¼õÔ·ý-HÌ9RCRITICALZ
+„squid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(Îß’·ÿÿÿÿÿ8Ûê†»ý-HŠ^RMAJORZ
 CODE_SMELL

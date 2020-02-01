@@ -1,0 +1,8 @@
+package com.bcits.discom.dao;
+
+
+public interface ConsumerDAO {
+	public boolean consumerSignUp(ConsumerMaster consumerMaster, String confirmPassword);
+	public ConsumerMaster consumerLogin(String meterNumber, String password);
+
+}

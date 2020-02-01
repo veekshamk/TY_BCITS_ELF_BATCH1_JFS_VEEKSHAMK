@@ -1,0 +1,5 @@
+package com.bcits.project.usecase.service;
+
+public class EmployeeServiceImplementation implements EmployeeService{
+
+}

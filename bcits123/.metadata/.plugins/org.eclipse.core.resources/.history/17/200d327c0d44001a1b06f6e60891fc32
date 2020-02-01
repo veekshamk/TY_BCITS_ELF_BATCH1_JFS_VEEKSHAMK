@@ -1,0 +1,77 @@
+* {
+	padding-top: 5px;
+	margin-top: 0px;
+	color: black;
+	font-family: arial;
+	box-sizing: border-box;
+}
+
+body {
+	/* background-image: url(../images/electrictower.jpg); */
+	background-size: cover;
+	background-position: center;
+	margin-top: -4px;
+	margin-left: -12px;
+}
+
+.navbar navbar-light bg-light {
+	margin-left: 10000px;
+	margin-top: 10000px;
+	padding-left: 10000px;
+	padding-top: 10000px;
+}
+
+.btn btn-outline-success {
+	margin-left: 1000px;
+	margin-top: 1000px;
+	padding-left: 10000px;
+	padding-top: 1000px;
+}
+
+.form-inline {
+	margin-left: 1000px;
+	margin-top: 1000px;
+	padding-left: 1000px;
+	padding-top: 1000px;
+}
+
+.box {
+	margin-left: 550px;
+	text-align: center;
+	padding-left: -990px;
+	align-items: center;
+	background-color: aliceblue;
+	width: 290px;
+	height: 60px;
+}
+
+a {
+	text-decoration: none;
+	font-weight: 600;
+	padding-right: 100px;
+}
+
+.link {
+	color: skyblue;
+}
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.myButton {
+	width: 100px;
+	height: 50px;
+}
+
+input[type="button"] {
+	width: 250px;
+	height: 50px;
+}

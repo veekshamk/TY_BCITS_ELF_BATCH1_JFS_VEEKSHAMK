@@ -1,0 +1,51 @@
+1580185261760	Delete element
+1580185734988	Move 'register.html' to 'webapp'
+1580201550984	Move 'login.html' to 'html'
+1580201553999	Move 'register.html' to 'html'
+1580201606691	Rename resource 'addEmployee.jsp'
+1580202624279	Move 'img' to 'webapp'
+1580202679568	Delete element
+1580202828399	Move file
+1580202893561	Move 'registerConsumer.jsp' to 'JSP'
+1580203016072	Rename resource 'JSP'
+1580203261895	Move 'register.html' to 'html'
+1580203502720	Move 'css' to 'asset'
+1580203505251	Move 'html' to 'asset'
+1580203507251	Move 'img' to 'asset'
+1580203538935	Move 'registerConsumer.jsp' to 'views'
+1580203542528	Delete element
+1580203834921	Rename resource 'asset'
+1580203870303	Move 'login.js' to 'js'
+1580212125262	Rename type 'ProjectDAO'
+1580212153749	Rename type 'ProjectDAOImpl'
+1580213253370	Rename package 'com.bcits.project.usecase.billhistory'
+1580213332534	Copy compilation unit
+1580213381668	Delete element
+1580215322160	Rename resource 'registerConsumer.jsp'
+1580215405415	Rename resource 'ConsumerSignUp.jsp'
+1580390605657	Move compilation unit
+1580390615932	Move compilation unit
+1580390637887	Move compilation unit
+1580390646316	Delete element
+1580390653437	Delete element
+1580390660182	Move compilation unit
+1580390665619	Delete element
+1580390671788	Move compilation unit
+1580390678931	Move compilation unit
+1580390684465	Delete element
+1580390697215	Move compilation unit
+1580390703966	Delete element
+1580390711313	Move compilation unit
+1580390717703	Delete element
+1580390722656	Delete element
+1580392613552	Copy compilation units
+1580392632222	Copy compilation unit
+1580392647534	Copy compilation units
+1580392661439	Copy compilation units
+1580392686500	Copy compilation unit
+1580392694687	Copy compilation unit
+1580392702468	Copy compilation unit
+1580392708780	Copy compilation unit
+1580445492943	Copy files
+1580445512149	Copy files
+1580445551175	Copy files

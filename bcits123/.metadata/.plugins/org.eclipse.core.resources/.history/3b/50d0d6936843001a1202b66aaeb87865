@@ -1,0 +1,17 @@
+package com.bcits.project.usecase.service;
+
+import com.bcits.project.usecase.beans.ConsumerMaster;
+
+public class ConsumerServiceImplementation implements ConsumerService{
+
+	@Override
+	public boolean consumerSignUp(ConsumerMaster consumerMaster, String confirmPassword) {
+		return false;
+	}
+
+	@Override
+	public ConsumerMaster consumerLogin(String meterNumber, String password) {
+		return null;
+	}
+
+}

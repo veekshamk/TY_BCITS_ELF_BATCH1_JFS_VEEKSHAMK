@@ -1,0 +1,99 @@
+*{
+    padding-top: 5px;
+    margin-top: 0px;
+    color: black;
+    font-family: arial;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(./images/electrictower.jpg);
+    background-repeat:initial;
+    margin-top: -4px;
+    margin-left: -12px;
+}
+form{
+    height: 300px;
+}
+.forgot{
+    margin-top: 10px;
+    margin-right: 100px;
+}
+a{text-decoration: none; font-weight: 600;}
+.link{
+    color:skyblue;
+}
+p{
+    margin: 5px 0px;
+}
+.box{
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+
+
+}
+.inner-box{
+    padding: 20px;
+}
+.box1{
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+
+
+}
+.inner-box1{
+    padding: 20px;
+}
+.box h1,h2,h3,h4,h5,h6{
+    text-align: center;
+    margin: 5px 0px;
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"],input[type="number"]{
+    width: 100%;
+    padding: 10px 0px;
+    margin: 10px 0px;
+    border: 1px solid black;
+    padding-left: 4px;
+}
+.forgot{
+    float: right;
+}
+input[type="submit"], input[type="reset"]{
+    border: 1px solid blue;
+    background-color: rgb(94, 94, 190);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+    margin-left: 50px;
+}
+textarea{
+    width: 100%;
+    padding: 10px 0px;
+    margin: 10px 0px;
+    border: 1px solid black;
+    padding-left: 4px;
+}
+.inner{
+    width: 100%;
+    padding: 10px 0px;
+    margin: 10px 0px; 
+   /* border: 1px solid black; */
+    padding-left: 4px; 
+}
+select{
+    width: 100%;
+    padding: 10px 0px;
+    margin: 10px 0px; 
+   border: 1px solid black;
+    padding-left: 4px; 
+}
+input.recovery{
+    width: 180px;
+    height: 40px;
+}

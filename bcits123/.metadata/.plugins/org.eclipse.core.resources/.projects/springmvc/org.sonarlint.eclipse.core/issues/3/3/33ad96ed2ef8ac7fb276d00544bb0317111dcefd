@@ -1,28 +1,28 @@
 
-squid:S1192 "UDefine a constant instead of duplicating this literal "Please Login First.." 4 times.(ŸÆ8ğ¤ñ°ş-H»BRCRITICALZ
+…squid:CommentedOutCodeLineÖ"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8¿™±´ş-Hñ]RMAJORZ
 CODE_SMELL
-“squid:S1192["WDefine a constant instead of duplicating this literal "Please Login First!..." 3 times.(¿òÎ©ıÿÿÿÿ8Ë£Æãı-H >RCRITICALZ
+€squid:S4684¸"@Replace this persistent entity with a simple POJO or DTO object.(ª¿îûøÿÿÿÿ8ğ¤ñ°ş-Hä]RCRITICALZVULNERABILITY
+€squid:S4684Â"@Replace this persistent entity with a simple POJO or DTO object.(ª­‘ıÿÿÿÿ8ìÛ˜°ş-Hò]RCRITICALZVULNERABILITY
+squid:UselessImportCheck"LRemove this unused import 'com.bcits.springmvc.crud.operation.EmployeeImpl'.(ĞüŞè8¡ÈÄåı-Hç]RMINORZ
 CODE_SMELL
-Šsquid:S1192("NDefine a constant instead of duplicating this literal "empLoginForm" 12 times.(£í”‰üÿÿÿÿ8çŸáı-H¥>RCRITICALZ
+{squid:S4684Ä"@Replace this persistent entity with a simple POJO or DTO object.(Âšâğ8ØÇ¦°ş-Hğ]RCRITICALZVULNERABILITY
+‹squid:UselessImportCheck"KRemove this unused import 'com.bcits.springmvc.crud.operation.EmployeeDAO'.( Ã¡Z8¡ÈÄåı-Hè]RMINORZ
 CODE_SMELL
-{squid:S4684¦"@Replace this persistent entity with a simple POJO or DTO object.(à’ª„8ìÛ˜°ş-H¸ARCRITICALZVULNERABILITY
-„squid:S11926"HDefine a constant instead of duplicating this literal "errMsg" 15 times.(ÙĞ„ùúÿÿÿÿ8™´ªâı-H¤>RCRITICALZ
+“squid:S1192["WDefine a constant instead of duplicating this literal "Please Login First!..." 3 times.(¿òÎ©ıÿÿÿÿ8Ë£Æãı-Hî]RCRITICALZ
 CODE_SMELL
-xsquid:S24412"FMake "EmployeeInfoBean" serializable or don't store it in the session.(Ÿ­èÌúÿÿÿÿ8‰ûààı-H¢>RMAJORZBUG
-zsquid:S4684o"@Replace this persistent entity with a simple POJO or DTO object.(¢ù´8µÓÖªş-H¬>RCRITICALZVULNERABILITY
-ysquid:S4684a"@Replace this persistent entity with a simple POJO or DTO object.(åÂá_8â´›äı-H£>RCRITICALZVULNERABILITY
-€squid:S4684Â"@Replace this persistent entity with a simple POJO or DTO object.(ª­‘ıÿÿÿÿ8ìÛ˜°ş-H·ARCRITICALZVULNERABILITY
-‹squid:UselessImportCheck"KRemove this unused import 'com.bcits.springmvc.crud.operation.EmployeeDAO'.( Ã¡Z8¡ÈÄåı-HŸ>RMINORZ
+€squid:CommentedOutCodeLineÔ"<This block of commented-out lines of code should be removed.(ÆÄÄÆ8¿™±´ş-Hì]RMAJORZ
 CODE_SMELL
-ˆsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚“¹„şÿÿÿÿ8ÚŠ¬ş-Hå>RMINORZ
+Šsquid:S1192("NDefine a constant instead of duplicating this literal "empLoginForm" 12 times.(£í”‰üÿÿÿÿ8çŸáı-Hó]RCRITICALZ
 CODE_SMELL
-{squid:S4684Ä"@Replace this persistent entity with a simple POJO or DTO object.(Âšâğ8ØÇ¦°ş-H¾ARCRITICALZVULNERABILITY
-{squid:S4684›"@Replace this persistent entity with a simple POJO or DTO object.(Âšâğ8ğ¤ñ°ş-H½BRCRITICALZVULNERABILITY
-€squid:S4684¸"@Replace this persistent entity with a simple POJO or DTO object.(ª¿îûøÿÿÿÿ8ğ¤ñ°ş-H¾BRCRITICALZVULNERABILITY
-{squid:S4684"@Replace this persistent entity with a simple POJO or DTO object.(Âšâğ8Ë£Æãı-H¡>RCRITICALZVULNERABILITY
-squid:UselessImportCheck"LRemove this unused import 'com.bcits.springmvc.crud.operation.EmployeeImpl'.(ĞüŞè8¡ÈÄåı-H>RMINORZ
+„squid:S11926"HDefine a constant instead of duplicating this literal "errMsg" 15 times.(ÙĞ„ùúÿÿÿÿ8™´ªâı-Hæ]RCRITICALZ
 CODE_SMELL
-€squid:CommentedOutCodeLineÔ"<This block of commented-out lines of code should be removed.(ÆÄÄÆ8¿™±´ş-H¦DRMAJORZ
+ˆsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚“¹„şÿÿÿÿ8ÚŠ¬ş-Hê]RMINORZ
 CODE_SMELL
-…squid:CommentedOutCodeLineÖ"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8¿™±´ş-H§DRMAJORZ
+ysquid:S4684a"@Replace this persistent entity with a simple POJO or DTO object.(åÂá_8â´›äı-Hí]RCRITICALZVULNERABILITY
+squid:S1192 "UDefine a constant instead of duplicating this literal "Please Login First.." 4 times.(ŸÆ8ğ¤ñ°ş-Hã]RCRITICALZ
 CODE_SMELL
+xsquid:S24412"FMake "EmployeeInfoBean" serializable or don't store it in the session.(Ÿ­èÌúÿÿÿÿ8‰ûààı-Hë]RMAJORZBUG
+zsquid:S4684o"@Replace this persistent entity with a simple POJO or DTO object.(¢ù´8µÓÖªş-Hé]RCRITICALZVULNERABILITY
+{squid:S4684"@Replace this persistent entity with a simple POJO or DTO object.(Âšâğ8Ë£Æãı-Hï]RCRITICALZVULNERABILITY
+{squid:S4684›"@Replace this persistent entity with a simple POJO or DTO object.(Âšâğ8ğ¤ñ°ş-Hå]RCRITICALZVULNERABILITY
+{squid:S4684¦"@Replace this persistent entity with a simple POJO or DTO object.(à’ª„8ìÛ˜°ş-Hâ]RCRITICALZVULNERABILITY
