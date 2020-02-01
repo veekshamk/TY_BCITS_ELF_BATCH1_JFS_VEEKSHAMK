@@ -31,10 +31,17 @@
             <label for="">Name:</label>
             <input type="text" name="" id="" placeholder="Your Full Name" required/>
             <label for="">Meter Number:</label>
-            <input type="text" name="" id="" placeholder="Meter Number" required/>
+            <input type="text" name="" id="" maxlength="10" placeholder="Meter Number" required/>
             <label for="">Password:</label>
-            <input type="password" name="" id="" placeholder="Password" required/>
-            <label for="">Confirm Password:</label>
+            <input type="password"
+					name="password" id="password" placeholder="Password"
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+					title="Must contain at least
+             one number and one uppercase and lowercase letter, and at least
+              8 or more characters"
+					required />
+          <!--   <input type="password" name="" id="" placeholder="Password" required/>
+ -->            <label for="">Confirm Password:</label>
             <input type="password" name="" id="" placeholder="Confirm Password" required/>
             <label for="">Email Address:</label>
             <input type="email" name="" id="" placeholder="Email Address" required/>
@@ -48,7 +55,7 @@
                 <select name="region" id="region" >
                     <option value="0" selected disabled>Select</option>
                     <option value="South">Bangalore South</option>
-                    <option value="North">bangalore North</option>
+                    <option value="North">Bangalore North</option>
                  </select>
 
                  <label for="type">Type of Consumer:</label>

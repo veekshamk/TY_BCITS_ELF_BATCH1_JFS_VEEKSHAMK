@@ -33,11 +33,13 @@
 		&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 		&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-		<a
-			href="./consumerLoginPage" class="btn btn-primary btn-lg disabled"
+		
+		<!-- <button type="submit">Consumer Login</button>
+		<a class="login1" href="./consumerLoginPage"></a> -->
+		
+		<a href="./consumerLoginPage" class="btn btn-primary btn-lg disabled"
 			role="button" aria-disabled="true">Consumer Login</a> 
-			<a
-			href="./employeeLoginPage" class="btn btn-primary btn-lg disabled"
+			<a href="./employeeLoginPage" class="btn btn-primary btn-lg disabled"
 			role="button" aria-disabled="true">Employee Login</a>
 		</div>
 

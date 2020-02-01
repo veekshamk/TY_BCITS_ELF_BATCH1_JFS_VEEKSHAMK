@@ -27,7 +27,7 @@
 				<h4>CUSTOMER LOGIN</h4>
 
 				<label for="name">Meter Number:</label> <input type="number"
-					name="name" id="name" placeholder="Meter Number" required /> <br>
+					name="name" id="name" maxlength="10" placeholder="Meter Number" required /> <br>
 				<label for="password">Password:</label> <input type="password"
 					name="password" id="password" placeholder="Password"
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
