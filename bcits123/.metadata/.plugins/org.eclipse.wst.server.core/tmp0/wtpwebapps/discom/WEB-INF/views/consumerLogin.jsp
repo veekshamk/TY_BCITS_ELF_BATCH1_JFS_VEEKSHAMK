@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+	<% String errMsg=(String)request.getAttribute("errMsg");
+	String msg=(String)request.getAttribute("msg");%>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
@@ -14,7 +17,6 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Consumer Login Page</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
-
 <link rel="stylesheet" href="${css}/login.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
@@ -23,31 +25,33 @@
 
 		<div class="inner-box">
 
-			<form action="./consumerLoginPage">
-				<h4>CUSTOMER LOGIN</h4>
+			<form action="./loginPage" method="post">
+				<h4>CONSUMER LOGIN</h4>
 
-				<label for="name">Meter Number:</label> <input type="number"
-					name="name" id="name" maxlength="10" placeholder="Meter Number" required /> <br>
-				<label for="password">Password:</label> <input type="password"
-					name="password" id="password" placeholder="Password"
-					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					title="Must contain at least
-             one number and one uppercase and lowercase letter, and at least
-              8 or more characters"
-					required /> <br>
+				<label for="name">Email ID:</label> 
+				<input type="text" name="email" id="email" maxlength="30"
+				 placeholder="Enter Email ID" required /> <br>
+				<label for="password">Password:</label> 
+				<input type="password" name="password" id="password" placeholder="Enter Password" required /> 
+				<br>
 				<button type="submit">Login</button>
-				<a class="login" href=""></a>
+				<!-- <a class="login" href="./loginPage"></a>  -->
 				<button type="reset">Reset</button> <br>
 
 				<p style="text-align: center;">
 					<span>Not a registered customer? </span><a class="link"
-						href="./consumerSignUpPage">Register Here</a>
+						href=./consumerSignUpPage>Register Here</a>
 				</p>
-				<!-- <span class="forgot"><a href="forgot.html">Forgot
-						Password?</a></span> -->
+				
 			</form>
 		</div>
 	</div>
+	<% if(msg!=null && !msg.isEmpty()){ %>
+	<h2 style="color: white;"><%=msg %></h2>
+	<%} %>
 
+	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
+	<h2 style="color: red;"><%=errMsg %></h2>
+	<%} %>
 </body>
 </html>

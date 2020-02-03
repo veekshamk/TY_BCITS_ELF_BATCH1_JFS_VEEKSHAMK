@@ -2,9 +2,7 @@ package com.bcits.discom.beans;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Id;
 
 import lombok.Data;
 
@@ -12,7 +10,7 @@ import lombok.Data;
 @Embeddable
 public class MonthlyConsumptionPK implements Serializable{
 	
-	private String meterNumber;
+	private String rrNumber;
 	private String region; 
 
 }

@@ -1,5 +1,8 @@
 package com.bcits.discom.service;
 
-public interface EmployeeService {
+import com.bcits.discom.beans.EmployeeMasterBean;
 
+public interface EmployeeService {
+	public EmployeeMasterBean empauthenticate(int empId,String password);
+	
 }

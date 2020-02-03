@@ -1,0 +1,94 @@
+<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<spring:url var="css" value="resources/css" />
+<spring:url var="js" value="resources/js" />
+<spring:url var="images" value="resources/images" />
+
+<% ConsumerMasterBean consumerBean= 
+		(ConsumerMasterBean) session.getAttribute("loggedInInfo"); %>
+    
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Consumer Login Page</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
+<link rel="stylesheet" href="${css}/login.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"  >
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+	<thead>
+	<tr>
+		<th scope="col">Name</th>
+		<th scope="col">Email ID</th>
+		<th scope="col">rr Number</th>
+		<th scope="col">Phone Number</th>
+		<th scope="col">Region</th>
+		<th scope="col">Type of Consumer</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<%-- <td><%= consumerBean.getFullName() %></td>
+		<td><%=consumerBean.getEmail() %></td>
+		<td><%=consumerBean.getRrNumber() %></td>
+		<td><%=consumerBean.getPhoneNumber()%></td>
+		<td><%=consumerBean.getRegion() %></td>
+		<td><%= consumerBean.getTypeOfConsumer() %> --%>
+	
+	</tr>
+	
+	</tbody>
+
+</table>
+	
+	<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <form action="" method="post">
+  <pre>
+  <table class="home">
+    <tr>
+      <td>
+                  <a href="" style="color: white; font-size: 25px">Account Details</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" style="color: white;font-size: 25px">Current Bill</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" style="color: white;font-size: 25px">Monthly Consumption</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" style="color: white;font-size: 25px">Bill History</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" style="color: white;font-size: 25px">Pay Online</a>
+      </td>
+    </tr>
+  </table>
+  </pre>
+</form>
+
+
+</body>
+</html>

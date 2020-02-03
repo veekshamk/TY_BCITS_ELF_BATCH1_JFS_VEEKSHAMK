@@ -1,0 +1,68 @@
+<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<spring:url var="css" value="resources/css" />
+<spring:url var="js" value="resources/js" />
+<spring:url var="images" value="resources/images" />
+
+<% ConsumerMasterBean consumerBean= 
+		(ConsumerMasterBean) session.getAttribute("loggedInInfo"); %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<%=consumerBean.getFullName() %>
+	<%=consumerBean.getEmail() %>
+	<%=consumerBean.getRrNumber() %>
+	<%=consumerBean.getPhoneNumber()%>
+	<%=consumerBean.getRegion()%>
+	<%=consumerBean.getTypeOfConsumer()%>
+	<%=consumerBean.getAddress()%>
+	
+
+	<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <pre>
+  <table>
+    <tr>
+      <td>
+                  <a href="" >Account Details</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" >Current Bill</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" >Monthly Consumption</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" >Bill History</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" >Pay Online</a>
+      </td>
+    </tr>
+  </pre>
+
+  </table>
+
+
+</body>
+</html>

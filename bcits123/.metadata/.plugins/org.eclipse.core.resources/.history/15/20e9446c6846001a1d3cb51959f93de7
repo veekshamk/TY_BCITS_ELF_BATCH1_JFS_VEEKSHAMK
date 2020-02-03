@@ -1,0 +1,105 @@
+<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<spring:url var="css" value="resources/css" />
+<spring:url var="js" value="resources/js" />
+<spring:url var="images" value="resources/images" />
+
+<% ConsumerMasterBean consumerBean= 
+		(ConsumerMasterBean) session.getAttribute("loggedInInfo"); %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"  >
+<title>Insert title here</title>
+</head>
+<body>
+	<div align="center">
+		<table border="1px" style="width:90%";>
+		<thead style="background: navy; color: white;">
+		<tr style="height: 50px">
+			<th>empId</th>
+			<th>bloodGroup</th>
+			<th>deptId</th>
+			<th>designation</th>
+			<th>dob</th>
+			<th>doj</th>
+			<th>managerId</th>
+			<th>mobileNumber</th>
+			<th>name</th>
+			<th>officialMailId</th>
+			<th>password</th>
+			<th>salary</th>
+			</tr>
+			</thead>
+			<tbody>
+			<% for(ConsumerMasterBean consumerBean: consumerInfoList){ %>
+				<tr style="height: 40px">
+					<td><%=consumerBean.getFullName() %></td>
+					<td><%=consumerBean.getEmail()%></td>
+					<td><%=consumerBean.getRrNumber()%></td>
+					<td><%=consumerBean.getPhoneNumber()%></td>
+					<td><%=consumerBean.getRegion()%></td>
+					<td><%=consumerBean.getTypeOfConsumer()%></td>
+					<td><%=consumerBean.getAddress()%></td>
+				
+			<%} %>
+			
+			</tbody>
+		</table>
+		<%}else{ %>
+		<h2 style="color: red">No Record To display....</h2>
+		<%} %>
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <pre>
+  <table>
+    <tr>
+      <td>
+                  <a href="" >Account Details</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" >Current Bill</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" >Monthly Consumption</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" >Bill History</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                  <a href="" >Pay Online</a>
+      </td>
+    </tr>
+  </pre>
+
+  </table>
+
+
+</body>
+</html>

@@ -6,10 +6,11 @@ import java.util.Date;
 import javax.persistence.Embeddable;
 
 import lombok.Data;
+
 @Data
 @Embeddable
 public class BillHistoryPK implements Serializable{
 	
-	private String meterNumber;
+	private String rrNumber;
 	private Date date;
 }
