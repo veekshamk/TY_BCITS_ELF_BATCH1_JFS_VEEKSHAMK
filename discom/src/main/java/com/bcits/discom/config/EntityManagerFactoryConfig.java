@@ -6,7 +6,7 @@ import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 
 @Configuration
 public class EntityManagerFactoryConfig {
-	
+
 	@Bean
 	public LocalEntityManagerFactoryBean getEntityManager() {
 		LocalEntityManagerFactoryBean factoryBean= new LocalEntityManagerFactoryBean();

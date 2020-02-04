@@ -1,8 +1,20 @@
 package com.bcits.discom.service;
 
-import com.bcits.discom.beans.ConsumerMaster;
+import java.util.Date;
+import java.util.List;
+
+import com.bcits.discom.beans.BillHistoryBean;
+import com.bcits.discom.beans.ConsumerMasterBean;
+import com.bcits.discom.beans.CurrentBillBean;
+import com.bcits.discom.beans.MonthlyConsumptionBean;
 
 public interface ConsumerService {
-	public boolean consumerSignUp(ConsumerMaster consumerMaster, String confirmPassword);
-	public ConsumerMaster consumerLogin(String meterNumber, String password);
+
+	public boolean consumerSignUp(ConsumerMasterBean consumerBean,String confirmPassword);
+	public ConsumerMasterBean consumerLogin(String rrNumber, String password);
+	public boolean payment(String rrNumber, Date date, double amount);
+	public CurrentBillBean generateCurrentBill(String rrNumber);
+	public List<BillHistoryBean> showBillHistory(String rrNumber);
+	public List<MonthlyConsumptionBean> showMonthlyConsumption(String rrNumber);
+
 }

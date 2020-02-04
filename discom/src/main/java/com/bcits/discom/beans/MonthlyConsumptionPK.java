@@ -1,18 +1,18 @@
 package com.bcits.discom.beans;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Id;
 
 import lombok.Data;
 
 @Data
 @Embeddable
 public class MonthlyConsumptionPK implements Serializable{
-	
-	private String meterNumber;
-	private String region; 
+	@Column(name = "rr_number")
+	private String rrNumber;
+	private Date date; 
 
 }
