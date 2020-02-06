@@ -1,0 +1,5 @@
+package com.bcits.springsecuritymvc.config;
+
+public class JPAConfig {
+
+}

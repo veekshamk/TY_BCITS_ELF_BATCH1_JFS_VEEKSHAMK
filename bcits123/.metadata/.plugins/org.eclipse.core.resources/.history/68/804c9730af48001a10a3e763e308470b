@@ -1,0 +1,14 @@
+package com.bcits.springsecurity.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class SpringSecurityController {
+	
+	@GetMapping("/index")
+	public String getIndexPage() {
+		return "index";
+	}
+
+}

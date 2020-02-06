@@ -1,0 +1,24 @@
+
+€squid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(øÙ¯8ÚÀè¤.H¬ƒRMAJORZ
+CODE_SMELL
+m
+squid:S106S"9Replace this use of System.out or System.err by a logger.(†íÑ¶8·„Ó©.H›”RMAJORZ
+CODE_SMELL
+~squid:S1192F"GDefine a constant instead of duplicating this literal "errMsg" 3 times.(‡Œ†8¯˜è¡.H©€RCRITICALZ
+CODE_SMELL
+squid:UselessImportCheck"=Remove this unused import 'com.bcits.discom.beans.AdminBean'.(¥ÿ³”8§ƒ…©.H»“RMINORZ
+CODE_SMELL
+‹squid:S1192,"NDefine a constant instead of duplicating this literal "employeeLogin" 3 times.(£–¶øşÿÿÿÿ8“ö…©.H¾“RCRITICALZ
+CODE_SMELL
+m
+squid:S106N"9Replace this use of System.out or System.err by a logger.(ı §8·„Ó©.H™”RMAJORZ
+CODE_SMELL
+l
+squid:S106>"9Replace this use of System.out or System.err by a logger.(—‡¶(8º¡î¤.HÀƒRMAJORZ
+CODE_SMELL
+m
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(ƒãß›8·„Ó©.Hš”RMAJORZ
+CODE_SMELL
+r
+squid:S106A"9Replace this use of System.out or System.err by a logger.(œí«ûûÿÿÿÿ8İì¤.H½ƒRMAJORZ
+CODE_SMELL

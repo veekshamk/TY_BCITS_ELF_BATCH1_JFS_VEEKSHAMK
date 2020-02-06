@@ -1,3 +1,33 @@
 1580706923460	Rename resource 'employeehome.jsp'
 1580729122590	Rename method 'showCurrentBill'
 1580729498271	Rename method 'sCurrentBill'
+1580812384977	Delete element
+1580819491940	Delete element
+1580879980827	Rename type 'TarrifCalculation'
+1580880011274	Copy compilation unit
+1580880119441	Copy compilation unit
+1580880357444	Rename package 'com.bcits.discom.sample'
+1580881053099	Rename local variable 'map'
+1580881521637	Rename local variable 'consumerInfoBean'
+1580881585568	Rename local variable 'consumerMasterBean'
+1580881612173	Rename local variable 'bill'
+1580881669911	Rename local variable 'monthlyList'
+1580882094104	Rename local variable 'consumerMaster'
+1580882194028	Rename local variable 'masterBean'
+1580882211522	Rename local variable 'masterBean'
+1580882564257	Rename local variable 'InfoBean'
+1580882588461	Rename local variable 'bill'
+1580882621865	Rename local variable 'billList'
+1580895198110	Rename resource 'consumerLogin1.jsp'
+1580895786089	Rename resource 'consumerHome.jsp'
+1580895795174	Rename resource 'consumerHome1.jsp'
+1580896556113	Rename resource 'currentBill.jsp'
+1580896565481	Rename resource 'currentBill1.jsp'
+1580902694804	Rename resource 'showAllConsumer.jsp'
+1580905434222	Rename resource 'monthlyConsumption.jsp'
+1580905443286	Rename resource 'monthlyConsumption2.jsp'
+1580905593459	Rename resource 'monthlyConsumption.jsp'
+1580905601241	Rename resource 'monthlyConsumption1.jsp'
+1580906320966	Rename resource 'billHistory.jsp'
+1580906327664	Rename resource 'billHistory1.jsp'
+1580908162512	Delete element

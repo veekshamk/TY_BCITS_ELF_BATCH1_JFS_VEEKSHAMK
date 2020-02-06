@@ -31,5 +31,4 @@ public class CurrentBillBean implements Serializable{
 	private double totalAmount;
 	@Column
 	private String month;
-
 }

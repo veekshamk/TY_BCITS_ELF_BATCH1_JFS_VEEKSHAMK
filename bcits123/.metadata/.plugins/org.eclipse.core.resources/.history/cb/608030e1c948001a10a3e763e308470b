@@ -1,0 +1,27 @@
+package com.bcits.springsecuritymvc.dao;
+
+import java.util.List;
+
+import com.bcits.springsecuritymvc.beans.EmpInfoBean;
+
+public class EmpDAOImpl implements EmpDAO {
+
+	@Override
+	public boolean register(EmpInfoBean empBean) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public EmpInfoBean getEmployee(int empId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<EmpInfoBean> getAllEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

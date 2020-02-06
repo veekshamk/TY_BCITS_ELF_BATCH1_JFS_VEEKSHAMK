@@ -1,0 +1,23 @@
+package com.bcits.discom.sample;
+
+import java.util.Scanner;
+
+public class TarrifCalculation {
+	public static void main(String[] args) {
+		System.out.println("calculation");
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Units:");
+		double units=sc.nextDouble();
+		double bill=1;
+
+			if(units>0 && units<=100) {
+				bill=units*4;
+			}else if(units>100 && units<=1000){
+				bill=units*5;
+			}else {
+				bill=units*8;
+			}
+			System.out.println(bill);
+	}
+}
+		

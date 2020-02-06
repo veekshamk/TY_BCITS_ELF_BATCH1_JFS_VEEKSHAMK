@@ -1,0 +1,54 @@
+package com.bcits.discom.controller;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.bcits.discom.beans.EmployeeMasterBean;
+import com.bcits.discom.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+
+	@Autowired
+	private EmployeeService service;
+
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		CustomDateEditor dateEditor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
+		binder.registerCustomEditor(Date.class, dateEditor);
+	}
+
+	
+	@GetMapping("/adminLoginPage")
+	public String diaplayAdminLoginPage() {
+		return "adminLogin";
+	}
+
+	@GetMapping("/employeeLoginPage")
+	public String diaplayEmployeeLoginPage() {
+		return "employeeLogin";
+	}
+
+	@GetMapping("/employeeHomePage")
+	public String displayConsumerHomePage() {
+		return "employeeHome";
+	}
+	
+	@PostMapping("/empLogin")
+	public String employeeLogin(int employeeId, String password, HttpServletRequest req, ModelMap modelMap) {
+		EmployeeMasterBean employeeBean =service.
+	}
+
+
+}

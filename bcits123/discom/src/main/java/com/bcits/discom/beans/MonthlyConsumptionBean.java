@@ -11,15 +11,15 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="Monthly_Consumption")
+@Table(name="monthly_consumption")
 public class MonthlyConsumptionBean implements Serializable {
 	@EmbeddedId
-	private MonthlyConsumptionPK consumption;
-	@Column
+	private MonthlyConsumptionPK consumptionPk;
+	@Column(name="units_consumed")
 	private int unitsConsumed;
 	@Column
-	private String status;
-	@Column
-	private double billAmount;
+	private String region;
+	@Column(name="total_amount")
+	private double totalAmount;
 
 }

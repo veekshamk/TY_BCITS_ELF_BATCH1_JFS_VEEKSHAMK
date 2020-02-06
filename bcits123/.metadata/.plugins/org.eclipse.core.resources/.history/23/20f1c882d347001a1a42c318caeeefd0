@@ -1,0 +1,19 @@
+package com.bcits.discom.sample;
+
+import java.util.Scanner;
+
+public class TarrifCalculation {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		double bill=0.0;
+		String consumer=null;
+		double units=0.0;
+		
+		
+		
+		System.out.println("Enter the rr Number:");
+		
+				
+	}
+
+}

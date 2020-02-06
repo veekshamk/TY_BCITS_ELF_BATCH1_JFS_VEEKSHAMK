@@ -2,6 +2,7 @@ package com.bcits.discom.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.bcits.discom.beans.BillHistoryBean;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
+import com.bcits.discom.beans.MonthlyConsumptionBean;
 import com.bcits.discom.service.ConsumerService;
 
 @Controller
@@ -30,6 +33,16 @@ public class ConsumerController {
 		CustomDateEditor dateEditor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
 		binder.registerCustomEditor(Date.class, dateEditor);
 	}
+	
+	@GetMapping("/mainHomePage")
+	public String diaplayHomePage() {
+		return "mainHome";
+	}
+	
+	@GetMapping("/aboutUsPage")
+	public String diaplayAboutUsPage() {
+		return "aboutUs";
+	}
 
 	@GetMapping("/consumerSignUpPage")
 	public String diaplayConsumerSignUpPage() {
@@ -41,21 +54,14 @@ public class ConsumerController {
 		return "consumerLogin";
 	}
 
-	@GetMapping("/homePage")
-	public String diaplayHomePage() {
-		return "welcomeHome";
-	}
-
 	@PostMapping("/signUpPage")
-	public String add(ConsumerMasterBean consumerBean, String cpassword, ModelMap map) {
-	
-		//boolean x=service.consumerSignUp(consumerBean, cpassword);
-		//System.out.println(x);
+	public String add(ConsumerMasterBean consumerBean, String cpassword, ModelMap modelMap) {
+
 		if(service.consumerSignUp(consumerBean, cpassword)) {
-			map.addAttribute("msg", "Signup success...");
+			modelMap.addAttribute("msg", "Thanks for signing up!");
 			return "consumerLogin";
 		} else { 
-			map.addAttribute("errMsg", "already exists...");
+			modelMap.addAttribute("errMsg", "User already exists!");
 		}  
 
 		return "consumerLogin";
@@ -63,30 +69,29 @@ public class ConsumerController {
 
 	@PostMapping("/loginPage") 
 	public String ConsumerLogin(String email, String password ,HttpServletRequest req ,ModelMap modelMap) {
-		ConsumerMasterBean consumerInfoBean = service. consumerLogin(email, password);
-		if( consumerInfoBean != null) {
+		ConsumerMasterBean consumerBean = service. consumerLogin(email, password);
+		if( consumerBean != null) {
 			HttpSession session = req.getSession(true);
-			session.setAttribute("loggedInCons", consumerInfoBean);
+			session.setAttribute("loggedInConsumer", consumerBean);
 			return "consumerHome";
 		}else {
-			modelMap.addAttribute("errMsg", "Invalid Credential !!");
+			modelMap.addAttribute("errMsg", "Invalid Credentials!!");
 			return "consumerLogin";
 		}		
 	}
 
 	@GetMapping("/consumerBillDisplay")
 	public String displayCurrentBillPage(HttpSession session, ModelMap modelMap) {
-		ConsumerMasterBean consumerMasterBean=(ConsumerMasterBean) session.getAttribute("loggedInCons");
-		System.out.println(consumerMasterBean);
-		if(consumerMasterBean!=null) {
-			System.out.println(consumerMasterBean.getRrNumber());
-			CurrentBillBean bill=service.generateCurrentBill(consumerMasterBean.getRrNumber());
-			System.out.println(bill);
-			if(bill!=null) {
-				modelMap.addAttribute("generatedBill",bill);
+		ConsumerMasterBean consumerInfo=(ConsumerMasterBean) session.getAttribute("loggedInConsumer");
+		System.out.println(consumerInfo);
+		if(consumerInfo != null) {
+			CurrentBillBean currentbill=service.generateCurrentBill(consumerInfo.getRrNumber());
+
+			if(currentbill != null) {
+				modelMap.addAttribute("generatedCurrentBill", currentbill);
 				return "currentBill";
 			}else {
-				modelMap.addAttribute("errMsg", "Bill Not Generated");
+				modelMap.addAttribute("errMsg", "Bill Not Generated..");
 				return "consumerHome";
 			}
 		}else {
@@ -94,13 +99,48 @@ public class ConsumerController {
 			return "consumerLogin";
 		}
 	}
-	
+
+	@GetMapping("/monthlyConsumption")
+	public String displayMonthlyConsumption(HttpSession session, ModelMap modelMap) {
+		ConsumerMasterBean consumerBean=(ConsumerMasterBean) session.getAttribute("loggedInConsumer");
+		if(consumerBean !=null) {
+			List<MonthlyConsumptionBean> monthlyConsumptionList=service.showMonthlyConsumption(consumerBean.getRrNumber());
+			if(monthlyConsumptionList != null) {
+				modelMap.addAttribute("consumption", monthlyConsumptionList);
+				return "monthlyConsumption";
+			}else {
+				modelMap.addAttribute("errMsg", "Monthly Consumption is unavailable.");
+				return "consumerHome";
+			}
+		}else {
+			modelMap.addAttribute("errMsg", "Please Login First!");
+			return "consumerLogin";
+		}
+	}
+
+	@GetMapping("/billHistory")
+	public String displayBillHistory(HttpSession session, ModelMap modelMap) {
+		ConsumerMasterBean consumerBean=(ConsumerMasterBean) session.getAttribute("loggedInConsumer");
+		if(consumerBean != null) {
+			List<BillHistoryBean> billHistory=service.showBillHistory(consumerBean.getRrNumber());
+			if(billHistory !=null) {
+				modelMap.addAttribute("history", billHistory);
+				return "billHistory";
+			}else {
+				modelMap.addAttribute("errMsg", "Bill History is unavailable.");
+				return "consumerHome";
+			}
+		}else {
+			modelMap.addAttribute("errMsg", "Please Login First!");
+			return "consumerLogin";
+		}
+	}
 
 	@GetMapping("/consumerLogoutPage")
 	public String consumerLogOut(ModelMap modelMap, HttpSession session) {
 		session.invalidate();
-		modelMap.addAttribute("errMsg", "You Are Sucessfully Logged Out !!");
-		return "welcomeHome";
+		modelMap.addAttribute("errMsg", "You Are Sucessfully Logged Out!");
+		return "mainHome";
 	}
 
 
@@ -109,12 +149,44 @@ public class ConsumerController {
 		return "consumerHome";
 	}
 
-	@GetMapping("/paymentPage")
-	public String displayPaymentPage() {
-		return "payment";
+	@GetMapping("/payment")
+	public String displayPaymentPage(HttpSession session, ModelMap modelMap) {
+		ConsumerMasterBean consumerBean=(ConsumerMasterBean) session.getAttribute("loggedInConsumer");
+
+		if(consumerBean !=null) {
+			return "payment";
+		}else {
+			modelMap.addAttribute("errMsg", "Please Login First!...");
+			return "consumerLogin";
+		}
 	}
 
+	@PostMapping("/successPayment")
+	public String successfullPayment(HttpSession session, ModelMap modelMap, double amount) {
+		ConsumerMasterBean consumerBean=(ConsumerMasterBean) session.getAttribute("loggedInConsumer");
+		Date date= new Date();
+
+		if(consumerBean !=null) {
+			System.out.println(date);
+			System.out.println(consumerBean.getRrNumber()); 
+			System.out.println(amount);
+
+			boolean payment=service.payment(consumerBean.getRrNumber(), date, amount);
+				System.out.println(payment);
+
+				if(payment == true) {
+					modelMap.addAttribute("msg", "Payment Successfull.");
+					return "consumerHome";
+				}else {
+					modelMap.addAttribute("errMsg", "Payment Failed.");
+					return "payment";
+				}
+			}else {
+				return "consumerLogin";
+			}
+	}
 }
+	
 
 
 

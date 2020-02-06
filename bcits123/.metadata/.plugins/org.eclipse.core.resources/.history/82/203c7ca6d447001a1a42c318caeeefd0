@@ -1,0 +1,46 @@
+package com.bcits.discom.sample;
+
+import java.util.Scanner;
+
+public class TarrifCalculation {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		double bill=0.0;
+		String consumer=null;
+		double units=0.0;
+		
+		System.out.println("Enter the rr Number:");
+		if(consumer=="residential") {
+			if(units>0 && units<=100) {
+				bill=units*4;
+			}else if(units>100 && units<=1000){
+				bill=units*5;
+			}else {
+				bill=units*8;
+				System.out.println(bill);
+			}
+		}else if(consumer=="commercial") {
+			if(units>0 && units<=100) {
+				bill=units*8;
+			}else if(units>100 && units<=1000){
+				bill=units*10;
+			}else {
+				bill=units*15;
+				System.out.println(bill);
+			}
+		}else if(consumer=="industries") {
+			if(units>0 && units<=100) {
+				bill=units*8;
+			}else if(units>100 && units<=1000){
+				bill=units*10;
+			}else {
+				bill=units*15;
+				System.out.println(bill);
+			}
+		}else {
+			System.out.println("error");
+		}
+		
+	}
+
+}

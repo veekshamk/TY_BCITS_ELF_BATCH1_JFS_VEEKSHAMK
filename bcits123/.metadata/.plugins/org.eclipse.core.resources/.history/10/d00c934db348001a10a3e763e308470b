@@ -1,0 +1,5 @@
+package com.bcits.springsecurity.configuration;
+
+public class SpringsecurityConfig {
+
+}

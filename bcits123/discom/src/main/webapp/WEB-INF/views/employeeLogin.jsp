@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%
+	String errMsg = (String) request.getAttribute("errMsg");
+	String msg = (String) request.getAttribute("msg");
+%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
 <spring:url var="js" value="resources/js" />
@@ -24,11 +28,11 @@
 
 		<div class="inner-box">
 
-			<form action="./employeeLoginPage">
+			<form action="./empLoginPage" method="post" >
 				<h4>EMPLOYEE LOGIN</h4>
 
-				<label for="name">Employee ID:</label> <input type="number"
-					name="name" id="name" placeholder="Employee ID" required /> <br>
+				<label for="employeeId">Employee ID:</label> <input type="number"
+					name="empId" id="empId" placeholder="Employee ID" required /> <br>
 				<label for="password">Password:</label> <input type="password"
 					name="password" id="password" placeholder="Password"
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
@@ -37,12 +41,26 @@
               8 or more characters"
 					required /> <br>
 				<button type="submit">Login</button>
-				<a class="login" href=""></a>
-				<button type="reset">Reset</button>
+				<!-- <a class="login" href=""></a>
+				<button type="reset">Reset</button> -->
 
 			</form>
 		</div>
 	</div>
+	<%
+		if (msg != null && !msg.isEmpty()) {
+	%>
+	<h2 style="color: white;"><%=msg%></h2>
+	<%
+		}
+	%>
 
+	<%
+		if (errMsg != null && !errMsg.isEmpty()) {
+	%>
+	<h2 style="color: red;"><%=errMsg%></h2>
+	<%
+		}
+	%>
 </body>
 </html>

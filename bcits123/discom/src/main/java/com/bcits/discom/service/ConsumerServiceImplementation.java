@@ -6,9 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bcits.discom.beans.BillHistoryBean;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
-import com.bcits.discom.beans.PaymentDetailBean;
+import com.bcits.discom.beans.MonthlyConsumptionBean;
 import com.bcits.discom.dao.ConsumerDAO;
 
 @Service
@@ -34,18 +35,29 @@ public class ConsumerServiceImplementation implements ConsumerService{
 		return dao.consumerLogin(email, password);
 	}	
 
-	@Override
-	public boolean payment(PaymentDetailBean paymentBean) {
-		return false;
-	}
 
 	@Override
-	public List<CurrentBillBean> showBillHistory(String rrNumber) {
-		return null;
+	public List<BillHistoryBean> showBillHistory(String rrNumber) {
+
+		return dao.showBillHistory(rrNumber);
 	}
 
 	@Override
 	public CurrentBillBean generateCurrentBill(String rrNumber) {
 		return dao.generateCurrentBill(rrNumber);
 	}
+
+	@Override
+	public List<MonthlyConsumptionBean> showMonthlyConsumption(String rrNumber) {
+
+		return dao.showMonthlyConsumption(rrNumber);
+	}
+
+	@Override
+	public boolean payment(String rrNumber, Date date, double amount) {
+
+		return dao.payment(rrNumber, date, amount);
+	}
+
+
 }

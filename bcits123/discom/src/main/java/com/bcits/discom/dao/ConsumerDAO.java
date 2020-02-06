@@ -3,14 +3,16 @@ package com.bcits.discom.dao;
 import java.util.Date;
 import java.util.List;
 
+import com.bcits.discom.beans.BillHistoryBean;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
-import com.bcits.discom.beans.PaymentDetailBean;
+import com.bcits.discom.beans.MonthlyConsumptionBean;
 
 public interface ConsumerDAO {
-		public boolean consumerSignUp(ConsumerMasterBean consumerBean);
-		public ConsumerMasterBean consumerLogin(String rrNumber, String password);
-		public boolean payment(PaymentDetailBean paymentBean);
-		public CurrentBillBean generateCurrentBill(String rrNumber);
-		public List<CurrentBillBean> showBillHistory(String rrNumber);
+	public boolean consumerSignUp(ConsumerMasterBean consumerBean);
+	public ConsumerMasterBean consumerLogin(String rrNumber, String password);
+	public boolean payment(String rrNumber, Date date, double amount);
+	public CurrentBillBean generateCurrentBill(String rrNumber);
+	public List<BillHistoryBean> showBillHistory(String rrNumber);
+	public List<MonthlyConsumptionBean> showMonthlyConsumption(String rrNumber);
 }

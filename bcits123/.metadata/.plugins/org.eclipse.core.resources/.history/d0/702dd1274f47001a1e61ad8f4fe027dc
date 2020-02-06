@@ -1,0 +1,30 @@
+package com.bcits.discom.beans;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="Bill_History")
+public class BillHistoryBean implements Serializable {
+	@EmbeddedId
+	private BillHistoryPK history;
+	@Column
+	private String status;
+	@Column(name="units_consumed")
+	private double unitsConsumed;
+	@Column(name="bill_amount")
+	private double billAmount;
+	@Column(name="due_amount")
+	private double dueAmount;
+	@Column(name="initial_reading")
+	private double intialReading;
+	@Column(name="final_reading")
+	private double finalReading;
+}

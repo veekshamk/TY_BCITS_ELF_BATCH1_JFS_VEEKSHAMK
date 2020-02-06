@@ -11,12 +11,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="Employee_Master")
+@Table(name="employee_master")
 public class EmployeeMasterBean implements Serializable{
 	@Id
-	@Column
-	private int employeeId;
-	@Column
+	@Column(name="emp_id")
+	private int empId;
+	@Column(name="emp_name")
 	private String employeeName;
 	@Column
 	private String password;

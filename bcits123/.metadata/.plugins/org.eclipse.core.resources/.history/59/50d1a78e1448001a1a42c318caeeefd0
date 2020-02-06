@@ -1,0 +1,27 @@
+<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <% String errMsg=(String)request.getAttribute("errMsg");
+	String msg=(String)request.getAttribute("msg");%>
+
+<% ConsumerMasterBean consumerBean= 
+		(ConsumerMasterBean) session.getAttribute("loggedInConsumer"); %>
+<% List<BillHistoryBean> bean=(List<BillHistoryBean>) request.getAttribute("history") ;%>
+
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<spring:url var="css" value="resources/css" />
+<spring:url var="js" value="resources/js" />
+<spring:url var="images" value="resources/images" />
+    
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

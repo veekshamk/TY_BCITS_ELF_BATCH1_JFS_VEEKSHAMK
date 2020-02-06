@@ -1,0 +1,32 @@
+package com.bcits.springsecuritymvc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.bcits.springsecuritymvc.service.EmpService;
+
+@Controller
+public class EmpSecurityController {
+	
+	@Autowired
+	private EmpService service;
+	
+	@GetMapping("/index")
+	public String getIndexPage() {
+		return "index";
+	}
+	
+	@GetMapping("/register")
+	public String getRegisterForm() {
+		return "register";
+	}
+	
+	@PostMapping("/register")
+	public String register() {
+		return "index";
+	}
+
+}

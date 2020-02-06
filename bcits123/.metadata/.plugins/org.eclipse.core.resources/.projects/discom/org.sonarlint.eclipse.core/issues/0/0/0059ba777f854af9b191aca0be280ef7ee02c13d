@@ -1,0 +1,8 @@
+
+lWeb:AvoidCommentedOutCodeCheckT"Remove this commented out code.(ªÿ´ğúÿÿÿÿ8¦¾¡©.H”RMAJORZ
+CODE_SMELL
+j	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷ÃûÿÿÿÿH½€RMAJORZBUG
+V	Web:S5256W"%Add "<th>" headers to this "<table>".(¼ëùÏşÿÿÿÿ8¦¾¡©.Hƒ”RMAJORZBUG
+dWeb:TableWithoutCaptionCheckW" Add a description to this table.(¼ëùÏşÿÿÿÿ8¦¾¡©.H‚”RMINORZBUG
+gWeb:AvoidCommentedOutCodeCheckt"Remove this commented out code.(‹ü­½8¦¾¡©.H„”RMAJORZ
+CODE_SMELL

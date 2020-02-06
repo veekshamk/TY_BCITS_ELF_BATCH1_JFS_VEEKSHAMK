@@ -11,20 +11,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="Bill_History")
+@Table(name="bill_history")
 public class BillHistoryBean implements Serializable {
 	@EmbeddedId
 	private BillHistoryPK history;
 	@Column
 	private String status;
-	@Column
-	private double unitsConsumed;
-	@Column
+	@Column(name="total_amount")
 	private double totalAmount;
-	@Column
-	private double dueAmount;
-	@Column
-	private double intialReading;
-	@Column
-	private double finalReading;
+	
 }

@@ -1,0 +1,51 @@
+package com.bcits.discom.dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.bcits.discom.beans.AdminBean;
+import com.bcits.discom.beans.ConsumerMasterBean;
+import com.bcits.discom.beans.CurrentBillBean;
+import com.bcits.discom.beans.EmployeeMasterBean;
+
+@Repository
+public class EmployeeDAOImplementation implements EmployeeDAO {
+
+	@Override
+	public EmployeeMasterBean employeeLogin(int empId, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AdminBean adminLogin(int adminId, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long numOfConsumer(String region) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean addEmployee(EmployeeMasterBean employeeBean) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<ConsumerMasterBean> showAllconsumers(String region) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addCurrentBill(CurrentBillBean currentBill, double amount) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

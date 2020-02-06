@@ -1,0 +1,5 @@
+package com.bcits.springsecuritymvc.dao;
+
+public interface EmpDAO {
+
+}
