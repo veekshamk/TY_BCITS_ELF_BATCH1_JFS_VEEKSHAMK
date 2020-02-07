@@ -16,10 +16,16 @@ public class MonthlyConsumptionBean implements Serializable {
 	@EmbeddedId
 	private MonthlyConsumptionPK consumptionPk;
 	@Column(name="units_consumed")
-	private int unitsConsumed;
+	private double unitsConsumed;
 	@Column
 	private String region;
 	@Column(name="total_amount")
 	private double totalAmount;
+	@Column(name="initial_reading")
+	private long initialReading;
+	@Column(name="final_reading")
+	private long finalReading;
+	@Column
+	private String status;
 
 }

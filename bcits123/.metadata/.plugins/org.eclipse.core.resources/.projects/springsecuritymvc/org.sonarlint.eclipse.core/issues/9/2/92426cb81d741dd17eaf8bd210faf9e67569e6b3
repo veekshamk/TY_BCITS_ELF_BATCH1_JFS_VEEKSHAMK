@@ -1,0 +1,9 @@
+
+\	Web:S18276")Remove this deprecated "align" attribute.(òå„ë8ŞşµÑ.H¡ªRMAJORZ
+CODE_SMELL
+dWeb:TableWithoutCaptionCheck" Add a description to this table.(¿‰˜ÿÿÿÿÿ8ÈíçĞ.HÆ©RMINORZBUG
+\	Web:S18270")Remove this deprecated "align" attribute.(Ùé§ 8Ã˜ùĞ.HÙ©RMAJORZ
+CODE_SMELL
+V	Web:S5256"%Add "<th>" headers to this "<table>".(¿‰˜ÿÿÿÿÿ8ÈíçĞ.HÇ©RMAJORZBUG
+j	Web:S5254
+"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷ÃûÿÿÿÿHÅ©RMAJORZBUG

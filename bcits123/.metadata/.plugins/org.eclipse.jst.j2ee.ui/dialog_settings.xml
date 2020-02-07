@@ -3,6 +3,8 @@
 	<item value="true" key="J2EE_EXPORT_OVERWRITE"/>
 	<item value="false" key="J2EE_EXPORT_SOURCE"/>
 	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="D:\bcits123\empwebapp\src\main\java\com\bcits\empwebapp\beans\springsecurity.war"/>
+		<item value="D:\bcits123\empwebapp\src\main\java\com\bcits\empwebapp\beans\springsecuritymvc.war"/>
 		<item value="D:\bcits123\empwebapp\src\main\java\com\bcits\empwebapp\beans\springrest.war"/>
 		<item value="C:\Users\CBT\Desktop\WebApp\empwebapp.war"/>
 	</list>

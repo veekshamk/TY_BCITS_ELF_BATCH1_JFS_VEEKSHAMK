@@ -1,5 +1,6 @@
 package com.bcits.discom.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,40 +9,37 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bcits.discom.beans.AdminBean;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.EmployeeMasterBean;
+import com.bcits.discom.beans.MonthlyConsumptionBean;
+import com.bcits.discom.beans.MonthlyConsumptionPK;
+
+import javassist.bytecode.stackmap.BasicBlock.Catch;
 
 @Repository
 public class EmployeeDAOImplementation implements EmployeeDAO {
-	
+
 	@PersistenceUnit
 	EntityManagerFactory factory;
+
+	@Autowired
+	private TarrifCalculation tarrifCalculation;
 
 	@Override
 	public EmployeeMasterBean employeeLogin(int empId, String password) {
 		EntityManager manager = factory.createEntityManager();
 		EmployeeMasterBean employeeBean= manager.find(EmployeeMasterBean.class, empId);
-		
+
 		if(employeeBean != null && employeeBean.getPassword().equals(password)) {
 			return employeeBean;
 		}
 		return null;
 	}
 
-	@Override
-	public AdminBean adminLogin(int adminId, String password) {
-		EntityManager manager = factory.createEntityManager();
-		AdminBean adminBean= manager.find(AdminBean.class, adminId);
-		
-		if(adminBean != null && adminBean.getPassword().equals(password)) {
-			return adminBean;
-		}
-		return null;
-	}
 
 	@Override
 	public long numOfConsumer(String region) {
@@ -80,7 +78,7 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 		String jpql= " from ConsumerMasterBean where region=:region";
 		Query query= manager.createQuery(jpql);
 		query.setParameter("region", region);
-		
+
 		List<ConsumerMasterBean> consumerList = (List<ConsumerMasterBean>) query.getResultList();
 		if(consumerList !=null) {
 			return consumerList;
@@ -88,30 +86,46 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 		return null;
 	}
 
+
 	@Override
-	public boolean addCurrentBill(CurrentBillBean currentBill, double amount) {
+	public boolean addCurrentBill(CurrentBillBean currentBill) {
+
+		double unitsConsumed = currentBill.getFinalReading() - currentBill.getInitialReading();
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction =manager.getTransaction();
+		MonthlyConsumptionBean consumptionBean = new MonthlyConsumptionBean();
+		MonthlyConsumptionPK consumptionPK = new MonthlyConsumptionPK();
+		CurrentBillBean currentBillBean = manager.find(CurrentBillBean.class, currentBill.getRrNumber());
+System.out.println("11"+currentBillBean);
+		double totalAmount = tarrifCalculation.billCalculation(unitsConsumed, currentBill.getTypeOfConsumer());
+System.out.println("12"+totalAmount);
+		try {
+			transaction.begin();
+
+		if( currentBillBean != null) {
+			manager.remove(currentBillBean);
+		}
+
+		consumptionBean.setTotalAmount(totalAmount);
+		consumptionBean.setStatus("Not Paid");
+		consumptionBean.setInitialReading(currentBill.getInitialReading());
+		consumptionBean.setFinalReading(currentBill.getFinalReading());
+		consumptionBean.setUnitsConsumed(unitsConsumed);
+		consumptionBean.setConsumptionPk(consumptionPK);
+		consumptionPK.setDate(new Date());
+		consumptionPK.setRrNumber(currentBill.getRrNumber());
+		consumptionBean.setConsumptionPk(consumptionPK);
+
+		currentBill.setTotalAmount(totalAmount);
+		currentBill.setUnitsConsumed(unitsConsumed);
+		currentBill.setDate(new Date());
+
+		manager.persist(consumptionPK);
+		manager.persist(consumptionBean);
+		transaction.commit();
+		return true;
+	}catch(Exception e) {
 		return false;
 	}
-
-	@Override
-	public ConsumerMasterBean getConsumer(String rrNumber) {
-		EntityManager manager = factory.createEntityManager();
-		ConsumerMasterBean consumerBean = manager.find(ConsumerMasterBean.class, rrNumber);
-		if(consumerBean != null) {
-			return consumerBean;
-		}
-		manager.close();
-		return null;
-	}
-
-	@Override
-	public long getInitialReading(String rrNumber) {
-		EntityManager manager = factory.createEntityManager();
-		double initialRead;
-		try {
-			String jpql =" select finalReading from MonthlyConsumptionBean "
-		}
-		return 0;
-	}
-
+}
 }

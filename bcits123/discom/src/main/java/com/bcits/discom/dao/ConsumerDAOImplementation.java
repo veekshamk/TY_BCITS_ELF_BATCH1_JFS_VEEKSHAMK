@@ -123,4 +123,42 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 		}
 		return false;
 	}
+
+	@Override
+	public ConsumerMasterBean getConsumer(String rrNumber) {
+		System.out.println(rrNumber);
+		EntityManager manager = factory.createEntityManager();
+		ConsumerMasterBean consumerBean = manager.find(ConsumerMasterBean.class, rrNumber);
+		
+		if(consumerBean != null) {
+			return consumerBean;
+		}
+		manager.close();
+		return null;
+	}
+
+	@Override
+	public long getInitialReading(String rrNumber) {
+		EntityManager manager = factory.createEntityManager();
+		long initialRead;
+		try {
+			String jpql =" select finalReading from MonthlyConsumptionBean where consumptionPk.rrNumber=:rrNumber order by finalReading desc";
+			Query query= manager.createQuery(jpql);
+			query.setParameter("rrNumber", rrNumber);
+			query.setMaxResults(1);
+			initialRead = (long) query.getSingleResult();
+			manager.close();
+		}catch (Exception e) {
+			return 0;
+		}
+		if(initialRead != 0) {
+			return initialRead;
+		}
+		return 0;
+	}
+
+	@Override
+	public List<MonthlyConsumptionBean> getAllbills(String region) {
+		return null;
+	}
 }

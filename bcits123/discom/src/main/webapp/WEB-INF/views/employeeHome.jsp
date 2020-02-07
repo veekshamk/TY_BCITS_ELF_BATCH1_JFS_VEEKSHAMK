@@ -78,7 +78,7 @@
 	<ul class="list-group" style="width: 300px; font-size: 25px">
     <li class="list-group-item active">Employee Details</li>
     <li class="list-group-item"><a href="./consumerList">Show All Consumers</a></li>        
-    <li class="list-group-item"><a href="./billGenerationPage">Generate Bill</a></li>
+    <li class="list-group-item"><a href="./generatePage">Generate Bill</a></li>
     <li class="list-group-item"><a href="./employeeHome">Show All Bills</a></li>
 </ul>
 	<!-- <div class="login"> -->

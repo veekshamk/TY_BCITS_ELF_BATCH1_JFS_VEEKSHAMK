@@ -1,30 +1,35 @@
 
-Xsquid:S1148&"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHí|RMINORZVULNERABILITY
-l
-squid:S106d"9Replace this use of System.out or System.err by a logger.(£Ö“ã8î—Ö.Hõ|RMAJORZ
+r
+squid:S106s"9Replace this use of System.out or System.err by a logger.(ùŞ•üıÿÿÿÿ8î—Ö.Hø­RMAJORZ
 CODE_SMELL
-l
-squid:S106<"9Replace this use of System.out or System.err by a logger.(£Ö“ã8î—Ö.Hñ|RMAJORZ
+Ysquid:S1148&"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH÷­RMINORZVULNERABILITY
+n
+squid:S106"9Replace this use of System.out or System.err by a logger.(£Ö“ã8Şïú.HÒ¾RMAJORZ
 CODE_SMELL
-q
-squid:S106t"9Replace this use of System.out or System.err by a logger.(‚Ì‡œùÿÿÿÿ8î—Ö.Hø|RMAJORZ
+€squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Í¸Ü8î—Ö.Hğ­RMAJORZ
 CODE_SMELL
-l
-squid:S106c"9Replace this use of System.out or System.err by a logger.(²¨ç÷8î—Ö.H÷|RMAJORZ
+r
+squid:S106e"9Replace this use of System.out or System.err by a logger.(Ÿö·şÿÿÿÿ8î—Ö.Hô­RMAJORZ
 CODE_SMELL
-ksquid:S2589v"7Remove this expression which always evaluates to "true"(íÑ’Ã8î—Ö.Hï|RMAJORZ
+`squid:S1168^"+Return an empty collection instead of null.(¥¹ï8î—Ö.Hõ­RMAJORZ
 CODE_SMELL
-q
-squid:S106e"9Replace this use of System.out or System.err by a logger.(Ÿö·şÿÿÿÿ8î—Ö.Hö|RMAJORZ
+usquid:S3516b"9Refactor this method to not always return the same value.( ø‹ñûÿÿÿÿ8î—Ö.Hï­RBLOCKERZ
 CODE_SMELL
-tsquid:S3516b"9Refactor this method to not always return the same value.( ø‹ñûÿÿÿÿ8î—Ö.Hî|RBLOCKERZ
+`squid:S1168P"+Return an empty collection instead of null.(¥¹ï8î—Ö.Hñ­RMAJORZ
 CODE_SMELL
-_squid:S1168^"+Return an empty collection instead of null.(¥¹ï8î—Ö.Hô|RMAJORZ
+m
+squid:S106c"9Replace this use of System.out or System.err by a logger.(²¨ç÷8î—Ö.Hò­RMAJORZ
 CODE_SMELL
-q
-squid:S106s"9Replace this use of System.out or System.err by a logger.(ùŞ•üıÿÿÿÿ8î—Ö.HÉ~RMAJORZ
+m
+squid:S106d"9Replace this use of System.out or System.err by a logger.(£Ö“ã8î—Ö.Hö­RMAJORZ
 CODE_SMELL
-_squid:S1168P"+Return an empty collection instead of null.(¥¹ï8î—Ö.Hó|RMAJORZ
+m
+squid:S106<"9Replace this use of System.out or System.err by a logger.(£Ö“ã8î—Ö.Hó­RMAJORZ
 CODE_SMELL
-squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Í¸Ü8î—Ö.Hú|RMAJORZ
+r
+squid:S106t"9Replace this use of System.out or System.err by a logger.(‚Ì‡œùÿÿÿÿ8î—Ö.Hù­RMAJORZ
+CODE_SMELL
+asquid:S1168¢"+Return an empty collection instead of null.(¥¹ï8äåÃò.H„®RMAJORZ
+CODE_SMELL
+lsquid:S2589v"7Remove this expression which always evaluates to "true"(íÑ’Ã8î—Ö.Hî­RMAJORZ
 CODE_SMELL

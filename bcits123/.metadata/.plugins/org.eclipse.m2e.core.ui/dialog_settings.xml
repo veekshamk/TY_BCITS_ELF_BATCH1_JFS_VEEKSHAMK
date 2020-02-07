@@ -61,6 +61,8 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.bcits.springsecurity"/>
+			<item value="com.bcits.springsecuritymvc"/>
 			<item value="com.bcits.springrest"/>
 			<item value="com.bcits.springmvc"/>
 			<item value="com.bcits.springcore.annotations"/>
@@ -74,13 +76,13 @@
 			<item value="com.bcits.empwebapp"/>
 			<item value="com.bcits.jpa.hiberanate"/>
 			<item value="com.bcits.hibernate1"/>
-			<item value="com.bcits.jpawithhibernate.common"/>
-			<item value="com.bcits.jpawithhibernate"/>
 		</list>
 		<list key="groupId">
 			<item value="com.bcits"/>
 		</list>
 		<list key="artifactId">
+			<item value="springsecurity"/>
+			<item value="springsecuritymvc"/>
 			<item value="springrest"/>
 			<item value="springmvc"/>
 			<item value="springcore.annotations"/>
@@ -94,8 +96,6 @@
 			<item value="empwebapp"/>
 			<item value="jpa.hiberanate"/>
 			<item value="hibernate1"/>
-			<item value="jpawithhibernate.common"/>
-			<item value="jpawithhibernate"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

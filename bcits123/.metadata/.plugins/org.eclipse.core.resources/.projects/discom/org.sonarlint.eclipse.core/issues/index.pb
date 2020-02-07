@@ -41,8 +41,6 @@ I
 src/main/webapp/index.jsp,8\e\8e6d3b70c9f5b02570779b0441540d45eceb0ded
 _
 /src/main/webapp/WEB-INF/views/employeeLogin.jsp,0\d\0ddcd33d5e63742d7ed703cc315984e510fd936f
-]
--src/main/webapp/WEB-INF/views/welcomeHome.jsp,c\a\ca53e95bcb9d03033abf1f01a63a35f8f4221263
 q
 Asrc/main/java/com/bcits/discom/controller/EmployeeController.java,e\5\e5744a3c273d58660613814734e4ca4d2f4a3a6f
 n
@@ -61,8 +59,6 @@ p
 @src/main/java/com/bcits/discom/beans/MonthlyConsumptionBean.java,2\4\242328c5790d018077f3b27920dcc5c001e9db79
 j
 :src/main/java/com/bcits/discom/beans/TarrifMasterBean.java,d\c\dc02f6e54317cfb5ca1aeb785fbf3abb517e2b17
-c
-3src/main/java/com/bcits/discom/beans/AdminBean.java,c\4\c487f459c0b614dc73c7a736508401edeef9ee55
 l
 <src/main/java/com/bcits/discom/beans/EmployeeMasterBean.java,c\4\c4ae19b4895c07d623b0085a12ac013d23d71506
 X
@@ -71,14 +67,10 @@ Y
 )src/main/webapp/WEB-INF/views/aboutUs.jsp,4\1\417420cb7016d0abea73ec370c389b2dda72dc05
 ^
 .src/main/webapp/WEB-INF/views/employeeHome.jsp,0\0\0059ba777f854af9b191aca0be280ef7ee02c13d
-^
-.src/main/webapp/WEB-INF/views/generateBill.jsp,7\f\7f8f0a6cfc96d86659d71f87e936afd18cc6600f
 Z
 *src/main/webapp/WEB-INF/views/mainHome.jsp,5\9\592e1814d6ec7674d5dde4db8fb159e1c31f1637
 ^
 .src/main/webapp/WEB-INF/views/consumerHome.jsp,d\d\dde85e9229179cb616fd520a24921cc45f3c080c
-^
-.src/main/webapp/WEB-INF/views/billHistory2.jsp,1\f\1faebeaad4a64a095972956efc295cd7ff2833be
 d
 4src/main/webapp/WEB-INF/views/monthlyConsumption.jsp,f\1\f1a2caa604d0d1540d867e7a491194990c23404c
 ]
@@ -93,3 +85,11 @@ Y
 -src/main/webapp/WEB-INF/views/billHistory.jsp,8\1\81190c4d45b14e28fbb88efec97f6dcadd419084
 ^
 .src/main/webapp/WEB-INF/views/consumerList.jsp,3\1\31f65994e84bd76a75cf70e84beefece613e9580
+b
+2src/main/java/com/bcits/discom/beans/TarrifPK.java,c\c\cc2afc332dda5534d48575f300c022bc5313793b
+i
+9src/main/java/com/bcits/discom/dao/TarrifCalculation.java,9\d\9dcbe6e144c7bdac67fe1475f0d112886a4e94bc
+^
+.src/main/webapp/WEB-INF/views/billGenerate.jsp,c\a\caa41b6f32b52994ea11e983c3b1a05cf15e4aab
+d
+4src/main/webapp/WEB-INF/views/billGenerationPage.jsp,c\e\cea4addb2af2c846a0a76de7872af9cc1ad3f1a8

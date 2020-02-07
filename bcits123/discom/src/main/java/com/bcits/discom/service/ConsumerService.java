@@ -11,10 +11,14 @@ import com.bcits.discom.beans.MonthlyConsumptionBean;
 public interface ConsumerService {
 
 	public boolean consumerSignUp(ConsumerMasterBean consumerBean,String confirmPassword);
-	public ConsumerMasterBean consumerLogin(String rrNumber, String password);
+	public ConsumerMasterBean consumerLogin(String email, String password);
 	public boolean payment(String rrNumber, Date date, double amount);
 	public CurrentBillBean generateCurrentBill(String rrNumber);
 	public List<BillHistoryBean> showBillHistory(String rrNumber);
 	public List<MonthlyConsumptionBean> showMonthlyConsumption(String rrNumber);
+	
+	public ConsumerMasterBean getConsumer(String rrNumber);
+	public long getInitialReading(String rrNumber);
+	public List<MonthlyConsumptionBean> getAllbills(String region);
 
 }

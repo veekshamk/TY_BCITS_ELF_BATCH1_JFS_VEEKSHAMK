@@ -59,5 +59,20 @@ public class ConsumerServiceImplementation implements ConsumerService{
 		return dao.payment(rrNumber, date, amount);
 	}
 
+	@Override
+	public ConsumerMasterBean getConsumer(String rrNumber) {
+		return dao.getConsumer(rrNumber);
+	}
+
+	@Override
+	public long getInitialReading(String rrNumber) {
+		return dao.getInitialReading(rrNumber);
+	}
+
+	@Override
+	public List<MonthlyConsumptionBean> getAllbills(String region) {
+		return dao.getAllbills(region);
+	}
+
 
 }

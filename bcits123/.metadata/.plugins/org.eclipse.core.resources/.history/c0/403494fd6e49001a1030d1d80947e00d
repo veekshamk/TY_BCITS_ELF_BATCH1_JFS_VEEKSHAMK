@@ -1,0 +1,71 @@
+package com.bcits.discom.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bcits.discom.beans.AdminBean;
+import com.bcits.discom.beans.ConsumerMasterBean;
+import com.bcits.discom.beans.CurrentBillBean;
+import com.bcits.discom.beans.EmployeeMasterBean;
+import com.bcits.discom.dao.EmployeeDAO;
+
+@Service
+public class EmployeeServiceImplementation implements EmployeeService{
+
+	@Autowired
+	private EmployeeDAO dao;
+
+	@Override
+	public EmployeeMasterBean employeeLogin(int empId, String password) {
+		if(empId<1 && password.isEmpty()) {
+			return null;
+		}
+		return dao.employeeLogin(empId, password);
+	}
+
+	@Override
+	public AdminBean adminLogin(int adminId, String password) {
+		return dao.adminLogin(adminId, password);
+	}
+
+	@Override
+	public long numOfConsumer(String region) {
+		return dao.numOfConsumer(region);
+	}
+
+	@Override
+	public boolean addEmployee(EmployeeMasterBean employeeBean) {
+		return dao.addEmployee(employeeBean);
+	}
+
+	@Override
+	public List<ConsumerMasterBean> showAllConsumers(String region) {
+		return dao.showAllConsumers(region);
+	}
+
+	@Override
+	public boolean addCurrentBill(CurrentBillBean currentBill) {
+		if(currentBill !=null && amount >0) {
+			return dao.addCurrentBill(currentBill, amount);
+		}
+		return false;
+	}
+
+
+	@Override
+	public ConsumerMasterBean getConsumer(String rrNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getInitialReading(String rrNumber) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	
+}

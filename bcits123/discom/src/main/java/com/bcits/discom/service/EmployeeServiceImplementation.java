@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bcits.discom.beans.AdminBean;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.EmployeeMasterBean;
@@ -26,11 +25,6 @@ public class EmployeeServiceImplementation implements EmployeeService{
 	}
 
 	@Override
-	public AdminBean adminLogin(int adminId, String password) {
-		return dao.adminLogin(adminId, password);
-	}
-
-	@Override
 	public long numOfConsumer(String region) {
 		return dao.numOfConsumer(region);
 	}
@@ -46,13 +40,11 @@ public class EmployeeServiceImplementation implements EmployeeService{
 	}
 
 	@Override
-	public boolean addCurrentBill(CurrentBillBean currentBill, double amount) {
-		if(currentBill !=null && amount >0) {
-			return dao.addCurrentBill(currentBill, amount);
+	public boolean addCurrentBill(CurrentBillBean currentBill) {
+		System.out.println("13"+currentBill);
+		if(currentBill != null) {
+			return dao.addCurrentBill(currentBill);
 		}
 		return false;
 	}
-
-
-	
 }

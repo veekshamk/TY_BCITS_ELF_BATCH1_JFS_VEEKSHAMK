@@ -24,11 +24,13 @@ public class CurrentBillBean implements Serializable{
 	@Column(name="due_date")
 	private Date dueDate;
 	@Column(name="initial_reading")
-	private double initialReading;
+	private long initialReading;
 	@Column(name="final_reading")
-	private double finalReading;
+	private long finalReading;
 	@Column(name="total_amount")
 	private double totalAmount;
 	@Column
 	private String month;
+	@Column(name = "type_of_consumer")
+	private String typeOfConsumer;
 }

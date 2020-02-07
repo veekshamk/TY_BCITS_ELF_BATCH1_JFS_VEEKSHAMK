@@ -1,0 +1,63 @@
+package com.bcits.discom.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bcits.discom.beans.AdminBean;
+import com.bcits.discom.beans.ConsumerMasterBean;
+import com.bcits.discom.beans.CurrentBillBean;
+import com.bcits.discom.beans.EmployeeMasterBean;
+import com.bcits.discom.dao.EmployeeDAO;
+
+@Service
+public class EmployeeServiceImplementation implements EmployeeService{
+
+	@Autowired
+	private EmployeeDAO dao;
+
+	@Override
+	public EmployeeMasterBean employeeLogin(int empId, String password) {
+		return dao.employeeLogin(empId, password);
+	}
+
+	@Override
+	public AdminBean adminLogin(int adminId, String password) {
+		return dao.adminLogin(adminId, password);
+	}
+
+	@Override
+	public long numOfConsumer(String region) {
+		return dao.numOfConsumer(region);
+	}
+
+	@Override
+	public boolean addEmployee(EmployeeMasterBean employeeBean) {
+		return dao.addEmployee(employeeBean);
+	}
+
+	@Override
+	public List<ConsumerMasterBean> showAllConsumers(String region) {
+		return dao.showAllConsumers(region);
+	}
+
+	@Override
+	public boolean addCurrentBill(CurrentBillBean currentBill) {
+		return dao.addCurrentBill(currentBill);
+	}
+
+	@Override
+	public ConsumerMasterBean getConsumer(String rrNumber) {
+		return dao.getConsumer(rrNumber);
+	}
+
+	@Override
+	public long getInitialReading(String rrNumber) {
+		return dao.getInitialReading(rrNumber);
+	}
+
+	
+
+	
+}
