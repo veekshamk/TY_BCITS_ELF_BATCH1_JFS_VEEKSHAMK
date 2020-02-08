@@ -41,25 +41,38 @@
 <title>DISCOM MAIN HOME PAGE</title>
 </head>
 <body>
-<form action="./homePage">
+<form action="./mainHomePage">
 	<nav class="nav">
 	<div class="container">
 		<div class="logo">
-			<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+			<a href="#" style="font-size: 30px">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
 		</div>
-		<div class="main_list" id="mainListDiv">
+		<div class="main_list" id="mainListDiv" style="font-size: 20px">
 			<ul>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
+				<li><a href="./mainHomePage">Home</a></li>
 				<li><a href="#"></a></li>
-				<li><a href="./homePage">Home</a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
-				<li><a href="./aboutUs">About&nbsp;&nbsp;Us</a></li>
+				<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
 				<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
 				<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./logout">Logout</a></li>
 			</ul>
 		</div>
 		<div class="media_button">
@@ -84,28 +97,22 @@
 	<br>
 	<div class="login">
 		<a href="./consumerLoginPage" class="btn btn-primary" role="button"
-			style="width: 200px; height: 50px; font-size: 20px;">Consumer
+			style="width: 300px; height: 70px; font-size: 30px;">Consumer
 			Login</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
 			href="./employeeLoginPage" class="btn btn-primary" role="button"
-			style="width: 200px; height: 50px; font-size: 20px;">Employee
+			style="width: 300px; height: 70px; font-size: 30px;">Employee
 			Login</a>
 	</div>
+	
+	<% if(msg!=null && !msg.isEmpty()){ %>
+	<h2 style="color: #003399;"><%=msg%></h2>
+	<%} %>
+
+	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
+	<h2 style="color: red;"><%=errMsg %></h2>
+	<%} %>
 	</section>
 	</form>
-	<%
-		if (msg != null && !msg.isEmpty()) {
-	%>
-	<h2 style="color: white;"><%=msg%></h2>
-	<%
-		}
-	%>
-
-	<%
-		if (errMsg != null && !errMsg.isEmpty()) {
-	%>
-	<h2 style="color: red;"><%=errMsg%></h2>
-	<%
-		}
-	%>
+	
 </body>
 </html>

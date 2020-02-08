@@ -41,26 +41,26 @@
 
 </head>
 <body>
-	<form action="./aboutUs">
+	<form action="./aboutUsPage">
 	
 	<nav class="nav">
 	<div class="container">
 		<div class="logo">
 			<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
 		</div>
-		<div class="main_list" id="mainListDiv">
+		<div class="main_list" id="mainListDiv" style="font-size: 20px">
 			<ul>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
-				<li><a href="./homePage">Home</a></li>
+				<li><a href="./mainHomePage">Home</a></li>
 				<li><a href="#"></a></li>
 				<li><a href="./aboutUs">About&nbsp;&nbsp;Us</a></li>
 				<li><a href="#"></a></li>
 				<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
 				<li><a href="#"></a></li>
-				<li><a href="./logout">Logout</a></li>
+				<!-- <li><a href="./logout">Logout</a></li> -->
 			</ul>
 		</div>
 		<div class="media_button">
@@ -84,14 +84,10 @@
 			then 10 million customer billed every month for their electricity
 			consumption.</p>
 	</div>
-	</section>
-
-		
-	</form>
 	<%
 		if (msg != null && !msg.isEmpty()) {
 	%>
-	<h2 style="color: white;"><%=msg%></h2>
+	<h2 style="color: #003399;"><%=msg%></h2>
 	<%
 		}
 	%>
@@ -103,6 +99,11 @@
 	<%
 		}
 	%>
+	</section>
+
+		
+	</form>
+	
 
 </body>
 </html>

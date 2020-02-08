@@ -47,9 +47,9 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 		EntityManager manager = factory.createEntityManager();
 		Query query = manager.createQuery(" from ConsumerMasterBean where email= :email ");
 		query.setParameter("email", email);
-		ConsumerMasterBean InfoBean = (ConsumerMasterBean) query.getSingleResult();
-		if(InfoBean != null && InfoBean.getPassword().equals(password)) {
-			return InfoBean;
+		ConsumerMasterBean consumerBean = (ConsumerMasterBean) query.getSingleResult();
+		if(consumerBean != null && consumerBean.getPassword().equals(password)) {
+			return consumerBean;
 		}
 		return null;
 	}
@@ -60,10 +60,9 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 		System.out.println(rrNumber);
 		EntityManager manager=factory.createEntityManager();
 
-		CurrentBillBean bill=manager.find(CurrentBillBean.class, rrNumber);
-		System.out.println(bill);
-		if(bill != null) {
-			return bill;
+		CurrentBillBean currentBill=manager.find(CurrentBillBean.class, rrNumber);
+		if(currentBill != null) {
+			return currentBill;
 		}
 		return null;
 	}
@@ -87,9 +86,9 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 		EntityManager manager=factory.createEntityManager();
 		Query query=manager.createQuery(" from MonthlyConsumptionBean where rr_Number=:rrNum ");
 		query.setParameter("rrNum", rrNumber);
-		List<MonthlyConsumptionBean> billList=query.getResultList();
-		if(billList!=null) {
-			return billList;
+		List<MonthlyConsumptionBean> consumptionList=query.getResultList();
+		if(consumptionList!=null) {
+			return consumptionList;
 		}
 		manager.close();
 		return null;
@@ -107,7 +106,7 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 		BillHistoryBean billHistoryBean=new BillHistoryBean();
 		BillHistoryPK billHistoryPk=new BillHistoryPK();
 		
-		billHistoryBean.setBillAmount(amount);
+		billHistoryBean.setTotalAmount(amount);
 		billHistoryBean.setStatus("paid");
 		billHistoryPk.setRrNumber(rrNumber);
 		billHistoryPk.setDate(date);
@@ -123,5 +122,43 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public ConsumerMasterBean getConsumer(String rrNumber) {
+		System.out.println(rrNumber);
+		EntityManager manager = factory.createEntityManager();
+		ConsumerMasterBean consumerBean = manager.find(ConsumerMasterBean.class, rrNumber);
+		
+		if(consumerBean != null) {
+			return consumerBean;
+		}
+		manager.close();
+		return null;
+	}
+
+	@Override
+	public long getInitialReading(String rrNumber) {
+		EntityManager manager = factory.createEntityManager();
+		long initialRead;
+		try {
+			String jpql =" select finalReading from MonthlyConsumptionBean where consumptionPk.rrNumber=:rrNumber order by finalReading desc";
+			Query query= manager.createQuery(jpql);
+			query.setParameter("rrNumber", rrNumber);
+			query.setMaxResults(1);
+			initialRead = (long) query.getSingleResult();
+			manager.close();
+		}catch (Exception e) {
+			return 0;
+		}
+		if(initialRead != 0) {
+			return initialRead;
+		}
+		return 0;
+	}
+
+	@Override
+	public List<MonthlyConsumptionBean> getAllbills(String region) {
+		return null;
 	}
 }

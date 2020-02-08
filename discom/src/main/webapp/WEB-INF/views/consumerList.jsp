@@ -1,18 +1,23 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 
 <%
+	List<ConsumerMasterBean> consumerBean = (List<ConsumerMasterBean>) request.getAttribute("consumer");
 	String errMsg = (String) request.getAttribute("errMsg");
-	String msg = (String) request.getAttribute("msg");
+	String msg=(String)request.getAttribute("msg");
 %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
 <spring:url var="js" value="resources/js" />
 <spring:url var="images" value="resources/images" />
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,24 +45,25 @@
 <link rel="stylesheet" href="${css}/mainHome.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DISCOM MAIN HOME PAGE</title>
+
+<meta charset="ISO-8859-1">
 </head>
 <body>
 	<form action="">
-
 		<nav class="nav">
 		<div class="container">
 			<div class="logo">
 				<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
 			</div>
-			<div class="main_list" id="mainListDiv">
+			<div class="main_list" id="mainListDiv" style="font-size: 20px">
 				<ul>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="./homePage">Home</a></li>
+					<li><a href="./mainHomePage">Home</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="./aboutUs">About&nbsp;&nbsp;Us</a></li>
+					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
 					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
@@ -71,24 +77,54 @@
 			</div>
 		</div>
 		</nav>
+
 		<section class="home"> <br>
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
-		<br>
-		<%
-			session.invalidate();
-			response.sendRedirect("mainHome.jsp");
-		%>
+		<ul class="list-group" style="width: 320px; font-size: 25px">
+			<li class="list-group-item active">Employee Details</li>
+			<li class="list-group-item"><a href="./consumerList">Show
+					All Consumers</a></li>
+			<li class="list-group-item"><a href="./generatePage">Electricity Bill Generation</a></li>
+			<li class="list-group-item"><a href="">Show
+					All Bills</a></li>
+		</ul>
 
-		<div class="logOut">
-			<p style="font-family: monospace; font-size: 25px">&nbsp;&nbsp;&nbsp;Successfully
-				Logged Out..</p>
-		</div>
-		</section>
+		<div class="table-responsive text-nowrap">
+			<h1 style="font-size: 30px">CONSUMER DETAILS</h1>
+			<table class="table">
+				<thead style="font-size: 20px">
+					<th>Name</th>
+					<th>RR Number</th>
+					<th>Mobile Number</th>
+					<th>Email ID</th>
+				</thead>
+				<tbody style="font-size: 20px">
 
+					<%
+						for (ConsumerMasterBean list : consumerBean) {
+					%>
+
+				
+					<tr>
+
+						<%
+							SimpleDateFormat form = new SimpleDateFormat("dd-MM-yyyy");
+						%>
+
+						<td><%=list.getFullName()%></td>
+						<td><%=list.getRrNumber()%></td>
+						<td><%=list.getMobileNumber()%></td>
+						<td><%=list.getEmail()%></td>
+					</tr>
+					
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+			</div>
 	<% if(msg!=null && !msg.isEmpty()){ %>
 	<h2 style="color: #003399;"><%=msg%></h2>
 	<%} %>
@@ -96,8 +132,12 @@
 	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
 	<h2 style="color: red;"><%=errMsg %></h2>
 	<%} %>
-
-	</form>
 	
+	</section>
+	</form>
+
+	
+
+
 </body>
 </html>

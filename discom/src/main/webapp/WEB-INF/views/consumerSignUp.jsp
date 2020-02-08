@@ -25,7 +25,7 @@
 	style="color: white; font-family: sans-serif;">DISCOM
 	ELECTRICITY LIMITED</span> </nav>
 </head>
-<body>
+<body style="background-color: #c0c0c0;">
 	<div class="box">
 		<div class="inner-box">
 
@@ -33,11 +33,11 @@
 				<h2>User Registration</h2>
 
 				<label for="name">Name:</label> <input type="text" name="fullName"
-					id="fullName" placeholder="Enter Your Full Name" /> <label
+					id="fullName" placeholder="Enter Your Full Name" required /> <label
 					for="meter">rr Number:</label> <input type="text" name="rrNumber"
-					id="rrNumber" maxlength="30" placeholder="Enter rr Number" /> <label
+					id="rrNumber" maxlength="30" placeholder="Enter rr Number" required/> <label
 					for="password">Password:</label> <input type="password"
-					name="password" id="password" placeholder="Enter Password"
+					name="password" id="password" placeholder="Enter Password" required
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 					title="Must contain at least
              one number and one uppercase and lowercase letter, and at least
@@ -46,12 +46,12 @@
  -->
 				<label for="cpassword">Confirm Password:</label> <input
 					type="password" name="cpassword" id="cpassword"
-					placeholder="Confirm Password" /> <label for="email">Email
+					placeholder="Confirm Password" required /> <label for="email">Email
 					Address:</label> <input type="email" name="email" id="email"
-					placeholder="Enter Email Address" /> <label for="mobile">Mobile
+					placeholder="Enter Email Address" required /> <label for="mobile">Mobile
 					Number:</label> <input type="tel" name="phoneNumber" id="phoneNumber"
-					placeholder="Enter Mobile Number"> <label for="address">Address:<label>
-						<textarea name="address" id="address" cols="48" rows="5"></textarea>
+					placeholder="Enter Mobile Number" required/> <label for="address">Address:<label>
+						<textarea name="address" id="address" cols="48" rows="5" required></textarea>
 
 						<div class="inner">
 							<label for="region">Region:</label> <select name="region"
@@ -78,7 +78,7 @@
 		</div>
 	</div>
 	<% if(msg!=null && !msg.isEmpty()){ %>
-	<h2 style="color: white;"><%=msg %></h2>
+	<h2 style="color: #003399;"><%=msg%></h2>
 	<%} %>
 
 	<% if(errMsg!=null && !errMsg.isEmpty()){ %>

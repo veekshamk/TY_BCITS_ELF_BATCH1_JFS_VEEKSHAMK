@@ -21,8 +21,8 @@ public class ConsumerMasterBean implements Serializable{
 	private String fullName;
 	@Column
 	private String email;
-	@Column(name = "phone_number")
-	private long phoneNumber;
+	@Column(name = "mobile_number")
+	private long mobileNumber;
 	@Column(name = "type_of_consumer")
 	private String typeOfConsumer;
 	@Column

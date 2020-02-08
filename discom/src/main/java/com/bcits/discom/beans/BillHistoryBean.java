@@ -17,7 +17,7 @@ public class BillHistoryBean implements Serializable {
 	private BillHistoryPK history;
 	@Column
 	private String status;
-	@Column(name="bill_amount")
-	private double billAmount;
+	@Column(name="total_amount")
+	private double totalAmount;
 	
 }

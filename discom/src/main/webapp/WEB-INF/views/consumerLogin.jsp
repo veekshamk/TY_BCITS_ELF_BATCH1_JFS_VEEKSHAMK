@@ -7,10 +7,10 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
 <spring:url var="js" value="resources/js" />
-<spring:url var="images" value="resources/images" />
+<%-- <spring:url var="images" value="resources/images" /> --%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html >
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="${css}/login.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
-<body>
+<body style="background-color: #c0c0c0;">
 	<div class="box">
 
 		<div class="inner-box">
@@ -42,12 +42,11 @@
 					<span>Not a registered customer? </span><a class="link"
 						href=./consumerSignUpPage>Register Here</a>
 				</p>
-
 			</form>
 		</div>
 	</div>
 	<% if(msg!=null && !msg.isEmpty()){ %>
-	<h2 style="color: white;"><%=msg %></h2>
+	<h2 style="color: #003399;"><%=msg%></h2>
 	<%} %>
 
 	<% if(errMsg!=null && !errMsg.isEmpty()){ %>

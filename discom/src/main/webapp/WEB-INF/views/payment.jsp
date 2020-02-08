@@ -47,7 +47,7 @@
 	crossorigin="anonymous"></script>
 <title>Document</title>
 </head>
-<body>
+<body style="background-color: #c0c0c0;">
 	<form action="./successPayment" method="post">
 	<div class="padding">
         <div class="row">
@@ -142,7 +142,7 @@
 
 
 	<% if(msg!=null && !msg.isEmpty()){ %>
-	<h2 style="color: white;"><%=msg %></h2>
+	<h2 style="color: #003399;"><%=msg%></h2>
 	<%} %>
 
 	<% if(errMsg!=null && !errMsg.isEmpty()){ %>

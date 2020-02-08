@@ -1,8 +1,12 @@
 package com.bcits.discom.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bcits.discom.beans.ConsumerMasterBean;
+import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.EmployeeMasterBean;
 import com.bcits.discom.dao.EmployeeDAO;
 
@@ -12,10 +16,35 @@ public class EmployeeServiceImplementation implements EmployeeService{
 	@Autowired
 	private EmployeeDAO dao;
 
-
 	@Override
-	public EmployeeMasterBean empauthenticate(int empId, String password) {
-		return null;
+	public EmployeeMasterBean employeeLogin(int empId, String password) {
+		if(empId<1 && password.isEmpty()) {
+			return null;
+		}
+		return dao.employeeLogin(empId, password);
 	}
 
+	@Override
+	public long numOfConsumer(String region) {
+		return dao.numOfConsumer(region);
+	}
+
+	@Override
+	public boolean addEmployee(EmployeeMasterBean employeeBean) {
+		return dao.addEmployee(employeeBean);
+	}
+
+	@Override
+	public List<ConsumerMasterBean> showAllConsumers(String region) {
+		return dao.showAllConsumers(region);
+	}
+
+	@Override
+	public boolean addCurrentBill(CurrentBillBean currentBill) {
+		System.out.println("13"+currentBill);
+		if(currentBill != null) {
+			return dao.addCurrentBill(currentBill);
+		}
+		return false;
+	}
 }
