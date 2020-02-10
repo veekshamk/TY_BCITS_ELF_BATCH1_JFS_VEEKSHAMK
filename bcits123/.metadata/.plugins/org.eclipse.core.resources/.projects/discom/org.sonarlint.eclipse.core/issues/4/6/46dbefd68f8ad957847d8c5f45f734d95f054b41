@@ -1,13 +1,6 @@
 
-Šsquid:UselessImportCheck"IRemove this unused import 'javassist.bytecode.stackmap.BasicBlock.Catch'.(èÔûa8š¶Óñ.H®¬RMINORZ
+`squid:S1148A"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8©Œ‹¡.H“ôRMINORZVULNERABILITY
+`squid:S1168S"+Return an empty collection instead of null.(¥¹ï8ÃÈĞ .H”ôRMAJORZ
 CODE_SMELL
-m
-squid:S106c"9Replace this use of System.out or System.err by a logger.(—•Öˆ8é„ôú.HÖ¾RMAJORZ
-CODE_SMELL
-ssquid:S2184]"ECast one of the operands of this subtraction operation to a "double".(ã¹‘Ğ8Øâöö.Hî¶RMINORZBUG
-`squid:S1148D"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8©Œ‹¡.H˜«RMINORZVULNERABILITY
-r
-squid:S106e"9Replace this use of System.out or System.err by a logger.(ìşßíùÿÿÿÿ8é„ôú.H×¾RMAJORZ
-CODE_SMELL
-`squid:S1168V"+Return an empty collection instead of null.(¥¹ï8ÃÈĞ .H™«RMAJORZ
-CODE_SMELL
+ssquid:S2184Y"ECast one of the operands of this subtraction operation to a "double".(ã¹‘Ğ8Øâöö.H•ôRMINORZBUG
+`squid:S1148~"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‹ÉÃì‚.H–ôRMINORZVULNERABILITY

@@ -32,27 +32,41 @@ public class ConsumerController {
 	public void initBinder(WebDataBinder binder) {
 		CustomDateEditor dateEditor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
 		binder.registerCustomEditor(Date.class, dateEditor);
-	}
-	
+	}//End of initBinder()
+
 	@GetMapping("/mainHomePage")
 	public String diaplayHomePage() {
 		return "mainHome";
-	}
-	
+	}//End of diaplayHomePage()
+
 	@GetMapping("/aboutUsPage")
 	public String diaplayAboutUsPage() {
 		return "aboutUs";
+	}//End of diaplayAboutUsPage()
+	
+	@GetMapping("/consumerLogout")
+	public String consumerLogout(ModelMap modelMap, HttpSession session) {
+		ConsumerMasterBean consumerBean = (ConsumerMasterBean) session.getAttribute("loggedInConsumer");
+		
+		if(consumerBean != null) {
+			session.invalidate();
+			modelMap.addAttribute("msg", "Successfully Logged Out..");
+		}else {
+			modelMap.addAttribute("errMsg", "Please Login First..");
+		}
+		return "mainHome";
+		
 	}
 
 	@GetMapping("/consumerSignUpPage")
 	public String diaplayConsumerSignUpPage() {
 		return "consumerSignUp";
-	}
+	}//End of diaplayConsumerSignUpPage()
 
 	@GetMapping("/consumerLoginPage")
 	public String diaplayConsumerLoginPage() {
 		return "consumerLogin";
-	}
+	}//End of diaplayConsumerLoginPage()
 
 	@PostMapping("/signUpPage")
 	public String add(ConsumerMasterBean consumerBean, String cpassword, ModelMap modelMap) {
@@ -62,10 +76,10 @@ public class ConsumerController {
 			return "consumerLogin";
 		} else { 
 			modelMap.addAttribute("errMsg", "User already exists!");
-		}  
+		}
 
 		return "consumerLogin";
-	}
+	}//End of add()
 
 	@PostMapping("/loginPage") 
 	public String ConsumerLogin(String email, String password ,HttpServletRequest req ,ModelMap modelMap) {
@@ -77,8 +91,8 @@ public class ConsumerController {
 		}else {
 			modelMap.addAttribute("errMsg", "Invalid Credentials!!");
 			return "consumerLogin";
-		}		
-	}
+		}//End of ConsumerLogin()		
+	}//End of
 
 	@GetMapping("/consumerBillDisplay")
 	public String displayCurrentBillPage(HttpSession session, ModelMap modelMap) {
@@ -98,7 +112,7 @@ public class ConsumerController {
 			modelMap.addAttribute("errMsg", "Please Login First...");
 			return "consumerLogin";
 		}
-	}
+	}//End of displayCurrentBillPage()
 
 	@GetMapping("/monthlyConsumption")
 	public String displayMonthlyConsumption(HttpSession session, ModelMap modelMap) {
@@ -116,7 +130,7 @@ public class ConsumerController {
 			modelMap.addAttribute("errMsg", "Please Login First!");
 			return "consumerLogin";
 		}
-	}
+	}//End of displayMonthlyConsumption()
 
 	@GetMapping("/billHistory")
 	public String displayBillHistory(HttpSession session, ModelMap modelMap) {
@@ -134,20 +148,20 @@ public class ConsumerController {
 			modelMap.addAttribute("errMsg", "Please Login First!");
 			return "consumerLogin";
 		}
-	}
+	}//End of displayBillHistory()
 
 	@GetMapping("/consumerLogoutPage")
 	public String consumerLogOut(ModelMap modelMap, HttpSession session) {
 		session.invalidate();
 		modelMap.addAttribute("errMsg", "You Are Sucessfully Logged Out!");
 		return "mainHome";
-	}
+	}//End of consumerLogOut()
 
 
 	@GetMapping("/consumerHomePage")
 	public String displayCustomerHomePage() {
 		return "consumerHome";
-	}
+	}//End of displayCustomerHomePage()
 
 	@GetMapping("/payment")
 	public String displayPaymentPage(HttpSession session, ModelMap modelMap) {
@@ -159,7 +173,7 @@ public class ConsumerController {
 			modelMap.addAttribute("errMsg", "Please Login First!...");
 			return "consumerLogin";
 		}
-	}
+	}//End of displayPaymentPage()
 
 	@PostMapping("/successPayment")
 	public String successfullPayment(HttpSession session, ModelMap modelMap, double amount) {
@@ -172,21 +186,21 @@ public class ConsumerController {
 			System.out.println(amount);
 
 			boolean payment=service.payment(consumerBean.getRrNumber(), date, amount);
-				System.out.println(payment);
+			System.out.println(payment);
 
-				if(payment == true) {
-					modelMap.addAttribute("msg", "Payment Successfull.");
-					return "consumerHome";
-				}else {
-					modelMap.addAttribute("errMsg", "Payment Failed.");
-					return "payment";
-				}
+			if(payment == true) {
+				modelMap.addAttribute("msg", "Payment Successfull.");
+				return "consumerHome";
 			}else {
-				return "consumerLogin";
+				modelMap.addAttribute("errMsg", "Payment Failed.");
+				return "payment";
 			}
-	}
-}
-	
+		}else {
+			return "consumerLogin";
+		}
+	}//End of successfullPayment()
+}//End of Class
+
 
 
 

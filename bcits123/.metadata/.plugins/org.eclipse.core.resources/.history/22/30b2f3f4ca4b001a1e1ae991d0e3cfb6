@@ -1,0 +1,18 @@
+package com.bcits.springsecurityrest;
+
+import com.bcits.springsecuritymvc.dao.EmpDAO;
+
+@Component
+public class UserDetailsServiceImpl implements UserDetailsService {
+	
+	@Autowired
+	private EmpDAO dao;
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		UserDetailsImpl userDetailsImpl = new UserDetailsImpl();
+		userDetailsImpl.setEmpBean(dao.getEmployee(Integer.parseInt(username)));
+		
+		return userDetailsImpl;
+	}
+}

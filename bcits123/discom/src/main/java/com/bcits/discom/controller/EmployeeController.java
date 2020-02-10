@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.EmployeeMasterBean;
+import com.bcits.discom.beans.MonthlyConsumptionBean;
 import com.bcits.discom.service.ConsumerService;
 import com.bcits.discom.service.EmployeeService;
 
@@ -35,12 +36,12 @@ public class EmployeeController {
 	public void initBinder(WebDataBinder binder) {
 		CustomDateEditor dateEditor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
 		binder.registerCustomEditor(Date.class, dateEditor);
-	}
+	}//End of initBinder()
 
 	@GetMapping("/employeeLoginPage")
 	public String diaplayEmployeeLoginPage() {
 		return "employeeLogin";
-	}
+	}//End of diaplayEmployeeLoginPage()
 
 	@PostMapping("/empLoginPage")
 	public String adminLogin(int empId, String password, HttpServletRequest req, ModelMap modelMap) {
@@ -55,7 +56,7 @@ public class EmployeeController {
 			modelMap.addAttribute("errMsg", "Invalid Credentials.");
 			return "employeeLogin";
 		}
-	}
+	}//End of adminLogin()
 
 	@GetMapping("/consumerList")
 	public String consumerList(HttpSession session, ModelMap modelMap) {
@@ -73,48 +74,41 @@ public class EmployeeController {
 			modelMap.addAttribute("errMsg", "Please Login First!");
 			return "employeeLogin";
 		}
-	}
+	}//End of consumerList()
 
 	@GetMapping("/billGeneratePage")
 	public String displayBillGenerationPage(String rrNumber, ModelMap modelMap, HttpSession session) {
 		EmployeeMasterBean employeeBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
-		System.out.println(rrNumber);
 		if (employeeBean != null) {
 			ConsumerMasterBean consumerBean = consumerService.getConsumer(rrNumber);
-			System.out.println(rrNumber);
-			System.out.println(consumerBean);
 			long initial = consumerService.getInitialReading(rrNumber);
-			System.out.println(initial);
 
 			if (consumerBean != null) {
 				modelMap.addAttribute("consumerBean", consumerBean);
 				modelMap.addAttribute("initial", initial);
 			}
-			return "billGenerate";
+			return "billGenerationPage";
 		} else {
 			modelMap.addAttribute("errMsg", "Invalid Credentials...");
 			return "employeeLogin";
 		}
-	}
+	}//End of displayBillGenerationPage()
 
-	@GetMapping("/billGeneration")
+	@PostMapping("/billGeneration")
 	public String generateBill(ModelMap modelMap, HttpSession session, CurrentBillBean currentBill) {
+		System.out.println(currentBill);
 		EmployeeMasterBean employeeBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
-		if (employeeBean != null) {
-			List<ConsumerMasterBean> consumerBean = empService.showAllConsumers(employeeBean.getRegion());
-			modelMap.addAttribute("consumerBean", consumerBean);
 
-			if (empService.addCurrentBill(currentBill)) {
-				modelMap.addAttribute("msg", "Bill Generated Successfully..");
-			} else {
-				modelMap.addAttribute("errMsg", "Bill is not generated..");
-			}
-			return "allConsumers";
+
+		if (employeeBean != null) {
+			empService.addCurrentBill(currentBill);
+			modelMap.addAttribute("msg", "Bill Generated..");
+			return "billGenerate";
 		} else {
-			modelMap.addAttribute("msg", "Invalid Credentials...");
+			modelMap.addAttribute("msg", "Bill not Generated..");
 			return "employeeLogin";
 		}
-	}
+	}//End of generateBill()
 
 	@GetMapping("/generatePage")
 	public String displayGenerationPage(HttpSession session, ModelMap modelMap) {
@@ -122,7 +116,7 @@ public class EmployeeController {
 		if (employeeBean != null) {
 			String region = employeeBean.getRegion();
 			List<ConsumerMasterBean> consumerList = empService.showAllConsumers(employeeBean.getRegion());
-			if (!consumerList.isEmpty()) {
+			if (consumerList != null && !consumerList.isEmpty()) {
 				modelMap.addAttribute("consumer", consumerList);
 			} else {
 				modelMap.addAttribute("errMsg", "Record Not Exists.");
@@ -132,5 +126,37 @@ public class EmployeeController {
 			modelMap.addAttribute("errMsg", "Please Login First!");
 			return "employeeLogin";
 		}
+	}//End of displayGenerationPage()
+
+	@GetMapping("/listOfBills")
+	public String listOfBills(HttpSession session, ModelMap modelMap) {
+		EmployeeMasterBean employeeBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
+		if (employeeBean != null) {
+			List<MonthlyConsumptionBean> billList = consumerService.getAllBills(employeeBean.getRegion());
+			if (billList != null && !billList.isEmpty()) {
+				modelMap.addAttribute("bill", billList);
+			} else {
+				modelMap.addAttribute("errMsg", "Record Not Exists.");
+			}
+			return "showAllBills";
+		} else {
+			modelMap.addAttribute("errMsg", "Please Login First!");
+			return "employeeLogin";
+		}
+	}//End of listOfBills()
+	
+	@GetMapping("/EmployeeLogout")
+	public String consumerLogout(ModelMap modelMap, HttpSession session) {
+		ConsumerMasterBean consumerBean = (ConsumerMasterBean) session.getAttribute("loggedInConsumer");
+		
+		if(consumerBean != null) {
+			session.invalidate();
+			modelMap.addAttribute("msg", "Successfully Logged Out..");
+		}else {
+			modelMap.addAttribute("errMsg", "Please Login First..");
+		}
+		return "mainHome";
+		
 	}
+
 }

@@ -14,14 +14,13 @@ public class IndustriesTarrif {
 		System.out.println("Units is: "+units);
 		double bill=1;
 
-			if(units>=0 && units<=10000) {
-				bill=units*15;
-			}else if(units>10000 && units<=20000){
-				bill=units*20;
-			}else if(units>20000){
-				bill=units*25;
-			}
-			System.out.println("Bill is "+bill);
-	}
-}
-		
+		if(units>=0 && units<=10000) {
+			bill=units*15;
+		}else if(units>10000 && units<=20000){
+			bill=units*20;
+		}else if(units>20000){
+			bill=units*25;
+		}
+		System.out.println("Bill is "+bill);
+	}//End of main()
+}//End of Class

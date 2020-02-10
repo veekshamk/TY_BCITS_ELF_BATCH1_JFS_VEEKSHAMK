@@ -16,9 +16,9 @@ public interface ConsumerService {
 	public CurrentBillBean generateCurrentBill(String rrNumber);
 	public List<BillHistoryBean> showBillHistory(String rrNumber);
 	public List<MonthlyConsumptionBean> showMonthlyConsumption(String rrNumber);
-	
+
 	public ConsumerMasterBean getConsumer(String rrNumber);
 	public long getInitialReading(String rrNumber);
-	public List<MonthlyConsumptionBean> getAllbills(String region);
+	public List<MonthlyConsumptionBean> getAllBills(String region);
 
-}
+}//End of Class

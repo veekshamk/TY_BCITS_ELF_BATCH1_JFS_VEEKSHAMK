@@ -1,6 +1,7 @@
 
-p	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ8ˆæ©Ïÿ-H÷}RMAJORZBUG
-kWeb:AvoidCommentedOutCodeCheck%"Remove this commented out code.(‘ã·øÿÿÿÿ8¸§¶Ÿ.Hø}RMAJORZ
+q	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ8ˆæ©Ïÿ-HïRMAJORZBUG
+lWeb:AvoidCommentedOutCodeCheck&"Remove this commented out code.(‘ã·øÿÿÿÿ8¸§¶Ÿ.H“ïRMAJORZ
 CODE_SMELL
-kWeb:AvoidCommentedOutCodeCheck"Remove this commented out code.(½¯•øÿÿÿÿ8ĞÌ®Ïÿ-Hö}RMAJORZ
+lWeb:AvoidCommentedOutCodeCheck"Remove this commented out code.(½¯•øÿÿÿÿ8ĞÌ®Ïÿ-H‘ïRMAJORZ
 CODE_SMELL
+kWeb:UnsupportedTagsInHtml5Check")Remove this deprecated "marquee" element.(¾üÍ§8ã‰šõ‚.H’ïRMAJORZBUG

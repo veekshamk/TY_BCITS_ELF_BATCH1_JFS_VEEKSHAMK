@@ -14,14 +14,13 @@ public class CommercialTarrif {
 		System.out.println("Units is: "+units);
 		double bill=1;
 
-			if(units>=0 && units<=1000) {
-				bill=units*10;
-			}else if(units>1000 && units<=2000){
-				bill=units*15;
-			}else if(units>2000){
-				bill=units*18;
-			}
-			System.out.println("Bill is "+bill);
-	}
-}
-		
+		if(units>=0 && units<=1000) {
+			bill=units*10;
+		}else if(units>1000 && units<=2000){
+			bill=units*15;
+		}else if(units>2000){
+			bill=units*18;
+		}
+		System.out.println("Bill is "+bill);
+	}//End of main()
+}//End of Class

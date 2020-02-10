@@ -19,5 +19,4 @@ public class BillHistoryBean implements Serializable {
 	private String status;
 	@Column(name="total_amount")
 	private double totalAmount;
-	
-}
+}//End of Class

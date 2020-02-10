@@ -22,22 +22,22 @@ public class EmployeeServiceImplementation implements EmployeeService{
 			return null;
 		}
 		return dao.employeeLogin(empId, password);
-	}
+	}//End of employeeLogin()
 
 	@Override
 	public long numOfConsumer(String region) {
 		return dao.numOfConsumer(region);
-	}
+	}//End of numOfConsumer()
 
 	@Override
 	public boolean addEmployee(EmployeeMasterBean employeeBean) {
 		return dao.addEmployee(employeeBean);
-	}
+	}//End of addEmployee()
 
 	@Override
 	public List<ConsumerMasterBean> showAllConsumers(String region) {
 		return dao.showAllConsumers(region);
-	}
+	}//End of showAllConsumers()
 
 	@Override
 	public boolean addCurrentBill(CurrentBillBean currentBill) {
@@ -46,5 +46,5 @@ public class EmployeeServiceImplementation implements EmployeeService{
 			return dao.addCurrentBill(currentBill);
 		}
 		return false;
-	}
-}
+	}//End of addCurrentBill()
+}//End of Class

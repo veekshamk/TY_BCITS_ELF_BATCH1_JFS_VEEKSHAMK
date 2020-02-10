@@ -1,7 +1,7 @@
 
-msquid:UselessParenthesesCheck+"!Remove these useless parentheses.(ĞÑ“·øÿÿÿÿ8Îñ.HÑ«RMAJORZ
+msquid:UselessParenthesesCheck-"!Remove these useless parentheses.(ºÉŒÆÿÿÿÿÿ8ß×œô‚.HŞçRMAJORZ
 CODE_SMELL
-jsquid:S1481""0Remove this unused "finalAmount" local variable.(ß·ÁÖùÿÿÿÿ8Îñ.HÒ«RMINORZ
+jsquid:S1481#"0Remove this unused "finalAmount" local variable.(ß·ÁÖùÿÿÿÿ8Îñ.HİçRMINORZ
 CODE_SMELL
-ysquid:S1854""?Remove this useless assignment to local variable "finalAmount".(ß·ÁÖùÿÿÿÿ8Îñ.HÍ«RMAJORZ
+ysquid:S1854#"?Remove this useless assignment to local variable "finalAmount".(ß·ÁÖùÿÿÿÿ8Îñ.HÜçRMAJORZ
 CODE_SMELL

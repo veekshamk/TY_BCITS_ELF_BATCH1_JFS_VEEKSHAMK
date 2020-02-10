@@ -1,29 +1,33 @@
 
-^squid:S1125±"(Remove the literal "true" boolean value.(–èºÏ8…–œ.HÉ°RMINORZ
+m
+squid:S106d"9Replace this use of System.out or System.err by a logger.(Üï»ø8…–œ.H‡ôRMAJORZ
 CODE_SMELL
-‹squid:S11926"NDefine a constant instead of duplicating this literal "consumerLogin" 9 times.(òà•³ıÿÿÿÿ8…–œ.HÊ°RCRITICALZ
+^squid:S1125¿"(Remove the literal "true" boolean value.(–èºÏ8…–œ.HŒôRMINORZ
 CODE_SMELL
-‰squid:S00100G"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò®¼Ğûÿÿÿÿ8…–œ.HË°RMINORZ
+squid:S11921"QDefine a constant instead of duplicating this literal "loggedInConsumer" 7 times.(Õôùäıÿÿÿÿ8Üû‰Ÿ.HŠôRCRITICALZ
+CODE_SMELL
+{squid:S4684H"@Replace this persistent entity with a simple POJO or DTO object.(†¡éŠ8…–œ.HôRCRITICALZVULNERABILITY
+²squid:S1845š"uRename method "consumerLogOut" to prevent any misunderstanding/clash with method "consumerLogout" defined on line 48.(•½Úúÿÿÿÿ8Ü†ºú‚.H˜ôRBLOCKERZ
+CODE_SMELL
+‹squid:S1192D"NDefine a constant instead of duplicating this literal "consumerLogin" 9 times.(òà•³ıÿÿÿÿ8…–œ.HôRCRITICALZ
+CODE_SMELL
+€squid:S11927"HDefine a constant instead of duplicating this literal "errMsg" 12 times.(ŸÆ8…–œ.H‹ôRCRITICALZ
+CODE_SMELL
+‰squid:S00100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò®¼Ğûÿÿÿÿ8…–œ.HôRMINORZ
 CODE_SMELL
 s
-squid:S106¯"9Replace this use of System.out or System.err by a logger.(…Õúûÿÿÿÿ8…–œ.HÌ°RMAJORZ
-CODE_SMELL
-ˆsquid:S1192K"QDefine a constant instead of duplicating this literal "loggedInConsumer" 6 times.(ôÅ£8Üû‰Ÿ.HÍ°RCRITICALZ
-CODE_SMELL
-€squid:S1192@"HDefine a constant instead of duplicating this literal "errMsg" 11 times.(òÅ¡8…–œ.HÎ°RCRITICALZ
-CODE_SMELL
-{squid:S4684:"@Replace this persistent entity with a simple POJO or DTO object.(†¡éŠ8…–œ.HÏ°RCRITICALZVULNERABILITY
-s
-squid:S106¬"9Replace this use of System.out or System.err by a logger.(Ÿö·şÿÿÿÿ8…–œ.HĞ°RMAJORZ
+squid:S106½"9Replace this use of System.out or System.err by a logger.(…Õúûÿÿÿÿ8…–œ.H’ôRMAJORZ
 CODE_SMELL
 n
-squid:S106ª"9Replace this use of System.out or System.err by a logger.(²¨ç÷8…–œ.HÑ°RMAJORZ
-CODE_SMELL
-m
-squid:S106V"9Replace this use of System.out or System.err by a logger.(Üï»ø8…–œ.HÒ°RMAJORZ
+squid:S106¸"9Replace this use of System.out or System.err by a logger.(²¨ç÷8…–œ.HˆôRMAJORZ
 CODE_SMELL
 s
-squid:S106«"9Replace this use of System.out or System.err by a logger.(¤®èÂûÿÿÿÿ8…–œ.HÓ°RMAJORZ
+squid:S106º"9Replace this use of System.out or System.err by a logger.(Ÿö·şÿÿÿÿ8…–œ.H‘ôRMAJORZ
 CODE_SMELL
-„squid:S1192L"MDefine a constant instead of duplicating this literal "consumerHome" 6 times.(Œÿ‘58…–œ.HÔ°RCRITICALZ
+s
+squid:S106¹"9Replace this use of System.out or System.err by a logger.(¤®èÂûÿÿÿÿ8…–œ.H‰ôRMAJORZ
+CODE_SMELL
+„squid:S1192Z"MDefine a constant instead of duplicating this literal "consumerHome" 6 times.(Œÿ‘58…–œ.HôRCRITICALZ
+CODE_SMELL
+†squid:S1192'"IDefine a constant instead of duplicating this literal "mainHome" 3 times.(•‹òÅıÿÿÿÿ8õ–Äú‚.HšôRCRITICALZ
 CODE_SMELL

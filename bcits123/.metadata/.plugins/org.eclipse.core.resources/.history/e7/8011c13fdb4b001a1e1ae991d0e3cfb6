@@ -1,0 +1,23 @@
+package com.bcits.springsecurityrest;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.MediaType;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.bcits.springsecurityrest.beans.EmpInfoBean;
+
+public class CustomUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+	
+	private EmpInfoBean empInfo;
+	
+	@Override
+	protected String obtainUsername(HttpServletRequest request) {
+
+		if(request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)) {
+			try {
+				
+			}
+		}
+	}
+}

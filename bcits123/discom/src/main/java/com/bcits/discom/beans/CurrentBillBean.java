@@ -33,4 +33,4 @@ public class CurrentBillBean implements Serializable{
 	private String month;
 	@Column(name = "type_of_consumer")
 	private String typeOfConsumer;
-}
+}//End of Class

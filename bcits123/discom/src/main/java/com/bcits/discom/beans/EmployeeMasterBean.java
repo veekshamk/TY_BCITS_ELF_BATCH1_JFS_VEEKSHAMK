@@ -24,4 +24,4 @@ public class EmployeeMasterBean implements Serializable{
 	private String region;
 	@Column
 	private String designation;
-}
+}//End of Class

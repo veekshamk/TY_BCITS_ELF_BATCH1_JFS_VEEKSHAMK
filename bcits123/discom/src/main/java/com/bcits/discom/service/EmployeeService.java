@@ -12,4 +12,4 @@ public interface EmployeeService {
 	public boolean addEmployee(EmployeeMasterBean employeeBean);
 	public List<ConsumerMasterBean> showAllConsumers(String region);
 	public boolean addCurrentBill(CurrentBillBean currentBill);
-}
+}//End of Class

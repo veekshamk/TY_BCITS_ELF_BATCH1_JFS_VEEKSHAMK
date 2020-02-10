@@ -1,0 +1,16 @@
+package com.bcits.springsecurityrest.beans;
+
+import java.util.List;
+
+import lombok.Data;
+@Data
+public class EmployeeResponse {
+	
+	private int statusCode;
+	private String message;
+	private String description;
+	
+	private EmpInfoBean empInfo;
+	private List<EmpInfoBean> employeesList;
+	
+}//End of Class

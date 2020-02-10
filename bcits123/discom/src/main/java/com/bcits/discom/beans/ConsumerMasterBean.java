@@ -31,5 +31,4 @@ public class ConsumerMasterBean implements Serializable{
 	private String password;
 	@Column
 	private String address;
-
-}
+}//End of Class

@@ -1,24 +1,19 @@
 
-m
-squid:S106W"9Replace this use of System.out or System.err by a logger.(“ïóµ8É›ôò.H½ÀRMAJORZ
+‰squid:S11924"QDefine a constant instead of duplicating this literal "loggedInEmployee" 6 times.(ñÒó8É›ôò.HÆîRCRITICALZ
 CODE_SMELL
-`squid:S1481{"+Remove this unused "region" local variable.(õèüÈ8…òô.H™´RMINORZ
+‹squid:S1192F"SDefine a constant instead of duplicating this literal "Record Not Exists." 3 times.(ë‡Ñ8–©Ğì‚.HÇîRCRITICALZ
 CODE_SMELL
-‰squid:S11923"QDefine a constant instead of duplicating this literal "loggedInEmployee" 5 times.(ñÒó8É›ôò.H©®RCRITICALZ
+`squid:S1481u"+Remove this unused "region" local variable.(õèüÈ8…òô.HÂîRMINORZ
+CODE_SMELL
+osquid:S1854u":Remove this useless assignment to local variable "region".(õèüÈ8…òô.HÅîRMAJORZ
+CODE_SMELL
+‹squid:S1192+"NDefine a constant instead of duplicating this literal "employeeLogin" 7 times.(£–¶øşÿÿÿÿ8“ö…©.HÃîRCRITICALZ
+CODE_SMELL
+‘squid:S1192J"TDefine a constant instead of duplicating this literal "Please Login First!" 3 times.(¥êüÿÿÿÿ8–©Ğì‚.HÁîRCRITICALZ
 CODE_SMELL
 r
-squid:S106U"9Replace this use of System.out or System.err by a logger.(¾´™ìúÿÿÿÿ8Ë„äú.HÁ¾RMAJORZ
+squid:S106c"9Replace this use of System.out or System.err by a logger.(×¼ëÈøÿÿÿÿ8ÃüÄì‚.HÄîRMAJORZ
 CODE_SMELL
-osquid:S1854{":Remove this useless assignment to local variable "region".(õèüÈ8…òô.H˜´RMAJORZ
+~squid:S11928"GDefine a constant instead of duplicating this literal "errMsg" 9 times.(‡Œ†8¯˜è¡.HÈîRCRITICALZ
 CODE_SMELL
-{squid:S4684e"@Replace this persistent entity with a simple POJO or DTO object.(Şò¬‡8Ñßó.H°®RCRITICALZVULNERABILITY
-m
-squid:S106T"9Replace this use of System.out or System.err by a logger.(£Ö“ã8ÅÒêú.HÅ¾RMAJORZ
-CODE_SMELL
-~squid:S11927"GDefine a constant instead of duplicating this literal "errMsg" 7 times.(‡Œ†8¯˜è¡.H§®RCRITICALZ
-CODE_SMELL
-m
-squid:S106Q"9Replace this use of System.out or System.err by a logger.(£Ö“ã8ÅÒêú.HÆ¾RMAJORZ
-CODE_SMELL
-‹squid:S1192*"NDefine a constant instead of duplicating this literal "employeeLogin" 6 times.(£–¶øşÿÿÿÿ8“ö…©.H¨®RCRITICALZ
-CODE_SMELL
+{squid:S4684b"@Replace this persistent entity with a simple POJO or DTO object.(Şò¬‡8Ñßó.HÀîRCRITICALZVULNERABILITY

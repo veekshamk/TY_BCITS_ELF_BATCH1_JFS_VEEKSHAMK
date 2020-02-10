@@ -93,3 +93,15 @@ i
 .src/main/webapp/WEB-INF/views/billGenerate.jsp,c\a\caa41b6f32b52994ea11e983c3b1a05cf15e4aab
 d
 4src/main/webapp/WEB-INF/views/billGenerationPage.jsp,c\e\cea4addb2af2c846a0a76de7872af9cc1ad3f1a8
+v
+Fsrc/main/java/com/bcits/discom/tarrifcalculation/CommercialTarrif.java,b\4\b402a9ed1a247d009e7f01835a4c8b0be061a80f
+v
+Fsrc/main/java/com/bcits/discom/tarrifcalculation/IndustriesTarrif.java,4\8\4873371044ec85c6336f04e43f6e9c1166ee47e1
+w
+Gsrc/main/java/com/bcits/discom/tarrifcalculation/ResidentialTarrif.java,3\f\3f0a2e6e866c9cc143986f9969b4e0a3a6b15f50
+X
+(src/main/webapp/WEB-INF/views/header.jsp,c\b\cb531d3ceedf877860b36a3c7f7856bda7d93ea2
+X
+(src/main/webapp/WEB-INF/views/footer.jsp,9\a\9a549875954782aadfd152200a74f49acf667acb
+^
+.src/main/webapp/WEB-INF/views/showAllBills.jsp,b\4\b4239a91e5704c7aad0fc3406200e1ef7ef833a4

@@ -1,0 +1,4 @@
+
+ysquid:S53448">Don't use the default "PasswordEncoder" relying on plain-text.(Ö˜ÔÚ8“–Íõ‚.HŽìRCRITICALZVULNERABILITY
+¦squid:S3305"nInject this field value directly into "getUsernamePasswordAuthenticationFilter", the only method that uses it.(ààé’8ý¸Çõ‚.HŒìRCRITICALZ
+CODE_SMELL

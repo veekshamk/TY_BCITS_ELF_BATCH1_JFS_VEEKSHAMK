@@ -1,0 +1,36 @@
+package com.bcits.springsecurityrest.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bcits.springsecurityrest.beans.EmpInfoBean;
+import com.bcits.springsecurityrest.beans.EmployeeResponse;
+import com.bcits.springsecurityrest.service.EmpService;
+
+@RestController
+public class EmployeeController {
+	
+	@Autowired
+	private EmpService service;
+	
+	@GetMapping("/getEmployee")
+	public EmployeeResponse getEmployee(int empId) {
+		
+		EmpInfoBean empInfo = service.getEmployee(empId);
+		
+		EmployeeResponse response = new EmployeeResponse();
+		if(empInfo != null) {
+			response.setDescription("Employee Record Found!!!");
+			response.setEmpInfo(empInfo);
+			response.setMessage("Success");
+			response.setStatusCode(201);
+		}else {
+			response.setStatusCode(201);
+			response.setMessage("faoled");
+			response.setDescription("Employee Record not Found...");
+		}
+		return response;
+	}
+
+}

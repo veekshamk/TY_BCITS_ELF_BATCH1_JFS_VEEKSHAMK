@@ -1,7 +1,7 @@
 
-dWeb:TableWithoutCaptionCheck^" Add a description to this table.(¼ëùÏşÿÿÿÿ8ÿ–÷ª.H­´RMINORZBUG
-~ Web:TableHeaderHasIdOrScopeCheckc";Add either an 'id' or a 'scope' attribute to this <th> tag.(¶õÛ—8ßÙ§«.H®´RMAJORZBUG
-} Web:TableHeaderHasIdOrScopeCheckb";Add either an 'id' or a 'scope' attribute to this <th> tag.(õ™8ßÙ§«.H¯´RMAJORZBUG
-j	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷ÃûÿÿÿÿH°´RMAJORZBUG
-~ Web:TableHeaderHasIdOrScopeChecka";Add either an 'id' or a 'scope' attribute to this <th> tag.(ó€Ú8ßÙ§«.H±´RMAJORZBUG
-} Web:TableHeaderHasIdOrScopeCheck`";Add either an 'id' or a 'scope' attribute to this <th> tag.(‹ÚØT8¾‚£«.H²´RMAJORZBUG
+} Web:TableHeaderHasIdOrScopeCheckj";Add either an 'id' or a 'scope' attribute to this <th> tag.(‹ÚØT8ßÙ§«.H…ïRMAJORZBUG
+} Web:TableHeaderHasIdOrScopeCheckl";Add either an 'id' or a 'scope' attribute to this <th> tag.(õ™8¾‚£«.H„ïRMAJORZBUG
+j	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷ÃûÿÿÿÿH‚ïRMAJORZBUG
+dWeb:TableWithoutCaptionCheckh" Add a description to this table.(¼ëùÏşÿÿÿÿ8ÿ–÷ª.HƒïRMINORZBUG
+~ Web:TableHeaderHasIdOrScopeCheckk";Add either an 'id' or a 'scope' attribute to this <th> tag.(ó€Ú8ßÙ§«.H†ïRMAJORZBUG
+~ Web:TableHeaderHasIdOrScopeCheckm";Add either an 'id' or a 'scope' attribute to this <th> tag.(¶õÛ—8ßÙ§«.HïRMAJORZBUG

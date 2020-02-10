@@ -14,10 +14,9 @@ import lombok.Data;
 @Entity
 @Table(name="tarrif_master")
 public class TarrifMasterBean implements Serializable {
-	
+
 	@EmbeddedId
 	private TarrifPK tarrifpk;
-	
 	@Column
 	private double amount;
-}
+}//End of Class

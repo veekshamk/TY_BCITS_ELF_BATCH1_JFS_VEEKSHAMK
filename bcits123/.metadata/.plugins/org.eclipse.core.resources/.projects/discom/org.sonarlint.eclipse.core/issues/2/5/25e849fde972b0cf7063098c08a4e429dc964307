@@ -1,12 +1,8 @@
 
-fWeb:AvoidCommentedOutCodeCheckJ"Remove this commented out code.(í³…õ8×æ¶Ÿ.Hş}RMAJORZ
+lWeb:AvoidCommentedOutCodeCheckT"Remove this commented out code.(Ä¥Û‘ÿÿÿÿÿ8ÎøÂÓÿ-H–ïRMAJORZ
 CODE_SMELL
-i	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷ÃûÿÿÿÿHù}RMAJORZBUG
-kWeb:AvoidCommentedOutCodeCheckG"Remove this commented out code.(ä’å´şÿÿÿÿ8×æ¶Ÿ.Hü}RMAJORZ
+lWeb:AvoidCommentedOutCodeCheck-"Remove this commented out code.(Ûï»ÿÿÿÿÿ8×æ¶Ÿ.H˜ïRMAJORZ
 CODE_SMELL
-kWeb:AvoidCommentedOutCodeCheck-"Remove this commented out code.(Ûï»ÿÿÿÿÿ8×æ¶Ÿ.Hû}RMAJORZ
+gWeb:AvoidCommentedOutCodeCheckF"Remove this commented out code.(ğàš±8¢‘Êô‚.H—ïRMAJORZ
 CODE_SMELL
-kWeb:AvoidCommentedOutCodeCheckG"Remove this commented out code.(ä’å´şÿÿÿÿ8×æ¶Ÿ.Hı}RMAJORZ
-CODE_SMELL
-kWeb:AvoidCommentedOutCodeCheckW"Remove this commented out code.(Ä¥Û‘ÿÿÿÿÿ8ÎøÂÓÿ-Hú}RMAJORZ
-CODE_SMELL
+j	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷ÃûÿÿÿÿH™ïRMAJORZBUG
