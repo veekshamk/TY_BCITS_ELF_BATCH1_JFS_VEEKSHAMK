@@ -10,6 +10,7 @@ import com.bcits.discom.beans.BillHistoryBean;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.MonthlyConsumptionBean;
+import com.bcits.discom.beans.QueryMessageBean;
 import com.bcits.discom.dao.ConsumerDAO;
 
 @Service
@@ -25,7 +26,7 @@ public class ConsumerServiceImplementation implements ConsumerService{
 			return dao.consumerSignUp(consumerBean);
 		}
 		return false;
-	}
+	}//End of consumerSignUp()
 
 	@Override
 	public ConsumerMasterBean consumerLogin(String email, String password) {
@@ -33,46 +34,57 @@ public class ConsumerServiceImplementation implements ConsumerService{
 			return null;
 		}
 		return dao.consumerLogin(email, password);
-	}	
+	}//End of consumerLogin()	
 
 
 	@Override
 	public List<BillHistoryBean> showBillHistory(String rrNumber) {
 
 		return dao.showBillHistory(rrNumber);
-	}
+	}//End of showBillHistory()
 
 	@Override
 	public CurrentBillBean generateCurrentBill(String rrNumber) {
 		return dao.generateCurrentBill(rrNumber);
-	}
+	}//End of generateCurrentBill()
 
 	@Override
 	public List<MonthlyConsumptionBean> showMonthlyConsumption(String rrNumber) {
 
 		return dao.showMonthlyConsumption(rrNumber);
-	}
+	}//End of showMonthlyConsumption()
 
 	@Override
 	public boolean payment(String rrNumber, Date date, double amount) {
 
 		return dao.payment(rrNumber, date, amount);
-	}
+	}//End of payment()
 
 	@Override
 	public ConsumerMasterBean getConsumer(String rrNumber) {
 		return dao.getConsumer(rrNumber);
-	}
+	}//End of getConsumer()
 
 	@Override
 	public long getInitialReading(String rrNumber) {
 		return dao.getInitialReading(rrNumber);
-	}
+	}//End of getInitialReading()
 
 	@Override
-	public List<MonthlyConsumptionBean> getAllbills(String region) {
-		return dao.getAllbills(region);
-	}
+	public List<MonthlyConsumptionBean> getAllBills(String region) {
+		return dao.getAllBills(region);
+	}//End of getAllbills()
+	
+	@Override
+	public List<QueryMessageBean> getResponse(String rrNumber) {
+		return dao.getResponse(rrNumber);
+	}//End of getResponse()
 
+	@Override
+	public boolean setQuery(String request, String rrNumber, String region) {
+		if(request != null && !request.isEmpty()) {
+			return dao.setQuery(request, rrNumber, region);		}
+		return false;
+	}//End of setQuery()
 
-}
+}//End of Class

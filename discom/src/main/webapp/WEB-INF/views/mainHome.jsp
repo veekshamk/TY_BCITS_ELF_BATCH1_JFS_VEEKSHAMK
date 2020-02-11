@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <%
 	String errMsg = (String) request.getAttribute("errMsg");
 	String msg = (String) request.getAttribute("msg");
@@ -36,83 +35,92 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet" />
-	<link rel="stylesheet" href="${css}/mainHome.css">
+<link rel="stylesheet" href="${css}/mainHome.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DISCOM MAIN HOME PAGE</title>
 </head>
 <body>
-<form action="./mainHomePage">
-	<nav class="nav">
-	<div class="container">
-		<div class="logo">
-			<a href="#" style="font-size: 30px">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+	<form action="./mainHomePage">
+		<nav class="nav">
+		<div class="container">
+			<div class="logo">
+				<a href="#" style="font-size: 30px">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+			</div>
+			<div class="main_list" id="mainListDiv" style="font-size: 20px">
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./mainHomePage">Home</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
+				</ul>
+			</div>
+			<div class="media_button">
+				<button class="main_media_button" id="mediaButton">
+					<span></span> <span></span> <span></span>
+				</button>
+			</div>
 		</div>
-		<div class="main_list" id="mainListDiv" style="font-size: 20px">
-			<ul>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./mainHomePage">Home</a></li>
-				<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
-				<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-				<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
-			</ul>
-		</div>
-		<div class="media_button">
-			<button class="main_media_button" id="mediaButton">
-				<span></span> <span></span> <span></span>
-			</button>
-		</div>
-	</div>
-	</nav>
+		</nav>
 
-	<section class="home"> <br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="login">
-		<a href="./consumerLoginPage" class="btn btn-primary" role="button"
-			style="width: 300px; height: 70px; font-size: 30px;">Consumer
-			Login</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-			href="./employeeLoginPage" class="btn btn-primary" role="button"
-			style="width: 300px; height: 70px; font-size: 30px;">Employee
-			Login</a>
-	</div>
-	
-	<% if(msg!=null && !msg.isEmpty()){ %>
-	<h2 style="color: #003399;"><%=msg%></h2>
-	<%} %>
+		<section class="home"> <br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="login">
+			<a href="./consumerLoginPage" class="btn btn-primary" role="button"
+				style="width: 300px; height: 70px; font-size: 30px;">Consumer
+				Login</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+				href="./employeeLoginPage" class="btn btn-primary" role="button"
+				style="width: 300px; height: 70px; font-size: 30px;">Employee
+				Login</a>
+		</div>
+		
+		
 
-	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
-	<h2 style="color: red;"><%=errMsg %></h2>
-	<%} %>
-	</section>
+		<%
+			if (msg != null && !msg.isEmpty()) {
+		%>
+		<h2 style="color: #003399;"><%=msg%></h2>
+		<%
+			}
+		%> <%
+ 	if (errMsg != null && !errMsg.isEmpty()) {
+ %>
+		<h2 style="color: red;"><%=errMsg %></h2>
+		<%} %> 
+	<br>
+	<br>
+	<jsp:include page="./footer.jsp"/>
+		</section>
 	</form>
-	
+
 </body>
 </html>

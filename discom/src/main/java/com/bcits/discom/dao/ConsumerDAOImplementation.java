@@ -16,6 +16,8 @@ import com.bcits.discom.beans.BillHistoryPK;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.MonthlyConsumptionBean;
+import com.bcits.discom.beans.QueryMessageBean;
+import com.bcits.discom.beans.QueryMsgBeanPK;
 
 @Repository
 public class ConsumerDAOImplementation implements ConsumerDAO {
@@ -40,7 +42,7 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 			manager.close();
 		}
 		return isAdded;
-	}
+	}//End of consumerSignUp()
 
 	@Override
 	public ConsumerMasterBean consumerLogin(String email, String password) {
@@ -52,7 +54,7 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 			return consumerBean;
 		}
 		return null;
-	}
+	}//End of consumerLogin()
 
 
 	@Override
@@ -65,7 +67,7 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 			return currentBill;
 		}
 		return null;
-	}
+	}//End of generateCurrentBill()
 
 	@Override
 	public List<BillHistoryBean> showBillHistory(String rrNumber) {
@@ -78,7 +80,7 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 		}
 		manager.close();
 		return null;
-	}
+	}//End of showBillHistory()
 
 	@Override
 	public List<MonthlyConsumptionBean> showMonthlyConsumption(String rrNumber) {
@@ -92,50 +94,55 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 		}
 		manager.close();
 		return null;
-	}
+	}//End of showMonthlyConsumption()
 
 	@Override
 	public boolean payment(String rrNumber, Date date, double amount) {
-		System.out.println(date);
-		System.out.println(rrNumber);
-		System.out.println(amount);
-		
-		EntityManager manager=factory.createEntityManager();
-		EntityTransaction transaction=manager.getTransaction();
-		
-		BillHistoryBean billHistoryBean=new BillHistoryBean();
-		BillHistoryPK billHistoryPk=new BillHistoryPK();
-		
-		billHistoryBean.setTotalAmount(amount);
-		billHistoryBean.setStatus("paid");
-		billHistoryPk.setRrNumber(rrNumber);
-		billHistoryPk.setDate(date);
-		billHistoryBean.setHistory(billHistoryPk);
-		
-		System.out.println(billHistoryBean);
-		System.out.println(billHistoryPk);
-		
-		if(billHistoryPk !=null) {
+		try {
+			EntityManager manager=factory.createEntityManager();
+			EntityTransaction transaction=manager.getTransaction();
+
+			String jpql = " from MonthlyConsumptionBean where consumptionPk.rrNumber =:rrNum order by finalReading desc ";
 			transaction.begin();
+			Query query = manager.createQuery(jpql);
+			query.setMaxResults(1);
+			query.setParameter("rrNum", rrNumber);
+
+			BillHistoryBean billHistoryBean=new BillHistoryBean();
+			BillHistoryPK billHistoryPk=new BillHistoryPK();
+			MonthlyConsumptionBean monthlyConsumptionBean = (MonthlyConsumptionBean) query.getSingleResult();
+
+			billHistoryBean.setTotalAmount(amount);
+			billHistoryBean.setStatus("paid");
+			billHistoryPk.setRrNumber(rrNumber);
+			billHistoryPk.setDate(date);
+			billHistoryBean.setHistory(billHistoryPk);
+
+			monthlyConsumptionBean.setStatus("Paid");
+			System.out.println(billHistoryBean);
+			System.out.println(billHistoryPk);
+
 			manager.persist(billHistoryBean);
 			transaction.commit();
 			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 		return false;
-	}
+	}//End of payment()
 
 	@Override
 	public ConsumerMasterBean getConsumer(String rrNumber) {
 		System.out.println(rrNumber);
 		EntityManager manager = factory.createEntityManager();
 		ConsumerMasterBean consumerBean = manager.find(ConsumerMasterBean.class, rrNumber);
-		
+
 		if(consumerBean != null) {
 			return consumerBean;
 		}
 		manager.close();
 		return null;
-	}
+	}//End of getConsumer()
 
 	@Override
 	public long getInitialReading(String rrNumber) {
@@ -155,10 +162,60 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 			return initialRead;
 		}
 		return 0;
-	}
+	}//End of getInitialReading()
 
 	@Override
-	public List<MonthlyConsumptionBean> getAllbills(String region) {
+	public List<MonthlyConsumptionBean> getAllBills(String region) {
+
+		EntityManager manager = factory.createEntityManager();
+		String jpql = " from MonthlyConsumptionBean where region=:region ";
+		Query query = manager.createQuery(jpql);
+		query.setParameter("region", region);
+		List<MonthlyConsumptionBean> allBills = query.getResultList();
+		System.out.println(allBills);
+		if(allBills != null) {
+			return allBills;
+		}
+		manager.close();
 		return null;
-	}
-}
+	}//End of getAllbills()
+
+	@Override
+	public List<QueryMessageBean> getResponse(String rrNumber) {
+		EntityManager manager = factory.createEntityManager();
+		try {
+			String jpql=" from QueryMsgBean where rrNumber= :num ";
+			Query query =manager.createQuery(jpql);
+			query.setParameter("num", rrNumber);
+			List<QueryMessageBean> response =query.getResultList();
+			return response;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}//End of getResponse()
+
+	@Override
+	public boolean setQuery(String request, String rrNumber, String region) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		QueryMessageBean msgBean = new QueryMessageBean();
+		QueryMsgBeanPK msgBeanPK = new QueryMsgBeanPK();
+		try {
+			transaction.begin();
+			msgBean.setRegion(region);
+			msgBeanPK.setRrNumber(rrNumber);
+			msgBean.setQueryRequest(request);
+			msgBeanPK.setDate(new Date());
+			msgBean.setMsgPK(msgBeanPK);
+			manager.persist(msgBean);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}//End of setQuery()
+
+
+}//End of Class

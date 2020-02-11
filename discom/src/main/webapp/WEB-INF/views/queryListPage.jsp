@@ -1,21 +1,13 @@
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.bcits.discom.beans.BillHistoryBean"%>
+<%@page import="com.bcits.discom.beans.QueryMessageBean"%>
 <%@page import="java.util.List"%>
-<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 
-<%
-	String errMsg = (String) request.getAttribute("errMsg");
-	String msg = (String) request.getAttribute("msg");
-%>
-
-<%
-	ConsumerMasterBean consumerBean = (ConsumerMasterBean) session.getAttribute("loggedInConsumer");
-%>
-<%
-	List<BillHistoryBean> bean = (List<BillHistoryBean>) request.getAttribute("history");
-%>
+ 
+    <% String errMsg = (String) request.getAttribute("errMsg"); %>
+  <%String msg = (String) request.getAttribute("msg"); %>
+<% List<QueryMessageBean> queryRequests = (List<QueryMessageBean>) request.getAttribute("query"); %>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
@@ -25,8 +17,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -51,9 +41,10 @@
 <link rel="stylesheet" href="${css}/mainHome.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DISCOM MAIN HOME PAGE</title>
+<meta charset="ISO-8859-1">
 </head>
 <body>
-	<form action="">
+	
 		<nav class="nav">
 		<div class="container">
 			<div class="logo">
@@ -71,7 +62,7 @@
 					<li><a href="#"></a></li>
 					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="./consumerLogout">Logout</a></li>
+					<li><a href="./employeeLogout">Logout</a></li>
 				</ul>
 			</div>
 			<div class="media_button">
@@ -86,51 +77,55 @@
 		<br>
 		<br>
 		<br>
-		<br>
-		<ul class="list-group" style="width: 300px; font-size: 25px">
-			<li class="list-group-item active">Account Details</li>
-			<li class="list-group-item"><a href="./consumerBillDisplay">Current
-					Bill</a></li>
-			<li class="list-group-item"><a href="./monthlyConsumption">Monthly
-					Consumption</a></li>
-			<li class="list-group-item"><a href="./billHistory">Bill
-					History</a></li>
-			<li class="list-group-item"><a href="./consumerLogout">Pay Online</a></li>
+		<ul class="list-group" style="width: 320px; font-size: 25px">
+			<li class="list-group-item active">Employee Details</li>
+			<li class="list-group-item"><a href="./consumerList">Show
+					All Consumers</a></li>
+			<li class="list-group-item"><a href="./generatePage">Electricity
+					Bill Generation</a></li>
+			<li class="list-group-item"><a href="./listOfBills">Show All
+					Bills</a></li>
+			<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
 		</ul>
+	<div class="table-responsive text-nowrap">
+		<h1 style="font-size: 30px">QUERY DETAILS</h1>
+		<table class="table">
+			<thead style="font-size: 20px">
+				<th>Date</th>
+				<th>RR Number</th>
+				<th>Request</th>
+				<th>Response</th>
+			</thead>
+			<tbody style="font-size: 20px">
 
-
-		<div class="table-responsive text-nowrap">
-			<h1 style="font-size: 30px">BILL HISTORY DETAILS</h1>
-			<table class="table">
-				<thead style="font-size: 20px">
-					<th>Date</th>
-					<th>RR Number</th>
-					<th>Total Amount</th>
-					<th>Status</th>
-				</thead>
-				<tbody style="font-size: 20px">
-					<%
-						for (BillHistoryBean list : bean) {
-					%><tr>
-
-						<%
-							SimpleDateFormat form = new SimpleDateFormat("dd-MM-yyyy");
-						%>
-
-						<td><%=form.format(list.getHistory().getDate())%></td>
-						<td><%=list.getHistory().getRrNumber()%></td>
-						<td><%=list.getTotalAmount()%></td>
-						<td><%=list.getStatus()%></td>
+				<% if(queryRequests != null) { %>
+    <%
+  for( QueryMessageBean queries :queryRequests) { %><tr>
+       <form action="./sendResponse" method="post">
+      
+      <input type="datetime" name="date" value="<%=queries.getMsgPK().getDate()%>" hidden="true" />
+      <%SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); %>
+      <td><strong><%= formatter.format(queries.getMsgPK().getDate()) %></strong></td>
+      <input type="text" name="rrNumber" value="<%= queries.getMsgPK().getRrNumber() %>" hidden="true"  />
+      <td><strong><%= queries.getMsgPK().getRrNumber() %></strong></td>
+      <td><strong><%= queries.getQueryRequest() %></strong></td>
+      <td><strong><%= queries.getQueryResponse() %></strong></td>
+      <td><textarea class="form-control"  rows="2" id="query" name ="query"></textarea></td> 
+ 	  <td><button type="submit" class="btn btn-primary">Send</button></td>
+ 	  
 					</tr>
-
-					<%
+				</form>
+				<%
 						}
 					%>
+				<%} %>
 
-				</tbody>
-			</table>
-
+			</tbody>
+		</table>
 		</div>
+		
+		
+		
 		<%
 			if (msg != null && !msg.isEmpty()) {
 		%>
@@ -141,12 +136,13 @@
  	if (errMsg != null && !errMsg.isEmpty()) {
  %>
 		<h2 style="color: red;"><%=errMsg%></h2>
-		<%} %> <jsp:include page="./footer.jsp"/>
-		</section>
-	</form>
-
-
-
+		<%
+			}
+		%> <!-- </div> --> </section>
+		<jsp:include page="./footer.jsp"/>
+	
 </body>
 </html>
 
+
+    

@@ -2,8 +2,7 @@
 <%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-
+	pageEncoding="ISO-8859-1"%>
 <%
 List<ConsumerMasterBean> consumerBean = (List<ConsumerMasterBean>) request.getAttribute("consumer");
 String errMsg = (String) request.getAttribute("errMsg");
@@ -47,96 +46,98 @@ String msg = (String) request.getAttribute("msg");
 <meta charset="ISO-8859-1">
 </head>
 <body>
-	
-		<nav class="nav">
-		<div class="container">
-			<div class="logo">
-				<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
-			</div>
-			<div class="main_list" id="mainListDiv" style="font-size: 20px">
-				<ul>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="./mainHomePage">Home</a></li>
-					<li><a href="#"></a></li>
-					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
-					<li><a href="#"></a></li>
-					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
-					<li><a href="#"></a></li>
-					<li><a href="./logout">Logout</a></li>
-				</ul>
-			</div>
-			<div class="media_button">
-				<button class="main_media_button" id="mediaButton">
-					<span></span> <span></span> <span></span>
-				</button>
-			</div>
-		</div>
-		</nav>
 
-		<section class="home"> <br>
-		<br>
-		<br>
-		<br>
-		<ul class="list-group" style="width: 320px; font-size: 25px">
-			<li class="list-group-item active">Employee Details</li>
-			<li class="list-group-item"><a href="./consumerList">Show
-					All Consumers</a></li>
-			<li class="list-group-item"><a href="./generatePage">Electricity Bill Generation..</a></li>
-			<li class="list-group-item"><a href="">Show
-					All Bills</a></li>
-		</ul>
+	<nav class="nav">
+	<div class="container">
+		<div class="logo">
+			<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+		</div>
+		<div class="main_list" id="mainListDiv" style="font-size: 20px">
+			<ul>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="./mainHomePage">Home</a></li>
+				<li><a href="#"></a></li>
+				<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
+				<li><a href="#"></a></li>
+				<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
+				<li><a href="#"></a></li>
+				<li><a href="./employeeLogout">Logout</a></li>
+			</ul>
+		</div>
+		<div class="media_button">
+			<button class="main_media_button" id="mediaButton">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+	</div>
+	</nav>
+
+	<section class="home"> <br>
+	<br>
+	<br>
+	<br>
+	<ul class="list-group" style="width: 320px; font-size: 25px">
+		<li class="list-group-item active">Employee Details</li>
+		<li class="list-group-item"><a href="./consumerList">Show All
+				Consumers</a></li>
+		<li class="list-group-item"><a href="./generatePage">Electricity
+				Bill Generation..</a></li>
+		<li class="list-group-item"><a href="./listOfBills">Show All
+				Bills</a></li>
+	</ul>
 
 	<% if(consumerBean != null){ %>
-		<div class="table-responsive text-nowrap">
-			<h1 style="font-size: 30px">CONSUMER DETAILS</h1>
-			<table class="table">
-				<thead style="font-size: 20px">
-					<th>Name</th>
-					<th>RR Number</th>
-					<th>Mobile Number</th>
-					<th>Email ID</th>
-					<th>Click here to Generate Bill</th>
-				</thead>
-				<tbody style="font-size: 20px">
-			
+	<div class="table-responsive text-nowrap">
+		<h1 style="font-size: 30px">CONSUMER DETAILS</h1>
+		<table class="table">
+			<thead style="font-size: 20px">
+				<th>Name</th>
+				<th>RR Number</th>
+				<th>Mobile Number</th>
+				<th>Email ID</th>
+				<th>Region</th>
+				<th>Type of Consumer</th>
+				<th>Click here to Generate Bill</th>
+			</thead>
+			<tbody style="font-size: 20px">
+
 				<%
 						for (ConsumerMasterBean list : consumerBean) {
 					%>
 				<form action="./billGeneratePage" method="get">
-				<input type="text" name="rrNumber" value="<%=list.getRrNumber()%>" hidden="true" />
+					<input type="text" name="rrNumber" value="<%=list.getRrNumber()%>"
+						hidden="true" />
 					<tr>
 						<%
 							SimpleDateFormat form = new SimpleDateFormat("dd-MM-yyyy");
 						%>
-						<td><%=list.getFullName()%></td>
+						<td><%=list.getFullName() %></td>
 						<td><%=list.getRrNumber()%></td>
 						<td><%=list.getMobileNumber()%></td>
 						<td><%=list.getEmail()%></td>
-						<td><input type="submit" value="Generate Bill" style="color: white; background: navy; width: 200px; height: 40px"></td>
+						<td><%=list.getRegion() %></td>
+						<td><%=list.getTypeOfConsumer() %>
+						<td><input type="submit" value="Generate Bill"
+							style="color: white; background: navy; width: 200px; height: 40px"></td>
 					</tr>
-					</form>
-					<%
+				</form>
+				<%
 						}
 					%>
-					<%} %>
-					
-				</tbody>
-			</table>
-			</div>
+				<%} %>
+
+			</tbody>
+		</table>
+	</div>
 	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
 	<h2 style="color: red;"><%=errMsg %></h2>
-	<%} %>
-	
-
-	<% if(msg!=null && !msg.isEmpty()){ %>
+	<%} %> <% if(msg!=null && !msg.isEmpty()){ %>
 	<h2 style="color: #003399;"><%=msg%></h2>
-	<%} %>
-
-    
-       </section>
+	<%} %> 
+	<jsp:include page="./footer.jsp"/>
+	</section>
 </body>
 </html>
-    

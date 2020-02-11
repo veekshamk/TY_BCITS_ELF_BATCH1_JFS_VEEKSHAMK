@@ -46,5 +46,5 @@ public class TarrifCalculation {
 
 		}
 		return bill;
-	}
-}
+	}//end of billCalculation()
+}//End of Class

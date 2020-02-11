@@ -1,20 +1,12 @@
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.bcits.discom.beans.BillHistoryBean"%>
+<%@page import="com.bcits.discom.beans.ContactUsBean"%>
 <%@page import="java.util.List"%>
-<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
+    pageEncoding="ISO-8859-1"%>
 <%
 	String errMsg = (String) request.getAttribute("errMsg");
 	String msg = (String) request.getAttribute("msg");
-%>
-
-<%
-	ConsumerMasterBean consumerBean = (ConsumerMasterBean) session.getAttribute("loggedInConsumer");
-%>
-<%
-	List<BillHistoryBean> bean = (List<BillHistoryBean>) request.getAttribute("history");
+	List<ContactUsBean> contactUsBean = (List<ContactUsBean>) request.getAttribute("response");
 %>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -25,11 +17,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -53,11 +44,11 @@
 <title>DISCOM MAIN HOME PAGE</title>
 </head>
 <body>
-	<form action="">
+	<form action="./mainHomePage">
 		<nav class="nav">
 		<div class="container">
 			<div class="logo">
-				<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+				<a href="#" style="font-size: 30px">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
 			</div>
 			<div class="main_list" id="mainListDiv" style="font-size: 20px">
 				<ul>
@@ -65,13 +56,26 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
 					<li><a href="./mainHomePage">Home</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="./consumerLogout">Logout</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
 				</ul>
 			</div>
 			<div class="media_button">
@@ -82,55 +86,43 @@
 		</div>
 		</nav>
 
-		<section class="home"> <br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<ul class="list-group" style="width: 300px; font-size: 25px">
-			<li class="list-group-item active">Account Details</li>
-			<li class="list-group-item"><a href="./consumerBillDisplay">Current
-					Bill</a></li>
-			<li class="list-group-item"><a href="./monthlyConsumption">Monthly
-					Consumption</a></li>
-			<li class="list-group-item"><a href="./billHistory">Bill
-					History</a></li>
-			<li class="list-group-item"><a href="./consumerLogout">Pay Online</a></li>
-		</ul>
-
-
+		<section class="home"> 
 		<div class="table-responsive text-nowrap">
-			<h1 style="font-size: 30px">BILL HISTORY DETAILS</h1>
+			<h1 style="font-size: 30px">CONSUMER DETAILS</h1>
 			<table class="table">
 				<thead style="font-size: 20px">
 					<th>Date</th>
 					<th>RR Number</th>
-					<th>Total Amount</th>
-					<th>Status</th>
+					<th>Response</th>
+					<th>Request</th>
 				</thead>
 				<tbody style="font-size: 20px">
+
 					<%
-						for (BillHistoryBean list : bean) {
-					%><tr>
+						for (ContactUsBean list : contactUsBean) {
+					%>
+
+
+					<tr>
 
 						<%
 							SimpleDateFormat form = new SimpleDateFormat("dd-MM-yyyy");
 						%>
-
-						<td><%=form.format(list.getHistory().getDate())%></td>
-						<td><%=list.getHistory().getRrNumber()%></td>
-						<td><%=list.getTotalAmount()%></td>
-						<td><%=list.getStatus()%></td>
+						<td><%=form.format(list.getContactUsPK().getDate())%></td>
+						<td><%=list.getContactUsPK().getRrNumber()%></td>
+						<td><%=list.getResponse()%></td>
+						<td><%=list.getRequest()%></td>
+						
 					</tr>
 
 					<%
 						}
 					%>
-
 				</tbody>
 			</table>
-
 		</div>
+		
+
 		<%
 			if (msg != null && !msg.isEmpty()) {
 		%>
@@ -140,13 +132,13 @@
 		%> <%
  	if (errMsg != null && !errMsg.isEmpty()) {
  %>
-		<h2 style="color: red;"><%=errMsg%></h2>
-		<%} %> <jsp:include page="./footer.jsp"/>
+		<h2 style="color: red;"><%=errMsg %></h2>
+		<%} %>
+	<br>
+	<br>
+	<jsp:include page="./footer.jsp"/>
 		</section>
 	</form>
 
-
-
 </body>
 </html>
-

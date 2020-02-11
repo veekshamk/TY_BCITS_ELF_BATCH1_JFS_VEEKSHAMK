@@ -42,68 +42,72 @@
 </head>
 <body>
 	<form action="./aboutUsPage">
-	
-	<nav class="nav">
-	<div class="container">
-		<div class="logo">
-			<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
-		</div>
-		<div class="main_list" id="mainListDiv" style="font-size: 20px">
-			<ul>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./mainHomePage">Home</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./aboutUs">About&nbsp;&nbsp;Us</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
-				<li><a href="#"></a></li>
-				<!-- <li><a href="./logout">Logout</a></li> -->
-			</ul>
-		</div>
-		<div class="media_button">
-			<button class="main_media_button" id="mediaButton">
-				<span></span> <span></span> <span></span>
-			</button>
-		</div>
-	</div>
-	</nav>
-	<section class="home"> <br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
-	<div class="aboutUs">
-		<p style="font-family: monospace; font-size: 25px">&nbsp;&nbsp;&nbsp;Electricity Distribution Company, "DISCOM PRIVATE LIMITED" is
-			one of the leading electricity company(DISCOM) in India with more
-			then 10 million customer billed every month for their electricity
-			consumption.</p>
-	</div>
-	<%
-		if (msg != null && !msg.isEmpty()) {
-	%>
-	<h2 style="color: #003399;"><%=msg%></h2>
-	<%
-		}
-	%>
 
-	<%
-		if (errMsg != null && !errMsg.isEmpty()) {
-	%>
-	<h2 style="color: red;"><%=errMsg%></h2>
-	<%
-		}
-	%>
-	</section>
+		<nav class="nav">
+		<div class="container">
+			<div class="logo">
+				<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+			</div>
+			<div class="main_list" id="mainListDiv" style="font-size: 20px">
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./mainHomePage">Home</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./aboutUs">About&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+			<div class="media_button">
+				<button class="main_media_button" id="mediaButton">
+					<span></span> <span></span> <span></span>
+				</button>
+			</div>
+		</div>
+		</nav>
+		<section class="home"> <br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
-		
+		<div class="aboutUs">
+			<p style="font-family: monospace; font-size: 25px">&nbsp;&nbsp;&nbsp;Electricity
+				Distribution Company, "DISCOM PRIVATE LIMITED" is one of the leading
+				electricity company(DISCOM) in India with more then 10 million
+				customer billed every month for their electricity consumption.</p>
+		</div>
+		<%
+			if (msg != null && !msg.isEmpty()) {
+		%>
+		<h2 style="color: #003399;"><%=msg%></h2>
+		<%
+			}
+		%> <%
+ 	if (errMsg != null && !errMsg.isEmpty()) {
+ %>
+		<h2 style="color: red;"><%=errMsg%></h2>
+		<%
+			}
+		%>
+		<br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+<br>
+		<br><br>
+		<br>		<jsp:include page="./footer.jsp"/> </section>
+
+
 	</form>
-	
+
 
 </body>
 </html>

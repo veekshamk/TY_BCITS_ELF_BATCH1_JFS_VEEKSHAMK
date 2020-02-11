@@ -1,14 +1,13 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.bcits.discom.beans.MonthlyConsumptionBean"%>
 <%@page import="java.util.List"%>
-<%@page import="com.bcits.discom.beans.EmployeeMasterBean"%>
-<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<% ConsumerMasterBean consumerBean = (ConsumerMasterBean) request.getAttribute("consumerBean");
-       long initialFinal =(Long) request.getAttribute("initial");
-       EmployeeMasterBean employeeBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee"); 
-       String errMsg=(String)request.getAttribute("errMsg");
-	   String msg=(String)request.getAttribute("msg");%>
-
+<%
+List<MonthlyConsumptionBean> consumptionBean = (List<MonthlyConsumptionBean>) request.getAttribute("bill");
+String errMsg = (String) request.getAttribute("errMsg");
+String msg = (String) request.getAttribute("msg");
+%>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
@@ -47,6 +46,7 @@
 <meta charset="ISO-8859-1">
 </head>
 <body>
+
 	<nav class="nav">
 	<div class="container">
 		<div class="logo">
@@ -84,70 +84,58 @@
 		<li class="list-group-item"><a href="./consumerList">Show All
 				Consumers</a></li>
 		<li class="list-group-item"><a href="./generatePage">Electricity
-				Bill Generation</a></li>
+				Bill Generation..</a></li>
 		<li class="list-group-item"><a href="./listOfBills">Show All
 				Bills</a></li>
 	</ul>
 
-	<div class="table-responsive text-nowrap"><br>
-
-		<h1 style="font-size: 30px">Electricity Bill Generation</h1><br>
-		<% if(consumerBean != null){ %>
-
+	<% if(consumptionBean != null){ %>
+	<div class="table-responsive text-nowrap">
+		<h1 style="font-size: 30px">CONSUMER DETAILS</h1>
 		<table class="table">
-			<thead style="font-size: 17px">
-				<th>RR Number</th>
-				<th>Initial Reading</th>
+			<thead style="font-size: 20px">
 				<th>Final Reading</th>
-				<th>Type of Consumer</th>
-				<th>Month</th>
-				<th>Date</th>
-				<th>Due date</th>
+				<th>Initial Reading</th>
 				<th>Region</th>
+				<th>Status</th>
+				<th>Total Amount</th>
+				<th>Units Consumed</th>
 			</thead>
-			<form action="./billGeneration" method="post">
-				<tbody style="font-size: 17px">
+			<tbody style="font-size: 20px">
+
+				<%
+						for (MonthlyConsumptionBean list : consumptionBean) {
+					%>
+				<form action="./listOfBills" method="get">
+					<input type="text" name="rrNumber"
+						value="<%=list.getConsumptionPk().getRrNumber()%>" hidden="true" />
 					<tr>
-						<td><input type="text" id="rrNumber" name="rrNumber" /></td>
-						<td><input type="number" id="initial" name="initialReading" /></td>
-						<td><input type="tel" id="final" name="finalReading" /></td>
-						<td><!-- <input type="text" id="typeOfConsumer"
-							name="typeOfConsumer" /> -->
-							</select> <select
-								name="typeOfConsumer" id="typeOfConsumer">
-								<option value="0" selected disabled>select</option>
-								<option value="Residential">residential</option>
-								<option value="Commercial">commercial</option>
-								<option value="Industrial">industries</option>
-							</select>
-							<td><input type="text" id="month" name="month" /></td>
-							<td><input type="date" id="date" name="date" /></td>
-							</td>
-						<td><input type="date" id="dueDate" name="dueDate" /></td>
-						<td><!-- <input type="text" id="region" name="region" /> -->
-						 <select name="region" id="region">
-								<option value="0" selected disabled>Select</option>
-								<option value="Bangalore South">Bangalore South</option>
-								<option value="Bangalore North">Bangalore North</option></td>
-						<td><input type="submit" value="Generate Bill"
-							style="color: white; background: navy; width: 200px; height: 40px"></td>
+						<%
+							SimpleDateFormat form = new SimpleDateFormat("dd-MM-yyyy");
+						%>
+						<td><%=list.getFinalReading()%></td>
+						<td><%=list.getInitialReading()%></td>
+						<td><%=list.getRegion()%></td>
+						<td><%=list.getStatus() %></td>
+						<td><%=list.getTotalAmount() %></td>
+						<td><%=list.getUnitsConsumed() %></td>
+
 					</tr>
-				</tbody>
-			</form>
-			<%
+				</form>
+				<%
 						}
 					%>
+				<%} %>
 
+			</tbody>
 		</table>
 	</div>
-	<% if(msg!=null && !msg.isEmpty()){ %>
-	<h2 style="color: #003399;"><%=msg%></h2>
-	<%} %> <% if(errMsg!=null && !errMsg.isEmpty()){ %>
+	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
 	<h2 style="color: red;"><%=errMsg %></h2>
-	<%} %><br><br><br><br><br><br>
+	<%} %> <% if(msg!=null && !msg.isEmpty()){ %>
+	<h2 style="color: #003399;"><%=msg%></h2>
+	<%} %> 
 	<jsp:include page="./footer.jsp"/>
-	 </section>
-
-
+	</section>
 </body>
 </html>

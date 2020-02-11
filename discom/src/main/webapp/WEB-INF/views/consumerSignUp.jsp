@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<jsp:include page="./footer.jsp"/>
 <% String errMsg=(String)request.getAttribute("errMsg");
 	String msg=(String)request.getAttribute("msg");%>
 
@@ -35,8 +35,8 @@
 				<label for="name">Name:</label> <input type="text" name="fullName"
 					id="fullName" placeholder="Enter Your Full Name" required /> <label
 					for="meter">rr Number:</label> <input type="text" name="rrNumber"
-					id="rrNumber" maxlength="30" placeholder="Enter rr Number" required/> <label
-					for="password">Password:</label> <input type="password"
+					id="rrNumber" maxlength="30" placeholder="Enter rr Number" required />
+				<label for="password">Password:</label> <input type="password"
 					name="password" id="password" placeholder="Enter Password" required
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 					title="Must contain at least
@@ -49,31 +49,28 @@
 					placeholder="Confirm Password" required /> <label for="email">Email
 					Address:</label> <input type="email" name="email" id="email"
 					placeholder="Enter Email Address" required /> <label for="mobile">Mobile
-					Number:</label> <input type="tel" name="phoneNumber" id="phoneNumber"
-					placeholder="Enter Mobile Number" required/> <label for="address">Address:<label>
+					Number:</label> <input type="number" name="phoneNumber" id="phoneNumber"
+					placeholder="Enter Mobile Number" required /> <label for="address">Address:<label>
 						<textarea name="address" id="address" cols="48" rows="5" required></textarea>
 
 						<div class="inner">
 							<label for="region">Region:</label> <select name="region"
 								id="region">
 								<option value="0" selected disabled>Select</option>
-								<option value="South">Bangalore South</option>
-								<option value="North">Bangalore North</option>
+								<option value="Bangalore South">Bangalore South</option>
+								<option value="Bangalore North">Bangalore North</option>
 							</select> <label for="type">Type of Consumer:</label> <select
 								name="typeOfConsumer" id="typeOfConsumer">
 								<option value="0" selected disabled>select</option>
-								<option value="Residential">Residential</option>
-								<option value="Commercial">Commercial</option>
-								<option value="Industrial">Industrial</option>
+								<option value="Residential">residential</option>
+								<option value="Commercial">commercial</option>
+								<option value="Industrial">industries</option>
 							</select>
 						</div>
-						<button type="submit">SignUp</button>
-						<!-- <a class="SignUp" href="./signUpPage"></a> --> <!-- <button type="reset">Clear</button> -->
-
-
-						<!-- <p style="text-align: center;">
+						<button type="submit">SignUp</button> <!-- <a class="SignUp" href="./signUpPage"></a> -->
+						 <button type="reset">Clear</button>  <p style="text-align: center;">
                 <span>Already Register ? </span><a class="link" href="./consumerLoginPage">Log In</a>
-            </p> -->
+            </p> 
 			</form>
 		</div>
 	</div>

@@ -14,14 +14,13 @@ public class ResidentialTarrif {
 		System.out.println("Units is: "+units);
 		double bill=1;
 
-			if(units>=0 && units<=100) {
-				bill=units*4;
-			}else if(units>100 && units<=200){
-				bill=units*5;
-			}else if(units>200){
-				bill=units*8;
-			}
-			System.out.println("Bill is "+bill);
-	}
-}
-		
+		if(units>=0 && units<=100) {
+			bill=units*4;
+		}else if(units>100 && units<=200){
+			bill=units*5;
+		}else if(units>200){
+			bill=units*8;
+		}
+		System.out.println("Bill is "+bill);
+	}//End of main()
+}//End of Class

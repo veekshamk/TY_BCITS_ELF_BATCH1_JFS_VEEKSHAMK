@@ -10,10 +10,9 @@ import lombok.Data;
 @Data
 @Embeddable
 public class TarrifPK implements Serializable{
-	
+
 	@Column(name = "type_of_consumer")
 	private String typeOfConsumer;
 	@Column
 	private Long range;
-
-}
+}//End of Class

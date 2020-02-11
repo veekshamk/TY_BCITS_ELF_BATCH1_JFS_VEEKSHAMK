@@ -27,5 +27,4 @@ public class MonthlyConsumptionBean implements Serializable {
 	private long finalReading;
 	@Column
 	private String status;
-
-}
+}//End of Class

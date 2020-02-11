@@ -1,15 +1,15 @@
 <%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    <% String errMsg=(String)request.getAttribute("errMsg");
+	pageEncoding="ISO-8859-1"%>
+
+<% String errMsg=(String)request.getAttribute("errMsg");
 	String msg=(String)request.getAttribute("msg");%>
-	
-	<%
+
+<%
 	ConsumerMasterBean consumerBean = (ConsumerMasterBean) session.getAttribute("loggedInConsumer");
 %>
-	
-	<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
 <spring:url var="js" value="resources/js" />
 <spring:url var="images" value="resources/images" />
@@ -40,108 +40,117 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet" />
-	<link rel="stylesheet" href="${css}/mainHome.css">
+<link rel="stylesheet" href="${css}/mainHome.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DISCOM MAIN HOME PAGE</title>
 </head>
 <body>
-<form action="">
-	<nav class="nav">
-	<div class="container">
-		<div class="logo">
-			<a href="#" style="font-size: 30px">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+	
+		<nav class="nav">
+		<div class="container">
+			<div class="logo">
+				<a href="#" style="font-size: 30px">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+			</div>
+			<div class="main_list" id="mainListDiv" style="font-size: 20px">
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./mainHomePage">Home</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./consumerLogout">Logout</a></li>
+				</ul>
+			</div>
+			<div class="media_button">
+				<button class="main_media_button" id="mediaButton">
+					<span></span> <span></span> <span></span>
+				</button>
+			</div>
 		</div>
-		<div class="main_list" id="mainListDiv" style="font-size: 20px">
-			<ul>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./mainHomePage">Home</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./logout">Logout</a></li>
-			</ul>
-		</div>
-		<div class="media_button">
-			<button class="main_media_button" id="mediaButton">
-				<span></span> <span></span> <span></span>
-			</button>
-		</div>
-	</div>
-	</nav>
+		</nav>
 
-	<section class="home">
-	<br><br><br>
-	<br>
-	<ul class="list-group" style="width: 300px; font-size: 25px">
-    <li class="list-group-item active">Account Details</li>
-    <li class="list-group-item"><a href="./consumerBillDisplay">Current Bill</a></li>        
-    <li class="list-group-item"><a href="./monthlyConsumption">Monthly Consumption</a></li>
-    <li class="list-group-item"><a href="./billHistory">Bill History</a></li>
-    <li class="list-group-item"><a href="./payment">Pay Online</a></li>
-</ul>
-	
-	
-	
-	<div class="table-responsive text-nowrap">
-	
-<h1 style="font-weight: 10px">ACCOUNT DETAILS</h1>
-
-  <table class="table">
-    
-    <tbody style="font-size: 25px">
-      <tr>
-        <td>Consumer Name</td>
-        <td>:</td>
-        <td><%=consumerBean.getFullName() %></td>
-      </tr>
-      <tr>
-        <td>RR Number</td>
-        <td>:</td>
-        <td><%=consumerBean.getRrNumber() %></td>
-      </tr>
-      <tr>
-        <td>Email ID</td>
-        <td>:</td>
-        <td><%=consumerBean.getEmail() %></td>
-      </tr>
-      <tr>
-        <td>Mobile Number</td>
-        <td>:</td>
-        <td><%=consumerBean.getMobileNumber() %></td>
-      </tr>
-      <tr>
-        <td>Region</td>
-        <td>:</td>
-        <td><%=consumerBean.getRegion() %></td>
-      </tr>
-      <tr>
-        <td>Type Of Consumer</td>
-        <td>:</td>
-        <td><%=consumerBean.getTypeOfConsumer() %></td>
-      </tr>
-    </tbody>
-  </table>
- 
-
-</div>
-		<% if(msg!=null && !msg.isEmpty()){ %>
-	<h2 style="color: #003399;"><%=msg%></h2>
-	<%} %>
-
-	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
-	<h2 style="color: red;"><%=errMsg %></h2>
-	<%} %>
+		<section class="home"> <br>
 		
-	
-	 
-	</section>
+		<br>
+		<br>
+		<br>
+		
+		<ul class="list-group" style="width: 300px; font-size: 25px">
+			<li class="list-group-item active">Account Details</li>
+			<li class="list-group-item"><a href="./consumerBillDisplay">Current
+					Bill</a></li>
+			<li class="list-group-item"><a href="./monthlyConsumption">Monthly
+					Consumption</a></li>
+			<li class="list-group-item"><a href="./billHistory">Bill
+					History</a></li>
+			<li class="list-group-item"><a href="./payment">Pay Online</a></li>
+		</ul>
+
+
+
+		<div class="table-responsive text-nowrap">
+
+			<h1 style="font-weight: 10px">ACCOUNT DETAILS</h1>
+
+			<table class="table">
+
+				<tbody style="font-size: 25px">
+					<tr>
+						<td>Consumer Name</td>
+						<td>:</td>
+						<td><%=consumerBean.getFullName() %></td>
+					</tr>
+					<tr>
+						<td>RR Number</td>
+						<td>:</td>
+						<td><%=consumerBean.getRrNumber() %></td>
+					</tr>
+					<tr>
+						<td>Email ID</td>
+						<td>:</td>
+						<td><%=consumerBean.getEmail() %></td>
+					</tr>
+					<tr>
+						<td>Mobile Number</td>
+						<td>:</td>
+						<td><%=consumerBean.getMobileNumber() %></td>
+					</tr>
+					<tr>
+						<td>Region</td>
+						<td>:</td>
+						<td><%=consumerBean.getRegion() %></td>
+					</tr>
+					<tr>
+						<td>Type Of Consumer</td>
+						<td>:</td>
+						<td><%=consumerBean.getTypeOfConsumer() %></td>
+					</tr>
+				</tbody>
+			</table>
+  
+    <form action="./query" >
+    <div class="form-group" style="width: 500px; font-size: 20px ;">
+  		<label for="comment"><strong >Query:</strong></label>
+ 		<textarea type="text" name="query" class="form-control" rows="2" id="query" ></textarea><br>
+ 		<button type="submit" class="btn btn-primary" style="margin-top: -7px;">Submit</button>
+	</div> 
 	</form>
 
-	
+		</div>
+		<% if(msg!=null && !msg.isEmpty()){ %>
+		<h2 style="color: #003399;"><%=msg%></h2>
+		<%} %> <% if(errMsg!=null && !errMsg.isEmpty()){ %>
+		<h2 style="color: red;"><%=errMsg %></h2>
+		<%} %> 
+		<jsp:include page="./footer.jsp"/>
+		</section>
+
+
+
 </body>
 </html>

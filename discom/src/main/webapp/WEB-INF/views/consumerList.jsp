@@ -4,7 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-
 <%
 	List<ConsumerMasterBean> consumerBean = (List<ConsumerMasterBean>) request.getAttribute("consumer");
 	String errMsg = (String) request.getAttribute("errMsg");
@@ -67,7 +66,7 @@
 					<li><a href="#"></a></li>
 					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="./logout">Logout</a></li>
+					<li><a href="./employeeLogout">Logout</a></li>
 				</ul>
 			</div>
 			<div class="media_button">
@@ -86,9 +85,9 @@
 			<li class="list-group-item active">Employee Details</li>
 			<li class="list-group-item"><a href="./consumerList">Show
 					All Consumers</a></li>
-			<li class="list-group-item"><a href="./generatePage">Electricity Bill Generation</a></li>
-			<li class="list-group-item"><a href="">Show
-					All Bills</a></li>
+			<li class="list-group-item"><a href="./generatePage">Electricity
+					Bill Generation</a></li>
+			<li class="list-group-item"><a href="./showAllBills">Show All Bills</a></li>
 		</ul>
 
 		<div class="table-responsive text-nowrap">
@@ -106,7 +105,7 @@
 						for (ConsumerMasterBean list : consumerBean) {
 					%>
 
-				
+
 					<tr>
 
 						<%
@@ -118,25 +117,23 @@
 						<td><%=list.getMobileNumber()%></td>
 						<td><%=list.getEmail()%></td>
 					</tr>
-					
+
 					<%
 						}
 					%>
 				</tbody>
 			</table>
-			</div>
-	<% if(msg!=null && !msg.isEmpty()){ %>
-	<h2 style="color: #003399;"><%=msg%></h2>
-	<%} %>
-
-	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
-	<h2 style="color: red;"><%=errMsg %></h2>
-	<%} %>
-	
-	</section>
+		</div>
+		<% if(msg!=null && !msg.isEmpty()){ %>
+		<h2 style="color: #003399;"><%=msg%></h2>
+		<%} %> <% if(errMsg!=null && !errMsg.isEmpty()){ %>
+		<h2 style="color: red;"><%=errMsg %></h2>
+		<%} %>
+		<jsp:include page="./footer.jsp"/>
+		 </section>
 	</form>
 
-	
+
 
 
 </body>

@@ -5,18 +5,21 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
-
 @Data
 @Entity
-@Table(name="tarrif_master")
-public class TarrifMasterBean implements Serializable {
-
+@Table(name="query_msg")
+public class QueryMessageBean implements Serializable{
+	
 	@EmbeddedId
-	private TarrifPK tarrifpk;
+	private QueryMsgBeanPK msgPK;
 	@Column
-	private double amount;
+	private String queryRequest;
+	@Column
+	private String queryResponse;
+	@Column
+	private String region;
+
 }//End of Class

@@ -2,13 +2,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<% String errMsg=(String)request.getAttribute("errMsg");
-	String msg=(String)request.getAttribute("msg");%>
-	
-	<%EmployeeMasterBean employeeBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");%>
-	<%-- <%long noc=(long) request.getAttribute("noc"); %> --%>
-	
-	
+<%
+	String errMsg = (String) request.getAttribute("errMsg");
+	String msg = (String) request.getAttribute("msg");
+%>
+
+<%
+	EmployeeMasterBean employeeBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
+%>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
@@ -39,90 +40,102 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet" />
-	<link rel="stylesheet" href="${css}/mainHome.css">
+<link rel="stylesheet" href="${css}/mainHome.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DISCOM MAIN HOME PAGE</title>
 <meta charset="ISO-8859-1">
 </head>
 <body>
-<form action="./empHome">
-	<nav class="nav">
-	<div class="container">
-		<div class="logo">
-			<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+	<form action="./empHome">
+		<nav class="nav">
+		<div class="container">
+			<div class="logo">
+				<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+			</div>
+			<div class="main_list" id="mainListDiv" style="font-size: 20px">
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./mainHomePage">Home</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./employeeLogout">Logout</a></li>
+				</ul>
+			</div>
+			<div class="media_button">
+				<button class="main_media_button" id="mediaButton">
+					<span></span> <span></span> <span></span>
+				</button>
+			</div>
 		</div>
-		<div class="main_list" id="mainListDiv" style="font-size: 20px">
-			<ul>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./mainHomePage">Home</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="./logout">Logout</a></li>
-			</ul>
+		</nav>
+
+		<section class="home"> <br>
+		<br>
+		<br>
+		<br>
+		<ul class="list-group" style="width: 320px; font-size: 25px">
+			<li class="list-group-item active">Employee Details</li>
+			<li class="list-group-item"><a href="./consumerList">Show
+					All Consumers</a></li>
+			<li class="list-group-item"><a href="./generatePage">Electricity
+					Bill Generation</a></li>
+			<li class="list-group-item"><a href="./listOfBills">Show All
+					Bills</a></li>
+			<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
+		</ul>
+		<!-- <div class="login"> -->
+		<div class="table-responsive text-nowrap">
+			<h1 style="font-weight: 10px">EMPLOYEE DETAILS</h1>
+			<table class="table">
+				&nbsp;&nbsp;
+				<tbody style="font-size: 25px">
+					<tr>
+						<td>Employee Name</td>
+						<td>:</td>
+						<td><%=employeeBean.getEmployeeName()%></td>
+					</tr>
+					<tr>
+						<td>Employee ID</td>
+						<td>:</td>
+						<td><%=employeeBean.getEmpId()%></td>
+					</tr>
+
+					<tr>
+						<td>Designation</td>
+						<td>:</td>
+						<td><%=employeeBean.getDesignation()%></td>
+					</tr>
+
+					<tr>
+						<td>Region</td>
+						<td>:</td>
+						<td><%=employeeBean.getRegion()%></td>
+					</tr>
+				</tbody>
+			</table>
+
 		</div>
-		<div class="media_button">
-			<button class="main_media_button" id="mediaButton">
-				<span></span> <span></span> <span></span>
-			</button>
-		</div>
-	</div>
-	</nav>
 
-	<section class="home"> <br><br><br><br>
-	<ul class="list-group" style="width: 320px; font-size: 25px">
-    <li class="list-group-item active">Employee Details</li>
-    <li class="list-group-item"><a href="./consumerList">Show All Consumers</a></li>        
-    <li class="list-group-item"><a href="./generatePage">Electricity Bill Generation</a></li>
-    <li class="list-group-item"><a href="./employeeHome">Show All Bills</a></li>
-</ul>
-	<!-- <div class="login"> -->
-	<div class="table-responsive text-nowrap">
-<h1 style="font-weight: 10px">EMPLOYEE DETAILS</h1>
-  <table class="table">
-   &nbsp;&nbsp; <tbody style="font-size: 25px">
-      <tr>
-        <td>Employee Name</td>
-        <td>:</td>
-        <td><%=employeeBean.getEmployeeName() %></td>
-      </tr>
-      <tr>
-        <td>Employee ID</td>
-        <td>:</td>
-        <td><%=employeeBean.getEmpId()%></td>
-      </tr>
-      
-      <tr>
-        <td>Designation</td>
-        <td>:</td>
-        <td><%=employeeBean.getDesignation()%></td>
-      </tr>
-      
-      <tr>
-        <td>Region</td>
-        <td>:</td>
-        <td><%=employeeBean.getRegion()%></td>
-      </tr>
-    </tbody>
-  </table>
-
-</div>
-
-	<% if(msg!=null && !msg.isEmpty()){ %>
-	<h2 style="color: #003399;"><%=msg%></h2>
-	<%} %>
-
-	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
-	<h2 style="color: red;"><%=errMsg %></h2>
-	<%} %>
-		
-	<!-- </div> -->
-	</section>
+		<%
+			if (msg != null && !msg.isEmpty()) {
+		%>
+		<h2 style="color: #003399;"><%=msg%></h2>
+		<%
+			}
+		%> <%
+ 	if (errMsg != null && !errMsg.isEmpty()) {
+ %>
+		<h2 style="color: red;"><%=errMsg%></h2>
+		<%
+			}
+		%> <!-- </div> --> </section>
+		<jsp:include page="./footer.jsp"/>
 	</form>
 
 </body>

@@ -10,7 +10,7 @@
 <%-- <spring:url var="images" value="resources/images" /> --%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html >
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +24,7 @@
 	<div class="box">
 
 		<div class="inner-box">
+		<marquee behavior="scroll" direction="left" style="color: black; font-size: 13px">Welcome to DESCOM CONSUMER SELF HELP PORTAL.</marquee>
 
 			<form action="./loginPage" method="post">
 				<h4>CONSUMER LOGIN</h4>
@@ -45,6 +46,12 @@
 			</form>
 		</div>
 	</div>
+	<br>
+	<br><br>
+	<br><br>
+	<br><br>
+	<br>
+	<jsp:include page="./footer.jsp"/>
 	<% if(msg!=null && !msg.isEmpty()){ %>
 	<h2 style="color: #003399;"><%=msg%></h2>
 	<%} %>

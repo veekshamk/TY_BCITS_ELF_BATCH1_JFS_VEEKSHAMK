@@ -28,7 +28,7 @@
 
 		<div class="inner-box">
 
-			<form action="./empLoginPage" method="post" >
+			<form action="./empLoginPage" method="post">
 				<h4>EMPLOYEE LOGIN</h4>
 
 				<label for="employeeId">Employee ID:</label> <input type="number"
@@ -41,8 +41,8 @@
               8 or more characters"
 					required /> <br>
 				<button type="submit">Login</button>
-				<!-- <a class="login" href=""></a>
-				<button type="reset">Reset</button> -->
+				 <a class="login" href=""></a>
+				<button type="reset">Reset</button>
 
 			</form>
 		</div>
@@ -62,5 +62,6 @@
 	<%
 		}
 	%>
+	<jsp:include page="./footer.jsp"/>
 </body>
 </html>
