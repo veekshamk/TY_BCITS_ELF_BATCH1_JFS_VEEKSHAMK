@@ -36,14 +36,13 @@ public class TarrifCalculation {
 
 		double bill = 0.0;
 
-		if (unitsConsumed < initialRange) {
+		if (unitsConsumed <= initialRange) {
 			bill = unitsConsumed * initialAmount;
-		} else if (unitsConsumed < midRange) {
+		} else if (unitsConsumed <= midRange) {
 			bill = (initialRange * initialAmount) + ((unitsConsumed - initialRange) * midAmount);
 		} else if (unitsConsumed > finalRange) {
 			bill = (initialRange * initialAmount) + ((midRange - initialRange) * midAmount)
-					+ ((unitsConsumed - midRange));
-
+					+ (unitsConsumed - midRange);
 		}
 		return bill;
 	}//end of billCalculation()

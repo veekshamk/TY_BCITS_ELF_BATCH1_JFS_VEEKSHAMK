@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<jsp:include page="./footer.jsp"/>
+
 <% String errMsg=(String)request.getAttribute("errMsg");
 	String msg=(String)request.getAttribute("msg");%>
 
@@ -29,28 +29,32 @@
 	<div class="box">
 		<div class="inner-box">
 
-			<form action="./signUpPage" method="post">
+			<form action="./signUpPage" method="post" onclick="Validate()">
 				<h2>User Registration</h2>
 
-				<label for="name">Name:</label> <input type="text" name="fullName"
-					id="fullName" placeholder="Enter Your Full Name" required /> <label
-					for="meter">rr Number:</label> <input type="text" name="rrNumber"
-					id="rrNumber" maxlength="30" placeholder="Enter rr Number" required />
-				<label for="password">Password:</label> <input type="password"
-					name="password" id="password" placeholder="Enter Password" required
+				<label for="name">Name:</label>
+				 <input type="text" name="fullName" id="fullName" placeholder="Enter Your Full Name" required />
+					
+					 <label for="meter">rr Number:</label>
+					  <input type="text" name="rrNumber" id="rrNumber" maxlength="10" placeholder="Enter rr Number" required title="RR Number should not exceed 10 digits"/>
+				
+				<label for="password">Password:</label> 
+				<input type="password" name="password" id="password" placeholder="Enter Password" required
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					title="Must contain at least
-             one number and one uppercase and lowercase letter, and at least
-              8 or more characters" />
-				<!--   <input type="password" name="" id="" placeholder="Enter Password" required/>
- -->
-				<label for="cpassword">Confirm Password:</label> <input
-					type="password" name="cpassword" id="cpassword"
-					placeholder="Confirm Password" required /> <label for="email">Email
-					Address:</label> <input type="email" name="email" id="email"
-					placeholder="Enter Email Address" required /> <label for="mobile">Mobile
-					Number:</label> <input type="number" name="phoneNumber" id="phoneNumber"
-					placeholder="Enter Mobile Number" required /> <label for="address">Address:<label>
+					title="Must contain at least one number and one uppercase 
+					and lowercase letter, and at least 8 or more characters" />
+              
+				<label for="cpassword">Confirm Password:</label> 
+				<input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" required /> 
+				
+				<label for="email">Email Address:</label> 
+				<input type="email" name="email" id="email" placeholder="Enter Email Address" required pattern=".+@gmail.com" size="30" title="Email should be valid "/> 
+				
+				<label for="mobileNumber">Mobile Number:</label> 
+				<input type="tel" name="mobileNumber" id="mobileNumber"
+					placeholder="Enter Mobile Number" pattern="[0-9]{10}" title="Mobile Number should contain 10 digits" required /> 
+					
+					<label for="address">Address:<label>
 						<textarea name="address" id="address" cols="48" rows="5" required></textarea>
 
 						<div class="inner">
@@ -62,15 +66,22 @@
 							</select> <label for="type">Type of Consumer:</label> <select
 								name="typeOfConsumer" id="typeOfConsumer">
 								<option value="0" selected disabled>select</option>
-								<option value="Residential">residential</option>
-								<option value="Commercial">commercial</option>
-								<option value="Industrial">industries</option>
+								<option value="Residential">Residential</option>
+								<option value="Commercial">Commercial</option>
+								<option value="Industries">Industries</option>
 							</select>
 						</div>
-						<button type="submit">SignUp</button> <!-- <a class="SignUp" href="./signUpPage"></a> -->
+						<button type="submit" value="submit" >SignUp</button> <!-- <a class="SignUp" href="./signUpPage"></a> -->
 						 <button type="reset">Clear</button>  <p style="text-align: center;">
                 <span>Already Register ? </span><a class="link" href="./consumerLoginPage">Log In</a>
             </p> 
+            
+         
+    
+
+
+
+
 			</form>
 		</div>
 	</div>
@@ -81,7 +92,8 @@
 	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
 	<h2 style="color: red;"><%=errMsg %></h2>
 	<%} %>
-	<!-- <script src="register.js"></script>  -->
+	<jsp:include page="./footer.jsp"/>
+	<srcipt src="${js}/consumerSignUp.js"></srcipt> 
 
 </body>
 </html>

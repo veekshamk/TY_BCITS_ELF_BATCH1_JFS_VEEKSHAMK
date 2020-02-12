@@ -87,6 +87,7 @@ String msg = (String) request.getAttribute("msg");
 				Bill Generation..</a></li>
 		<li class="list-group-item"><a href="./listOfBills">Show All
 				Bills</a></li>
+				<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
 	</ul>
 
 	<% if(consumerBean != null){ %>

@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +20,7 @@ import com.bcits.discom.beans.BillHistoryBean;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.MonthlyConsumptionBean;
-import com.bcits.discom.beans.QueryMessageBean;
+import com.bcits.discom.beans.QueryBean;
 import com.bcits.discom.service.ConsumerService;
 
 @Controller
@@ -45,7 +44,7 @@ public class ConsumerController {
 	public String diaplayAboutUsPage() {
 		return "aboutUs";
 	}//End of diaplayAboutUsPage()
-	
+
 	@GetMapping("/contactUs")
 	public String diaplayContactUsPage() {
 		return "contactUs";
@@ -62,8 +61,7 @@ public class ConsumerController {
 			modelMap.addAttribute("errMsg", "Please Login First..");
 		}
 		return "mainHome";
-
-	}
+	}//End of consumerLogout()
 
 	@GetMapping("/consumerSignUpPage")
 	public String diaplayConsumerSignUpPage() {
@@ -98,8 +96,8 @@ public class ConsumerController {
 		}else {
 			modelMap.addAttribute("errMsg", "Invalid Credentials!!");
 			return "consumerLogin";
-		}//End of ConsumerLogin()		
-	}//End of
+		}		
+	}//End of ConsumerLogin()
 
 	@GetMapping("/consumerBillDisplay")
 	public String displayCurrentBillPage(HttpSession session, ModelMap modelMap) {
@@ -212,7 +210,7 @@ public class ConsumerController {
 		ConsumerMasterBean consumerInfo = (ConsumerMasterBean) session.getAttribute("loggedInConsumer");
 		if (consumerInfo != null) {
 			if (service.setQuery(query, consumerInfo.getRrNumber(), consumerInfo.getRegion())) {
-				modelMap.addAttribute("msg", "query sent..");
+				modelMap.addAttribute("msg", "Query has been sent..");
 			}
 			return "consumerHome";
 		} else {
@@ -220,27 +218,22 @@ public class ConsumerController {
 			return "consumerLogin";
 		}
 	}//End of QuerySubmit()
-	
+
 	@GetMapping("/seeResponse")
 	public String seeResponse(HttpSession session, ModelMap modelMap) {
 		ConsumerMasterBean consumerInfo = (ConsumerMasterBean) session.getAttribute("loggedInConsumer");
 		if (consumerInfo != null) {
-			System.out.println(consumerInfo.getRrNumber());
 
-			List<QueryMessageBean> response = service.getResponse(consumerInfo.getRrNumber());
+			List<QueryBean> response = service.getResponse(consumerInfo.getRrNumber());
 			System.out.println(response);
 			modelMap.addAttribute("response",response);
 			return "responsePage";
-	}else {
-		modelMap.addAttribute("errMsg", "Please Login First..");
-		return "consumerLogin";
+		}else {
+			modelMap.addAttribute("errMsg", "Please Login First..");
+			return "consumerLogin";
 		}
 	}//End of seeResponse
-	
-
-
-
-	}//End of Class
+}//End of Class
 
 
 

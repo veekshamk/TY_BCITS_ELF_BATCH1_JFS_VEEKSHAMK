@@ -10,7 +10,7 @@ import com.bcits.discom.beans.BillHistoryBean;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.MonthlyConsumptionBean;
-import com.bcits.discom.beans.QueryMessageBean;
+import com.bcits.discom.beans.QueryBean;
 import com.bcits.discom.dao.ConsumerDAO;
 
 @Service
@@ -76,7 +76,7 @@ public class ConsumerServiceImplementation implements ConsumerService{
 	}//End of getAllbills()
 	
 	@Override
-	public List<QueryMessageBean> getResponse(String rrNumber) {
+	public List<QueryBean> getResponse(String rrNumber) {
 		return dao.getResponse(rrNumber);
 	}//End of getResponse()
 
@@ -86,5 +86,4 @@ public class ConsumerServiceImplementation implements ConsumerService{
 			return dao.setQuery(request, rrNumber, region);		}
 		return false;
 	}//End of setQuery()
-
 }//End of Class

@@ -87,6 +87,7 @@
 				Bill Generation</a></li>
 		<li class="list-group-item"><a href="./listOfBills">Show All
 				Bills</a></li>
+				<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
 	</ul>
 
 	<div class="table-responsive text-nowrap"><br>
@@ -118,7 +119,7 @@
 								<option value="0" selected disabled>select</option>
 								<option value="Residential">residential</option>
 								<option value="Commercial">commercial</option>
-								<option value="Industrial">industries</option>
+								<option value="Industries">industries</option>
 							</select>
 							<td><input type="text" id="month" name="month" /></td>
 							<td><input type="date" id="date" name="date" /></td>

@@ -1,11 +1,5 @@
-<%@page import="java.text.Normalizer.Form"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.bcits.discom.beans.MonthlyConsumptionBean"%>
-<%@page import="java.util.List"%>
-<%@page import="com.bcits.discom.beans.ConsumerMasterBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
+    pageEncoding="ISO-8859-1"%>
 <%
 	String errMsg = (String) request.getAttribute("errMsg");
 	String msg = (String) request.getAttribute("msg");
@@ -16,19 +10,9 @@
 <spring:url var="js" value="resources/js" />
 <spring:url var="images" value="resources/images" />
 
-<%
-	ConsumerMasterBean consumerBean = (ConsumerMasterBean) session.getAttribute("loggedInConsumer");
-%>
-<%
-	List<MonthlyConsumptionBean> bean = (List<MonthlyConsumptionBean>) request.getAttribute("consumption");
-%>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -53,9 +37,11 @@
 <link rel="stylesheet" href="${css}/mainHome.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DISCOM MAIN HOME PAGE</title>
+
 </head>
 <body>
-	<form action="">
+	<form action="./aboutUsPage">
+
 		<nav class="nav">
 		<div class="container">
 			<div class="logo">
@@ -69,11 +55,10 @@
 					<li><a href="#"></a></li>
 					<li><a href="./mainHomePage">Home</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
+					<li><a href="./aboutUs">About&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
 					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="./consumerLogout">Logout</a></li>
 				</ul>
 			</div>
 			<div class="media_button">
@@ -83,68 +68,31 @@
 			</div>
 		</div>
 		</nav>
-
 		<section class="home"> <br>
 		<br>
 		<br>
 		<br>
+		<br><br>
 		<br>
-		<ul class="list-group" style="width: 300px; font-size: 25px">
-			<li class="list-group-item active">Account Details</li>
-			<li class="list-group-item"><a href="./consumerBillDisplay">Current
-					Bill</a></li>
-			<li class="list-group-item"><a href="./monthlyConsumption">Monthly
-					Consumption</a></li>
-			<li class="list-group-item"><a href="./billHistory">Bill
-					History</a></li>
-			<li class="list-group-item"><a href="./payment">Pay Online</a></li>
-		</ul>
+		<br>
+		<br>
+		<br>
 
-
-		<div class="table-responsive text-nowrap">
-			<h1 style="font-weight: 7px">MONTHLY CONSUMPTION DETAILS</h1>
-			<table class="table">
-
-				<tbody style="font-size: 20px">
-					<%
-						for (MonthlyConsumptionBean list : bean) {
-					%><tr>
-
-						<%
-							SimpleDateFormat form = new SimpleDateFormat("dd-MM-yyyy");
-						%>
-						<td>Date</td>
-						<td>:</td>
-						<td><%=form.format(list.getConsumptionPk().getDate())%></td>
-					</tr>
-					<tr>
-						<td>RR Number</td>
-						<td>:</td>
-						<td><%=list.getConsumptionPk().getRrNumber()%></td>
-					</tr>
-					<%-- <tr>
-						<td>Region</td>
-						<td>:</td>
-						<td><%=list.getRegion()%></td>
-					</tr> --%>
-					<tr>
-						<td>Total Amount</td>
-						<td>:</td>
-						<td><%=list.getTotalAmount()%></td>
-					</tr>
-					<tr>
-						<td>Units Consumed</td>
-						<td>:</td>
-						<td><%=list.getUnitsConsumed()%></td>
-					</tr>
-					
-					<%
-						}
-					%>
-
-				</tbody>
-			</table>
-
+		<div class="aboutUs">
+			<p style="font-family: monospace; font-size: 25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			If you have any further queries please 
+			do not hesitate to contact us.
+			</p>
+			
+			<br><br>
+			
+			<p style="font-family: monospace; font-size: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							Contact Us : 9448351596
+			</p>
+			
+			
+			
 		</div>
 		<%
 			if (msg != null && !msg.isEmpty()) {
@@ -159,7 +107,16 @@
 		<%
 			}
 		%>
-		<jsp:include page="./footer.jsp"/> </section>
+		<br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+<br>
+		<br><br>
+		<br>		<jsp:include page="./footer.jsp"/> </section>
+
+
 	</form>
 
 

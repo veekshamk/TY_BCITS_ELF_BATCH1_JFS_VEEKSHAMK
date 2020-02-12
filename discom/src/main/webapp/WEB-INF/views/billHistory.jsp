@@ -95,7 +95,7 @@
 					Consumption</a></li>
 			<li class="list-group-item"><a href="./billHistory">Bill
 					History</a></li>
-			<li class="list-group-item"><a href="./consumerLogout">Pay Online</a></li>
+			<li class="list-group-item"><a href="./payment">Pay Online</a></li>
 		</ul>
 
 

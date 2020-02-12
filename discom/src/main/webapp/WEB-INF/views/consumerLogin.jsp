@@ -51,7 +51,7 @@
 	<br><br>
 	<br><br>
 	<br>
-	<jsp:include page="./footer.jsp"/>
+	
 	<% if(msg!=null && !msg.isEmpty()){ %>
 	<h2 style="color: #003399;"><%=msg%></h2>
 	<%} %>
@@ -59,5 +59,6 @@
 	<% if(errMsg!=null && !errMsg.isEmpty()){ %>
 	<h2 style="color: red;"><%=errMsg %></h2>
 	<%} %>
+	<jsp:include page="./footer.jsp"/>
 </body>
 </html>

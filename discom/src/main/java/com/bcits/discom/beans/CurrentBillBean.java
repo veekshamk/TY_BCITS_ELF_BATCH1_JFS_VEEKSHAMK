@@ -31,6 +31,8 @@ public class CurrentBillBean implements Serializable{
 	private double totalAmount;
 	@Column
 	private String month;
+	@Column
+	private String region;
 	@Column(name = "type_of_consumer")
 	private String typeOfConsumer;
 }//End of Class

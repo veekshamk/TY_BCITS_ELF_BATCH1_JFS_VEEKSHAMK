@@ -16,8 +16,8 @@ import com.bcits.discom.beans.BillHistoryPK;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.MonthlyConsumptionBean;
-import com.bcits.discom.beans.QueryMessageBean;
-import com.bcits.discom.beans.QueryMsgBeanPK;
+import com.bcits.discom.beans.QueryBean;
+import com.bcits.discom.beans.QueryBeanPK;
 
 @Repository
 public class ConsumerDAOImplementation implements ConsumerDAO {
@@ -27,7 +27,6 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 
 	@Override
 	public boolean consumerSignUp(ConsumerMasterBean consumerBean) {
-		//System.out.println(consumerBean);
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		boolean isAdded = false;
@@ -55,7 +54,6 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 		}
 		return null;
 	}//End of consumerLogin()
-
 
 	@Override
 	public CurrentBillBean generateCurrentBill(String rrNumber) {
@@ -181,13 +179,13 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 	}//End of getAllbills()
 
 	@Override
-	public List<QueryMessageBean> getResponse(String rrNumber) {
+	public List<QueryBean> getResponse(String rrNumber) {
 		EntityManager manager = factory.createEntityManager();
 		try {
-			String jpql=" from QueryMsgBean where rrNumber= :num ";
+			String jpql=" from QueryBean where queryPk.rrNumber= :rrNum ";
 			Query query =manager.createQuery(jpql);
-			query.setParameter("num", rrNumber);
-			List<QueryMessageBean> response =query.getResultList();
+			query.setParameter("rrNum", rrNumber);
+			List<QueryBean> response =query.getResultList();
 			return response;
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -199,15 +197,15 @@ public class ConsumerDAOImplementation implements ConsumerDAO {
 	public boolean setQuery(String request, String rrNumber, String region) {
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
-		QueryMessageBean msgBean = new QueryMessageBean();
-		QueryMsgBeanPK msgBeanPK = new QueryMsgBeanPK();
+		QueryBean msgBean = new QueryBean();
+		QueryBeanPK msgBeanPK = new QueryBeanPK();
 		try {
 			transaction.begin();
 			msgBean.setRegion(region);
 			msgBeanPK.setRrNumber(rrNumber);
 			msgBean.setQueryRequest(request);
 			msgBeanPK.setDate(new Date());
-			msgBean.setMsgPK(msgBeanPK);
+			msgBean.setQueryPk(msgBeanPK);
 			manager.persist(msgBean);
 			transaction.commit();
 			return true;

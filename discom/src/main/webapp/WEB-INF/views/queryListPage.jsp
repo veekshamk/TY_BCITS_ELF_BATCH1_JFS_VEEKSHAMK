@@ -1,5 +1,5 @@
+<%@page import="com.bcits.discom.beans.QueryBean"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.bcits.discom.beans.QueryMessageBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -7,7 +7,7 @@
  
     <% String errMsg = (String) request.getAttribute("errMsg"); %>
   <%String msg = (String) request.getAttribute("msg"); %>
-<% List<QueryMessageBean> queryRequests = (List<QueryMessageBean>) request.getAttribute("query"); %>
+<% List<QueryBean> queryRequests = (List<QueryBean>) request.getAttribute("query"); %>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
@@ -100,14 +100,14 @@
 
 				<% if(queryRequests != null) { %>
     <%
-  for( QueryMessageBean queries :queryRequests) { %><tr>
+  for( QueryBean queries :queryRequests) { %><tr>
        <form action="./sendResponse" method="post">
       
-      <input type="datetime" name="date" value="<%=queries.getMsgPK().getDate()%>" hidden="true" />
+      <input type="datetime" name="date" value="<%=queries.getQueryPk().getDate()%>" hidden="true" />
       <%SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); %>
-      <td><strong><%= formatter.format(queries.getMsgPK().getDate()) %></strong></td>
-      <input type="text" name="rrNumber" value="<%= queries.getMsgPK().getRrNumber() %>" hidden="true"  />
-      <td><strong><%= queries.getMsgPK().getRrNumber() %></strong></td>
+      <td><strong><%= formatter.format(queries.getQueryPk().getDate()) %></strong></td>
+      <input type="text" name="rrNumber" value="<%= queries.getQueryPk().getRrNumber() %>" hidden="true"  />
+      <td><strong><%= queries.getQueryPk().getRrNumber() %></strong></td>
       <td><strong><%= queries.getQueryRequest() %></strong></td>
       <td><strong><%= queries.getQueryResponse() %></strong></td>
       <td><textarea class="form-control"  rows="2" id="query" name ="query"></textarea></td> 

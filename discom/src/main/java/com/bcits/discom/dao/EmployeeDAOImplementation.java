@@ -17,7 +17,7 @@ import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.EmployeeMasterBean;
 import com.bcits.discom.beans.MonthlyConsumptionBean;
 import com.bcits.discom.beans.MonthlyConsumptionPK;
-import com.bcits.discom.beans.QueryMessageBean;
+import com.bcits.discom.beans.QueryBean;
 
 @Repository
 public class EmployeeDAOImplementation implements EmployeeDAO {
@@ -78,6 +78,7 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 		query.setParameter("region", region);
 
 		List<ConsumerMasterBean> consumerList = (List<ConsumerMasterBean>) query.getResultList();
+		System.out.println(consumerList);
 		if (consumerList != null) {
 			return consumerList;
 		}
@@ -115,7 +116,7 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 			consumptionBean.setInitialReading(currentBill.getInitialReading());
 			consumptionBean.setFinalReading(currentBill.getFinalReading());
 			consumptionBean.setUnitsConsumed(unitsConsumed);
-
+			consumptionBean.setRegion(currentBill.getRegion());
 			currentBill.setTotalAmount(totalAmount);
 			currentBill.setUnitsConsumed(unitsConsumed);
 
@@ -129,60 +130,17 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 		return false;
 	}//End of addCurrentBill()
 
-	/*@Override
-	public List<ContactUsBean> getQueryList(String region) {
-		EntityManager manager = factory.createEntityManager();
-		try {
-		String jpql = " from ContactUsBean where region=:region ";
-		Query query = manager.createQuery(jpql);
-		query.setParameter("region", region);
-
-		List<ContactUsBean> contactUsList = query.getResultList();
-		System.out.println("12"+contactUsList);
-		if (contactUsList == null && contactUsList.isEmpty()) {
-			return null;
-		}
-		return contactUsList;
-		}catch (Exception e) {
-			return null;
-		}
-	}//End of getQueryList()
-
-	@Override
-	public boolean sendResponse(String rrNumber, String response, Date date) {
-		EntityManager manager = factory.createEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
-
-		try {
-			transaction.begin();
-			String jpql = " from ContactUsBean where contactUsPK.rrNumber=:rrNum and DATE(contactUsPK.date)=:date ";
-			Query query = manager.createQuery(jpql);
-			query.setParameter("rrNum", rrNumber);
-			query.setParameter("date", date);
-			ContactUsBean contactUsBean = (ContactUsBean) query.getSingleResult();
-			contactUsBean.setResponse(response);
-			transaction.commit();
-			return true;
-		}catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}//End of sendResponse()
-*/
-	
-
-	
 	@Override
 	public boolean sendRespond(String rrNumber, String queryResponse, Date date) {
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		try {
 			transaction.begin();
-			String jpql = " from QueryMessageBean where msgPK.rrNumber=:num and DATE(msgPK.date)=:date ";
+			String jpql = " from QueryBean where queryPk.rrNumber=:num and DATE(queryPk.date)=:date ";
 			Query query = manager.createQuery(jpql);
 			query.setParameter("num", rrNumber);
 			query.setParameter("date", date);
-			QueryMessageBean queryBean = (QueryMessageBean) query.getSingleResult();
+			QueryBean queryBean = (QueryBean) query.getSingleResult();
 			queryBean.setQueryResponse(queryResponse);
 			transaction.commit();
 			return true;
@@ -193,13 +151,13 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 	}//End of sendRespond() 
 	
 	@Override
-	public List<QueryMessageBean> getQueryList(String region) {
+	public List<QueryBean> getQueryList(String region) {
 		EntityManager manager = factory.createEntityManager();
 
-			String jpql = " from QueryMessageBean where region =:region ";
+			String jpql = " from QueryBean where region =:region ";
 			Query queries = manager.createQuery(jpql);
 			queries.setParameter("region", region);
-			List<QueryMessageBean> queryList = queries.getResultList();
+			List<QueryBean> queryList = queries.getResultList();
 			if (queryList == null && queryList.isEmpty()) {
 				return null;
 			}

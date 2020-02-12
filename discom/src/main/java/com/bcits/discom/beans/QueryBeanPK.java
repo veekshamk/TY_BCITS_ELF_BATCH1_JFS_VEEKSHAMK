@@ -1,6 +1,7 @@
 package com.bcits.discom.beans;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -9,9 +10,9 @@ import lombok.Data;
 
 @Data
 @Embeddable
-public class TarrifPK implements Serializable{
-	@Column(name = "type_of_consumer")
-	private String typeOfConsumer;
+public class QueryBeanPK implements Serializable{
+	@Column(name="rr_number")
+	private String rrNumber;
 	@Column
-	private Long range;
+	private Date date;
 }//End of Class

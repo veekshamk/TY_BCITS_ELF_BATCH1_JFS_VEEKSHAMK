@@ -141,6 +141,16 @@
 				</div>
 			</div>
 		</div>
+		<ul class="list-group" style="width: 300px; font-size: 25px">
+			<li class="list-group-item active">Account Details</li>
+			<li class="list-group-item"><a href="./consumerBillDisplay">Current
+					Bill</a></li>
+			<li class="list-group-item"><a href="./monthlyConsumption">Monthly
+					Consumption</a></li>
+			<li class="list-group-item"><a href="./billHistory">Bill
+					History</a></li>
+			<li class="list-group-item"><a href="./payment">Pay Online</a></li>
+		</ul>
 		<script src="payment.js"></script>
 	</form>
 <jsp:include page="./footer.jsp"/>

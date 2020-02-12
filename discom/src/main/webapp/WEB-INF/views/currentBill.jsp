@@ -137,6 +137,11 @@ ConsumerMasterBean consumerBean=
 						<td>:</td>
 						<td><%=billBean.getTotalAmount()%></td>
 					</tr>
+					<tr>
+						<td>Region</td>
+						<td>:</td>
+						<td><%=billBean.getRegion()%></td>
+					</tr>
 				</tbody>
 			</table>
 

@@ -20,8 +20,8 @@ public class MailGeneration {
 
 		System.out.println("Sending Mail...");
 
-		final String username = "veeksha.descom@gmail.com";
-		final String password = "Geetha121";
+		final String username = "veeksha2010@gmail.com";
+		final String password = "Geetha121*";
 
 		Properties prop = new Properties();
 		prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -44,10 +44,21 @@ public class MailGeneration {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(consumerBean.getEmail()));
-			message.setSubject("DESCOM Online Service");
-			message.setText("Dear Consumer, "
+			message.setSubject("DESCOM Online Services");
+			message.setText("Dear "+consumerBean.getFullName()+","
 					+ "\n Kindly pay your Current Bill "+currentBill.getTotalAmount()
-					+ "\n Before "+currentBill.getDueDate()
+					+ "\n On or before "+currentBill.getDueDate()
+					+ "\n "
+					+ "\n Your Current Bill Deatails"
+					+ "\n --------------------------"
+					+ "\n Your RR Number is "+currentBill.getRrNumber()
+					+ "\n Month  : "+currentBill.getMonth()
+					+ "\n Initial Reading  : "+currentBill.getInitialReading()
+					+ "\n Final Reading  : "+currentBill.getFinalReading()
+					+ "\n Units Consumed  : "+currentBill.getUnitsConsumed()
+					+ "\n Total Amount  : "+currentBill.getTotalAmount()
+					+ "\n Region  : "+currentBill.getRegion()
+					+ "\n "
 					+ "\n Thank You");
 
 			Transport.send(message);
@@ -56,9 +67,7 @@ public class MailGeneration {
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }
 
 

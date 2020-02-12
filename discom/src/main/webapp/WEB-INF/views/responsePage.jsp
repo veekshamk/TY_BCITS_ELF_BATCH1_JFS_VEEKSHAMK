@@ -1,5 +1,5 @@
+<%@page import="com.bcits.discom.beans.QueryBean"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.bcits.discom.beans.QueryMessageBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -7,7 +7,7 @@
  
     <% String errMsg = (String) request.getAttribute("errMsg"); %>
   <%String msg = (String) request.getAttribute("msg"); %>
-<% List<QueryMessageBean> queryResponse = (List<QueryMessageBean>) request.getAttribute("response"); %>
+<% List<QueryBean> queryResponse = (List<QueryBean>) request.getAttribute("response"); %>
 
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -73,10 +73,10 @@
  <tbody>
 <% if(queryResponse != null) { %>
     <%
-  for( QueryMessageBean queries :queryResponse) { %><tr>
+  for( QueryBean queries :queryResponse) { %><tr>
       
       <%SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); %>
-      <td><strong><%= formatter.format(queries.getMsgPK().getDate()) %></strong></td>
+      <td><strong><%= formatter.format(queries.getQueryPk().getDate()) %></strong></td>
           <td><strong><%= queries.getQueryRequest() %></strong></td>
               <td><strong><%= queries.getQueryResponse() %></strong></td>
 

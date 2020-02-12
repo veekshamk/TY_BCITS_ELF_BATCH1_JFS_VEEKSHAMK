@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.EmployeeMasterBean;
-import com.bcits.discom.beans.QueryMessageBean;
+import com.bcits.discom.beans.QueryBean;
 import com.bcits.discom.dao.EmployeeDAO;
 
 @Service
@@ -49,21 +49,16 @@ public class EmployeeServiceImplementation implements EmployeeService{
 		return false;
 	}//End of addCurrentBill()
 
-
 	@Override
-	public List<QueryMessageBean> getQueryList(String region) {
+	public List<QueryBean> getQueryList(String region) {
 		if (region != null) {
 			return dao.getQueryList(region);
 		}
 		return null;
 	}//End of getQueryList()
 
-
 	@Override
 	public boolean sendRespond(String rrNumber, String response, Date date) {
 		return dao.sendRespond(rrNumber, response, date);
 		}//End of sendRespond()	
-	
-	
-
 }//End of Class

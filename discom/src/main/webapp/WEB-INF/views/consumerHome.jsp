@@ -135,8 +135,8 @@
   
     <form action="./query" >
     <div class="form-group" style="width: 500px; font-size: 20px ;">
-  		<label for="comment"><strong >Query:</strong></label>
- 		<textarea type="text" name="query" class="form-control" rows="2" id="query" ></textarea><br>
+  		<label for="comment"><strong >Write your Query:</strong></label>
+ 		<textarea type="text" name="query" class="form-control" rows="5" id="query" ></textarea><br>
  		<button type="submit" class="btn btn-primary" style="margin-top: -7px;">Submit</button>
 	</div> 
 	</form>

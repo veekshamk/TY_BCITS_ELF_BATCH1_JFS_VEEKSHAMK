@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+
+import com.sun.istack.NotNull;
 
 import lombok.Data;
 
@@ -13,7 +16,6 @@ import lombok.Data;
 @Entity
 @Table(name = "consumer_master")
 public class ConsumerMasterBean implements Serializable{
-
 	@Id
 	@Column(name = "rr_number")
 	private String rrNumber;

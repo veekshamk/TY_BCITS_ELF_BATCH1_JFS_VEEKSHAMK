@@ -20,7 +20,7 @@ import com.bcits.discom.beans.ConsumerMasterBean;
 import com.bcits.discom.beans.CurrentBillBean;
 import com.bcits.discom.beans.EmployeeMasterBean;
 import com.bcits.discom.beans.MonthlyConsumptionBean;
-import com.bcits.discom.beans.QueryMessageBean;
+import com.bcits.discom.beans.QueryBean;
 import com.bcits.discom.dao.MailGeneration;
 import com.bcits.discom.service.ConsumerService;
 import com.bcits.discom.service.EmployeeService;
@@ -137,8 +137,10 @@ public class EmployeeController {
 	@GetMapping("/listOfBills")
 	public String listOfBills(HttpSession session, ModelMap modelMap) {
 		EmployeeMasterBean employeeBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
+		System.out.println(employeeBean);
 		if (employeeBean != null) {
 			List<MonthlyConsumptionBean> billList = consumerService.getAllBills(employeeBean.getRegion());
+			System.out.println(billList);
 			if (billList != null && !billList.isEmpty()) {
 				modelMap.addAttribute("bill", billList);
 			} else {
@@ -154,7 +156,6 @@ public class EmployeeController {
 	@GetMapping("/employeeLogout")
 	public String employeeLogout(ModelMap modelMap, HttpSession session) {
 		EmployeeMasterBean employeeBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
-		
 		if(employeeBean != null) {
 			session.invalidate();
 			modelMap.addAttribute("msg", "Successfully Logged Out..");
@@ -168,11 +169,11 @@ public class EmployeeController {
 	public String diplayQueryDetails(ModelMap modelMap, HttpSession session) {
 		EmployeeMasterBean empInfo = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
 		if(empInfo != null) {
-			List<QueryMessageBean> queryList = empService.getQueryList(empInfo.getRegion());
+			List<QueryBean> queryList = empService.getQueryList(empInfo.getRegion());
 			if(queryList != null && !queryList.isEmpty()) {
 				modelMap.addAttribute("query",queryList);
 			} else {
-				modelMap.addAttribute("errMsg","No queries....");
+				modelMap.addAttribute("errMsg","No Queries Found....");
 			}
 			return "queryListPage";
 		}else {
@@ -185,11 +186,11 @@ public class EmployeeController {
 	public String addResponses(ModelMap modelMap, HttpSession session,String rrNumber,String query ,Date date) {
 		EmployeeMasterBean empInfo = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
 		if(empInfo != null) {
-			List<QueryMessageBean> queryList = empService.getQueryList(empInfo.getRegion());
+			List<QueryBean> queryList = empService.getQueryList(empInfo.getRegion());
 					
 			modelMap.addAttribute("query",queryList);
 			if(empService.sendRespond(rrNumber, query, date)) {
-				modelMap.addAttribute("msg","Sent");
+				modelMap.addAttribute("msg","Response has been Sent");
 			}
 			return "queryListPage";
 		}else {
