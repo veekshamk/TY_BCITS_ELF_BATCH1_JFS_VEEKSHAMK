@@ -87,7 +87,7 @@ public class ConsumerController {
 	}//End of add()
 
 	@PostMapping("/loginPage") 
-	public String ConsumerLogin(String email, String password ,HttpServletRequest req ,ModelMap modelMap) {
+	public String consumerLogin(String email, String password ,HttpServletRequest req ,ModelMap modelMap) {
 		ConsumerMasterBean consumerBean = service. consumerLogin(email, password);
 		if( consumerBean != null) {
 			HttpSession session = req.getSession(true);

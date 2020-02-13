@@ -183,10 +183,10 @@ public class EmployeeController {
 	}//End of diplayQueryDetails()
 	
 	@PostMapping("/sendResponse")
-	public String addResponses(ModelMap modelMap, HttpSession session,String rrNumber,String query ,Date date) {
-		EmployeeMasterBean empInfo = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
-		if(empInfo != null) {
-			List<QueryBean> queryList = empService.getQueryList(empInfo.getRegion());
+	public String addResponses(ModelMap modelMap, HttpSession session,String rrNumber, String query, Date date) {
+		EmployeeMasterBean empBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
+		if(empBean != null) {
+			List<QueryBean> queryList = empService.getQueryList(empBean.getRegion());
 					
 			modelMap.addAttribute("query",queryList);
 			if(empService.sendRespond(rrNumber, query, date)) {
@@ -198,5 +198,20 @@ public class EmployeeController {
 			return "employeeLogin";
 		}
 	}//End of addResponses()
+	
+	@GetMapping("/monthlyRevenue")
+	public String monthlyRevenue(ModelMap modelMap, HttpSession session)
+	{
+		EmployeeMasterBean empBean = (EmployeeMasterBean) session.getAttribute("loggedInEmployee");
+		if(empBean != null) {
+			modelMap.addAttribute("BillPaid", empService.monthRevenue(empBean.getRegion()));
+			return "monthRevenue";
+		}else {
+			modelMap.addAttribute("errMsg", "Invalid Credential..");
+			return "employeeLogin";
+		}
+	}
+	
+	
 	
 }

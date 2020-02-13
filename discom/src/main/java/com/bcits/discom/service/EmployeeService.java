@@ -16,4 +16,5 @@ public interface EmployeeService {
 	public boolean addCurrentBill(CurrentBillBean currentBill);
 	public boolean sendRespond(String rrNumber, String response, Date date);
 	public List<QueryBean> getQueryList(String region);
+	public List<Object[]> monthRevenue(String region);
 }//End of Class

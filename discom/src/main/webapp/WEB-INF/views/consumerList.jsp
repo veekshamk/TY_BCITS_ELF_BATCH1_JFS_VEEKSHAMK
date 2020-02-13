@@ -87,8 +87,9 @@
 					All Consumers</a></li>
 			<li class="list-group-item"><a href="./generatePage">Electricity
 					Bill Generation</a></li>
-			<li class="list-group-item"><a href="./showAllBills">Show All Bills</a></li>
+			<li class="list-group-item"><a href="./listOfBills">Show All Bills</a></li>
 			<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
+			<li class="list-group-item"><a href="./monthlyRevenue">Monthly Revenue</a></li>
 		</ul>
 
 		<div class="table-responsive text-nowrap">

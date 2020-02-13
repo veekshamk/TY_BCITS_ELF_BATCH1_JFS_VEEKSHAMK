@@ -62,10 +62,12 @@
 								<div class="col-sm-12">
 									<div class="form-group">
 										<label for="name">Name</label> <input class="form-control"
-											id="name" type="text" placeholder="Enter your name">
+											id="name" type="text" placeholder="Enter your name" 
+											pattern="[A-Za-z\s]{1,15}" maxlength="20" title="It allows only characters and spaces" 
+											placeholder="Enter Your Full Name" required="required">
 										<label for="name">Amount</label> <input class="form-control"
-											id="amount" name="amount" type="number"
-											placeholder="Enter the Amount">
+											id="amount" name="amount" type="text"  pattern="^\d+(?:\.\d{1,2})"
+											placeholder="Enter the Amount" required="required" title="It allows only digits" step="any">
 
 									</div>
 								</div>
@@ -75,8 +77,9 @@
 									<div class="form-group">
 										<label for="ccnumber">Credit Card Number</label>
 										<div class="input-group">
-											<input class="form-control" type="text"
-												placeholder="0000 0000 0000 0000" autocomplete="email">
+											<input class="form-control" type="text" pattern="[0-9]{1,15}" minlength="12" maxlength="12"
+												placeholder="0000 0000 0000 0000" autocomplete="email" required="required"
+												title="Card Number shold contain 12 digits">
 											<div class="input-group-append">
 												<span class="input-group-text"> <i
 													class="mdi mdi-credit-card"></i>
@@ -124,7 +127,7 @@
 								<div class="col-sm-4">
 									<div class="form-group">
 										<label for="cvv">CVV/CVC</label> <input class="form-control"
-											id="cvv" type="text" placeholder="123">
+											id="cvv" type="number" placeholder="123" pattern="[0-9]{1,15}"  maxlength="3" required="required">
 									</div>
 								</div>
 							</div>

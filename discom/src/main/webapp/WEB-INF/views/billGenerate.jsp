@@ -88,6 +88,7 @@ String msg = (String) request.getAttribute("msg");
 		<li class="list-group-item"><a href="./listOfBills">Show All
 				Bills</a></li>
 				<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
+				<li class="list-group-item"><a href="./monthlyRevenue">Monthly Revenue</a></li>
 	</ul>
 
 	<% if(consumerBean != null){ %>

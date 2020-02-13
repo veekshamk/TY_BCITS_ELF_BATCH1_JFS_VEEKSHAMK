@@ -88,11 +88,12 @@
 		<li class="list-group-item"><a href="./listOfBills">Show All
 				Bills</a></li>
 				<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
+				<li class="list-group-item"><a href="./monthlyRevenue">Monthly Revenue</a></li>
 	</ul>
 
 	<div class="table-responsive text-nowrap"><br>
 
-		<h1 style="font-size: 30px">Electricity Bill Generation</h1><br>
+		<h1 style="font-size: 25px">Electricity Bill Generation</h1><br>
 		<% if(consumerBean != null){ %>
 
 		<table class="table">
@@ -114,14 +115,30 @@
 						<td><input type="tel" id="final" name="finalReading" /></td>
 						<td><!-- <input type="text" id="typeOfConsumer"
 							name="typeOfConsumer" /> -->
-							</select> <select
+							<select
 								name="typeOfConsumer" id="typeOfConsumer">
 								<option value="0" selected disabled>select</option>
 								<option value="Residential">residential</option>
 								<option value="Commercial">commercial</option>
 								<option value="Industries">industries</option>
+							</select><td>
+							
+							 <select
+								name="month" id="month">
+								<option value="0" selected disabled>select</option>
+								<option value="January">January</option>
+								<option value="February">February</option>
+								<option value="March">March</option>
+								<option value="April">April</option>
+								<option value="May">May</option>
+								<option value="June">June</option>
+								<option value="July">July</option>
+								<option value="August">August</option>
+								<option value="September">September</option>
+								<option value="October">October</option>
+								<option value="November">November</option>
+								<option value="December">December</option>
 							</select>
-							<td><input type="text" id="month" name="month" /></td>
 							<td><input type="date" id="date" name="date" /></td>
 							</td>
 						<td><input type="date" id="dueDate" name="dueDate" /></td>
@@ -131,7 +148,7 @@
 								<option value="Bangalore South">Bangalore South</option>
 								<option value="Bangalore North">Bangalore North</option></td>
 						<td><input type="submit" value="Generate Bill"
-							style="color: white; background: navy; width: 200px; height: 40px"></td>
+							style="color: white; background: navy; width: 170px; height: 30px"></td>
 					</tr>
 				</tbody>
 			</form>

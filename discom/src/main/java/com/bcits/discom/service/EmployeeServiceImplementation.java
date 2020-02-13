@@ -61,4 +61,9 @@ public class EmployeeServiceImplementation implements EmployeeService{
 	public boolean sendRespond(String rrNumber, String response, Date date) {
 		return dao.sendRespond(rrNumber, response, date);
 		}//End of sendRespond()	
+
+	@Override
+	public List<Object[]> monthRevenue(String region) {
+		return dao.monthRevenue(region);
+	}
 }//End of Class

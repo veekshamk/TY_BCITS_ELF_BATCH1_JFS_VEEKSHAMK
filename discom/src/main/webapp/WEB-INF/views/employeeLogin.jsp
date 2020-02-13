@@ -31,8 +31,9 @@
 			<form action="./empLoginPage" method="post">
 				<h4>EMPLOYEE LOGIN</h4>
 
-				<label for="employeeId">Employee ID:</label> <input type="number"
-					name="empId" id="empId" placeholder="Employee ID" required /> <br>
+				<label for="employeeId">Employee ID:</label> 
+				<input type="number"
+					name="empId" id="empId" placeholder="Employee ID" required pattern="[0-9]" minlength="5" maxlength="5"/> <br>
 				<label for="password">Password:</label> <input type="password"
 					name="password" id="password" placeholder="Password"
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"

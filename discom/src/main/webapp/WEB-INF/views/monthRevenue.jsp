@@ -1,14 +1,19 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
+
 <%
+	List<Object[]> obj = (List<Object[]>) request.getAttribute("BillPaid");
 	String errMsg = (String) request.getAttribute("errMsg");
-	String msg = (String) request.getAttribute("msg");
+	String msg=(String)request.getAttribute("msg");
 %>
+
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
 <spring:url var="js" value="resources/js" />
 <spring:url var="images" value="resources/images" />
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,7 +21,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Document</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -38,13 +42,15 @@
 <link rel="stylesheet" href="${css}/mainHome.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DISCOM MAIN HOME PAGE</title>
+
+<meta charset="ISO-8859-1">
 </head>
 <body>
-	<form action="./mainHomePage">
+	<form action="">
 		<nav class="nav">
 		<div class="container">
 			<div class="logo">
-				<a href="#" style="font-size: 30px">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+				<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
 			</div>
 			<div class="main_list" id="mainListDiv" style="font-size: 20px">
 				<ul>
@@ -52,32 +58,13 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
 					<li><a href="./mainHomePage">Home</a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="./adminLogin">Admin</a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
 					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./employeeLogout">Logout</a></li>
 				</ul>
 			</div>
 			<div class="media_button">
@@ -92,41 +79,52 @@
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div class="login">
-			<a href="./consumerLoginPage" class="btn btn-primary" role="button"
-				style="width: 300px; height: 70px; font-size: 30px;">Consumer
-				Login</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-				href="./employeeLoginPage" class="btn btn-primary" role="button"
-				style="width: 300px; height: 70px; font-size: 30px;">Employee
-				Login</a>
-		</div>
-		
-		
+		<ul class="list-group" style="width: 320px; font-size: 25px">
+			<li class="list-group-item active">Employee Details</li>
+			<li class="list-group-item"><a href="./consumerList">Show
+					All Consumers</a></li>
+			<li class="list-group-item"><a href="./generatePage">Electricity
+					Bill Generation</a></li>
+			<li class="list-group-item"><a href="./showAllBills">Show All Bills</a></li>
+			<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
+			<li class="list-group-item"><a href="./monthlyRevenue">Monthly Revenue</a></li>
+		</ul>
 
-		<%
-			if (msg != null && !msg.isEmpty()) {
-		%>
+		<div class="table-responsive text-nowrap">
+			<h1 style="font-size: 30px">CONSUMER DETAILS</h1>
+			<table class="table">
+				<thead style="font-size: 20px">
+					<th>Date</th>
+					<th>Amount</th>
+				</thead>
+				<tbody style="font-size: 20px">
+<tr>
+					<%
+						for (int i=0; i<obj.size(); i++) {
+					%>
+					<% Object[] objects =obj.get(i); %>
+						<td><%= objects[1] %></td>
+						<td><%= objects[0] %></td>
+					</tr>
+
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+		</div>
+		<% if(msg!=null && !msg.isEmpty()){ %>
 		<h2 style="color: #003399;"><%=msg%></h2>
-		<%
-			}
-		%> <%
- 	if (errMsg != null && !errMsg.isEmpty()) {
- %>
+		<%} %> <% if(errMsg!=null && !errMsg.isEmpty()){ %>
 		<h2 style="color: red;"><%=errMsg %></h2>
-		<%} %> 
-	<br>
-	<br>
-	<jsp:include page="./footer.jsp"/>
-		</section>
+		<%} %>
+		<jsp:include page="./footer.jsp"/>
+		 </section>
 	</form>
+
+
+
 
 </body>
 </html>
+    

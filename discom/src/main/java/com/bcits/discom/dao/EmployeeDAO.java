@@ -16,4 +16,5 @@ public interface EmployeeDAO {
 	public boolean addCurrentBill(CurrentBillBean currentBill);
 	public List<QueryBean> getQueryList(String region);
 	public boolean sendRespond(String rrNumber, String queryResponse, Date date);
+	public List<Object[]> monthRevenue(String region);
 }//End of Class

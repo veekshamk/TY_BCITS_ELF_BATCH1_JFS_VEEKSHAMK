@@ -155,14 +155,31 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 		EntityManager manager = factory.createEntityManager();
 
 			String jpql = " from QueryBean where region =:region ";
-			Query queries = manager.createQuery(jpql);
-			queries.setParameter("region", region);
-			List<QueryBean> queryList = queries.getResultList();
+			Query query = manager.createQuery(jpql);
+			query.setParameter("region", region);
+			List<QueryBean> queryList = query.getResultList();
 			if (queryList == null && queryList.isEmpty()) {
 				return null;
 			}
 			return queryList;
 	}//End of getQueryList()
+
+	@Override
+	public List<Object[]> monthRevenue(String region) {
+		
+		EntityManager manager = factory.createEntityManager();
+		try {
+		String jpql = " select sum(totalAmount), DATE_FORMAT(consumptionPk.date, '%y-%m')from MonthlyConsumptionBean "
+				+ " where region=:region and status='paid' group by month(consumptionPk.date) ";
+		Query query = manager.createQuery(jpql);
+		query.setParameter("region", region);
+		List<Object[]> paid = query.getResultList();
+		return paid;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	
 }//End of Class

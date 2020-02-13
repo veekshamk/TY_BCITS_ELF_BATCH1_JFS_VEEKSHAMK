@@ -86,6 +86,7 @@
 			<li class="list-group-item"><a href="./listOfBills">Show All
 					Bills</a></li>
 			<li class="list-group-item"><a href="./seeQueryDetails">See All Queries</a></li>
+			<li class="list-group-item"><a href="./monthlyRevenue">Monthly Revenue</a></li>
 		</ul>
 	<div class="table-responsive text-nowrap">
 		<h1 style="font-size: 30px">QUERY DETAILS</h1>

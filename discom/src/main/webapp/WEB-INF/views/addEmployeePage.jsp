@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
+
+
 <%
 	String errMsg = (String) request.getAttribute("errMsg");
 	String msg = (String) request.getAttribute("msg");
 %>
+
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="resources/css" />
@@ -16,7 +19,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Document</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -37,14 +39,15 @@
 	rel="stylesheet" />
 <link rel="stylesheet" href="${css}/mainHome.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>DISCOM MAIN HOME PAGE</title>
+<title>DISCOM ADMIN HOME PAGE</title>
+<meta charset="ISO-8859-1">
 </head>
 <body>
-	<form action="./mainHomePage">
+	<form action="./addEmployee" method="post">
 		<nav class="nav">
 		<div class="container">
 			<div class="logo">
-				<a href="#" style="font-size: 30px">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
+				<a href="#">DISCOM&nbsp;&nbsp;PRIVATE&nbsp;&nbsp;LIMITED</a>
 			</div>
 			<div class="main_list" id="mainListDiv" style="font-size: 20px">
 				<ul>
@@ -52,32 +55,13 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
 					<li><a href="./mainHomePage">Home</a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="./adminLogin">Admin</a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="./aboutUsPage">About&nbsp;&nbsp;Us</a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
 					<li><a href="./contactUs">Contact&nbsp;&nbsp;Us</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="./adminLogout">Logout</a></li>
 				</ul>
 			</div>
 			<div class="media_button">
@@ -92,24 +76,33 @@
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div class="login">
-			<a href="./consumerLoginPage" class="btn btn-primary" role="button"
-				style="width: 300px; height: 70px; font-size: 30px;">Consumer
-				Login</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-				href="./employeeLoginPage" class="btn btn-primary" role="button"
-				style="width: 300px; height: 70px; font-size: 30px;">Employee
-				Login</a>
-		</div>
+		<ul class="list-group" style="width: 320px; font-size: 25px">
+			<li class="list-group-item"><a href="./addEmployee">Add Employee</a></li>
+			<li class="list-group-item"><a href="./adminHomePage">Admin Home</a></li>
+		</ul>
 		
-		
+				<label for="name">Employee ID:</label>
+				 <input type="number" name="empId" minlength="5" maxlength="5" id="empId" required />
+				 
+				 
+				<label for="name">Employee Name:</label>
+				 <input type="text" name="employeeName" maxlength="20" id="employeeName" required />
+				 
+				 <label for="name">Set Password:</label>
+				 <input type="password" name="password" id="password" required />
+				 
+				 <label for="region">Region:</label> 
+				 <select name="region" id="region">
+				 <option value="0" selected disabled>Select</option>
+				 <option value="Bangalore South">Bangalore South</option>
+				 <option value="Bangalore North">Bangalore North</option>
+				 </select>
+				 
+				 <label for="name">Designation:</label>
+				 <input type="text" name="designation" maxlength="20" id="designation" required />&nbsp;&nbsp;&nbsp;&nbsp;
+				 
+				<label>Click here to add Employee</label>
+				<button type="submit" value="submit" >Add Employee</button>
 
 		<%
 			if (msg != null && !msg.isEmpty()) {
@@ -120,13 +113,12 @@
 		%> <%
  	if (errMsg != null && !errMsg.isEmpty()) {
  %>
-		<h2 style="color: red;"><%=errMsg %></h2>
-		<%} %> 
-	<br>
-	<br>
-	<jsp:include page="./footer.jsp"/>
+		<h2 style="color: red;"><%=errMsg%></h2>
+		<%
+			}
+		%> <jsp:include page="./footer.jsp"/>
 		</section>
-	</form>
+</form>
 
 </body>
 </html>
